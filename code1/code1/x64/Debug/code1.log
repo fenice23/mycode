@@ -1,0 +1,18 @@
+﻿  code1.c
+C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3625): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+  C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3625): note: 请考虑在格式字符串中使用“%zd”
+C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3626): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+  C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3626): note: 请考虑在格式字符串中使用“%zd”
+C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3627): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+  C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3627): note: 请考虑在格式字符串中使用“%zd”
+C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3628): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+  C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3628): note: 请考虑在格式字符串中使用“%zd”
+C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3629): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+  C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3629): note: 请考虑在格式字符串中使用“%zd”
+C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3630): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+  C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3630): note: 请考虑在格式字符串中使用“%zd”
+C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3631): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+  C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3631): note: 请考虑在格式字符串中使用“%zd”
+C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3632): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+  C:\Users\Tim\Desktop\mycode\code1\code1\code1.c(3632): note: 请考虑在格式字符串中使用“%zd”
+  code1.vcxproj -> C:\Users\Tim\Desktop\mycode\code1\x64\Debug\code1.exe
