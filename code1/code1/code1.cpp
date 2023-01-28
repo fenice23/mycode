@@ -4078,9 +4078,66 @@ void TestSeqList2()
 	SeqListPrint(&msl);
 	SeqListDestroy(&msl);
 }
+void TestSeqList3()
+{
+	SL msl;
+	SeqListInit(&msl);
+	SeqListPushBack(&msl, 12);
+	SeqListPushBack(&msl, 21);
+	SeqListPushBack(&msl, 31);
+	SeqListPushBack(&msl, 51);
+	SeqListPrint(&msl);
+	SeqListInsert(&msl, 2, 2);
+	SeqListPrint(&msl);
+	SeqListInsert(&msl, 0, 11);
+	SeqListPrint(&msl);
+	SeqListInsert(&msl, msl._size, 333);
+	SeqListPrint(&msl);
+	int pos = SeqListFind(&msl, 21);
+	if (-1 != pos)
+	{
+		SeqListInsert(&msl, pos, 2222);
+	}
+	SeqListPrint(&msl);
+	SeqListDestroy(&msl);
+}
+void TestSeqList4()
+{
+	SL msl;
+	SeqListInit(&msl);
+	SeqListPushBack(&msl, 4);
+	SeqListPushBack(&msl, 12);
+	SeqListPushBack(&msl, 13);
+	SeqListPushBack(&msl, 14);
+	SeqListPrint(&msl);
+	SeqListPushFront(&msl, 5);
+	SeqListPushFront(&msl, 12);
+	SeqListPushFront(&msl, 13);
+	SeqListPushFront(&msl, 14);
+	SeqListPrint(&msl);
+	SeqListErase(&msl, 1);
+	SeqListPrint(&msl);
+	SeqListPopFront(&msl);
+	SeqListPopFront(&msl);
+	SeqListPrint(&msl);
+	SeqListPopBack(&msl);
+	SeqListPopBack(&msl);
+	SeqListPrint(&msl);
+	SeqListBubbleSort(&msl);
+	SeqListPrint(&msl);
+	int pos = SeqListBinarySearch(&msl, 5);
+	if (-1 != pos)
+	{
+		SeqListErase(&msl, pos);
+	}
+	SeqListPrint(&msl);
+	SeqListDestroy(&msl);
+}
 int main()
 {
 	//TestSeqList1();
-	TestSeqList2();
+	//TestSeqList2();
+	//TestSeqList3();
+	TestSeqList4();
 	return 0;
 }
