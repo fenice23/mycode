@@ -18,7 +18,7 @@
     <ClInclude Include="common.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SeqList.h">
+    <ClInclude Include="SList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -26,7 +26,7 @@
     <ClCompile Include="code1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SeqList.cpp">
+    <ClCompile Include="SList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

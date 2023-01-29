@@ -4019,125 +4019,154 @@ int main()
 //	//std::cout << r << std::endl;
 //	return 0;
 //}
+//#include "SeqList.h"//SeqList
+//void TestSeqList1()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 1);
+//	SeqListPushBack(&msl, 2);
+//	SeqListPushBack(&msl, 3);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 5);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//void TestSeqList2()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 1);
+//	SeqListPushBack(&msl, 12);
+//	SeqListPushBack(&msl, 13);
+//	SeqListPushBack(&msl, 14);
+//	SeqListPrint(&msl);
+//	SeqListPushFront(&msl, 20);
+//	SeqListPushFront(&msl, 21);
+//	SeqListPushFront(&msl, 22);
+//	SeqListPushFront(&msl, 23);
+//	SeqListPushFront(&msl, 244);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//void TestSeqList3()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 12);
+//	SeqListPushBack(&msl, 21);
+//	SeqListPushBack(&msl, 31);
+//	SeqListPushBack(&msl, 51);
+//	SeqListPrint(&msl);
+//	SeqListInsert(&msl, 2, 2);
+//	SeqListPrint(&msl);
+//	SeqListInsert(&msl, 0, 11);
+//	SeqListPrint(&msl);
+//	SeqListInsert(&msl, msl._size, 333);
+//	SeqListPrint(&msl);
+//	int pos = SeqListFind(&msl, 21);
+//	if (-1 != pos)
+//	{
+//		SeqListInsert(&msl, pos, 2222);
+//	}
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//void TestSeqList4()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 12);
+//	SeqListPushBack(&msl, 13);
+//	SeqListPushBack(&msl, 14);
+//	SeqListPrint(&msl);
+//	SeqListPushFront(&msl, 5);
+//	SeqListPushFront(&msl, 12);
+//	SeqListPushFront(&msl, 13);
+//	SeqListPushFront(&msl, 14);
+//	SeqListPrint(&msl);
+//	SeqListErase(&msl, 1);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListBubbleSort(&msl);
+//	SeqListPrint(&msl);
+//	int pos = SeqListBinarySearch(&msl, 5);
+//	if (-1 != pos)
+//	{
+//		SeqListErase(&msl, pos);
+//	}
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//int main()
+//{
+//	//TestSeqList1();
+//	//TestSeqList2();
+//	//TestSeqList3();
+//	//TestSeqList4();
+//	return 0;
+//}
+//int main()
+//{
+//	int* p1 = (int*)malloc(10 * sizeof(int));
+//	int* p2 = (int*)realloc(p1, 50 * sizeof(int));
+//	return 0;
+//}
 #endif
-#include "SeqList.h"//SeqList
-void TestSeqList1()
+#include "SList.h"//SList
+void TestSList1()
 {
-	SL msl;
-	SeqListInit(&msl);
-	SeqListPushBack(&msl, 1);
-	SeqListPushBack(&msl, 2);
-	SeqListPushBack(&msl, 3);
-	SeqListPushBack(&msl, 4);
-	SeqListPushBack(&msl, 4);
-	SeqListPushBack(&msl, 4);
-	SeqListPushBack(&msl, 4);
-	SeqListPushBack(&msl, 4);
-	SeqListPushBack(&msl, 5);
-	SeqListPrint(&msl);
-	SeqListPopBack(&msl);
-	SeqListPopBack(&msl);
-	SeqListPopBack(&msl);
-	SeqListPopBack(&msl);
-	SeqListPrint(&msl);
-	SeqListPopBack(&msl);
-	SeqListPrint(&msl);
-	SeqListPopBack(&msl);
-	SeqListPrint(&msl);
-	SeqListDestroy(&msl);
+	SLTNode* phead;
+	SListInit(&phead);
+	SListPrint(phead);
+	SListPushBack(&phead, 1);
+	SListPrint(phead);
+	SListPushBack(&phead, 2);
+	SListPrint(phead);
+	SListPushBack(&phead, 3);
+	SListPrint(phead);
+	//SListDestroy(&phead);
 }
-void TestSeqList2()
+void Test()
 {
-	SL msl;
-	SeqListInit(&msl);
-	SeqListPushBack(&msl, 1);
-	SeqListPushBack(&msl, 12);
-	SeqListPushBack(&msl, 13);
-	SeqListPushBack(&msl, 14);
-	SeqListPrint(&msl);
-	SeqListPushFront(&msl, 20);
-	SeqListPushFront(&msl, 21);
-	SeqListPushFront(&msl, 22);
-	SeqListPushFront(&msl, 23);
-	SeqListPushFront(&msl, 244);
-	SeqListPrint(&msl);
-	SeqListPopFront(&msl);
-	SeqListPopFront(&msl);
-	SeqListPrint(&msl);
-	SeqListPopFront(&msl);
-	SeqListPopFront(&msl);
-	SeqListPopFront(&msl);
-	SeqListPopFront(&msl);
-	SeqListPrint(&msl);
-	SeqListPopFront(&msl);
-	SeqListPopFront(&msl);
-	SeqListPopFront(&msl);
-	SeqListPopFront(&msl);
-	SeqListPopFront(&msl);
-	SeqListPopFront(&msl);
-	SeqListPrint(&msl);
-	SeqListDestroy(&msl);
-}
-void TestSeqList3()
-{
-	SL msl;
-	SeqListInit(&msl);
-	SeqListPushBack(&msl, 12);
-	SeqListPushBack(&msl, 21);
-	SeqListPushBack(&msl, 31);
-	SeqListPushBack(&msl, 51);
-	SeqListPrint(&msl);
-	SeqListInsert(&msl, 2, 2);
-	SeqListPrint(&msl);
-	SeqListInsert(&msl, 0, 11);
-	SeqListPrint(&msl);
-	SeqListInsert(&msl, msl._size, 333);
-	SeqListPrint(&msl);
-	int pos = SeqListFind(&msl, 21);
-	if (-1 != pos)
-	{
-		SeqListInsert(&msl, pos, 2222);
-	}
-	SeqListPrint(&msl);
-	SeqListDestroy(&msl);
-}
-void TestSeqList4()
-{
-	SL msl;
-	SeqListInit(&msl);
-	SeqListPushBack(&msl, 4);
-	SeqListPushBack(&msl, 12);
-	SeqListPushBack(&msl, 13);
-	SeqListPushBack(&msl, 14);
-	SeqListPrint(&msl);
-	SeqListPushFront(&msl, 5);
-	SeqListPushFront(&msl, 12);
-	SeqListPushFront(&msl, 13);
-	SeqListPushFront(&msl, 14);
-	SeqListPrint(&msl);
-	SeqListErase(&msl, 1);
-	SeqListPrint(&msl);
-	SeqListPopFront(&msl);
-	SeqListPopFront(&msl);
-	SeqListPrint(&msl);
-	SeqListPopBack(&msl);
-	SeqListPopBack(&msl);
-	SeqListPrint(&msl);
-	SeqListBubbleSort(&msl);
-	SeqListPrint(&msl);
-	int pos = SeqListBinarySearch(&msl, 5);
-	if (-1 != pos)
-	{
-		SeqListErase(&msl, pos);
-	}
-	SeqListPrint(&msl);
-	SeqListDestroy(&msl);
+	TestSList1();
 }
 int main()
 {
-	//TestSeqList1();
-	//TestSeqList2();
-	//TestSeqList3();
-	TestSeqList4();
+	Test();
 	return 0;
 }
