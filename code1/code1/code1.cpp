@@ -4159,11 +4159,135 @@ void TestSList1()
 	SListPrint(phead);
 	SListPushBack(&phead, 3);
 	SListPrint(phead);
-	//SListDestroy(&phead);
+	SListPushFront(&phead, 1);
+	SListPrint(phead);
+	SListPushFront(&phead, 2);
+	SListPrint(phead);
+	SListPushFront(&phead, 3);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	SListDestroy(&phead);
+	//std::cout << phead;
+}
+void TestSList2()
+{
+	SLTNode* phead;
+	SListInit(&phead);
+	SListPushFront(&phead, 1);
+	SListPrint(phead);
+	SListPushFront(&phead, 2);
+	SListPrint(phead);
+	SListPushFront(&phead, 3);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	SListPopFront(&phead);
+	SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	//SListPopBack(&phead);
+	//SListPrint(phead);
+	SListDestroy(&phead);
+}
+void TestSList3()
+{
+	SLTNode* phead;
+	SListInit(&phead);
+	SListPushFront(&phead, 1);
+	SListPushFront(&phead, 2);
+	SListPushFront(&phead, 3);
+	SListPushFront(&phead, 2);
+	SListPushFront(&phead, 4);
+	SListPushFront(&phead, 2);
+	SListPushFront(&phead, 2);
+	SListPushFront(&phead, 4);
+	SListPushFront(&phead, 2);
+	SListPrint(phead);
+	SLTNode* pfind = SListFind(phead, 2);
+	int c = 0;
+	while (pfind)//多个重复元素进行查找
+	{
+		printf("第%d个2, %p--->%d\n", ++c, pfind, pfind->_data);
+		pfind = SListFind(pfind->_next, 2);
+	}
+	pfind = SListFind(phead, 3);
+	if (pfind)
+	{
+		pfind->_data = 30;
+	}
+	SListPrint(phead);
+	SListDestroy(&phead);
+}
+void TestSList4()
+{
+	SLTNode* phead;
+	SListInit(&phead);
+	SListPushFront(&phead, 1);
+	SListPushFront(&phead, 2);
+	SListPushFront(&phead, 3);
+	SListPushFront(&phead, 4);
+	SListPrint(phead);
+	SLTNode* pfind = SListFind(phead, 3);
+	if (pfind)
+	{
+		SListInsert(&phead, pfind, 30);
+	}
+	SListPrint(phead);
+	pfind = SListFind(phead, 4);
+	if (pfind)
+	{
+		SListInsert(&phead, pfind, 40);
+	}
+	SListPrint(phead);
+	SListDestroy(&phead);
 }
 void Test()
 {
-	TestSList1();
+	//TestSList1();
+	//TestSList2();
+	//TestSList3();
+	//TestSList4();
 }
 int main()
 {
