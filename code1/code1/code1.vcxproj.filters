@@ -18,7 +18,7 @@
     <ClInclude Include="common.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SList.h">
+    <ClInclude Include="Stack.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -26,7 +26,7 @@
     <ClCompile Include="code1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SList.cpp">
+    <ClCompile Include="Stack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
