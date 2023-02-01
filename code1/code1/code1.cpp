@@ -4352,10 +4352,30 @@ int main()
 //	return 0;
 //}
 #endif
-#include "Stack.h"
+#include "Stack.h"//Stack
+void TestStack1()
+{
+	ST st;
+	StackInit(&st);
+	printf("%d\n", StackSize(&st));
+	StackPush(&st, 1);
+	printf("%d\n", StackSize(&st));
+	StackPush(&st, 2);
+	printf("%d\n", StackSize(&st));
+	StackPush(&st, 3);
+	printf("%d\n", StackSize(&st));
+	StackPush(&st, 4);
+	while (!StackEmpty(&st))
+	{
+		printf("%d ", StackTop(&st));
+		StackPop(&st);
+	}
+	printf("%d\n", StackSize(&st));
+	StackDestroy(&st);
+}
 int main()
 {
-
+	TestStack1();
 	return 0;
 }
 //OJ≤‚ ‘µ˜ ‘
