@@ -4351,31 +4351,57 @@ int main()
 //	TestList2();
 //	return 0;
 //}
+//#include "Stack.h"//Stack
+//void TestStack1()
+//{
+//	ST st;
+//	StackInit(&st);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 1);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 2);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 3);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 4);
+//	while (!StackEmpty(&st))
+//	{
+//		printf("%d ", StackTop(&st));
+//		StackPop(&st);
+//	}
+//	printf("%d\n", StackSize(&st));
+//	StackDestroy(&st);
+//}
+//int main()
+//{
+//	TestStack1();
+//	return 0;
+//}
 #endif
-#include "Stack.h"//Stack
-void TestStack1()
+#include "Queue.h"//Queuee
+void TestQueue1()
 {
-	ST st;
-	StackInit(&st);
-	printf("%d\n", StackSize(&st));
-	StackPush(&st, 1);
-	printf("%d\n", StackSize(&st));
-	StackPush(&st, 2);
-	printf("%d\n", StackSize(&st));
-	StackPush(&st, 3);
-	printf("%d\n", StackSize(&st));
-	StackPush(&st, 4);
-	while (!StackEmpty(&st))
+	Queue que;
+	QueueInit(&que);
+	printf("%d\n", QueueSize(&que));
+	QueuePush(&que, 1);
+	printf("%d\n", QueueSize(&que));
+	QueuePush(&que, 2);
+	printf("%d ", QueueFront(&que));
+	QueuePop(&que);
+	QueuePush(&que, 3);
+	QueuePush(&que, 4);
+	printf("%d\n", QueueSize(&que));
+	while (!QueueEmpty(&que))
 	{
-		printf("%d ", StackTop(&st));
-		StackPop(&st);
+		printf("%d ", QueueFront(&que));
+		QueuePop(&que);
 	}
-	printf("%d\n", StackSize(&st));
-	StackDestroy(&st);
+	QueueDestroy(&que);
 }
 int main()
 {
-	TestStack1();
+	TestQueue1();
 	return 0;
 }
 //OJ≤‚ ‘µ˜ ‘
