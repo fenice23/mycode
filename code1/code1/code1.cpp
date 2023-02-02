@@ -4377,33 +4377,33 @@ int main()
 //	TestStack1();
 //	return 0;
 //}
+//#include "Queue.h"//Queuee
+//void TestQueue1()
+//{
+//	Queue que;
+//	QueueInit(&que);
+//	printf("%d\n", QueueSize(&que));
+//	QueuePush(&que, 1);
+//	printf("%d\n", QueueSize(&que));
+//	QueuePush(&que, 2);
+//	printf("%d ", QueueFront(&que));
+//	QueuePop(&que);
+//	QueuePush(&que, 3);
+//	QueuePush(&que, 4);
+//	printf("%d\n", QueueSize(&que));
+//	while (!QueueEmpty(&que))
+//	{
+//		printf("%d ", QueueFront(&que));
+//		QueuePop(&que);
+//	}
+//	QueueDestroy(&que);
+//}
+//int main()
+//{
+//	TestQueue1();
+//	return 0;
+//}
 #endif
-#include "Queue.h"//Queuee
-void TestQueue1()
-{
-	Queue que;
-	QueueInit(&que);
-	printf("%d\n", QueueSize(&que));
-	QueuePush(&que, 1);
-	printf("%d\n", QueueSize(&que));
-	QueuePush(&que, 2);
-	printf("%d ", QueueFront(&que));
-	QueuePop(&que);
-	QueuePush(&que, 3);
-	QueuePush(&que, 4);
-	printf("%d\n", QueueSize(&que));
-	while (!QueueEmpty(&que))
-	{
-		printf("%d ", QueueFront(&que));
-		QueuePop(&que);
-	}
-	QueueDestroy(&que);
-}
-int main()
-{
-	TestQueue1();
-	return 0;
-}
 //OJ²âÊÔµ÷ÊÔ
 #if 0
 //class Node {
@@ -4478,3 +4478,79 @@ int main()
 //	return 0;
 //}
 #endif
+#include "Queue.h"
+typedef struct {
+	Queue _q1;
+	Queue _q2;
+} MyStack;
+MyStack* myStackCreate() {
+	MyStack* obj = (MyStack*)malloc(1 * sizeof(MyStack));
+	QueueInit(&(obj->_q1));
+	QueueInit(&(obj->_q2));
+	return obj;
+}
+void myStackFree(MyStack * obj) {
+	QueueDestroy(&obj->_q1);
+	QueueDestroy(&obj->_q2);
+	free(obj);
+	obj = NULL;
+}
+bool myStackEmpty(MyStack * obj) {
+	return QueueEmpty(&obj->_q1) && QueueEmpty(&obj->_q1);
+}
+void myStackPush(MyStack * obj, int x) {
+	if (!QueueEmpty(&obj->_q1)) {
+		QueuePush(&obj->_q1, x);
+	}
+	else {
+		QueuePush(&obj->_q2, x);
+	}
+}
+int myStackTop(MyStack * obj) {
+	assert(!(QueueEmpty(&obj->_q1) && QueueEmpty(&obj->_q2)));
+	Queue empty = obj->_q1;
+	Queue noEmpty = obj->_q2;
+	if (QueueEmpty(&noEmpty)) {
+		empty = obj->_q2;
+		noEmpty = obj->_q1;
+	}
+	QueueDataType val = 0;
+	while (!QueueEmpty(&noEmpty)) {
+		val = QueueFront(&noEmpty);
+		QueuePush(&empty, val);
+		QueuePop(&noEmpty);
+	}
+	return val;
+}
+int myStackPop(MyStack * obj) {
+	assert(!(QueueEmpty(&obj->_q1) && QueueEmpty(&obj->_q2)));
+	Queue empty = obj->_q1;
+	Queue noEmpty = obj->_q2;
+	if (QueueEmpty(&noEmpty)) {
+		empty = obj->_q2;
+		noEmpty = obj->_q1;
+	}
+	QueueDataType val = 0;
+	while (!QueueEmpty(&noEmpty)) {
+		val = QueueFront(&noEmpty);
+		if (noEmpty._head != noEmpty._tail) {
+			QueuePush(&empty, val);
+		}
+		QueuePop(&noEmpty);
+	}
+	return val;
+}
+int main()
+{
+	MyStack* obj = myStackCreate();
+	myStackPush(obj, 1);
+	myStackPush(obj, 2);
+	myStackPush(obj, 3);
+	myStackPush(obj, 4);
+	//cout << myStackTop(obj) << endl;
+	//cout << myStackTop(obj) << endl;
+	cout << myStackPop(obj) << endl;;
+	cout << myStackTop(obj) << endl;;
+	myStackFree(obj);
+	return 0;
+}
