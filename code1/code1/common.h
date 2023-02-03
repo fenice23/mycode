@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <time.h>
 #include <stdint.h>
 #include <limits.h>
@@ -31,6 +32,7 @@
 //#include <cassert>
 //#include <map>
 //#include <bitset>
+//#include <cerrno>
 #include <iostream>
 using namespace std;
 #pragma warning(disable:6031)

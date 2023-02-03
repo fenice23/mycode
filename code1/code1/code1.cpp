@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-//#include "common.h"//c-code
+#include "common.h"//c-code
 #if 0
 //int Add(int x, int y)
 //{
@@ -3860,8 +3860,206 @@ int main()
 //	}
 //	return 0;
 //}
+size_t my_strlen(const char* str)
+{
+	assert(str);
+	size_t r = 0;
+	while (*str++)
+	{
+		r++;
+	}
+	return r;
+}
+//size_t MyStrlen(const char* str)
+//{
+//	assert(str);
+//	if (!*str)	return 0;
+//	return 1 + MyStrlen(str + 1);
+//}
+//size_t _my_strlen(const char* str)
+//{
+//	assert(str);
+//	const char* eos = str;
+//	while (*eos++)
+//	{
+//		;
+//	}
+//	return eos - str - 1;
+//}
+//char* my_strcat(char* dst, const char* src)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while (*cp)
+//	{
+//		cp++;
+//	}
+//	while ((*cp++ = *src++) != '\0')
+//	{
+//		;
+//	}
+//	return dst;
+//}
+//int my_strcmp(const char* s1, const char* s2)
+//{
+//	assert(s1 && s2);
+//	while (*s1 == *s2)
+//	{
+//		if (*s1)
+//			s1++, s2++;
+//		else
+//			return 0;
+//	}
+//	return *s1 - *s2;
+//}
+//const char* MyStrstr(const char* str, const char* subStr)
+//{
+//	assert(str && subStr);
+//	if (!*subStr)	return str;
+//	int lenStr = (int)strlen(str);
+//	int lenSubStr = (int)strlen(subStr);
+//	if (lenStr < lenSubStr)	return NULL;
+//	for (int i = 0; i < lenStr; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < lenSubStr; j++)
+//		{
+//			if (str[i + j] != subStr[j])
+//				break;
+//		}
+//		if (j == lenSubStr)
+//			return str + i;
+//	}
+//	return NULL;
+//}
+//int main()
+//{
+//	//const char* str1 = "";
+//	//const char* str2 = "bbc";
+//	//printf("%s\n",strstr(str1, str2));
+//	//printf("%p\n", MyStrstr(str1, str2));
+//	//char arr[] = "tzh@tenglongedu.tech hehe";
+//	//const char* p = "@. ";
+//	//char tmp[100] = "";
+//	//strcpy(tmp, arr);
+//	//for (char* ret = strtok(tmp, p); ret; ret = strtok(NULL, p))
+//	//{
+//	//	puts(ret);
+//	//}
+//	//FILE* pf = fopen("test.txt", "r");
+//	//if (NULL == pf)
+//	//{
+//	//	printf("%s\n", strerror(errno));
+//	//	return errno;
+//	//}
+//	//fclose(pf);
+//	//pf = NULL;
+//	//printf("%s\n", strerror(0));
+//	//printf("%s\n", strerror(2));
+//	//printf("%s\n", strerror(3));
+//	//printf("%s\n", strerror(4));
+//	//printf("%s\n", strerror(5));
+//	//const char* p = "aqcdef";
+//	//const char* q = "abcqwert";
+//	//int ret = strcmp(p, q);
+//	//cout << ret << endl;
+//	//ret = strncmp(p, q, 1);
+//	//std::cout << ret << std::endl;
+//	//char arr1[20] = "hello \0xxxxxx";
+//	//char arr2[] = "world";
+//	////printf(strncat(arr1, arr2, 3));
+//	//printf(strncat(arr1, arr2, 9));
+//	//printf(arr1);
+//	//char arr1[20] = "abcdefghi";
+//	//char arr2[] = "qwer";
+//	////printf(strncpy(arr1, arr2, 6));
+//	////printf(strncpy(arr1, arr2, 2));
+//	//strcpy(arr1, arr2);
+//	//printf("%s\n", arr1);
+//	//const char* p = "abcdef";
+//	//const char* q = "abcdef";
+//	//int ret = my_strcmp(p, q);
+//	//if (ret > 0)
+//	//{
+//	//	printf("p > q\n");
+//	//}
+//	//else if (ret == 0)
+//	//{
+//	//	printf("p == q\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("p < q\n");
+//	//}
+//	//cout << my_strcmp("", "") << endl;
+//	//cout << my_strcmp("a", "") << endl;
+//	//cout << my_strcmp("", "b") << endl;
+//	//int ret = strcmp("abbb", "abq");
+//	//printf("%d\n", ret);
+//	//ret = strcmp("aaa", "aaa");
+//	//printf("%d\n", ret);
+//	//if ("obc" > "abcdef") {}
+//	//const char* p = "obc";
+//	//const char* q = "abcdef";
+//	//if (p > q)
+//	//{
+//	//	printf(">\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("<=\n");
+//	//}
+//	//char arr[20] = "abcd";
+//	////strcat(arr, arr);//err:ËÀÑ­»·
+//	//printf("%s\n", arr);
+//	//char arr1[20] = "hello ";
+//	//char arr2[] = "world";
+//	//printf(my_strcat(arr1, arr2));
+//	//const char* str = "xxxxxxxxxxxxxxxxxxxxxx";
+//	//char arr[5] = "####";
+//	////arr = "hello";//err
+//	////const char* p = "hello";
+//	//char arr2[] = { 'a', 'b', 'c' };
+//	//const char* p = "hello world";
+//	////strcpy(str, p);
+//	//printf("%s\n", arr);
+//	//strcpy(arr, "hello");
+//	//if (my_strlen("abc") - my_strlen("abcdef") > 0)
+//	//{
+//	//	printf(">\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("<=\n");
+//	//}
+//	//char arr[] = "abc";
+//	//char arr2[] = { 'a', 'b', 'c' };
+//	//int len = _my_strlen("");
+//	//printf("%d\n", len);
+//	return 0;
+//}
+//const char* MyStrstr(const char* str, const char* subStr)
+//{
+//	assert(str && subStr);
+//	if (!*subStr)	return str;
+//	int l1 = (int)strlen(str);
+//	int l2 = (int)strlen(subStr);
+//	if (l1 < l2)	return NULL;
+//	for (int i = 0; i < l1; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < l2; j++)
+//		{
+//			if (str[i + j] != subStr[j])
+//				break;
+//		}
+//		if (j == l2)
+//			return str + i;
+//	}
+//	return NULL;
+//}
 #endif
-#include "common.h"//ds-code
+//#include "common.h"//ds-code
 #if 0
 //void func1(int n)//O(n^n)
 //{
@@ -4404,6 +4602,13 @@ int main()
 //	return 0;
 //}
 #endif
+//#include "common.h"//cpp-code
+#if 0
+int main()
+{
+	return 0;
+}
+#endif
 //OJ²âÊÔµ÷ÊÔ
 #if 0
 //class Node {
@@ -4478,79 +4683,3 @@ int main()
 //	return 0;
 //}
 #endif
-#include "Queue.h"
-typedef struct {
-	Queue _q1;
-	Queue _q2;
-} MyStack;
-MyStack* myStackCreate() {
-	MyStack* obj = (MyStack*)malloc(1 * sizeof(MyStack));
-	QueueInit(&(obj->_q1));
-	QueueInit(&(obj->_q2));
-	return obj;
-}
-void myStackFree(MyStack * obj) {
-	QueueDestroy(&obj->_q1);
-	QueueDestroy(&obj->_q2);
-	free(obj);
-	obj = NULL;
-}
-bool myStackEmpty(MyStack * obj) {
-	return QueueEmpty(&obj->_q1) && QueueEmpty(&obj->_q1);
-}
-void myStackPush(MyStack * obj, int x) {
-	if (!QueueEmpty(&obj->_q1)) {
-		QueuePush(&obj->_q1, x);
-	}
-	else {
-		QueuePush(&obj->_q2, x);
-	}
-}
-int myStackTop(MyStack * obj) {
-	assert(!(QueueEmpty(&obj->_q1) && QueueEmpty(&obj->_q2)));
-	Queue empty = obj->_q1;
-	Queue noEmpty = obj->_q2;
-	if (QueueEmpty(&noEmpty)) {
-		empty = obj->_q2;
-		noEmpty = obj->_q1;
-	}
-	QueueDataType val = 0;
-	while (!QueueEmpty(&noEmpty)) {
-		val = QueueFront(&noEmpty);
-		QueuePush(&empty, val);
-		QueuePop(&noEmpty);
-	}
-	return val;
-}
-int myStackPop(MyStack * obj) {
-	assert(!(QueueEmpty(&obj->_q1) && QueueEmpty(&obj->_q2)));
-	Queue empty = obj->_q1;
-	Queue noEmpty = obj->_q2;
-	if (QueueEmpty(&noEmpty)) {
-		empty = obj->_q2;
-		noEmpty = obj->_q1;
-	}
-	QueueDataType val = 0;
-	while (!QueueEmpty(&noEmpty)) {
-		val = QueueFront(&noEmpty);
-		if (noEmpty._head != noEmpty._tail) {
-			QueuePush(&empty, val);
-		}
-		QueuePop(&noEmpty);
-	}
-	return val;
-}
-int main()
-{
-	MyStack* obj = myStackCreate();
-	myStackPush(obj, 1);
-	myStackPush(obj, 2);
-	myStackPush(obj, 3);
-	myStackPush(obj, 4);
-	//cout << myStackTop(obj) << endl;
-	//cout << myStackTop(obj) << endl;
-	cout << myStackPop(obj) << endl;;
-	cout << myStackTop(obj) << endl;;
-	myStackFree(obj);
-	return 0;
-}
