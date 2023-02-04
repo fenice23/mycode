@@ -4058,7 +4058,350 @@ size_t my_strlen(const char* str)
 //	}
 //	return NULL;
 //}
+//void* MyMemcpy(void* dst, const void* src, size_t n)
+//{
+//	assert(dst && src);
+//	char* cp = (char*)dst;
+//	char* s = (char*)src;
+//	while (n--)
+//	{
+//		*cp++ = *s++;
+//	}
+//	return dst;
+//}
+//void* MyMemmove(void* dst, const void* src, size_t n)
+//{
+//	assert(dst && src);
+//	char* cp = (char*)dst;
+//	char* s = (char*)src;
+//	if (dst < src)
+//	{
+//		while (n--)
+//		{
+//			*cp++ = *s++;
+//		}
+//	}
+//	else
+//	{
+//		while (n--)
+//		{
+//			cp[n] = s[n];
+//		}
+//	}
+//	return dst;
+//}
+//void* MyMemset(void* p, int val, size_t n)
+//{
+//	assert(p);
+//	void* r = p;
+//	char* cp = (char*)p;
+//	while (n--)
+//	{
+//		*cp++ = val;
+//	}
+//	return r;
+//}
+//struct Book
+//{
+//	char name[20];
+//	int price;
+//	char id[12];
+//} b4, b5, b6;
+//struct
+//{
+//	char c;
+//	int i;
+//	char ch;
+//	double d;
+//} s, *pss;
+//struct
+//{
+//	char c;
+//	int i;
+//	char ch;
+//	double d;
+//} *ps;
+//struct A
+//{
+//	int i;
+//	char c;
+//};
+//struct B
+//{
+//	char c;
+//	struct A sa;
+//	double d;
+//};
+//struct N//err
+//{
+//	int d;
+//	struct N n;
+//};
+//typedef struct _Node
+//{
+//	struct _Node* _next;
+//	int _data;
+//} Node;
+//typedef struct//err
+//{
+//	int data;
+//	Node* next;
+//} Node;
+//struct S
+//{
+//	char c;
+//	int i;
+//	double* d;
+//} s1, s2;
+//struct B
+//{
+//	double d;
+//	struct S s;
+//	char c;
+//};
+//struct S
+//{
+//	int i;
+//	char c;
+//};
+//struct S2
+//{
+//	char c1;
+//	int i;
+//	char c2;
+//};
+//struct S3
+//{
+//	char c1;
+//	char c2;
+//	int i;
+//};
+//int main()
+//{
+//	//struct S3 s3 = { 0 };
+//	//printf("%d %d\n", sizeof(struct S3), sizeof(s3));	
+//	//struct S2 s2 = { 0 };
+//	//printf("%d %d\n", sizeof(struct S2), sizeof(s2));
+//	//struct S s = { 0 };
+//	//printf("%d %d\n", sizeof(struct S), sizeof(s));
+//	//struct B sb = { 3.14, { 'w', 10, NULL }, 'q' };
+//	////printf("%.2lf %c %d %c", sb.d, sb.s.c, sb.s.i, sb.c);
+//	//struct B* ps = &sb;
+//	//printf("%.2lf %c %d %c %p\n", ps->d, ps->s.c, ps->s.i, ps->c, ps->s.d);
+//	//struct S s3 = { 'x', 20 };
+//	//Node n;
+//	//ps = &s;//err
+//	//pss = &s;//ok
+//	//struct Book b1;
+//	//struct Book b2;
+//	//struct Book b3;
+//	//int arr[10] = { 0 };
+//	//memset(arr, 1, 20);
+//	//float arr1[] = { 1.0f, 2.0f, 3.0f, 4.0f };
+//	//float arr2[] = { 1.0f, 3.0f };
+//	//int ret = memcmp(arr1, arr2, 8);
+//	//printf("%d\n", ret);
+//	//ret = memcmp(arr1, arr2, 4);
+//	//printf("%d\n", ret);
+//	//int arr1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int arr2[10] = { 0 };
+//	//MyMemcpy(arr2, arr1, 20);
+//	//int arr1[10] = { 1 ,2 ,3, 4, 5, 6, 7, 8, 9, 10 };
+//	//memset(arr1, 1, 4);
+//	//memmove(arr1 + 2, arr1, 20);
+//	//memmove(arr1, arr1 + 2, 20);
+//	//memcpy(arr1 + 2, arr1, 20);
+//	//system("pause");
+//	//int arr1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int arr2[20] = { 0 };
+//	//strcpy();		char* strcpy(char* dst, const char* src);
+//	//char arr[20] = { 0 };
+//	//scanf("%s", arr);
+//	//int i = 0;
+//	//while (arr[i] != '\0')
+//	//{
+//	//	if (isupper(arr[i]))
+//	//	{
+//	//		arr[i] = tolower(arr[i]);
+//	//	}
+//	//	printf("%c ", arr[i]);
+//	//	i++;
+//	//}
+//	//char ch = 'a';
+//	//if (ch >= 'A' && ch <= 'Z') {}
+//	//int ret = isdigit(ch);
+//	//printf("%d\n", ret);
+//	//ret = islower(ch);
+//	//printf("%d\n", ret);
+//	//FILE* pf = fopen("test.txt", "r");
+//	//if (NULL == pf)
+//	//{
+//	//	//printf("%s\n", strerror(errno));
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fclose(pf);
+//	//pf = NULL;
+//	return 0;
+//}
+//struct S
+//{
+//	char c1;
+//	int i;
+//	char c2;
+//};
+//struct S2
+//{
+//	char c1;
+//	int i;
+//	double d;
+//};
+//struct S3
+//{
+//	char c1;
+//	char c2;
+//	int i;
+//};
+//struct S4
+//{
+//	double d;
+//	char c;
+//	int i;
+//};
+//struct S5
+//{
+//	char c1;
+//	struct S4 s4;
+//	double d;
+//};
+//#pragma pack(2)
+//struct S5
+//{
+//	char c1;
+//	int i;
+//	char c2;
+//};
+//#pragma pack()
+//#pragma pack(1)
+//struct S
+//{
+//	char c1;
+//	int i;
+//	char c2;
+//};
+//#pragma pack()
+//struct S
+//{
+//	char c1;
+//	int i;
+//	char c2;
+//};
+//#define OFFSETOF(s, m) (size_t)(&(((s*)0x0)->m) - 0x0)
+//#define RED 5
+//#define BLUE 9
+//#define GREEN 8
+//enum Color
+//{
+//	_RED = 5,
+//	_GREEN = 8,
+//	_BLUE
+//};
+//void menu()
+//{
+//	printf("**************************\n");
+//	printf("***   1. add  2. sub   ***\n");
+//	printf("***   3. mul  4. div   ***\n");
+//	printf("***   0. exit          ***\n");
+//	printf("**************************\n");
+//}
+//enum Option
+//{
+//	_EXIT,
+//	_ADD,
+//	_SUB,
+//	_MUL,
+//	_DIV
+//};
+//struct A
+//{
+//	int _a : 2;
+//	int _b : 5;
+//	int _c : 10;
+//	int _d : 30;
+//};
+//struct S
+//{
+//	char a : 3;
+//	char b : 4;
+//	char c : 5;
+//	char d : 4;
+//};
+//int main()
+//{
+//	//printf("%d\n", sizeof(struct A));
+//	//struct S s = { 0 };
+//	//s.a = 10;
+//	//s.b = 12;
+//	//s.c = 3;
+//	//s.d = 4;
+//	//cout << sizeof(s) << endl;
+//	//int input = 0;
+//	//do
+//	//{
+//	//	menu();
+//	//	printf("请输入您的选择:>");
+//	//	scanf("%d", &input);
+//	//	switch (input)
+//	//	{
+//	//	case _EXIT:
+//	//		break;
+//	//	case _ADD:
+//	//		break;
+//	//	case _SUB:
+//	//		break;
+//	//	case _MUL:
+//	//		break;
+//	//	case _DIV:
+//	//		break;
+//	//	default:
+//	//		break;
+//	//	}
+//	//} while (input);
+//	//enum Color c = _BLUE;
+//	////Color co = 0;//err,cpp语法检查严格,右边是int左边是Color
+//	//printf("%d\n", _RED);
+//	//printf("%d\n", _GREEN);
+//	//printf("%d\n", _BLUE);
+//	//printf("%d\n", Color::_GREEN);
+//	//printf("%d\n", sizeof(c));
+//	//printf("%d\n", sizeof(_BLUE));
+//	//printf("%d\n", sizeof(enum Color));
+//	//printf("%d\n", OFFSETOF(struct S, c1));
+//	//printf("%d\n", OFFSETOF(struct S, i));
+//	//printf("%d\n", OFFSETOF(struct S, c2));
+//	//printf("%d\n", offsetof(struct S, c1));
+//	//printf("%d\n", offsetof(struct S, i));
+//	//printf("%d\n", offsetof(struct S, c2));
+//	//printf("%d\n", sizeof(struct S));
+//	//printf("%d\n", sizeof(struct S5));
+//	//struct S s = { 0 };
+//	//struct S2 s2 = { 0 };
+//	//struct S3 s3 = { 0 };
+//	//struct S4 s4 = { 0 };
+//	//struct S5 s5 = { 0 };
+//	//printf("%d\n", sizeof(s));
+//	//printf("%d\n", sizeof(s2));
+//	//printf("%d\n", sizeof(s3));
+//	//printf("%d\n", sizeof(s4));
+//	//printf("%d\n", sizeof(s5));
+//	return 0;
+//}
 #endif
+int main()
+{
+
+	return 0;
+}
 //#include "common.h"//ds-code
 #if 0
 //void func1(int n)//O(n^n)
