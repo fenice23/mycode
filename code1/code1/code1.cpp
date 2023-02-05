@@ -4396,12 +4396,520 @@ size_t my_strlen(const char* str)
 //	//printf("%d\n", sizeof(s5));
 //	return 0;
 //}
+//union Un
+//{
+//	char c;
+//	int i;
+//};
+//bool CheckEndian()
+//{
+//	int a = 0x01;
+//	return *(char*)(&a);
+//}
+//bool CheckEndian1()
+//{
+//	union
+//	{
+//		int _in;
+//		char _c;
+//	} u;
+//	u._in = 0x01;
+//	return u._c;
+//}
+//void test()
+//{
+//	int* p = (int*)malloc(100);
+//	if (NULL == p)
+//	{
+//		perror("malloc fail");
+//		exit(errno);
+//	}
+//	free(p);
+//	p = NULL;
+//}
+//void GetMemory(char* p)
+//{
+//	p = (char*)malloc(100);
+//}
+//void Test(void)
+//{
+//	char* str = NULL;
+//	GetMemory(str);
+//	strcpy(str, "hello world");
+//	printf(str);
+//}
+//void GetMemory(char** pp)
+//{
+//	*pp = (char*)malloc(100);
+//}
+//void Test(void)
+//{
+//	char* str = NULL;
+//	GetMemory(&str);
+//	strcpy(str, "hello world");
+//	printf(str);
+//	free(str);
+//	str = nullptr;
+//}
+//char* GetMemory()
+//{
+//	char* r = (char*)malloc(100);
+//	return r;
+//}
+//void Test(void)
+//{
+//	char* str = NULL;
+//	str = GetMemory();
+//	strcpy(str, "hello world");
+//	printf(str);
+//	free(str);
+//	str = nullptr;
+//}
+//char GetMemory(void)
+//{
+//	char p[] = "hello world";
+//	return p;//err
+//}
+//void Test(void)
+//{
+//	char* str = NULL;
+//	str = GetMemory();
+//	printf(str);
+//}
+//void GetMemory(char** pp, int num)
+//{
+//	*pp = (char*)malloc(num);
+//}
+//void Test(void)
+//{
+//	char* str = NULL;
+//	GetMemory(&str, 100);
+//	strcpy(str, "hello");
+//	printf(str);
+//	free(str);
+//	str = nullptr;
+//}
+//void Test()
+//{
+//	char* str = (char*)malloc(100);
+//	assert(str);
+//	strcpy(str, "hello");
+//	free(str);
+//	str = nullptr;
+//	if (str != NULL)
+//	{
+//		strcpy(str, "world");
+//		printf(str);
+//	}
+//}
+//struct S1
+//{
+//	int n;
+//	int arr[];
+//};
+//struct S2
+//{
+//	int n;
+//	int arr[0];
+//};
+//struct S
+//{
+//	int n;
+//	int* arr;
+//};
+//int main()
+//{
+//	//for (int i = 0; i < 5; i++)
+//	//{
+//	//	for (int j = 0; j < 5; j++)
+//	//	{
+//	//		if (i + j == 4)
+//	//		{
+//	//			printf("*");
+//	//		}
+//	//		else if (i == j)
+//	//		{
+//	//			printf("*");
+//	//		}
+//	//		else
+//	//		{
+//	//			printf(" ");
+//	//		}
+//	//	}
+//	//	printf("\n");
+//	//}
+//	//struct S* ps = (struct S*)malloc(sizeof(struct S));
+//	//if (NULL == ps)
+//	//{
+//	//	perror("malloc fail");
+//	//	exit(errno);
+//	//}
+//	//ps->n = 10;
+//	//ps->arr = (int*)malloc(10 * sizeof(int));
+//	//if (NULL == ps->arr)
+//	//{
+//	//	perror("malloc fail");
+//	//	free(ps);
+//	//	ps = NULL;
+//	//	exit(errno);
+//	//}
+//	//int i = 0;
+//	//for (i = 0; i < 10; i++)
+//	//{
+//	//	ps->arr[i] = i;
+//	//}
+//	//int* ptr = (int*)realloc(ps->arr, 20 * sizeof(int));
+//	//if (NULL == ptr)
+//	//{
+//	//	perror("realloc fail");
+//	//	free(ps->arr);
+//	//	ps->arr = nullptr;
+//	//	free(ps);
+//	//	ps = nullptr;
+//	//	exit(errno);
+//	//}
+//	//ps->arr = ptr;
+//	//free(ps->arr);
+//	//ps->arr = NULL;
+//	//free(ps);
+//	//ps = NULL;
+//	//struct S1* ps = (struct S1*)malloc(sizeof(struct S1) + sizeof(int) * 10);
+//	//assert(ps);
+//	//ps->n = 10;
+//	//int i = 0;
+//	//for (i = 0; i < 10; i++)
+//	//{
+//	//	ps->arr[i] = i;
+//	//}
+//	//struct S1* ptr = (struct S1*)realloc(ps, sizeof(struct S1) + 20 * sizeof(int));
+//	//if (ptr != NULL)
+//	//{
+//	//	ps = ptr;
+//	//}
+//	//else
+//	//{
+//	//	perror("realloc fail");
+//	//	free(ps);
+//	//	ps = NULL;
+//	//	exit(errno);
+//	//}
+//	//free(ps);
+//	//ps = NULL;
+//	//Test();
+//	//int* p = (int*)malloc(10 * sizeof(int));
+//	//if (NULL == p)
+//	//{
+//	//	perror("malloc fail");
+//	//	exit(errno);
+//	//}
+//	//int i = 0;
+//	//for (i = 0; i < 40; i++)
+//	//{
+//	//	*(p + i) = i;//err,越界
+//	//}
+//	//free(p);
+//	//p = NULL;
+//	//int* p = (int*)malloc(10000000000);
+//	//int i = 0;
+//	//for (i = 0; i < 10; i++)
+//	//{
+//	//	*(p + i) = i;
+//	//}
+//	//int arr[10] = { 0 };
+//	//int* p = arr;
+//	//free(p);//err
+//	//p = NULL;
+//	//int* p = (int*)malloc(10 * sizeof(int));
+//	//if (NULL == p)
+//	//{
+//	//	perror("malloc fail");
+//	//	exit(errno);
+//	//}
+//	//int i = 0;
+//	//for (i = 0; i < 5; i++)
+//	//{
+//	//	*p++ = i;
+//	//	cout << *p << ' ';
+//	//}
+//	//free(p);
+//	//p = NULL;
+//	//int* p = (int*)malloc(100);
+//	//free(p);
+//	//p = NULL;
+//	//test();
+//	//int* p = (int*)realloc(NULL, 10 * sizeof(int));
+//	//if (NULL == p)
+//	//{
+//	//	perror("realloc fail");
+//	//	exit(errno);
+//	//}
+//	//for (int i = 0; i < 10; i++)
+//	//{
+//	//	printf("%d ", *(p + i) = i);
+//	//}
+//	//printf("\n");
+//	//free(p);
+//	//p = NULL;
+//	//int* p = (int*)calloc(10, sizeof(int));
+//	//if (NULL == p)
+//	//{
+//	//	perror("malloc fail");
+//	//	exit(errno);
+//	//}
+//	//int i = 0;
+//	//for (i = 0; i < 10; i++)
+//	//{
+//	//	*(p + i) = 5;
+//	//}
+//	//int* tmp = (int*)realloc(p, 20 * sizeof(int));
+//	//if (NULL == tmp)
+//	//{
+//	//	perror("realloc fail");
+//	//	free(p);
+//	//	p = NULL;
+//	//	exit(errno);
+//	//}
+//	//p = tmp;
+//	//free(p);
+//	//p = NULL;
+//	//int* p = (int*)malloc(40);
+//	//int* pi = (int*)calloc(10, sizeof(int));
+//	//if (NULL == p)
+//	//{
+//	//	perror("malloc fail");
+//	//	exit(errno);
+//	//}
+//	//if (NULL == pi)
+//	//{
+//	//	perror("calloc fail");
+//	//	free(p);
+//	//	p = NULL;
+//	//	exit(errno);
+//	//}
+//	//int i = 0;
+//	//for (i = 0; i < 10; i++)
+//	//{
+//	//	printf("%d ", *(p + i));
+//	//	printf("%d ", *(pi + i));
+//	//}
+//	//free(p);
+//	//free(pi);
+//	//p = pi = NULL;
+//	//int a = 10;
+//	//int* p = &a;
+//	//free(p);//err
+//	//int arr[10];
+//	//int* p = (int*)malloc(10 * sizeof(int));
+//	//if (NULL == p)
+//	//{
+//	//	perror("malloc fail");
+//	//	exit(-1);
+//	//}
+//	//int i = 0;
+//	//for (i = 0; i < 10; i++)
+//	//{
+//	//	*(p + i) = i;
+//	//}
+//	//for (i = 0; i < 10; i++)
+//	//{
+//	//	std::cout << *(p + i) << std::endl;
+//	//}
+//	//free(p);
+//	//p = NULL;
+//	//union Un
+//	//{
+//	//	short s[5];
+//	//	int a;
+//	//} u;
+//	//cout << sizeof(u) << endl;
+//	//union Un
+//	//{
+//	//	char a[5];
+//	//	int i;
+//	//	char c;
+//	//} u;
+//	//cout << sizeof(u) << endl;
+//	//if (CheckEndian())
+//	//{
+//	//	cout << "small endian" << endl;
+//	//}
+//	//else
+//	//{
+//	//	cout << "big endian" << endl;
+//	//}
+//	//union Un u = { 10 };
+//	//u.i = 1000;
+//	//u.c = 100;
+//	//printf("%p\n", &u);
+//	//printf("%p\n", &u.c);
+//	//printf("%p\n", &u.i);
+//	//printf("%d\n", sizeof(u));
+//	return 0;
+//}
+//int main()
+//{
+//	//struct S
+//	//{
+//	//	char arr[10];
+//	//	int num;
+//	//	float sc;
+//	//} s = { 0 };
+//	//FILE* fp = fopen("test.dat", "r");
+//	//if (NULL == fp)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fread(&s, sizeof(struct S), 1, fp);
+//	//fprintf(stdout, "%s %d %.2f\n", s.arr, s.num, s.sc);
+//	//fclose(fp);
+//	//fp = NULL;
+//	//struct S
+//	//{
+//	//	char arr[10];
+//	//	int num;
+//	//	float sc;
+//	//} s = { "abcde", 10, 5.5f };
+//	//FILE* fp = fopen("test.dat", "w");
+//	//if (NULL == fp)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fwrite(&s, sizeof(struct S), 1, fp);
+//	//fclose(fp);
+//	//fp = NULL;
+//	//struct S
+//	//{
+//	//	char arr[10];
+//	//	int num;
+//	//	float sc;
+//	//} s = { "abcdef", 10, 5.5f };
+//	//FILE* fp = fopen("test.dat", "w");
+//	//if (NULL == fp)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fprintf(fp, "%s %d %.2f\n", s.arr, s.num, s.sc);
+//	//fclose(fp);
+//	//fp = NULL;
+//	//struct S
+//	//{
+//	//	char arr[10];
+//	//	int num;
+//	//	float sc;
+//	//} s = { 0 };
+//	//FILE* pf = fopen("test.dat", "r");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fscanf(pf, "%s %d %f", s.arr, &s.num, &s.sc);
+//	//fprintf(stdout, "%s %d %.2f\n", s.arr, s.num, s.sc);
+//	////cout << s.arr << endl;
+//	////cout << s.num << endl;
+//	////cout << s.sc << endl;
+//	//fclose(pf);
+//	//pf = NULL;
+//	//char buff[20] = "";
+//	//puts(fgets(buff, 20, stdin));
+//	//char arr[10] = "xxxxxxxx";
+//	//FILE* pf = fopen("test.dat", "r");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//char buff[1024] = "";
+//	//fgets(buff, 1024, pf);
+//	//puts(buff);
+//	//fgets(buff, 1024, pf);
+//	//puts(buff);
+//	//fclose(pf);
+//	//pf = NULL;
+//	//FILE* pf = fopen("test.dat", "w");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fputs("jlkakjljkljklfd\n", pf);
+//	//fputs("jklkj;jlj;jjl\n", pf);
+//	//fclose(pf);
+//	//pf = NULL;
+//	//int val = 0;
+//	//while (~(val = fgetc(stdin)))
+//	//{
+//	//	putchar(val);
+//	//}
+//	//FILE* pf = fopen("test.dat", "r");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//char ch = 0;
+//	//while (~(ch = fgetc(pf)))
+//	//{
+//	//	putchar(ch);
+//	//}
+//	//fclose(pf);
+//	//pf = NULL;
+//	//fputc('a', stdout);
+//	//fputc('b', stdout);
+//	//fputc('c', stdout);
+//	//fputc('d', stderr);
+//	//fputc('e', stderr);//stderr标准错误流,对应的设备是屏幕,打印e字符
+//	//fputc('f', stderr);
+////	FILE* pf = fopen("test.dat", "w");
+////	if (NULL == pf)
+////	{
+////		perror("fopen fail");
+////		return errno;
+////	}
+////	fputc('a', pf);
+////	fputc('b', pf);
+////	fputc('c', pf);
+////	fclose(pf);
+////	pf = NULL;
+////	pf = fopen("test.dat", "w");
+////	if (NULL == pf)
+////	{
+////		perror("fopen fail");
+////		return errno;
+////	}
+////	fclose(pf);
+////	pf = NULL;
+//	//FILE* pf = fopen("C:/Users/Tim/Desktop/mycode/code1/code1/test.dat", "r");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fclose(pf);
+//	//pf = NULL;
+//	//FILE* pf = fopen("C:/Users/Tim/Desktop/mycode/code1/code1/test.txt", "r");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fclose(pf);
+//	//pf = NULL;
+//	//FILE* pf = fopen("test.txt", "r");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fclose(pf);
+//	//pf = NULL;
+//	return 0;
+//}
 #endif
-int main()
-{
 
-	return 0;
-}
 //#include "common.h"//ds-code
 #if 0
 //void func1(int n)//O(n^n)
