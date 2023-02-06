@@ -5368,6 +5368,72 @@ size_t my_strlen(const char* str)
 ////	cout << SWAP(b);
 //	return 0;
 //}
+//#include "contact.h"
+//void menu()
+//{
+//	printf("**********************\n");
+//	printf("** 1.add    2.del   **\n");
+//	printf("** 3.search 4.modiry**\n");
+//	printf("** 5.sort   6.print **\n");
+//	printf("**     0.exit       **\n");
+//	printf("**********************\n");
+//}
+//enum Option
+//{
+//	_EXIT,
+//	_ADD,
+//	_DEL,
+//	_SEARCH,
+//	_MODIFY,
+//	_SORT,
+//	_PRINT
+//};
+//void test()
+//{
+//	int input = 0;
+//	Contact con;
+//	InitContact(&con);
+//	do
+//	{
+//		menu();
+//		printf("请输入您的选择:>");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case _EXIT:
+//			SaveContact(&con);
+//			DestroyContact(&con);
+//			printf("退出通讯录");
+//			break;
+//		case _ADD:
+//			AddContact(&con);
+//			break;
+//		case _DEL:
+//			DelContact(&con);
+//			break;
+//		case _SEARCH:
+//			SearchContact(&con);
+//			break;
+//		case _MODIFY:
+//			ModifyContact(&con);
+//			break;
+//		case _SORT:
+//			SortContact(&con);
+//			break;
+//		case _PRINT:
+//			PrintContact(&con);
+//			break;
+//		default:
+//			printf("选择错误,请重新选择\n");
+//			break;
+//		}
+//	} while (input);
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
 #endif
 //#include "common.h"//ds-code
 #if 0
