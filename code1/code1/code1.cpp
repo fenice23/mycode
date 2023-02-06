@@ -4908,8 +4908,467 @@ size_t my_strlen(const char* str)
 //	//pf = NULL;
 //	return 0;
 //}
+//extern int Add(int x, int y);
+//int main()
+//{
+////	FILE* pf = fopen("test.txt", "w");
+////	if (pf == NULL)
+////	{
+////		perror("fopen fail");
+////		return errno;
+////	}
+////	fputs("abcdefg", pf);
+////	Sleep(10000);
+////	printf("刷新缓冲区");
+////	fflush(pf);
+////	Sleep(10000);
+////	fclose(pf);
+////	pf = NULL;
+//	//int a = 10;
+//	//int b = 20;
+//	//int ret = Add(a, b);
+//	//cout << ret << endl;
+//	//FILE* pf = fopen("test.txt", "r");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//FILE* pfcpy = fopen("test2.txt", "w");
+//	//if (NULL == pfcpy)
+//	//{
+//	//	fclose(pf);
+//	//	pf = NULL;
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//int ch = 0;
+//	//while (~(ch = fgetc(pf)))
+//	//{
+//	//	fputc(ch, pfcpy);
+//	//}
+//	//if (feof(pf))
+//	//{
+//	//	printf("遇到文件结束标志,文件正常结束!\n");
+//	//}
+//	//else if (ferror(pf))
+//	//{
+//	//	printf("文件读取错误导致失败结束\n");
+//	//}
+//	//fclose(pf);
+//	//fclose(pfcpy);
+//	//pf = pfcpy = NULL;
+//	//int a = 10000;
+//	//FILE* pf = fopen("test.txt", "wb");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fwrite(&a, sizeof(int), 1, pf);
+//	//fclose(pf);
+//	//pf = NULL;
+//	//pf = fopen("test.txt", "rb");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//int r = 0;
+//	//fread(&r, sizeof(int), 1, pf);
+//	//cout << r << endl;
+//	//fclose(pf);
+//	//pf = NULL;
+//	//FILE* fp = fopen("test.txt", "r");
+//	//if (NULL == fp)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//int ch = fgetc(fp);
+//	//putchar(ch);
+//	//fseek(fp, -2, SEEK_END);
+//	//ch = fgetc(fp);
+//	//putchar(ch);
+//	//ch = fgetc(fp);
+//	//putchar(ch);
+//	//int ret = ftell(fp);
+//	//printf("%d\n", ret);
+//	//rewind(fp);
+//	//ch = fgetc(fp);
+//	//putchar(ch);
+//	//fclose(fp);
+//	//fp = NULL;
+//	//struct S
+//	//{
+//	//	char arr[10];
+//	//	int age;
+//	//	float f;
+//	//} s = { "hello", 20, 5.5f };
+//	//struct S tmp = { 0 };
+//	//char buf[100] = "";
+//	//sprintf(buf, "%s %d %.1f", s.arr, s.age, s.f);
+//	//printf("%s\n", buf);
+//	//sscanf(buf, "%s %d %f", tmp.arr, &tmp.age, &tmp.f);
+//	//cout << tmp.arr << endl;
+//	//cout << tmp.age << endl;
+//	//cout << tmp.f << endl;
+//	return 0;
+//}
+//#define M 1000
+//#define reg register
+//#define do_forever for(;;)
+//void print(int x)
+//{
+//	printf("the value of c is %d\n", x);
+//}
+//#define PRINT(X, FORMAT) printf("the value of "#X" is "FORMAT"\n", X);
+//#define PRINT(X, FORMAT) printf("the value of "#X" is "FORMAT"\n", X);
+//int main()
+//{
+//	//printf("hello world\n");
+//	//printf("hello ""world\n");
+//	//int a = 10;
+//	//PRINT(a, "%d");
+//	//printf("the value of ""a"" is %d\n", a);
+//	//int b = 20;
+//	//PRINT(b, "%d");
+//	//printf("the value of ""b"" is %d\n", b);
+//	//int c = 30;
+//	//PRINT(c, "%x");
+//	//printf("the value of ""c"" is %d\n", c);
+//	//float f = 5.5f;
+//	//PRINT(f, "%.2f");
+//	//printf("the value of ""f"" is %.2f\n", f);
+//	//printf("the value of ""f"" is ""%.2f""\n", f);
+//	//int a = 10;
+//	//print(a);
+//	//int b = 20;
+//	//print(b);
+//	//int c = 30;
+//	//print(c);
+//	//printf("hello world\n");
+//	//printf("hello" " world\n");
+////#define M 100
+////#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+////	int max = MAX(101, M);
+////	cout << max << endl;
+////	cout << M << endl;
+////#define SQUARE(X) ((X) * (X))
+////#define DOUBLE(X) ((X) + (X))
+////	printf("%d\n", SQUARE(3 + 1));
+////	printf("%d\n", 10 * DOUBLE(4));
+////#define M 1000
+////	int m = 1000;
+////	int a = 10;
+////	int b = 0;
+////	if (a > 10)
+////		b = M;
+////	else
+////		b = -M;
+////	cout << b << endl;
+////#define CASE break;case
+////	int n = 0;
+////	switch (n)
+////	{
+////	case 1:
+////		CASE 2 :
+////			CASE 3 :
+////			break;
+////	}
+//	//reg int num = 0;
+//	////do_forever;
+//	//int m = M;
+//	//printf("%d\n", m);
+//	//printf("%d\n", __STDC__);
+//	//FILE* pf = fopen("log.txt", "a+");
+//	//if (NULL == pf)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//int i = 0;
+//	//for (i = 0; i < 10; i++)
+//	//{
+//	//	fprintf(pf, "%s %d %s %s %s\n", __FILE__, __LINE__, __DATE__, __TIME__, __FUNCTION__);
+//	//}
+//	//fclose(pf);
+//	//pf = NULL;
+//	//printf("%s\n", __FILE__);
+//	//printf("%d\n", __LINE__);
+//	//printf("%s\n", __DATE__);
+//	//printf("%s\n", __TIME__);
+//	//printf("%s\n", __FUNCTION__);
+//	//cout << __FILE__ << endl;
+//	//cout << __LINE__ << endl;
+//	//cout << __DATE__ << endl;
+//	//cout << __TIME__ << endl;
+//	//cout << __FUNCTION__ << endl;
+//	return 0;
+//}
+//#define CAT(X, Y, Z) X##Y##Z
+//int main()
+//{
+//	int class101101 = 100;
+//	printf("%d\n", CAT(class, 101, 101));//等价于class##101##101
+//	//printf("%d\n", class##101##101);//but err
+//	printf("%d\n", class101101);
+//	return 0;
+//}
+//#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+//int Max(int x, int y)
+//{
+//	return x > y ? x : y;
+//}
+//#define MALLOC(num, type) (type*)malloc(num * sizeof(type))
+//int main()
+//{
+////#if 1==2
+////	printf("eh\n");
+////#elif 2==3
+////	printf("jjj\n");
+////#else
+////	printf("hhhhhh\n");
+////#endif
+////#define PRINT 0
+////#if PRINT
+////	printf("hhh");
+////#endif
+////#define PRINT 1
+////#ifdef PRINT
+////	printf("hehe\n");
+////#endif
+////#define M 10
+////	int arr[M] = { 0 };
+////	for (int i = 0; i < M; i++)
+////	{
+////		arr[i] = i;
+////	}
+////	for (int i = 0; i < M; i++)
+////	{
+////		printf("%d %d\n", i, arr[i]);
+////	}
+////#define M 100
+////	int a = M;
+////	printf("%d\n", M);
+////#undef M
+//	//printf("%d\n", M);
+//	//int* pi = (int*)malloc(10 * sizeof(int));
+//	//int* p = MALLOC(10, int);
+//	//int a = 5;
+//	//int b = 8;
+//	////int m = Max(a++, b++);
+//	//int m = MAX(a++, b++);
+//	//printf("a = %d, b = %d\n", a, b);
+//	//cout << m << endl;
+//	//int m = MAX(a, b);
+//	//cout << m << endl;
+//	//m = Max(a, b);
+//	//cout << m << endl;
+//	return 0;
+//}
+//int main()
+//{
+//	//EOF;
+//	//int a = 10;
+//	//int b = 20;
+//	//int ret = (a > b) ? a : b;
+//	//cout << ret << endl;
+//	//int n = 10;
+//	//int arr[n];
+////#define TEST 0
+////#define HEHE 1
+////#ifdef TEST
+////	printf("hhhh\n");
+////#endif
+////#if defined(TEST)
+////	printf("test2\n");
+////#endif
+////#ifndef HEHE
+////	cout << "hhh" << endl;
+////#endif
+////#if !defined(HEHE)
+////	cout << "ggg" << endl;
+////#endif
+////	EOF;
+////#if 1==2
+////	cout << "hhh" << endl;
+////#elif 2==3
+////	cout << "ggg" << endl;
+////#else
+////	cout << "mmm" << endl;
+////#endif
+//	return 0;
+//}
+//#pragma pack(4)
+//struct A
+//{
+//	int a;
+//	short b;
+//	int c;
+//	char d;
+//};
+//struct B
+//{
+//	int a;
+//	short b;
+//	char c;
+//	int d;
+//};
+//#pragma pack()
+//int main()
+//{
+//	//struct A sa = { 0 };
+//	//struct B sb = { 0 };
+//	//cout << sizeof(sa) << endl;
+//	//cout << sizeof(sb) << endl;
+////#pragma pack(4)
+////	struct tagTest1
+////	{
+////		short a;
+////		char d;
+////		long b;
+////		long c;
+////	};//12
+////	struct tagTest2
+////	{
+////		long b;
+////		short c;
+////		char d;
+////		long a;
+////	};//12
+////	struct tagTest3
+////	{
+////		short c;
+////		long b;
+////		char d;
+////		long a;
+////	};//16
+////	struct tagTest1 stT1;
+////	struct tagTest2 stT2;
+////	struct tagTest3 stT3;
+////	printf("%d %d %d\n", sizeof(stT1), sizeof(stT2), sizeof(stT3));
+////#pragma pack()
+////#define A 2
+////#define B 3
+////#define MAX_SIZE A + B
+////	struct _Record_Struct
+////	{
+////		unsigned char Env_Alarm_ID : 4;
+////		unsigned char Paral : 2;
+////		unsigned char state;
+////		unsigned char avail : 1;
+////	}*Env_Alarm_Record;
+////	struct _Record_Struct* pointer = (struct _Record_Struct*)malloc(sizeof(struct _Record_Struct) * MAX_SIZE);
+////	int sz = sizeof(struct _Record_Struct) * MAX_SIZE;
+////	cout << sz << endl;
+////	free(pointer);
+////	pointer = NULL;
+//	return 0;
+//}
+//int main()
+//{
+//	//unsigned char puc[4];
+//	//struct tagPIM
+//	//{
+//	//	unsigned char ucPim1;
+//	//	unsigned char ucData0 : 1;
+//	//	unsigned char ucData1 : 2;
+//	//	unsigned char ucData2 : 3;
+//	//}*pstPimData;
+//	////cout << sizeof(struct tagPIM);
+//	//pstPimData = (struct tagPIM*)puc;
+//	//memset(puc, 0, 4);
+//	//pstPimData->ucPim1 = 2;
+//	//pstPimData->ucData0 = 3;
+//	//pstPimData->ucData1 = 4;
+//	//pstPimData->ucData2 = 5;
+//	//printf("%02x %02x %02x %02x\n", puc[0], puc[1], puc[2], puc[3]);//02 29 00 00
+//	//union Un
+//	//{
+//	//	short s[7];
+//	//	int n;
+//	//} u;
+//	//cout << sizeof(u) << endl;
+//	//union
+//	//{
+//	//	short k;
+//	//	char i[2];
+//	//} *s, a;
+//	//s = &a;
+//	//s->i[0] = 0x39;
+//	//s->i[1] = 0x38;
+//	//printf("%x\n", a.k);
+//	//enum ENUM_A
+//	//{
+//	//	X1,
+//	//	Y1,
+//	//	Z1 = 255,
+//	//	A1,
+//	//	B1
+//	//};
+//	//enum ENUM_A enumA = Y1;
+//	//enum ENUM_A enumB = B1;
+//	//cout << enumA << endl;
+//	//cout << enumB << endl;
+//	//typedef struct
+//	//{
+//	//	int a;
+//	//	char b;
+//	//	short c;
+//	//	short d;
+//	//} AA_t;
+//	//cout << sizeof(AA_t) << endl;
+//	//long num = 0;
+//	//FILE* fp = NULL;
+//	//if ((fp = fopen("fname.dat", "r")) == NULL)
+//	//{
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	////while (~fgetc(fp))
+//	//	//num++;
+//	//fseek(fp, 0, SEEK_END);
+//	//num = ftell(fp);
+//	//cout << num << endl;
+//	//fclose(fp);
+//	//fp = NULL;
+////#define CHAR_PTR char*
+////	typedef char* char_ptr;
+////	CHAR_PTR a, b;
+////	char_ptr c, d;
+////	cout << sizeof(a) << " " << sizeof(b) << endl;
+////	cout << sizeof(c) << " " << sizeof(d) << endl;
+////#define N 4
+////#define Y(n) ((N + 2) * n)
+////	int z = 2 * (4 + 6 * 5 + 1);
+////	cout << z << endl;
+////#define A 2+2
+////#define B 3+3
+////#define C A*B
+////	cout << C << endl;
+////#define OFFSETOF(s, m) (size_t)(&(((s*)0)->m))
+////	struct S
+////	{
+////		int a;
+////		short b;
+////		int c;
+////		char d;
+////	};
+////	cout << OFFSETOF(struct S, a) << endl;
+////	cout << OFFSETOF(struct S, b) << endl;
+////	cout << OFFSETOF(struct S, c) << endl;
+////	cout << OFFSETOF(struct S, d) << endl;
+////	cout << offsetof(struct S, a) << endl;
+////	cout << offsetof(struct S, b) << endl;
+////	cout << offsetof(struct S, c) << endl;
+////	cout << offsetof(struct S, d) << endl;
+////#define SWAP(X) (((0x55555555 & X) << 1) + ((0xaaaaaaaa & X) >> 1))
+////	int b = 20;
+////	cout << SWAP(b);
+//	return 0;
+//}
 #endif
-
 //#include "common.h"//ds-code
 #if 0
 //void func1(int n)//O(n^n)
