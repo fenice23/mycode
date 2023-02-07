@@ -5434,6 +5434,308 @@ size_t my_strlen(const char* str)
 //	test();
 //	return 0;
 //}
+//int a = 100;//这里的变量a是全局变量,他是{}外部定义的变量
+//int global = 2019;
+//void test()
+//{
+//	int local = 2018;
+//	int global = 2020;
+//	printf("global = %d\n", global);//2020
+//}
+//int g_val = 2022;//全局变量
+//g_val = 2020;//err:多次初始化,变量赋值必须放到{}内部
+//printf("g_val = %d\n", g_val);//err:这是一个函数调用,但是没有函数调用代码得写到函数里面去
+//int main()
+//{
+//	//printf("g_var = %d\n", g_var);//err:add.c中全局变量在code1.cpp中使用前没有进行声明外部符号导致出错
+//	//extern int g_var;//extern只能修饰全局变量或者函数声明,且可以写多个也可以省略,并且声明全局变量时不能同时初始化
+//	//printf("g_var = %d\n", g_var);//2020
+//	//printf("g_variable = %d\n", g_variable);//err
+//	//extern int g_variable;
+//	//printf("g_variable = %d\n", g_variable);//2
+//	//printf("1.g_val = %d\n", g_val);//2022
+//	////printf("a = %d\n", a);//err
+//	//{
+//	//	printf("2.g_val = %d\n", g_val);//2022;
+//	//	int a = 10;
+//	//	printf("a = %d\n", a);//10
+//	//}
+//	////printf("a = %d\n", a);//err
+//	//printf("3.g_val = %d\n", g_val);//2022
+//	//变量分为局部变量和全局变量
+//	//int a = 10;//这里的变量a是局部变量,他是{}内部定义的变量
+//	//printf("%d\n", a);//10,当局部变量和全局变量名字冲突的情况下局部优先
+//	//当然我们写代码的时候不建议吧局部变量和全局变量名字写成一样的
+//	//test();
+//	//IDE中的代码大都是依托于项目工程的,一个解决方案包含多个项目工程,一个项目工程包含多个.c,.h文件,但是一个项目工程有且只有一个main函数
+//	//写代码	1.写出主函数main函数 1~xxxx行代码,如何执行呢?C语言是从主函数的第一行开始执行的,所以C语言代码中得有main函数(入口函数),C语言中的一个工程中main函数有且只有一个,写个代码在屏幕上打印:C语言	printf是一个库函数可以在屏幕上打印信息	printf使用前得打个招呼(引用名为头文件的stdio.h)
+//	//printf("C language!\n");
+//	//编译链接运行程序	VS这个IDE用快捷键ctrl+f5/ctrl+f5+fun/[调试窗口]->开始执行不调试	 即可搞定
+//	//vs2013程序执行太快了,要设置一下vs2013的属性,vs2019不用设置就可以看到结果
+//	//printf("hello world!\n");//ctrl+f5运行程序
+//	//printf("hehe\n");
+//	//printf("hello c!\n");
+//	//数据类型	计算机语言--->写程序--->解决生活中的问题--->必须有能力描述生活中的问题
+//	//购物商场--->上架商品,价格--->15.6元--->小数 1.56*10^1 
+//	//年龄-50
+//	//C语言 - 浮点型	- 整形
+//	//a 'a' --->字符a
+//	//char ch = 'a';//字符数据类型
+//	//int age = 20;//整形
+//	//short num = 20;//短整型
+//	//long l = 10l;//长整型
+//	//long long ll = 10ll;//长长整形
+//	//float weight = 55.5f;//单精度浮点型
+//	//double d = 0.0;//双精度浮点型
+//	//printf("hehn\n");
+//	//printf("C/C++\n");
+//	//printf("%d\n", 100);
+//	//sizeof是一个关键字/运算符,而不是函数,用来计算一个类型或者变量所占空间大小,单位是字节,返回值类型是size_t型
+//	//printf("%d\n", sizeof(char));//1
+//	//printf("%d\n", sizeof(short));//2
+//	//printf("%d\n", sizeof(int));//4
+//	//printf("%d\n", sizeof(long));//4/8 c标准规定sizeof(long)>=sizeof(int)
+//	//printf("%d\n", sizeof(long long));//8
+//	//printf("%d\n", sizeof(float));//4
+//	//printf("%d\n", sizeof(double));//8
+//	//printf("%d\n", sizeof(long double));//8/10/12
+//	//计算机中的单位:bit--->比特位,计算机识别二进制,存储0和1,八进制组成是0~7,十进制组成是0~9,二进制组成是0和1
+//	//1byte = 8bit
+//	//1kbyte = 1024byte
+//	//1mbyte = 1024kbyte
+//	//1gbyte = 1024mbyte
+//	//1tbyte = 1024gbyte
+//	//1pbyte = 1024tbyte
+//	//char ch = 'w';
+//	//int weight = 120;
+//	//int salary = 20000;
+//	//生活中的一些数据:有些数据不能改变:血型,性别,圆周率
+//	//有些数据可以改变:年龄,工资,体重
+//	//C语言怎么描述?常量不可以改变的量,变量:能被改变的量
+//	//创建一个变量:类型 变量名 = 0;//推荐
+//	//类型 变量名;//语法允许,但是不推荐
+//	//int age = 20;
+//	//double weight = 75.3;
+//	//age = age + 1;
+//	//weight = weight - 10;
+//	//printf("%d\n", age);
+//	//printf("%.2lf\n", weight);//%.lf是打印double类型的格式控制字符,%f是打印float类型的格式控制字符
+//	////%d-整形	%lf-double	%f-float
+//	////写代码求两个整数的和,scanf函数是标准输入函数
+//	//int a = 0;
+//	//int b = 0;
+//	//int sum = 0;
+//	//scanf("%d%d", &a, &b);
+//	//sum = a + b;
+//	//printf("sum = %d\n", sum);
+//	//变量的作用域和生命周期
+//	//作用域	局部变量的作用域就是局部变量所在的局部范围
+//	//全局变量的作用域就是整个项目工程
+//	//printf("heh\n");
+//	//int a = 10;
+//	//printf("a = %d\n", a);
+//	//生命周期:Duration 变量的生命周期:变量创建到销毁这一时间段
+//	//局部变量生命周期:进入局部范围生命周期开始,出局部范围生命周期结束
+//	//全局变量生命周期:就是整个main函数生命周期,也就是程序生命周期
+//	//定义两个名字相同的全局变量是不可能出现的
+//	//{
+//	//	int a = 10;
+//	//	printf("a = %d\n", a);//10
+//	//}
+//	//printf("a = %d\n", a);//err
+//	//常量
+//	//enum _Sex
+//	//{
+//	//	_MALE,//枚举常量
+//	//	_FEMALE,//枚举常量
+//	//	_SECRET//枚举常量
+//	//};
+//	//3.14;//字面常量
+//	//1000;//字面常量
+//	//const float pai = 3.14f;//C中是const修饰常变量
+//	//pai = 3.1f;//err
+////#define MAX 100//#define定义的标识符常量
+////	printf("MAX = %d\n", MAX);
+////#undef MAX
+//	//printf("MAX = %d\n", MAX);//err
+//	//enum _Sex sex = _MALE;
+//	//printf("%d\n", sex);//0
+//	return 0;
+//}
+//int g_variable = 2;
+//#define MAX 10000
+//size_t MyStrlen(const char* str)
+//{
+//	assert(str);
+//	size_t r = 0;
+//	while (*str++)	r++;
+//	return r;
+//}
+//size_t _my_strlen(const char* str)
+//{
+//	assert(str);
+//	if (!*str)	return 0;
+//	else
+//		return (1 + _my_strlen(1 + str));
+//}
+//size_t my_strlen(const char* str)
+//{
+//	assert(str);
+//	const char* eos = str;
+//	while (*eos++)
+//	{
+//		;
+//	}
+//	return (eos - str - 1);
+//}
+//void test()
+//{
+//	printf("%d\n", (int)strlen("abcdef"));//6
+//	printf("%d\n", (int)strlen("c:\test\328\test.c"));//14
+//}
+//int main()
+//{
+//	//1.字面常量
+//	//3.14;//浮点字面常量
+//	//10;//整形字面常量
+//	//'a';//字符字面常量
+//	//"abcdef";//字符串字面常量
+//	//..
+//	//2.const修饰的常变量
+//	//int num = 10;//变量
+//	//num = 20;
+//	//printf("num = %d\n", num);
+//	//const int n = 10;//n就是const修饰的常变量---具有常量属性(不能被改变的属性),但是本质还是变量
+//	////n = 20;//err
+//	//int arr1[10] = { 0 };//ok
+//	//int arr2[n];//C中err,说明这里n是变量,但是有的编译器(GCC)可以通过(C99变长数组),CPP中也能通过
+//	//int arr3[n] = { 1, 2 };//C中err,并且C99变长数组(不能初始化)也编译不过,CPP可以编译通过
+//	//3.#define定义的标识符常量
+//	//int n = MAX;
+//	//printf("n = %d\n", n);
+//	//MAX = 1;//err:MAX是常量不能修改
+//	//enum _Sex
+//	//{
+//	//	//这种枚举类型变量的未来可能取值
+//	//	//枚举常量
+//	//	_MALE = 3,//第一个常量默认是0这里赋初值为3,后面的每个常量根据前一个值递增1
+//	//	_FEMALE,//4
+//	//	_SECRET//5
+//	//} s;//枚举常量保存在代码段中,枚举变量保存在栈/数据段/堆
+//	//4.枚举常量可以一一列举的常量
+//	//enum _Sex s = _MALE;
+//	//printf("s = %d\n", _MALE);//3
+//	//s = _FEMALE;
+//	//printf("s = %d\n", _FEMALE);//4
+//	//s = _SECRET;
+//	//printf("s = %d\n", _SECRET);//5
+//	//_MALE = 2;//err:不能对常量赋值
+//	//cout << sizeof(enum _Sex) << endl;//4
+//	//cout << sizeof(s) << endl;//4
+//	//cout << sizeof(_MALE) << endl;//4
+//	//cout << sizeof(_FEMALE) << endl;//4
+//	//cout << sizeof(_SECRET) << endl;//4
+//	//字符串
+//	//printf("%d\n", (int)strlen("hello world.\n"));//13
+//	//printf("%d\n", (int)MyStrlen("hello world.\n"));//13
+//	//printf("%d\n", (int)_my_strlen("hello world.\n"));//13
+//	//printf("%d\n", (int)my_strlen("hello world.\n"));//13
+//	//char arr1[] = "bit";
+//	//char arr2[] = { 'b', 'i', 't' };
+//	//char arr3[] = { 'b', 'i', 't', '\0' };
+//	//printf("%s\n", arr1);//bit
+//	//printf("%s\n", arr2);//bit乱码
+//	//printf("%s\n", arr3);//bit
+//	//"abcdef";//字符串就是用双引号引起来的一串字符
+//	//"hello world";
+//	//字符数组---数组是一组相同类型的元素的集合
+//	//其实字符串在结尾的位置隐藏了一个\0的转义字符,\0是字符串结束标志
+//	//char arr[] = "hello\0";//['h' 'e' 'l' 'l' 'o' '\0' '\0']
+//	//cout << sizeof(arr) << endl;//7
+//	//char arr1[] = "abc";
+//	//char arr2[] = { 'a', 'b', 'c' };
+//	//char arr3[] = { 'a', 'b', 'c', '\0' };
+//	//cout << sizeof(arr1) << endl;//4
+//	//cout << sizeof(arr2) << endl;//3
+//	//cout << sizeof(arr3) << endl;//4
+//	//cout << arr1 << endl;//abc
+//	//cout << arr2 << endl;//abc乱码
+//	//cout << arr3 << endl;//abc
+//	//求一下字符串长度---strlen();	string-length
+//	//int len = (int)strlen("ab");//2
+//	//printf("%d\n", len);//2
+//	//printf("%d\n", sizeof("ab"));//3
+//	//cout << strlen(arr1) << endl;//3
+//	//cout << strlen(arr2) << endl;//3+
+//	//cout << strlen(arr3) << endl;//3
+//	//char arr[] = "abc\0d";
+//	//cout << sizeof(arr) << endl;//6
+//	//cout << int(strlen(arr)) << endl;//3
+//	//cout << strlen("afc\0d") << endl;//3
+//	//转义字符--->转义字符转变了他原来的意思		特殊到一般	一般到特殊
+//	//printf("c:\\code\\test.c\n");
+//	//printf("c:\code\test.c\n");
+//	//printf("%c\n", '\'');
+//	//printf("%s\n", "'");
+//	//printf("'\n");
+//	//printf("\'\n");
+//	//printf("%s\n", "\"");
+//	//printf("\"\n");
+//	//test();
+//	//printf("c:\test\test.c");
+//	//printf("ab\ncd");
+//	//printf("(are you ok??)\n");//vc6.0中会打印(are you ok],三字母词转义,"??)"--->"]"
+//	//printf("(are you ok\?\?\)\n");
+//	//printf("%c\n", 'a');
+//	//printf("%c\n", ''');//err
+//	//printf("%c\n", '\'');
+//	//printf("%s\n", "abc");
+//	//printf("%s\n", "a");
+//	//printf("%s\n", "\"");
+//	//printf("%c\n", '"');
+//	//printf("%s\n", "'");
+//	return 0;
+//}
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+/*
+int Sub(int x, int y)
+{
+	return x - y;
+}
+*/
+//int main()
+//{
+//	//注释:代码中有不需要的代码可以直接删除,也可以注释掉,代码中有些语句比较难懂可以加注释文字,即注释是用来解释复杂代码的,eg.
+////注释有两种风格:1.C语言注释风格/*xxxxxxxxxxxxxxxxx*/	缺陷:不能嵌套注释	可以用条件编译代替之
+////2.C++注释风格 //XXXXXXX		可以注释一行,也可以一行一行注释
+//	//C++注释风格
+//	//调用函数Add完成加法并打印到屏幕
+//	//printf("%d\n", Add(1, 2));
+//	//int a = 10;//C++注释风格
+//	/*
+//	int b = 0;//C语言注释风格,缺陷是不支持嵌套注释
+//	*/
+//	//printf函数在打印数据的时候可以指定打印的格式
+//	//printf("%d\n", 100);//100
+//	//printf("%c\n", 'a');//a
+//	//printf("%s\n", "abc");//abc
+//	//printf("c:\\test\\test.c");
+//	//printf("\a\a\a\a");//\a蜂鸣
+//	//printf("abc");
+//	//printf("\b");//退格
+//	//printf("%c\n", '\130');//X--->88 ASSCII码表对应的字符
+//	//printf("%d\n", '\130');//88
+//	//ASSCII码表:每个字符都有一个值,ASSCII码值,计算机存储落实在底层全是二进制数字,@!ER1... A-65 B-66 a-97 b-98
+//	//printf("%c--->%d\n", '\101', '\101');//A--65--101
+//	//printf("%c--->%d\n", '\x30', '\x30');//0---48
+//	//cout << strlen("abc") << endl;//3
+//	//cout << strlen("c:\test\328\test.c") << endl;//14
+//
+//	return 0;
+//}
 #endif
 //#include "common.h"//ds-code
 #if 0
