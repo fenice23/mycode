@@ -1,4 +1,629 @@
 #define _CRT_SECURE_NO_WARNINGS 1
+
+//#include "common.h"//ds-code
+#if 0
+//void func1(int n)//O(n^n)
+//{
+//	int count = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < n; j++)
+//		{
+//			++count;
+//		}
+//	}
+//	for (int k = 0; k < 2 * n; k++)
+//	{
+//		++count;
+//	}
+//	int m = 10;
+//	while (m--)
+//	{
+//		++count;
+//	}
+//	printf("%d\n", count);
+//}
+//void func2(int n)//O(n)
+//{
+//	int count = 0;
+//	for (int k = 0; k < 2 * n; k++)
+//	{
+//		++count;
+//	}
+//	int m = 10;
+//	while(m--)
+//	{
+//		++count;
+//	}
+//	printf("%d\n", count);
+//}
+//void func3(int n, int m)//未知m与n的关系:O(m + n)
+//{						//m和n差不多:O(m)或者O(n)
+//						//m远大于n:O(m)
+//						//n远大于m:O(n)
+//	int count = 0;
+//	for (int k = 0; k < m; k++)
+//	{
+//		++count;
+//	}
+//	for (int k = 0; k < n; k++)
+//	{
+//		++count;
+//	}
+//	printf("%d\n", count);
+//}
+//void func4(int n)//O(1)
+//{
+//	int count = 0;
+//	for (int k = 0; k < 100; k++)
+//	{
+//		++count;
+//	}
+//	printf("%d\n", count);
+//}
+//const char* strchr(const char* str, int character);//O(n)
+//const char* MyStrchr(const char* str, int ch)
+//{
+//	assert(str);
+//	while (*str)
+//	{
+//		if (*str == ch)
+//			return str;
+//		str++;
+//	}
+//	return nullptr;
+//}
+//void bubblesort(int* p, int n)//O((n - 1) * n / 2)--->O(n^2)	O(1)
+//{
+//	assert(p);
+//	bool flag = false;
+//	for (int i = 0; i < n - 1; i++)
+//	{
+//		flag = false;
+//		for (int j = 0; j < n - 1 - i; j++)
+//		{
+//			if (p[j] < p[j + 1])
+//			{
+//				int t = p[j];
+//				p[j] = p[j + 1];
+//				p[j + 1] = t;
+//				flag = true;
+//			}
+//		}
+//		if (!flag)
+//			break;
+//	}
+//}
+//int binarysearch(int* p, int n, int k)//O(logn)	O(1)
+//{
+//	assert(p);
+//	int l = 0;
+//	int r = n - 1;
+//	int mid = 0;
+//	while (l <= r)
+//	{
+//		mid = (l & r) + ((l ^ r) >> 1);
+//		if (p[mid] == k)
+//			return mid;
+//		else if (p[mid] > k)
+//			r = mid - 1;
+//		else
+//			l = mid + 1;
+//	}
+//	return -1;
+//}
+//long long fac(size_t n)//O(n)	O(n)
+//{
+//	if (n <= 1)
+//		return 1;
+//	else
+//		return fac(n - 1) * n;
+//}
+//long long fib(size_t n)//O(2^n)	O(n)
+//{
+//	if (n <= 1)
+//		return n;
+//	else
+//		return fib(n - 1) + fib(n - 2);
+//}
+//long long* fib(size_t n)//O(n)	O(n)
+//{
+//	long long* fibArr = (long long*)malloc((n + 1) * sizeof(long long));
+//	if (NULL == fibArr)
+//	{
+//		perror("fun fib fibArr malloc error");
+//		return NULL;
+//	}
+//	fibArr[0] = 0;
+//	if (n == 0)
+//		return fibArr;
+//	fibArr[1] = 1ll;
+//	for (size_t i = 2; i < n + 1; i++)
+//	{
+//		fibArr[i] = fibArr[i - 1] + fibArr[i - 2];
+//	}
+//	return fibArr;
+//}
+//int main()//时间是一去不复返的,要累计,空间是可以重复利用的,不累计
+//{
+//	//func1(10);
+//	//func2(100);
+//	//func3(10, 20);
+//	//func4(101110);
+//	//int arr[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+//	//bubblesort(arr, (int)(sizeof(arr) / sizeof(arr[0])));
+//	//std::cout << fac(10) << std::endl;
+//	//std::cout << fib(100) << std::endl;
+//	//long long r = fib(2)[2];
+//	//std::cout << r << std::endl;
+//	return 0;
+//}
+//#include "SeqList.h"//SeqList
+//void TestSeqList1()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 1);
+//	SeqListPushBack(&msl, 2);
+//	SeqListPushBack(&msl, 3);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 5);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//void TestSeqList2()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 1);
+//	SeqListPushBack(&msl, 12);
+//	SeqListPushBack(&msl, 13);
+//	SeqListPushBack(&msl, 14);
+//	SeqListPrint(&msl);
+//	SeqListPushFront(&msl, 20);
+//	SeqListPushFront(&msl, 21);
+//	SeqListPushFront(&msl, 22);
+//	SeqListPushFront(&msl, 23);
+//	SeqListPushFront(&msl, 244);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//void TestSeqList3()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 12);
+//	SeqListPushBack(&msl, 21);
+//	SeqListPushBack(&msl, 31);
+//	SeqListPushBack(&msl, 51);
+//	SeqListPrint(&msl);
+//	SeqListInsert(&msl, 2, 2);
+//	SeqListPrint(&msl);
+//	SeqListInsert(&msl, 0, 11);
+//	SeqListPrint(&msl);
+//	SeqListInsert(&msl, msl._size, 333);
+//	SeqListPrint(&msl);
+//	int pos = SeqListFind(&msl, 21);
+//	if (-1 != pos)
+//	{
+//		SeqListInsert(&msl, pos, 2222);
+//	}
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//void TestSeqList4()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 12);
+//	SeqListPushBack(&msl, 13);
+//	SeqListPushBack(&msl, 14);
+//	SeqListPrint(&msl);
+//	SeqListPushFront(&msl, 5);
+//	SeqListPushFront(&msl, 12);
+//	SeqListPushFront(&msl, 13);
+//	SeqListPushFront(&msl, 14);
+//	SeqListPrint(&msl);
+//	SeqListErase(&msl, 1);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListBubbleSort(&msl);
+//	SeqListPrint(&msl);
+//	int pos = SeqListBinarySearch(&msl, 5);
+//	if (-1 != pos)
+//	{
+//		SeqListErase(&msl, pos);
+//	}
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//int main()
+//{
+//	//TestSeqList1();
+//	//TestSeqList2();
+//	//TestSeqList3();
+//	//TestSeqList4();
+//	return 0;
+//}
+//int main()
+//{
+//	int* p1 = (int*)malloc(10 * sizeof(int));
+//	int* p2 = (int*)realloc(p1, 50 * sizeof(int));
+//	return 0;
+//}
+//#include "SList.h"//SList
+//void TestSList1()
+//{
+//	SLTNode* phead;
+//	SListInit(&phead);
+//	SListPrint(phead);
+//	SListPushBack(&phead, 1);
+//	SListPrint(phead);
+//	SListPushBack(&phead, 2);
+//	SListPrint(phead);
+//	SListPushBack(&phead, 3);
+//	SListPrint(phead);
+//	SListPushFront(&phead, 1);
+//	SListPrint(phead);
+//	SListPushFront(&phead, 2);
+//	SListPrint(phead);
+//	SListPushFront(&phead, 3);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	SListDestroy(&phead);
+//	//std::cout << phead;
+//}
+//void TestSList2()
+//{
+//	SLTNode* phead;
+//	SListInit(&phead);
+//	SListPushFront(&phead, 1);
+//	SListPrint(phead);
+//	SListPushFront(&phead, 2);
+//	SListPrint(phead);
+//	SListPushFront(&phead, 3);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	SListDestroy(&phead);
+//}
+//void TestSList3()
+//{
+//	SLTNode* phead;
+//	SListInit(&phead);
+//	SListPushFront(&phead, 1);
+//	SListPushFront(&phead, 2);
+//	SListPushFront(&phead, 3);
+//	SListPushFront(&phead, 2);
+//	SListPushFront(&phead, 4);
+//	SListPushFront(&phead, 2);
+//	SListPushFront(&phead, 2);
+//	SListPushFront(&phead, 4);
+//	SListPushFront(&phead, 2);
+//	SListPrint(phead);
+//	SLTNode* pfind = SListFind(phead, 2);
+//	int c = 0;
+//	while (pfind)//多个重复元素进行查找
+//	{
+//		printf("第%d个2, %p--->%d\n", ++c, pfind, pfind->_data);
+//		pfind = SListFind(pfind->_next, 2);
+//	}
+//	pfind = SListFind(phead, 3);
+//	if (pfind)
+//	{
+//		pfind->_data = 30;
+//	}
+//	SListPrint(phead);
+//	SListDestroy(&phead);
+//}
+//void TestSList4()
+//{
+//	SLTNode* phead;
+//	SListInit(&phead);
+//	SListPushFront(&phead, 1);
+//	SListPushFront(&phead, 2);
+//	SListPushFront(&phead, 3);
+//	SListPushFront(&phead, 4);
+//	SListPrint(phead);
+//	SLTNode* pfind = SListFind(phead, 3);
+//	if (pfind)
+//	{
+//		SListInsert(&phead, pfind, 30);
+//	}
+//	SListPrint(phead);
+//	pfind = SListFind(phead, 4);
+//	if (pfind)
+//	{
+//		SListInsert(&phead, pfind, 40);
+//	}
+//	SListPrint(phead);
+//	SListDestroy(&phead);
+//}
+//void Test()
+//{
+//	//TestSList1();
+//	//TestSList2();
+//	//TestSList3();
+//	//TestSList4();
+//}
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+//#include "List.h"//List
+//void TestList1()
+//{
+//	//LTNode* phead = ListInit();
+//	LTNode* phead;
+//	ListInit(&phead);
+//	ListPushBack(phead, 1);
+//	ListPushBack(phead, 2);
+//	ListPushBack(phead, 3);
+//	ListPushBack(phead, 4);
+//	ListPrintO(phead);
+//	ListPrintR(phead);
+//	ListDestroy(&phead);
+//}
+//void TestList2()
+//{
+//	LTNode* phead;
+//	ListInit(&phead);
+//	//ListPushFront(phead, 1);
+//	//ListPushFront(phead, 2);
+//	//ListPushFront(phead, 3);
+//	//ListPushFront(phead, 4);
+//	ListPushBack(phead, 1);
+//	ListPushBack(phead, 2);
+//	ListPushBack(phead, 3);
+//	ListPushBack(phead, 4);
+//	ListPrintO(phead);
+//	//ListPrintR(phead);
+//	//ListPopBack(phead);
+//	//ListPrintO(phead);
+//	//ListPopBack(phead);
+//	//ListPrintO(phead);
+//	//ListPopBack(phead);
+//	//ListPrintO(phead);
+//	//ListPopBack(phead);
+//	//ListPrintO(phead);
+//	//ListPopBack(phead);
+//	//ListPrintO(phead);
+//
+//	ListPopFront(phead);
+//	ListPrintO(phead);
+//	ListPopFront(phead);
+//	ListPrintO(phead);
+//	ListPopFront(phead);
+//	ListPrintO(phead);
+//	ListPopFront(phead);
+//	ListPrintO(phead);
+//	ListPopFront(phead);
+//	ListPrintO(phead);
+//
+//	ListDestroy(&phead);
+//}
+//int main()
+//{
+//	//TestList1();
+//	TestList2();
+//	return 0;
+//}
+//#include "Stack.h"//Stack
+//void TestStack1()
+//{
+//	ST st;
+//	StackInit(&st);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 1);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 2);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 3);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 4);
+//	while (!StackEmpty(&st))
+//	{
+//		printf("%d ", StackTop(&st));
+//		StackPop(&st);
+//	}
+//	printf("%d\n", StackSize(&st));
+//	StackDestroy(&st);
+//}
+//int main()
+//{
+//	TestStack1();
+//	return 0;
+//}
+//#include "Queue.h"//Queuee
+//void TestQueue1()
+//{
+//	Queue que;
+//	QueueInit(&que);
+//	printf("%d\n", QueueSize(&que));
+//	QueuePush(&que, 1);
+//	printf("%d\n", QueueSize(&que));
+//	QueuePush(&que, 2);
+//	printf("%d ", QueueFront(&que));
+//	QueuePop(&que);
+//	QueuePush(&que, 3);
+//	QueuePush(&que, 4);
+//	printf("%d\n", QueueSize(&que));
+//	while (!QueueEmpty(&que))
+//	{
+//		printf("%d ", QueueFront(&que));
+//		QueuePop(&que);
+//	}
+//	QueueDestroy(&que);
+//}
+//int main()
+//{
+//	TestQueue1();
+//	return 0;
+//}
+#endif
+//#include "common.h"//cpp-code
+#if 0
+int main()
+{
+	return 0;
+}
+#endif
+//OJ测试调试
+#if 0
+//class Node {
+//public:
+//	int val;
+//	Node* next;
+//	Node* random;
+//	Node(int _val) {
+//		val = _val;
+//		next = NULL;
+//		random = NULL;
+//	}
+//};
+//Node* copyRandomList(Node* head) {
+//	if (!head)  return head;
+//	auto headCpy = head;
+//	while (headCpy) {
+//		auto newNode = new Node(headCpy->val);
+//		auto next = headCpy->next;
+//		newNode->next = next;
+//		headCpy->next = newNode;
+//		headCpy = next;
+//	}
+//	headCpy = head;
+//	Node* copyHead = head->next;
+//	while (headCpy) {
+//		if (headCpy->random)
+//			copyHead->random = headCpy->random->next;
+//		else
+//			copyHead->random = nullptr;
+//		headCpy = copyHead->next;
+//		if (headCpy)
+//			copyHead = headCpy->next;
+//	}
+//	copyHead = head->next;
+//	auto copy = copyHead;
+//	headCpy = head;
+//	while (headCpy) {
+//		auto nexth = copy->next;
+//		headCpy = headCpy->next = nexth;
+//		if (headCpy) {
+//			auto nextc = headCpy->next;
+//			copy = copy->next = nextc;
+//		}
+//	}
+//	return copyHead;
+//}
+//int main()
+//{
+//	Node* n1 = new Node(1);
+//	Node* n2 = new Node(2);
+//	Node* n3 = new Node(3);
+//	Node* n4 = new Node(4);
+//	Node* n5 = new Node(5);
+//	Node* n6 = new Node(6);
+//	Node* n7 = new Node(7);
+//	n1->next = n2;
+//	n2->next = n3;
+//	n3->next = n4;
+//	n4->next = n5;
+//	n5->next = n6;
+//	n6->next = n7;
+//	n7->next = nullptr;
+//	n1->random = n4;
+//	n2->random = n5;
+//	n3->random = n1;
+//	n4->random = nullptr;
+//	n5->random = n5;
+//	n6->random = n3;
+//	n7->random = n6;
+//	Node* ret = copyRandomList(n1);
+//	return 0;
+//}
+#endif
 #include "common.h"//c-code
 #if 0
 //int Add(int x, int y)
@@ -5733,631 +6358,378 @@ int Sub(int x, int y)
 //	//printf("%c--->%d\n", '\x30', '\x30');//0---48
 //	//cout << strlen("abc") << endl;//3
 //	//cout << strlen("c:\test\328\test.c") << endl;//14
-//
 //	return 0;
 //}
-#endif
-//#include "common.h"//ds-code
-#if 0
-//void func1(int n)//O(n^n)
+//int Add(int x, int y)
 //{
-//	int count = 0;
-//	for (int i = 0; i < n; i++)
-//	{
-//		for (int j = 0; j < n; j++)
-//		{
-//			++count;
-//		}
-//	}
-//	for (int k = 0; k < 2 * n; k++)
-//	{
-//		++count;
-//	}
-//	int m = 10;
-//	while (m--)
-//	{
-//		++count;
-//	}
-//	printf("%d\n", count);
-//}
-//void func2(int n)//O(n)
-//{
-//	int count = 0;
-//	for (int k = 0; k < 2 * n; k++)
-//	{
-//		++count;
-//	}
-//	int m = 10;
-//	while(m--)
-//	{
-//		++count;
-//	}
-//	printf("%d\n", count);
-//}
-//void func3(int n, int m)//未知m与n的关系:O(m + n)
-//{						//m和n差不多:O(m)或者O(n)
-//						//m远大于n:O(m)
-//						//n远大于m:O(n)
-//	int count = 0;
-//	for (int k = 0; k < m; k++)
-//	{
-//		++count;
-//	}
-//	for (int k = 0; k < n; k++)
-//	{
-//		++count;
-//	}
-//	printf("%d\n", count);
-//}
-//void func4(int n)//O(1)
-//{
-//	int count = 0;
-//	for (int k = 0; k < 100; k++)
-//	{
-//		++count;
-//	}
-//	printf("%d\n", count);
-//}
-//const char* strchr(const char* str, int character);//O(n)
-//const char* MyStrchr(const char* str, int ch)
-//{
-//	assert(str);
-//	while (*str)
-//	{
-//		if (*str == ch)
-//			return str;
-//		str++;
-//	}
-//	return nullptr;
-//}
-//void bubblesort(int* p, int n)//O((n - 1) * n / 2)--->O(n^2)	O(1)
-//{
-//	assert(p);
-//	bool flag = false;
-//	for (int i = 0; i < n - 1; i++)
-//	{
-//		flag = false;
-//		for (int j = 0; j < n - 1 - i; j++)
-//		{
-//			if (p[j] < p[j + 1])
-//			{
-//				int t = p[j];
-//				p[j] = p[j + 1];
-//				p[j + 1] = t;
-//				flag = true;
-//			}
-//		}
-//		if (!flag)
-//			break;
-//	}
-//}
-//int binarysearch(int* p, int n, int k)//O(logn)	O(1)
-//{
-//	assert(p);
-//	int l = 0;
-//	int r = n - 1;
-//	int mid = 0;
-//	while (l <= r)
-//	{
-//		mid = (l & r) + ((l ^ r) >> 1);
-//		if (p[mid] == k)
-//			return mid;
-//		else if (p[mid] > k)
-//			r = mid - 1;
-//		else
-//			l = mid + 1;
-//	}
-//	return -1;
-//}
-//long long fac(size_t n)//O(n)	O(n)
-//{
-//	if (n <= 1)
-//		return 1;
-//	else
-//		return fac(n - 1) * n;
-//}
-//long long fib(size_t n)//O(2^n)	O(n)
-//{
-//	if (n <= 1)
-//		return n;
-//	else
-//		return fib(n - 1) + fib(n - 2);
-//}
-//long long* fib(size_t n)//O(n)	O(n)
-//{
-//	long long* fibArr = (long long*)malloc((n + 1) * sizeof(long long));
-//	if (NULL == fibArr)
-//	{
-//		perror("fun fib fibArr malloc error");
-//		return NULL;
-//	}
-//	fibArr[0] = 0;
-//	if (n == 0)
-//		return fibArr;
-//	fibArr[1] = 1ll;
-//	for (size_t i = 2; i < n + 1; i++)
-//	{
-//		fibArr[i] = fibArr[i - 1] + fibArr[i - 2];
-//	}
-//	return fibArr;
-//}
-//int main()//时间是一去不复返的,要累计,空间是可以重复利用的,不累计
-//{
-//	//func1(10);
-//	//func2(100);
-//	//func3(10, 20);
-//	//func4(101110);
-//	//int arr[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
-//	//bubblesort(arr, (int)(sizeof(arr) / sizeof(arr[0])));
-//	//std::cout << fac(10) << std::endl;
-//	//std::cout << fib(100) << std::endl;
-//	//long long r = fib(2)[2];
-//	//std::cout << r << std::endl;
-//	return 0;
-//}
-//#include "SeqList.h"//SeqList
-//void TestSeqList1()
-//{
-//	SL msl;
-//	SeqListInit(&msl);
-//	SeqListPushBack(&msl, 1);
-//	SeqListPushBack(&msl, 2);
-//	SeqListPushBack(&msl, 3);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 5);
-//	SeqListPrint(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPrint(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPrint(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPrint(&msl);
-//	SeqListDestroy(&msl);
-//}
-//void TestSeqList2()
-//{
-//	SL msl;
-//	SeqListInit(&msl);
-//	SeqListPushBack(&msl, 1);
-//	SeqListPushBack(&msl, 12);
-//	SeqListPushBack(&msl, 13);
-//	SeqListPushBack(&msl, 14);
-//	SeqListPrint(&msl);
-//	SeqListPushFront(&msl, 20);
-//	SeqListPushFront(&msl, 21);
-//	SeqListPushFront(&msl, 22);
-//	SeqListPushFront(&msl, 23);
-//	SeqListPushFront(&msl, 244);
-//	SeqListPrint(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPrint(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPrint(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPrint(&msl);
-//	SeqListDestroy(&msl);
-//}
-//void TestSeqList3()
-//{
-//	SL msl;
-//	SeqListInit(&msl);
-//	SeqListPushBack(&msl, 12);
-//	SeqListPushBack(&msl, 21);
-//	SeqListPushBack(&msl, 31);
-//	SeqListPushBack(&msl, 51);
-//	SeqListPrint(&msl);
-//	SeqListInsert(&msl, 2, 2);
-//	SeqListPrint(&msl);
-//	SeqListInsert(&msl, 0, 11);
-//	SeqListPrint(&msl);
-//	SeqListInsert(&msl, msl._size, 333);
-//	SeqListPrint(&msl);
-//	int pos = SeqListFind(&msl, 21);
-//	if (-1 != pos)
-//	{
-//		SeqListInsert(&msl, pos, 2222);
-//	}
-//	SeqListPrint(&msl);
-//	SeqListDestroy(&msl);
-//}
-//void TestSeqList4()
-//{
-//	SL msl;
-//	SeqListInit(&msl);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 12);
-//	SeqListPushBack(&msl, 13);
-//	SeqListPushBack(&msl, 14);
-//	SeqListPrint(&msl);
-//	SeqListPushFront(&msl, 5);
-//	SeqListPushFront(&msl, 12);
-//	SeqListPushFront(&msl, 13);
-//	SeqListPushFront(&msl, 14);
-//	SeqListPrint(&msl);
-//	SeqListErase(&msl, 1);
-//	SeqListPrint(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPrint(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPrint(&msl);
-//	SeqListBubbleSort(&msl);
-//	SeqListPrint(&msl);
-//	int pos = SeqListBinarySearch(&msl, 5);
-//	if (-1 != pos)
-//	{
-//		SeqListErase(&msl, pos);
-//	}
-//	SeqListPrint(&msl);
-//	SeqListDestroy(&msl);
+//	int z = x + y;
+//	return z;
 //}
 //int main()
 //{
-//	//TestSeqList1();
-//	//TestSeqList2();
-//	//TestSeqList3();
-//	//TestSeqList4();
+//	//int coding = 0;//选择语句
+//	//printf("你会好好学习吗?(选择1 or 0):>");
+//	//scanf("%d", &coding);
+//	//if (coding == 1)
+//	//{
+//	//	printf("坚持,你会有好offer.\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("卖红薯.\n");
+//	//}
+//	//int input = 0;
+//	//printf("学习CS:>\n");
+//	//printf("好好写代码?(1/0):>");
+//	//scanf("%d", &input);
+//	//if (1 == input)
+//	//{
+//	//	printf("好offer.\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("卖红薯.\n");
+//	//}
+//	//循环语句	for while do...while
+//	//int line = 0;
+//	//printf("学习CS:>");
+//	//while (line < 100000)
+//	//{
+//	//	printf("第%d行代码\n", line);
+//	//	line++;
+//	//}
+//	//if (line == 100000)
+//	//{
+//	//	printf("前途无量.\n");
+//	//}
+//	//int line = 0;
+//	//while (line < 100000)
+//	//{
+//	//	printf("写代码:%d行\n", line);
+//	//	line++;
+//	//}
+//	//if (100000 == line)
+//	//{
+//	//	printf("好offer.\n");
+//	//}
+//	//函数-->特点就是简化代码,代码复用
+//	//int num1 = 0;
+//	//int num2 = 0;
+//	//int sum = 0;
+//	//printf("输入两个操作数:>");
+//	//scanf("%d%d", &num1, & num2);
+//	//sum = num1 + num2;
+//	//cout << sum << endl;
+//	//extern int Add(int, int);
+//	//int num1 = 0;
+//	//int num2 = 0;
+//	//int sum = 0;
+//	//printf("请输入两个操作数:>");
+//	//scanf("%d%d", &num1, &num2);
+//	//sum = Add(num1, num2);
+//	//printf("sum = %d\n", sum);
+//	//int num1 = 0;
+//	//int num2 = 0;
+//	//int sum = 0;
+//	//printf("请输入两个操作数:>");
+//	//scanf("%d%d", &num1, &num2);
+//	////sum = num1 + num2;
+//	//sum = Add(num1, num2);//函数的方式解决
+//	//cout << sum << endl;
+//	//数组--->一组相同数据类型元素的集合
+//	//int arr1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };//定义一个整形数组,最多放10个元素
+//	//int arr2[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int i = 0;
+//	//for (i = 0; i < 10; i++)
+//	//{
+//	//	printf("%d ", arr2[i]);
+//	//}
+//	//printf("\n");
+//	//int a = 1;
+//	//int b = 2;
+//	//int c = 3;
+//	//int d = 4;
+//	//...
+//	//数组是一组相同数据类型的元素的集合
+//	//10个整形1~10存储起来,数组使用下标来访问,从下标0开始
+//	//int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int i = 0;
+//	//while (i < 10)
+//	//{
+//	//	printf("%d ", arr[i++]);
+//	//}
+//	//printf("\n");
+//	//char ch[5] = { 'a', 'b', 'c' };//不完全初始化,剩余部分默认初始化为0
+//	//操作符		算术操作符+ - * /
+//	//int a = 0;
+//	//a = 9 / 2;
+//	//printf("a = %d\n", a);//4
+//	//float f = 0.0f;
+//	//f = 9 / 2;
+//	//printf("f = %.2f\n", f);//4.00
+//	//cout << f << endl;//4
+//	//double d = 0.0;
+//	//d = 9 / 2.0;
+//	//printf("d = %lf\n", d);//4.500000
+//	//a = 9 % 2;//% -> 取余(取模)
+//	//printf("a = %d\n", a);//1
+//	//移位操作符: >> <<
+//	//int a = 2;
+//	//int b = a << 1;//左移操作符移动的是二进制位
+//	//cout << b << endl;//4
+//	//cout << a << endl;//2
+//	//int c = b >> 2;//右移操作符移动的是二进制位
+//	//cout << c << " " << b << endl;//1 4
+//	//位操作符:&按位与 |按位或	^按位异或
+//	//cout << (3 & 5) << endl;//1
+//	//cout << (3 | 5) << endl;//7
+//	//cout << (3 ^ 5) << endl;//6
+////赋值操作符: =  += -= /= %= >>= <<= &= |= ^=
+//	//int a = 2;
+//	//a = a + 5;
+//	//cout << a << endl;//7
+//	//a = 6;
+//	//cout << a << endl;//6
+//	//a += 5;
+//	//cout << a << endl;//11
+//	//a = a - 3;
+//	//cout << a << endl;//8
+//	//a -= 3;
+//	//cout << a << endl;//5
+//	//a = a % 3;
+//	//cout << a << endl;//2
+//	//a %= 3;
+//	//cout << a << endl;//2
 //	return 0;
 //}
 //int main()
 //{
-//	int* p1 = (int*)malloc(10 * sizeof(int));
-//	int* p2 = (int*)realloc(p1, 50 * sizeof(int));
+//	//cout << sizeof(char*) << endl;
+//	//cout << sizeof(short*) << endl;
+//	//cout << sizeof(int*) << endl;
+//	//cout << sizeof(long*) << endl;
+//	//cout << sizeof(long long*) << endl;
+//	//cout << sizeof(float*) << endl;
+//	//cout << sizeof(double*) << endl;
+//	//cout << sizeof(long double*) << endl;
+//	//内存是电脑上特别重要的存储器,计算机中所有程序的运行都在内存中进行的,所以为了有效的使用内存,就把内存划分为一个一个的小的内存单元,每个内存单元大小都是一个字节，为了能够有效的访问到内存的每个单元,就给内存单元进行了编号,这些编号被称为内存单元的地址
+//	//int a = 10;
+//	//printf("0X%p\n", &a);//%p专门用来打印地址的格式输出字符
+//	//int* pa = &a;//pa是用来存放地址的,C语言中pa叫指针变量
+//	////*说明pa是指针变量,前面的int说明pa指向的对象是int类型的
+//	//char ch = 'w';
+//	//char* pc = &ch;
+//	//printf("0X%p, 0X%p\n", pc, &ch);
+//	//int* p = NULL;
+//	//p = (int*)(&p);//ok,但不推荐这样写
+//	//int* pp = (int*)&pp;//ok,但是不推荐这样写
+//	//int b = 10;
+//	//int* pb = &b;
+//	//*pb = 20;//这里的*是解引用操作,*pb就是通过pb存的b的地址找到b
+//	//printf("%d\n", b);//20 指针就是地址
+//	//printf("%d\n", *pb);//20
+//	//struct Stu
+//	//{
+//	//	char _name[20];//名字
+//	//	int _age;//年龄
+//	//	char _sex[5];//性别
+//	//	char _id[15];//学号
+//	//};
+//	//struct Stu s = { "张三", 24, "男", "20202020" };
+//	//printf("name = %s, age = %d, sex = %s, id = %s\n", s._name, s._age, s._sex, s._id);
+//	//struct Stu* ps = &s;
+//	//printf("name = %s, age = %d, sex = %s, id = %s\n", (*ps)._name, (*ps)._age, (*ps)._sex, (*ps)._id);
+//	//printf("name = %s, age = %d, sex = %s, id = %s\n", ps->_name, ps->_age, ps->_sex, ps->_id);
+//	//#define是预处理指令		1.define定义的符号	2.define定义的宏函数
+//#define MAX 1000
+//	cout << MAX << endl;//1000
+//#undef MAX
+//	//cout << MAX << endl;//err
+//#define ADD(X, Y) ((X) + (Y))
+//	cout << 4 * ADD(2, 3) << endl;//20
+//#undef ADD
+//	//cout << 4 * ADD(2, 3) << endl;//err
 //	return 0;
-//}
-//#include "SList.h"//SList
-//void TestSList1()
-//{
-//	SLTNode* phead;
-//	SListInit(&phead);
-//	SListPrint(phead);
-//	SListPushBack(&phead, 1);
-//	SListPrint(phead);
-//	SListPushBack(&phead, 2);
-//	SListPrint(phead);
-//	SListPushBack(&phead, 3);
-//	SListPrint(phead);
-//	SListPushFront(&phead, 1);
-//	SListPrint(phead);
-//	SListPushFront(&phead, 2);
-//	SListPrint(phead);
-//	SListPushFront(&phead, 3);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	SListDestroy(&phead);
-//	//std::cout << phead;
-//}
-//void TestSList2()
-//{
-//	SLTNode* phead;
-//	SListInit(&phead);
-//	SListPushFront(&phead, 1);
-//	SListPrint(phead);
-//	SListPushFront(&phead, 2);
-//	SListPrint(phead);
-//	SListPushFront(&phead, 3);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	SListDestroy(&phead);
-//}
-//void TestSList3()
-//{
-//	SLTNode* phead;
-//	SListInit(&phead);
-//	SListPushFront(&phead, 1);
-//	SListPushFront(&phead, 2);
-//	SListPushFront(&phead, 3);
-//	SListPushFront(&phead, 2);
-//	SListPushFront(&phead, 4);
-//	SListPushFront(&phead, 2);
-//	SListPushFront(&phead, 2);
-//	SListPushFront(&phead, 4);
-//	SListPushFront(&phead, 2);
-//	SListPrint(phead);
-//	SLTNode* pfind = SListFind(phead, 2);
-//	int c = 0;
-//	while (pfind)//多个重复元素进行查找
-//	{
-//		printf("第%d个2, %p--->%d\n", ++c, pfind, pfind->_data);
-//		pfind = SListFind(pfind->_next, 2);
-//	}
-//	pfind = SListFind(phead, 3);
-//	if (pfind)
-//	{
-//		pfind->_data = 30;
-//	}
-//	SListPrint(phead);
-//	SListDestroy(&phead);
-//}
-//void TestSList4()
-//{
-//	SLTNode* phead;
-//	SListInit(&phead);
-//	SListPushFront(&phead, 1);
-//	SListPushFront(&phead, 2);
-//	SListPushFront(&phead, 3);
-//	SListPushFront(&phead, 4);
-//	SListPrint(phead);
-//	SLTNode* pfind = SListFind(phead, 3);
-//	if (pfind)
-//	{
-//		SListInsert(&phead, pfind, 30);
-//	}
-//	SListPrint(phead);
-//	pfind = SListFind(phead, 4);
-//	if (pfind)
-//	{
-//		SListInsert(&phead, pfind, 40);
-//	}
-//	SListPrint(phead);
-//	SListDestroy(&phead);
-//}
-//void Test()
-//{
-//	//TestSList1();
-//	//TestSList2();
-//	//TestSList3();
-//	//TestSList4();
 //}
 //int main()
 //{
-//	Test();
+//	//int num = 10;//变量都有地址
+//	////&num;取出num的地址
+//	//printf("%p\n", &num);//打印地址, %p---以地址的形式打印
+//	//int num = 10;
+//	//int* p = NULL;//p是一个指针变量
+//	//p = &num;
+//	//*p = 20;
+//	//printf("num = %d, *p = %d\n", num, *p);//20 20
+//	//char ch = 't';
+//	//char* pc = &ch;
+//	//*pc = 'q';
+//	//printf("%c\n", ch);//q
+//	//printf("%c\n", *pc);//q
+//	//cout << sizeof(char*) << endl;
+//	//cout << sizeof(short*) << endl;
+//	//cout << sizeof(int*) << endl;
+//	//cout << sizeof(long*) << endl;
+//	//cout << sizeof(long long*) << endl;
+//	//cout << sizeof(float*) << endl;
+//	//cout << sizeof(double*) << endl;
+//	//cout << sizeof(long double*) << endl;
+//	//结论:指针在32位平台所占空间大小是4字节,64位平台所占空间大小是8字节
+//	//1 + 2;//+有两个操作数,+是双目操作符
+//	//单目操作符:只有一个操作数的操作符
+//	//!--->逻辑取反	C语言中0表示假,非0表示真
+//	//int a = 10;
+//	//printf("%d\n", !a);//0
+//	//printf("%d\n", !!a);//1	逻辑归一操作
+//	//printf("%d\n", !!!a);//0
+//	//a = 0;
+//	//printf("%d\n", !a);//1
+//	//printf("%d\n", !!a);//0
+//	////!应用场景
+//	//if (a)
+//	//{
+//	//	//如果a为真,做事
+//	//}
+//	//if (!a)
+//	//{
+//	//	//如果a为假,做事
+//	//}
 //	return 0;
-//}
-//#include "List.h"//List
-//void TestList1()
-//{
-//	//LTNode* phead = ListInit();
-//	LTNode* phead;
-//	ListInit(&phead);
-//	ListPushBack(phead, 1);
-//	ListPushBack(phead, 2);
-//	ListPushBack(phead, 3);
-//	ListPushBack(phead, 4);
-//	ListPrintO(phead);
-//	ListPrintR(phead);
-//	ListDestroy(&phead);
-//}
-//void TestList2()
-//{
-//	LTNode* phead;
-//	ListInit(&phead);
-//	//ListPushFront(phead, 1);
-//	//ListPushFront(phead, 2);
-//	//ListPushFront(phead, 3);
-//	//ListPushFront(phead, 4);
-//	ListPushBack(phead, 1);
-//	ListPushBack(phead, 2);
-//	ListPushBack(phead, 3);
-//	ListPushBack(phead, 4);
-//	ListPrintO(phead);
-//	//ListPrintR(phead);
-//	//ListPopBack(phead);
-//	//ListPrintO(phead);
-//	//ListPopBack(phead);
-//	//ListPrintO(phead);
-//	//ListPopBack(phead);
-//	//ListPrintO(phead);
-//	//ListPopBack(phead);
-//	//ListPrintO(phead);
-//	//ListPopBack(phead);
-//	//ListPrintO(phead);
-//
-//	ListPopFront(phead);
-//	ListPrintO(phead);
-//	ListPopFront(phead);
-//	ListPrintO(phead);
-//	ListPopFront(phead);
-//	ListPrintO(phead);
-//	ListPopFront(phead);
-//	ListPrintO(phead);
-//	ListPopFront(phead);
-//	ListPrintO(phead);
-//
-//	ListDestroy(&phead);
 //}
 //int main()
 //{
-//	//TestList1();
-//	TestList2();
+//	//正值,负值操作符都是单目操作符,只有一个操作数
+//	//int a = -5;
+//	//cout << a << endl;
+//	//a = -a;
+//	//cout << a << endl;
+//	//a = +a;
+//	//cout << a << endl;
+//	//sizeof操作符/关键字,是单目操作符,计算类型/变量所占内存空间大小,单位是字节
+//	//int a = 10;
+//	//cout << sizeof(int) << endl;//4	sizeof(int)编译通过里面的参数是类型说明sizeof不是函数,因为函数传参不可能传类型
+//	//cout << sizeof(a) << endl;//4
+//	//cout << sizeof a << endl;//ok,4,sizeof a编译通过说明这不是函数,因为函数调用不能省略()[函数调用操作符]
+//	////cout << sizeof int << endl;//err
+//	//int arr[10] = { 0 };//10 * 4 = 40
+//	//printf("%d\n", sizeof(arr));//40,计算的是数组的总大小,单位是字节
+//	//printf("%d\n", sizeof(arr[0]));//4
+//	//int n = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//cout << "n = " << n << endl;//10
+//	//cout << sizeof(int[10]) << endl;//40
+//	//int a = 0;
+//	//printf("%d\n", ~a);//~按二进制位取反:把所有二进制位中的数字0变1,1变0
+//	////因为整数数据在内存中存储的是补码,一个整数的二进制表示有三种,原码,反码,补码,正整数原反补码相同,负整数要取反+1得到补码
+//	//int a = 10;
+//	//int b = ++a;//前置++,先++后使用
+//	//cout << a << " " << b << endl;//11 11
+//	//int a = 10;
+//	//int b = a++;//后置++,先使用后++
+//	//cout << a << " " << b << endl;//11 10
+//	//int a = 1;
+//	//int b = (++a) + (++a) + (++a);//不建议写这样的代码,这种代码写出来是浪费时间没有意义的
+//	//cout << b << endl;//12 但是不唯一,不同的编译器运行结果不同,这是错误的代码,一定不能这样写
+//	//typedef意思是类型定义--->不准确,应该是类型重命名
+//	//typedef unsigned int u_int;
+//	//u_int a = 100;
+//	//unsigned int num = 100;//num和a这两个变量类型是一样的
+//	//int a = 3.14;//warning:初始化从double到int可能丢失精度
+//	//int aa = (int)3.14;//(类型)--->强制类型转换操作符
+//	//printf("%d, %d\n", a, aa);//3 3
+//	//关系运算符 > < >= <= != ==
+//	//逻辑运算符&& || !
+//	//int a = 3;
+//	//int b = 5;
+//	//int c = a && b;
+//	//printf("c = %d\n", c);//1
+//	//if (a && b)
+//	//{
+//	//	printf("hhh\n");
+//	//}
+//	//int a = 3;
+//	//int b = 0;
+//	//int c = a && b;
+//	//cout << c << endl;//0
+//	//int a = 1;
+//	//int b = 0;
+//	//int c = a || b;
+//	//cout << c << endl;//1
+//	//条件操作符---三目操作符	exp1 ? exp2 : exp3;
+//	//int a = 0;
+//	//int b = 3;
+//	//int max = 0;
+//	//if (a > b)	max = a;
+//	//else max = b;
+//	//cout << max << endl;
+//	//max = (a > b) ? a : b;
+//	//cout << max << endl;
+//	//逗号操作符---双目操作符,逗号表达式--->逗号隔开的一串表达式,逗号表达式也称为顺序求值表达式,整个表达式的结果是最后一个表达式的结果
+//	//int a = (2, 4 + 5, 6);
+//	//cout << a << endl;//6
+//	//int a = 0;
+//	//int b = 3;
+//	//int c = 5;
+//	//int d = (a = b + 2, c = a - 4, b = c + 2);
+//	//cout << d << endl;//3
+//	//[]--->下标引用操作符
+//	//int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//cout << arr[5] << endl;//6
+//	//函数调用操作符
+//	//printf("heh\n");//调用函数的时候,函数名后面的()就是函数调用操作符
+//	//printf("%d\n", 100);//100
+//	//C语言提供的关键字 是C语言提供的而不能自己创造关键字,不能把C语言关键字用做变量名函数名
+//	//int char;//err
+//	//auto break case char const continue default do double else enum extern float for goto if int long register return short signed sizeof static struct switch typedef union unsigned void volatile while
+//	//auto自动的 每个非静态且非寄存器的局部变量都是auto修饰的
+//	//{
+//	//	//auto int a = 10;//这里的变量a是自动创建,自动销毁的变量,也称为自动变量,临时变量,局部变量,栈变量
+//	//	//这里的auto可以省略,auto在C++11中可以进行自动类型推导
+//	//}
+//	//extern是用来声明外部符号的,只能修饰全局变量全局函数
+//	//register寄存器关键字,只能修饰局部变量,编译器建议将register修饰的变量放在寄存器中
+//	//register int a = 10;
+//	//printf("%p\n", &a);//err:寄存器变量不存储在内存中,&寄存器变量地址打印出错
+//	//register int num = 100;//编译器建议将变量num存放在寄存器中
+//	//我们建议将大量频繁被使用的变量用register修饰,放在寄存器中提高效率
+//	//signed有符号的	unsigned int无符号的	static静态的	uion共用体	void空/无 volatile define不是关键字而是预处理指令	include也不是关键字而是预处理指令
 //	return 0;
 //}
-//#include "Stack.h"//Stack
-//void TestStack1()
+//void test1()
 //{
-//	ST st;
-//	StackInit(&st);
-//	printf("%d\n", StackSize(&st));
-//	StackPush(&st, 1);
-//	printf("%d\n", StackSize(&st));
-//	StackPush(&st, 2);
-//	printf("%d\n", StackSize(&st));
-//	StackPush(&st, 3);
-//	printf("%d\n", StackSize(&st));
-//	StackPush(&st, 4);
-//	while (!StackEmpty(&st))
-//	{
-//		printf("%d ", StackTop(&st));
-//		StackPop(&st);
-//	}
-//	printf("%d\n", StackSize(&st));
-//	StackDestroy(&st);
+//	int a = 1;//a是局部变量
+//	a++;
+//	printf("%d ", a);
 //}
+//void test2()
+//{
+//	static int a = 1;//static修饰局部变量初始化语句只执行一次
+//	a++;//static修饰局部变量改变了局部变量的生命周期(本质上改变了变量的存储类型)
+//	printf("%d ", a);
+//}
+//extern int g_val;//extern声明外部符号
+//extern int g_variable;
+//extern int Add(int x, int y);//函数声明
+//extern int Sub(int x, int y);
 //int main()
 //{
-//	TestStack1();
-//	return 0;
-//}
-//#include "Queue.h"//Queuee
-//void TestQueue1()
-//{
-//	Queue que;
-//	QueueInit(&que);
-//	printf("%d\n", QueueSize(&que));
-//	QueuePush(&que, 1);
-//	printf("%d\n", QueueSize(&que));
-//	QueuePush(&que, 2);
-//	printf("%d ", QueueFront(&que));
-//	QueuePop(&que);
-//	QueuePush(&que, 3);
-//	QueuePush(&que, 4);
-//	printf("%d\n", QueueSize(&que));
-//	while (!QueueEmpty(&que))
-//	{
-//		printf("%d ", QueueFront(&que));
-//		QueuePop(&que);
-//	}
-//	QueueDestroy(&que);
-//}
-//int main()
-//{
-//	TestQueue1();
-//	return 0;
-//}
-#endif
-//#include "common.h"//cpp-code
-#if 0
-int main()
-{
-	return 0;
-}
-#endif
-//OJ测试调试
-#if 0
-//class Node {
-//public:
-//	int val;
-//	Node* next;
-//	Node* random;
-//	Node(int _val) {
-//		val = _val;
-//		next = NULL;
-//		random = NULL;
-//	}
-//};
-//Node* copyRandomList(Node* head) {
-//	if (!head)  return head;
-//	auto headCpy = head;
-//	while (headCpy) {
-//		auto newNode = new Node(headCpy->val);
-//		auto next = headCpy->next;
-//		newNode->next = next;
-//		headCpy->next = newNode;
-//		headCpy = next;
-//	}
-//	headCpy = head;
-//	Node* copyHead = head->next;
-//	while (headCpy) {
-//		if (headCpy->random)
-//			copyHead->random = headCpy->random->next;
-//		else
-//			copyHead->random = nullptr;
-//		headCpy = copyHead->next;
-//		if (headCpy)
-//			copyHead = headCpy->next;
-//	}
-//	copyHead = head->next;
-//	auto copy = copyHead;
-//	headCpy = head;
-//	while (headCpy) {
-//		auto nexth = copy->next;
-//		headCpy = headCpy->next = nexth;
-//		if (headCpy) {
-//			auto nextc = headCpy->next;
-//			copy = copy->next = nextc;
-//		}
-//	}
-//	return copyHead;
-//}
-//int main()
-//{
-//	Node* n1 = new Node(1);
-//	Node* n2 = new Node(2);
-//	Node* n3 = new Node(3);
-//	Node* n4 = new Node(4);
-//	Node* n5 = new Node(5);
-//	Node* n6 = new Node(6);
-//	Node* n7 = new Node(7);
-//	n1->next = n2;
-//	n2->next = n3;
-//	n3->next = n4;
-//	n4->next = n5;
-//	n5->next = n6;
-//	n6->next = n7;
-//	n7->next = nullptr;
-//	n1->random = n4;
-//	n2->random = n5;
-//	n3->random = n1;
-//	n4->random = nullptr;
-//	n5->random = n5;
-//	n6->random = n3;
-//	n7->random = n6;
-//	Node* ret = copyRandomList(n1);
+//	//static静态的	1.static修饰局部变量	2.static修饰全局变量	3.static修饰函数
+//	//int i = 0;
+//	//while (i < 10)
+//	//{
+//	//	//test1();//10个2
+//	//	test2();//2 3 4 5 6 7 8 9 10 11
+//	//	i++;
+//	//}
+//	//printf("g_val = %d\n", g_val);//全局变量在整个工程中都可以使用
+//	//printf("g_variable = %d\n", g_variable);//err:因为add.c文件中g_variable全局变量被static修饰了,其全局作用域变为了所谓的文件作域(说法不准确)
+//	//static修饰全局变量使得这个全局变量只能在自己所在的源文件中使用,其他源文件不能使用
+//	//全局变量在其他源文件内部能够使用是因为全局变量具有外部链接属性,被static修饰以后就失去了外部链接属性,此时其他源文件就不能链接到这个静态的全局变量了
+//	//int a = 10;
+//	//int b = 20;
+//	//int sum = Add(a, b);//30
+//	//printf("sum = %d\n", sum);//30
+//	//printf("%d\n", Sub(a, b));//err:因为Sub函数被static修饰了,只能在他所在的源文件中使用,不能在其他源文件中使用
+//	//static修饰函数使得函数只能在自己所在的源文件内部使用,不能再其它源文件内部使用,本质上static修饰函数是失去了函数的外部链接属性(和static修饰全局变量类似)
 //	return 0;
 //}
 #endif
