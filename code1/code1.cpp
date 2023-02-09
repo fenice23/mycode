@@ -1,5 +1,4 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-
 //#include "common.h"//ds-code
 #if 0
 //void func1(int n)//O(n^n)
@@ -6730,6 +6729,608 @@ int Sub(int x, int y)
 //	//printf("sum = %d\n", sum);//30
 //	//printf("%d\n", Sub(a, b));//err:因为Sub函数被static修饰了,只能在他所在的源文件中使用,不能在其他源文件中使用
 //	//static修饰函数使得函数只能在自己所在的源文件内部使用,不能再其它源文件内部使用,本质上static修饰函数是失去了函数的外部链接属性(和static修饰全局变量类似)
+//	return 0;
+//}
+//void test()
+//{
+//	int b = 10;
+//}
+//int num = 10;
+//int Max(int x, int y)
+//{
+//	return x > y ? x : y;
+//}
+//int sum(int a)
+//{
+//	int c = 0;
+//	static int b = 3;
+//	c += 1;
+//	b += 2;
+//	return (a + b + c);
+//}
+//int main()
+//{
+//	//结构体关键字可以用来创建一个新的类型
+//	//struct Stu
+//	//{
+//	//	char _name[20];
+//	//	int _age;
+//	//	double _score;
+//	//};
+//	//struct Book
+//	//{
+//	//	char _name[20];
+//	//	float _price;
+//	//	char _id[30];
+//	//};
+//	//struct Stu s = { "张阿三", 20, 85.5 };
+//	//printf("1: %s %d %.2lf\n", s._name, s._age, s._score);
+//	//struct Stu* ps = &s;
+//	//printf("2: %s %d %.2lf\n", ps->_name, ps->_age, ps->_score);
+//	//printf("3: %s %d %.2lf\n", (*ps)._name, (*ps)._age, (*ps)._score);
+//	//int a = 10;
+//	//int num = 1;
+//	//cout << a << endl;
+//	//printf("num = %d\n", num);
+//	//int a = 0;
+//	//int b = 0;
+//	//scanf("%d%d", &a, &b);
+//	//int max = Max(a, b);
+//	//cout << max << endl;
+//	//字符串结束标志是'\0'
+//	//char arr[] = { 't', 'z', 'h' };
+//	//printf("%d\n", strlen(arr));//3+
+//	//int n = 10;
+//	//int arr[n] = { 0 };//err
+//	//cout << strlen("c:\test\121") << endl;
+//	//int i = 0;
+//	//int a = 2;
+//	//for (i = 0; i < 5; i++)
+//	//{
+//	//	printf("%d ", sum(a));
+//	//}
+//	//printf("     **\n     **\n************\n************\n    *  *\n    *  *");
+//	//int M = 0;
+//	//scanf("%d", &M);
+//	//if (M % 5 == 0)	cout << "YES" << endl;
+//	//else cout << "NO" << endl;
+//	//printf("hh\n");
+//	//3 + 2;
+//	//;//空语句
+//	//int age = 0;
+//	//scanf("%d", &age);
+//	//if (age < 18)
+//	//{
+//	//	printf("未成年人\n");
+//	//}
+//	//int age = 0;
+//	//scanf("%d", &age);
+//	//if (age < 18)
+//	//{
+//	//	printf("未成年人\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("成年人\n");
+//	//}
+//	//int age = 0;
+//	//scanf("%d", &age);
+//	//if (age < 18)
+//	//{
+//	//	printf("少年\n");
+//	//}
+//	//else if (age >= 18 && age < 30)
+//	//{
+//	//	printf("青年\n");
+//	//}
+//	//else if (age >= 30 && age < 50)
+//	//{
+//	//	printf("壮年\n");
+//	//}
+//	//else if (age >= 50 && age < 80)
+//	//{
+//	//	printf("老年\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("寿星\n");
+//	//}
+//	//int a = 0;
+//	//int b = 2;
+//	//if (a == 1)
+//	//	if (b == 2)
+//	//		printf("hehe\n");
+//	//else
+//	//	printf("haha\n");
+//	//int a = 0;
+//	//int b = 2;
+//	//if (a == 1)
+//	//{
+//	//	if (a == 2)
+//	//	{
+//	//		printf("hehe\n");
+//	//	}
+//	//}
+//	//else
+//	//{
+//	//	printf("haha\n");
+//	//}
+//	//if (condition)
+//	//{
+//	//	return x;
+//	//}
+//	//return y;
+//	//if (condition)
+//	//{
+//	//	return x;
+//	//}
+//	//else
+//	//{
+//	//	return y;
+//	//}
+//	//int num = 1;
+//	//if (num == 5)
+//	//{
+//	//	printf("hh\n");
+//	//}
+//	//int num = 1;
+//	//if (5 == num)
+//	//{
+//	//	printf("hh\n");
+//	//}
+//	return 0;
+//}
+//int main()
+//{
+//	//int num = 0;
+//	//scanf("%d", &num);
+//	//if (num & 0x01)
+//	//{
+//	//	printf("YES\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("NO\n");
+//	//}
+//	//int i = 0;
+//	//for (i = 1; i < 101; i++)
+//	//{
+//	//	if (i & 0x01)
+//	//	{
+//	//		printf("%d is Odd num\n", i);
+//	//	}
+//	//}
+//	//int age = 20;
+//	//if (age >= 18)
+//	//{
+//	//	printf("成年人\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("未成年人\n");
+//	//	printf("不准谈恋爱\n");
+//	//}
+//	//int num = -1;
+//	//if (num % 2 == 1)//这种判断奇数的方法不对
+//	//{
+//	//	printf("奇数\n");
+//	//}
+//	//if (num % 2)
+//	//{
+//	//	printf("奇数\n");
+//	//}
+//	//if (num & 0x01)
+//	//{
+//	//	printf("奇数\n");
+//	//}
+//	//switch (整形表达式)
+//	//{
+//	//	语句项;语句项就是一些case语句:
+//	//case 整形常量表达式;
+//	//	语句;
+//	//	break;
+//	//}
+//	//int day = 0;
+//	//scanf("%d", &day);
+//	//switch (day)
+//	//{
+//	//case 1:
+//	//	printf("星期1\n");
+//	//	break;
+//	//case 2:
+//	//	printf("星期2\n");
+//	//	break;
+//	//case 3:
+//	//	printf("星期3\n");
+//	//	break;
+//	//case 4:
+//	//	printf("星期4\n");
+//	//	break;
+//	//case 5:
+//	//	printf("星期5\n");
+//	//	break;
+//	//case 6:
+//	//	printf("星期6\n");
+//	//	break;
+//	//case 7:
+//	//	printf("星期7\n");
+//	//	break;
+//	//default:
+//	//	printf("数据有误\n");
+//	//	break;
+//	//}
+//	//int day = 0;
+//	//scanf("%d", &day);
+//	//switch (day)
+//	//{
+//	//case 1:
+//	//case 2:
+//	//case 3:
+//	//case 4:
+//	//case 5:
+//	//	printf("weekday\n");
+//	//	break;
+//	//case 6:
+//	//case 7:
+//	//	printf("weekend\n");
+//	//	break;
+//	//default:
+//	//	printf("数据有误\n");
+//	//	break;
+//	//}
+//	//int n = 1;
+//	//int m = 2;
+//	//switch (n)
+//	//{
+//	//case 1:
+//	//	m++;
+//	//case 2:
+//	//	n++;
+//	//case 3:
+//	//	switch (n)
+//	//	{
+//	//	case 1:
+//	//		n++;
+//	//	case 2:
+//	//		m++;
+//	//		n++;
+//	//		break;
+//	//	}
+//	//case 4:
+//	//	m++;
+//	//	break;
+//	//default:
+//	//	break;
+//	//}
+//	//cout << n << " " << m << endl;
+//	return 0;
+//}
+//int main()
+//{
+//	//int i = 1;
+//	//while (i <= 10)
+//	//{
+//	//	cout << i << " ";
+//	//	i++;
+//	//}
+//	//int i = 1;
+//	//while (i <= 10)
+//	//{
+//	//	if (i == 5)
+//	//		break;
+//	//	cout << i << " ";
+//	//	i++;
+//	//}
+//	//cout << i << endl;
+//	//int i = 1;
+//	//while (i <= 10)
+//	//{
+//	//	if (5 == i)	continue;
+//	//	printf("%d ", i);
+//	//	i++;
+//	//}
+//	//int i = 1;
+//	//while (i <= 10)
+//	//{
+//	//	i++;
+//	//	if (5 == i)	continue;
+//	//	printf("%d ", i);
+//	//}
+//	//int ch = 0;
+//	//while (~(ch = getchar()))//while ((ch = getchar()) != EOF)
+//	//{//#define EOF (-1)
+//	//	putchar(ch);
+//	//}
+//	//signed char ch = 0;
+//	//while (~(ch = getchar()))
+//	//{
+//	//	if (ch > '9' || ch < '0')
+//	//		continue;
+//	//	putchar(ch);
+//	//}
+//	//int ch = 0;
+//	//while (~(ch = getchar()))
+//	//{
+//	//	putchar(ch);
+//	//}
+//	//int ch = 0;
+//	//while (~(ch = getchar()))
+//	//{
+//	//	putchar(ch);
+//	//}
+//	//char passwd[20] = "";
+//	//int ch = 0;
+//	//printf("请输入密码:>");
+//	//scanf("%s", passwd);
+//	//while ((ch = getchar()) != '\n')
+//	//{
+//	//	;
+//	//}
+//	//printf("请确认密码(Y/N):>");
+//	//ch = getchar();//getchar函数的返回类型不是char而是int,因为getchar接受的是char类型
+//	//if ('Y' == ch)
+//	//{
+//	//	printf("确认成功!\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("确认失败!\n");
+//	//}
+//	//int ch = 0;
+//	//while (~(ch = getchar()))
+//	//{
+//	//	if (ch > '9' || ch < '0')
+//	//		continue;
+//	//	putchar(ch);
+//	//}
+//	//int i = 1;
+//	//while (i <= 10)
+//	//{
+//	//	printf("%d ", i);
+//	//	i++;
+//	//}
+//	//for (int i = 0; i <= 10; i++)
+//	//{
+//	//	printf("%d ", i);
+//	//}
+//	//int i = 0;
+//	//for (i = 1; i <= 10; i++)
+//	//{
+//	//	if (5 == i)	break;
+//	//	printf("%d ", i);
+//	//}
+//	//printf("%d ", i);
+//	//for (int i = 1; i <= 10; i++)
+//	//{
+//	//	if (5 == i)	continue;
+//	//	printf("%d ", i);
+//	//}
+//	//int i = 0;
+//	//for (i = 0; i <= 9; i++) {}
+//	//for (i = 0; i < 10; i++) {}
+//	return 0;
+//}
+//int main()
+//{
+//	//for (;;)//for (;;)等价于while (1)
+//	//{
+//	//	printf("hehe\n");
+//	//}
+//	//int x = 0;
+//	//int y = 0;
+//	//for (x = 0, y = 0; x < 2 && y < 5; ++x, y++)
+//	//{
+//	//	printf("heh\n");
+//	//}
+//	//int i = 0;
+//	//int k = 0;
+//	//for (i = 0, k = 0; k = 0; i++, k++)
+//	//{
+//	//	k++;
+//	//}
+//	//cout << i << " " << k << endl;
+//	//for (int i = 1; i <= 10; i++)
+//	//{
+//	//	printf("%d ", i);
+//	//	i = 5;
+//	//}
+//	//printf("\n");
+//	//for (int i = 0; i < 3; i++)
+//	//{
+//	//	for (int j = 0; j < 3; j++)
+//	//	{
+//	//		printf("hehe ");
+//	//	}
+//	//	printf("\n");
+//	//}
+//	//int i = 1;
+//	//do
+//	//{
+//	//	printf("%d ", i);
+//	//	i++;
+//	//} while (i <= 10);
+//	//cout << i << endl;
+//	//int i = 1;
+//	//do
+//	//{
+//	//	if (5 == i)	break;
+//	//	printf("%d ", i);
+//	//	i++;
+//	//} while (i <= 10);
+//	//cout << i << endl;
+//	//int i = 1;
+//	//do
+//	//{
+//	//	if (5 == i)	continue;
+//	//	printf("%d ", i);
+//	//	i++;
+//	//} while (i <= 10);
+//	int Factorial(int);
+//	int n = 0;
+//	scanf("%d", &n);
+//	int fact = Factorial(n);
+//	cout << fact << endl;
+//	return 0;
+//}
+//int Factorial(int n)
+//{
+//	int res = 1;
+//	for (int i = 1; i <= n; i++)
+//		res *= i;
+//	return res;
+//}
+//int Factorial1(int n)
+//{
+//	return n <= 1 ? 1 : Factorial1(n - 1) * n;
+//}
+//int main()
+//{
+//	//int n = 0;
+//	//int s = 0;
+//	//int f = 1;
+//	//scanf("%d", &n);
+//	//for (int i = 1; i <= n; i++)
+//	//{
+//	//	f = 1;
+//	//	for (int j = 1; j <= i; j++)
+//	//	{
+//	//		f *= j;
+//	//	}
+//	//	s += f;
+//	//}
+//	//cout << s << endl;
+//	//int s = 0;
+//	//int f = 1;
+//	//int n = 0;
+//	//std::cin >> n;
+//	//for (int i = 1; i <= n; i++)
+//	//{
+//	//	f *= i;
+//	//	s += f;
+//	//}
+//	//cout << s << endl;
+//	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//for (int k = 0; k < 12; k++)
+//	//{
+//	//	int l = 0, r = n - 1;
+//	//	int mid = 0;
+//	//	while (l <= r)
+//	//	{
+//	//		mid = (l & r) + ((l ^ r) >> 1);
+//	//		if (arr[mid] == k)
+//	//			break;
+//	//		else if (arr[mid] > k)
+//	//			r = mid - 1;
+//	//		else
+//	//			l = mid + 1;
+//	//	}
+//	//	if (l <= r)
+//	//	{
+//	//		printf("idx = %d\n", mid);
+//	//	}
+//	//	else
+//	//	{
+//	//		printf("find none!\n");
+//	//	}
+//	//}
+//	//char buff1[] = "Welcom to DC!!!";
+//	//char buff2[] = "###############";
+//	//int l = 0, r = strlen(buff1) - 1;
+//	//while (l <= r)
+//	//{
+//	//	printf("%s\r", buff2);
+//	//	Sleep(1000);
+//	//	buff2[l] = buff1[l];
+//	//	buff2[r] = buff1[r];
+//	//	l++, r--;
+//	//}
+//	//printf("%s\n", buff2);
+//	//char arr1[] = "Welcom to China!!!";
+//	//char arr2[] = "##################";
+//	//int l = 0, r = strlen(arr2) - 1;
+//	//while (l <= r)
+//	//{
+//	//	printf("%s\r", arr2);
+//	//	Sleep(1000);
+//	//	arr2[l] = arr1[l];
+//	//	arr2[r] = arr1[r];
+//	//	l++, r--;
+//	//}
+//	//printf("%s\n", arr2);
+//	//char passwd[20] = "";
+//	//int i = 0;
+//	//for (i = 0; i < 3; i++)
+//	//{
+//	//	printf("请输入密码:>");
+//	//	scanf("%s", passwd);
+//	//	if (!strcmp(passwd, "123456"))
+//	//	{
+//	//		break;
+//	//	}
+//	//	else
+//	//	{
+//	//		if (2 - i != 0)
+//	//		{
+//	//			printf("您的密码输入有误,您还有%d次机会请重新输入\n", 2 - i);
+//	//		}
+//	//	}
+//	//}
+//	//if (i < 3)
+//	//	printf("Welcom to login!\n");
+//	//else
+//	//	printf("login fail!\n");
+//	//char passwd[20] = "";
+//	//for (int i = 0; i < 3; i++)
+//	//{
+//	//	printf("请输入密码:>");
+//	//	scanf("%s", passwd);
+//	//	if (!strcmp(passwd, "123456"))
+//	//	{
+//	//		printf("欢迎登录!\n");
+//	//		break;
+//	//	}
+//	//	else
+//	//	{
+//	//		if (2 - i == 0)
+//	//		{
+//	//			printf("密码输错次数太多,登录失败!\n");
+//	//			exit(-1);
+//	//		}
+//	//		else
+//	//		{
+//	//			printf("密码错误,您还有%d次机会,请重新输入密码!\n", 2 - i);
+//	//		}
+//	//	}
+//	//}
+//	return 0;
+//}
+//int Func(int a)
+//{
+//	int b;
+//	switch (a)
+//	{
+//	case 1: b = 30;
+//	case 2: b = 20;
+//	case 3: b = 16;
+//	default: b = 0;
+//	}
+//	return b;
+//}
+//void test()
+//{
+//	for (int i = 0; i < 10; i++)
+//	{
+//		if (i = 5)
+//		{
+//			printf("%d ", i);
+//		}
+//	}
+//}
+//int main()
+//{
+//	//test();
+//	//cout << Func(1) << endl;
 //	return 0;
 //}
 #endif
