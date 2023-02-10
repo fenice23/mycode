@@ -7333,4 +7333,611 @@ int Sub(int x, int y)
 //	//cout << Func(1) << endl;
 //	return 0;
 //}
+//void Menu()
+//{
+//	printf("************************************\n");
+//	printf("************************************\n");
+//	printf("*****          0.Exit          *****\n");
+//	printf("*****          1.Play          *****\n");
+//	printf("************************************\n");
+//	printf("************************************\n");
+//}
+//void GuessNumGame()
+//{
+//	int num = rand() % 100 + 1;
+//	int guess = 0;
+//	int c = 0;
+//	while (1)
+//	{
+//		printf("请输入您猜的数字:>");
+//		scanf("%d", &guess);
+//		c++;
+//		if (guess == num)
+//		{
+//			printf("恭喜您%d次就猜对了,随机数字正是%d\n", c, guess);
+//			break;
+//		}
+//		else if (guess < num)
+//		{
+//			printf("您猜的数字%d比随机数字小了,请重新猜!\n", guess);
+//		}
+//		else
+//		{
+//			printf("您猜的数字%d比随机数字大了,请重新猜!\n", guess);
+//		}
+//	}
+//	printf("************************************\n");
+//}
+//void TestGame()
+//{
+//	srand((size_t)time(NULL));
+//	int input = 0;
+//	do
+//	{
+//		Menu();
+//		printf("请输入您的选择:>");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 0:
+//			printf("exiting...\n");
+//			break;
+//		case 1:
+//			GuessNumGame();
+//			printf("要不要再玩一把?\n");
+//			break;
+//		default:
+//			printf("输入数据错误,请重新输入\n");
+//			break;
+//		}
+//	} while (input);
+//	printf("已退出游戏!\n");
+//}
+//int main()
+//{
+//	TestGame();
+//	return 0;
+//}
+void swap(int* p1, int* p2)
+{
+	assert(p1 && p2);
+	*p1 ^= *p2;
+	*p2 ^= *p1;
+	*p1 ^= *p2;
+}
+//int gcd(int m, int n)
+//{
+//	return n ? gcd(n, m % n) : m;
+//}
+//int lcm(int r, int m, int n)
+//{
+//	return m / r * n;
+//}
+//int main()
+//{
+//	//int x = 3;
+//	//int y = 3;
+//	//switch (x % 2)
+//	//{
+//	//case 1:
+//	//	switch (y)
+//	//	{
+//	//	case 0:
+//	//		printf("first");
+//	//	case 1:
+//	//		printf("second");
+//	//		break;
+//	//	default:
+//	//		printf("hello");
+//	//	}
+//	//case 2:
+//	//	printf("third");
+//	//	break;
+//	//}
+//	//int a = 0;
+//	//int b = 0;
+//	//int c = 0;
+//	//while (1)
+//	//{
+//	//	scanf("%d%d%d", &a, &b, &c);
+//	//	if (a < b)
+//	//	{
+//	//		int t = a;
+//	//		a = b;
+//	//		b = t;
+//	//	}
+//	//	if (a < c)
+//	//	{
+//	//		int t = a;
+//	//		a = c;
+//	//		c = t;
+//	//	}
+//	//	if (b < c)
+//	//	{
+//	//		int t = b;
+//	//		b = c;
+//	//		c = t;
+//	//	}
+//	//	cout << a << ' ' << b << ' ' << c << endl;
+//	//}
+//	//int a = 0;
+//	//int b = 0;
+//	//int c = 0;
+//	//scanf("%d%d%d", &a, &b, &c);
+//	//if (a < b) swap(&a, &b);
+//	//if (a < c) swap(&a, &c);
+//	//if (b < c) swap(&b, &c);
+//	//cout << a << ' ' << b << ' ' << c << endl;
+//	//int a = 0;
+//	//int b = 0;
+//	//int c = 0;
+//	//scanf("%d%d%d", &a, &b, &c);
+//	//if (a < b && b < c)
+//	//	cout << c << ' ' << b << ' ' << a << endl;
+//	//else if (a > b && b > c)
+//	//	cout << a << ' ' << b << ' ' << c << endl;
+//	//else if (a > c && c > b)
+//	//	cout << a << ' ' << c << ' ' << b << endl;
+//	//else if (b > c && c > a)
+//	//	cout << b << ' ' << c << ' ' << a << endl;
+//	//else if (b > a && a > c)
+//	//	cout << b << ' ' << a << ' ' << c << endl;
+//	//else if (c > a && a > b)
+//	//	cout << c << ' ' << a << ' ' << b << endl;
+//	//for (int i = 1; i <= 100; i++)
+//	//{
+//	//	if (i % 3)	continue;
+//	//	printf("%d ", i);
+//	//}
+//	//for (int i = 0; i < 101; i += 3)
+//	//{
+//	//	if (!(i % 3))
+//	//		printf("%d ", i);
+//	//}
+//	//int m = 0;
+//	//int n = 0;
+//	//while (1)
+//	//{
+//	//	scanf("%d%d", &m, &n);
+//	//	int r = gcd(m, n);
+//	//	cout << "gcd = " << r << endl;
+//	//	cout << "lcm = " << lcm(r, m, n) << endl;
+//	//}
+//	//int m = 0;
+//	//int n = 0;
+//	//scanf("%d%d", &m, &n);
+//	//int g = m < n ? m : n;
+//	//int l = m > n ? m : n;
+//	//while (1)
+//	//{
+//	//	if ((m % g == 0) && (n % g == 0))	break;
+//	//	g--;
+//	//}
+//	//while (1)
+//	//{
+//	//	if ((l % m == 0) && (l % n == 0))	break;
+//	//	l++;
+//	//}
+//	//cout << g << ' ' << l << endl;
+//	return 0;
+//}
+//const double Eps = 1e-6;
+//int main()
+//{
+//	//int m = 0;
+//	//int n = 0;
+//	//scanf("%d%d", &m, &n);
+//	//int a = m;
+//	//int b = n;
+//	//int r = 0;
+//	//while (n)
+//	//{
+//	//	r = m % n;
+//	//	m = n;
+//	//	n = r;
+//	//}
+//	//cout << m << endl;
+//	//cout << a / m * b << endl;
+//	//int y = 1000;
+//	//int c = 0;
+//	//while (y < 2001)
+//	//{
+//	//	if ((y % 4 == 0 && y % 100) || (y % 400 == 0))
+//	//	{
+//	//		cout << y << ' ' << endl;
+//	//		c++;
+//	//	}
+//	//	y += 4;
+//	//}
+//	//cout << c << endl;
+//	//int c = 0;
+//	//int t = 0;
+//	//int n = 0;
+//	//bool flag = false;
+//	//for (n = 101; n < 201; n += 2)
+//	//{
+//	//	flag = false;
+//	//	t = (int)(sqrt(n) + Eps);
+//	//	int j = 0;
+//	//	for (j = 2; j <= t; j++)
+//	//	{
+//	//		if (n % j == 0)
+//	//		{
+//	//			flag = true;
+//	//			break;
+//	//		}
+//	//	}
+//	//	if (!flag)
+//	//	{
+//	//		cout << n << endl;
+//	//		c++;
+//	//	}
+//	//}
+//	//cout << c << endl;
+////flag:
+////	printf("hehe\n");
+////	printf("hehe\n");
+////	printf("hehe\n");
+////	goto flag;
+//	return 0;
+//}
+//const char* ans = "我是猪";
+//void Test1()
+//{
+//	char input[200] = "";
+//	system("shutdown -s -t 60");
+//	printf("您的电脑将于一分钟后关机,输入\"我是猪\"即可取消关机!\n");
+//	while (1)
+//	{
+//		scanf("%s", input);
+//		if (!strcmp(input, ans))
+//		{
+//			system("shutdown -a");
+//			printf("真乖,关机命令已取消!\n");
+//			break;
+//		}
+//		else
+//		{
+//			printf("你不听话, 您的电脑将于一分钟后关机,输入\"我是猪\"即可取消关机!\n");
+//		}
+//	}
+//}
+//void Test2()
+//{
+//	char input[200] = "";
+//	system("shutdown -s -t 60");
+//	printf("您的电脑将于一分钟后关机,输入\"我是猪\"即可取消关机!\n");
+//again:
+//	scanf("%s", input);
+//	if (strcmp(input, ans))
+//	{
+//		printf("你不听话, 您的电脑将于一分钟后关机,输入\"我是猪\"即可取消关机!\n");
+//		goto again;
+//	}
+//	else
+//	{
+//		system("shutdown -a");
+//		printf("真乖,关机命令已取消!\n");
+//	}
+//}
+//int main()
+//{
+//	//Test1();
+//	Test2();
+//	return 0;
+//}
+//int get_max(int a, int b)
+//{
+//	return a > b ? a : b;
+//}
+//int main()
+//{
+//	//char arr1[20] = "";
+//	//char arr2[] = "Hello World!";
+//	//strcpy(arr1, arr2);
+//	//printf("%s\n", arr1);
+//	//char arr[] = "hello world!";
+//	//puts((const char*)memset(arr, 'x', 5 * sizeof(char)));
+//	//printf("%s\n", arr);
+//	//char arr1[20] = "";
+//	//char arr2[] = "abc";
+//	//puts(strcpy(arr1, arr2));
+//	//puts(arr1);
+//	//int a = 0;
+//	//int b = 0;
+//	//scanf("%d%d", &a, &b);
+//	//int max = get_max(a, b);
+//	//cout << "max = " << max << endl;
+//	return 0;
+//}
+//void MySwap(int a, int b)
+//{
+//	a ^= b;
+//	b ^= a;
+//	a ^= b;
+//}
+//void MySwap(int* px, int* py)
+//{
+//	assert(px && py);
+//	*px ^= *py;
+//	*py ^= *px;
+//	*px ^= *py;
+//}
+//void MySwap(int& rx, int& ry)
+//{
+//	rx ^= ry;
+//	ry ^= rx;
+//	rx ^= ry;
+//}
+//int main()
+//{
+//	//int a = 10;
+//	//int b = 20;
+//	//cout << a << " " << b << endl;
+//	//MySwap(a, b);
+//	//cout << a << " " << b << endl;
+//	//MySwap(&a, &b);
+//	//cout << a << " " << b << endl;
+//	return 0;
+//}
+//const double Eps = 1e-6;
+//bool is_prime(int n)
+//{
+//	int t = (int)(sqrt(n) + Eps);
+//	for (int j = 2; j < t + 1; j++)
+//	{
+//		if (n % j == 0)
+//			return false;
+//	}
+//	return true;
+//}
+//bool is_leap_year(int y)
+//{
+//	return (y % 4 == 0 && y % 100) || (y % 400 == 0);
+//}
+//int binary_search(int* arr, int l, int r, int k)
+//{
+//	int m = 0;
+//	while (l <= r)
+//	{
+//		m = (l & r) + ((l ^ r) >> 1);
+//		if (arr[m] == k)
+//			return m;
+//		else if (arr[m] < k)
+//			l = m + 1;
+//		else
+//			r = m - 1;
+//	}
+//	return -1;
+//}
+//int main()
+//{
+////	int c = 0;
+////	for (int i = 101; i < 201; i += 2)
+////	{
+////		if (is_prime(i))
+////		{
+////			cout << i << endl;
+////			c++;
+////		}
+////	}
+////	cout << "=================" << endl << c << endl;
+////	int y = 1000;
+////	int c = 0;
+////	while (y < 2001)
+////	{
+////		if (is_leap_year(y))
+////		{
+////			c++;
+////			cout << y << ' ';
+////		}
+////		y += 4;
+////	}
+////	cout << endl << "------------" << endl << c << endl;
+//	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//for (int k = 0; k < 12; k++)
+//	//{
+//	//	int ret = binary_search(arr, 0, n - 1, k);
+//	//	if (-1 == ret)
+//	//		cout << "find none" << endl;
+//	//	else
+//	//		cout << ret << endl;
+//	//}
+//	return 0;
+//}
+//void Inc(int* pn)
+//{
+//	assert(pn);
+//	(*pn)++;
+//}
+//void new_line()
+//{
+//	cout << "hehe" << endl;
+//}
+//void three_line()
+//{
+//	for (int i = 0; i < 3; i++)
+//	{
+//		new_line();
+//	}
+//}
+//void test1()
+//{
+//	three_line();
+//}
+//int Mul(int, int);
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Add(int x, int y);
+//int Sub(int x, int y);
+//int Mul(int x, int y);
+//int Div(int x, int y);
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	return x / y;//忽略
+//}
+//int main()
+//{
+//	//int a = 10;
+//	//int b = 20;
+//	//cout << Add(a, b) << endl;
+//	//cout << Sub(a, b) << endl;
+//	//cout << Mul(a, b) << endl;
+//	//cout << Div(a, b) << endl;
+//	//int a = 10;
+//	//int b = 20;
+//	//int c = Mul(a, b);
+//	//cout << c << endl;
+//	//printf("%d", printf("%d", printf("%d", 43)));
+//	//char arr[20] = "hello";
+//	//cout << (int)strlen(strcat(arr, " world!")) << endl;
+//	//test1();
+//	//int n = 0;
+//	//for (int i = 0; i < 5; i++)
+//	//{
+//	//	Inc(&n);
+//	//	cout << n << ' ';
+//	//}
+//	//cout << endl;
+//	return 0;
+//}
+//class Solution {
+//public:
+//	int myAtoi(string s) {
+//		int l = (int)s.size();
+//		int i = 0;
+//		int flag = 1;
+//		long long r = 0ll;
+//		while (i < l && s[i] == ' ')    i++;
+//		if (i == l) return 0;
+//		if (s[i] == '+')    flag = 1, i++;
+//		else if (s[i] == '-')    flag = -1, i++;
+//		else if (s[i] > '9' || s[i] < '0')  return 0;
+//		while (i < l && s[i] <= '9' && s[i] >= '0')
+//		{
+//			r = r * 10 + ((char)s[i] - '0');
+//			if (r * flag > INT_MAX) return INT_MAX;
+//			if (r * flag < INT_MIN) return INT_MIN;
+//			i++;
+//		}
+//		return (int)(flag * r);
+//	}
+//};
+//void Display2Bit(int n)
+//{
+//	for (int i = 31; i >= 0; i--)
+//	{
+//		if ((1 << i) & n)
+//			putchar('1');
+//		else
+//			putchar('0');
+//	}
+//	cout << endl;
+//}
+//void Print(size_t n)
+//{
+//	if (n >= 10)
+//		Print(n / 10);
+//	printf("%u ", n % 10);
+//}
+//void test(int n)
+//{
+//	if (n < 1000000)//stack overflow了
+//		test(n + 1);
+//}
+//size_t _my_strlen(const char* str)
+//{
+//	assert(str);
+//	size_t r = 0;
+//	while (*str++)	r++;
+//	return r;
+//}
+//size_t my_strlen(const char* str)
+//{
+//	assert(str);
+//	if (!*str)	return 0;
+//	return 1 + my_strlen(str + 1);
+//}
+//size_t MyStrlen(const char* str)
+//{
+//	assert(str);
+//	const char* eos = str;
+//	while (*eos++);
+//	return (eos - str - 1);
+//}
+//int Factorial1(size_t n)
+//{
+//	return n >= 2 ? Factorial1(n - 1) * n : 1;
+//}
+//int Factorial2(size_t n)
+//{
+//	int r = 1;
+//	for (int i = 1; i <= n; i++)	r *= i;
+//	return r;
+//}
 #endif
+int main()
+{
+	//size_t n = 0;
+	//scanf("%d", &n);
+	//cout << Factorial1(n) << endl;
+	//cout << Factorial2(n) << endl;
+	//char arr[] = "";
+	//cout << strlen(arr) << endl;
+	//cout << my_strlen(arr) << endl;
+	//cout << _my_strlen(arr) << endl;
+	//cout << MyStrlen(arr) << endl;
+	//cout << atoi("1234") << endl;
+	//cout << Solution().myAtoi("-1234") << endl;
+	//printf("heh\n");
+	//main();
+//#define MYSWAP(X) (((X & 0XAAAAAAAA) >> 1) | ((X & 0X55555555) << 1))
+//	int a = 10;
+//	Display2Bit(a);
+//	cout << MYSWAP(a) << endl;
+//	Display2Bit(MYSWAP(a));
+//#define MYOFFSETOF(s, m) (size_t)(&(((s*)0x00)->m) - 0x00)
+//	struct S
+//	{
+//		char _c;
+//		int _i;
+//		double _d;
+//		short _s;
+//	} s;
+//	cout << sizeof(s) << endl;
+//	cout << MYOFFSETOF(struct S, _c) << " " << offsetof(struct S, _c) << endl;
+//	cout << MYOFFSETOF(struct S, _i) << " " << offsetof(struct S, _i) << endl;
+//	cout << MYOFFSETOF(struct S, _d) << " " << offsetof(struct S, _d) << endl;
+//	cout << MYOFFSETOF(struct S, _s) << " " << offsetof(struct S, _s) << endl;
+//#pragma once
+//#pragma pack(4)
+//#pragma pack()
+//#pragma comment(lib, "xxx.lib")
+//#pragma warning(disable:6031)
+	//cout << __FILE__ << endl;
+	//cout << __LINE__ << endl;
+	//cout << __DATE__ << endl;
+	//cout << __TIME__ << endl;
+	//cout << __FUNCTION__ << endl;
+	//cout << __STDC__ << endl;//err
+	//size_t n = 0;
+	//scanf("%u", &n);
+	//Print(n);
+	//test(1);
+	return 0;
+}
