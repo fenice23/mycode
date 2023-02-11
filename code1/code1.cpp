@@ -7890,54 +7890,955 @@ void swap(int* p1, int* p2)
 //	for (int i = 1; i <= n; i++)	r *= i;
 //	return r;
 //}
-#endif
-int main()
-{
-	//size_t n = 0;
-	//scanf("%d", &n);
-	//cout << Factorial1(n) << endl;
-	//cout << Factorial2(n) << endl;
-	//char arr[] = "";
-	//cout << strlen(arr) << endl;
-	//cout << my_strlen(arr) << endl;
-	//cout << _my_strlen(arr) << endl;
-	//cout << MyStrlen(arr) << endl;
-	//cout << atoi("1234") << endl;
-	//cout << Solution().myAtoi("-1234") << endl;
-	//printf("heh\n");
-	//main();
-//#define MYSWAP(X) (((X & 0XAAAAAAAA) >> 1) | ((X & 0X55555555) << 1))
-//	int a = 10;
-//	Display2Bit(a);
-//	cout << MYSWAP(a) << endl;
-//	Display2Bit(MYSWAP(a));
-//#define MYOFFSETOF(s, m) (size_t)(&(((s*)0x00)->m) - 0x00)
-//	struct S
+//int main()
+//{
+//	//size_t n = 0;
+//	//scanf("%d", &n);
+//	//cout << Factorial1(n) << endl;
+//	//cout << Factorial2(n) << endl;
+//	//char arr[] = "";
+//	//cout << strlen(arr) << endl;
+//	//cout << my_strlen(arr) << endl;
+//	//cout << _my_strlen(arr) << endl;
+//	//cout << MyStrlen(arr) << endl;
+//	//cout << atoi("1234") << endl;
+//	//cout << Solution().myAtoi("-1234") << endl;
+//	//printf("heh\n");
+//	//main();
+////#define MYSWAP(X) (((X & 0XAAAAAAAA) >> 1) | ((X & 0X55555555) << 1))
+////	int a = 10;
+////	Display2Bit(a);
+////	cout << MYSWAP(a) << endl;
+////	Display2Bit(MYSWAP(a));
+////#define MYOFFSETOF(s, m) (size_t)(&(((s*)0x00)->m) - 0x00)
+////	struct S
+////	{
+////		char _c;
+////		int _i;
+////		double _d;
+////		short _s;
+////	} s;
+////	cout << sizeof(s) << endl;
+////	cout << MYOFFSETOF(struct S, _c) << " " << offsetof(struct S, _c) << endl;
+////	cout << MYOFFSETOF(struct S, _i) << " " << offsetof(struct S, _i) << endl;
+////	cout << MYOFFSETOF(struct S, _d) << " " << offsetof(struct S, _d) << endl;
+////	cout << MYOFFSETOF(struct S, _s) << " " << offsetof(struct S, _s) << endl;
+////#pragma once
+////#pragma pack(4)
+////#pragma pack()
+////#pragma comment(lib, "xxx.lib")
+////#pragma warning(disable:6031)
+//	//cout << __FILE__ << endl;
+//	//cout << __LINE__ << endl;
+//	//cout << __DATE__ << endl;
+//	//cout << __TIME__ << endl;
+//	//cout << __FUNCTION__ << endl;
+//	//cout << __STDC__ << endl;//err
+//	//size_t n = 0;
+//	//scanf("%u", &n);
+//	//Print(n);
+//	//test(1);
+//	return 0;
+//}
+//int g_count = 0;
+//long long Fibonaccia1(int n)
+//{
+//	if (n == 2)
+//		g_count++;
+//	if (n == 0)	return 0;
+//	else if (n == 1)	return 1;
+//	else return Fibonaccia1(n - 1) + Fibonaccia1(n - 2);
+//}
+//long long Fibonaccia2(int n)
+//{
+//	if (!n)	return 0;
+//	int a = 0;
+//	int b = 1;
+//	int c = 0;
+//	while (n >= 2)
 //	{
-//		char _c;
-//		int _i;
-//		double _d;
-//		short _s;
-//	} s;
-//	cout << sizeof(s) << endl;
-//	cout << MYOFFSETOF(struct S, _c) << " " << offsetof(struct S, _c) << endl;
-//	cout << MYOFFSETOF(struct S, _i) << " " << offsetof(struct S, _i) << endl;
-//	cout << MYOFFSETOF(struct S, _d) << " " << offsetof(struct S, _d) << endl;
-//	cout << MYOFFSETOF(struct S, _s) << " " << offsetof(struct S, _s) << endl;
-//#pragma once
-//#pragma pack(4)
-//#pragma pack()
-//#pragma comment(lib, "xxx.lib")
-//#pragma warning(disable:6031)
-	//cout << __FILE__ << endl;
-	//cout << __LINE__ << endl;
-	//cout << __DATE__ << endl;
-	//cout << __TIME__ << endl;
-	//cout << __FUNCTION__ << endl;
-	//cout << __STDC__ << endl;//err
-	//size_t n = 0;
-	//scanf("%u", &n);
-	//Print(n);
-	//test(1);
-	return 0;
-}
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	return b;
+//}
+//vector<int> get_arr_max_min(int* p, int n)
+//{
+//	//assert(p);
+//	//int b = p[0], s = p[0];
+//	//for (int i = 1; i < n; i++)
+//	//{
+//	//	if (p[i] > b)	b = p[i];
+//	//	if (p[i] < s)	s = p[i];
+//	//}
+//	//return { b, s };
+//	assert(p);
+//	int mi = 0, ma = 0;
+//	for (int i = 1; i < n; i++)
+//	{
+//		if (p[mi] > p[i])	mi = i;
+//		if (p[ma] < p[i])	ma = i;
+//	}
+//	return { p[ma], p[mi] };
+//}
+//const double Eps = 1e-6;
+//bool is_prime(int n)
+//{
+//	int t = (int)(sqrt(n) + Eps);
+//	for (int i = 2; i < t + 1; i++)
+//	{
+//		if (!(n % i))	return false;
+//	}
+//	return true;
+//}
+//int main()
+//{
+//	//int arr[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+//	//cout << get_arr_max_min(arr, 10)[0] << endl;
+//	//cout << get_arr_max_min(arr, 10)[1] << endl;
+//	//int n = 0;
+//	//scanf("%d", &n);
+//	//cout << Fibonaccia1(n) << endl;
+//	//cout << Fibonaccia2(n) << endl;
+//	//cout << g_count << endl;
+//	//int a = 0;
+//	//int b = 0;
+//	//for (a = 1, b = 1; a <= 100; a++)
+//	//{
+//	//	if (b >= 20)	break;
+//	//	if (b % 3 == 1)
+//	//	{
+//	//		b += 3;
+//	//		continue;
+//	//	}
+//	//	b -= 5;
+//	//}
+//	//cout << b << " " << a << endl;
+//	//int c = 0;
+//	//for (int i = 1; i < 101; i++)
+//	//{
+//	//	if (i % 10 == 9)	c++;
+//	//	if (i / 10 == 9)	c++;
+//	//}
+//	//cout << c << endl;
+//	//double s = 0.0;
+//	//double f = 1.0;
+//	//int n = 0;
+//	//std::cin >> n;
+//	//for (int i = 1; i <= n; i++)
+//	//{
+//	//	s += (1.0 / i * f);
+//	//	f = -f;
+//	//}
+//	//printf("%lf\n", s);
+//	//for (int i = 1; i < 10; i++)
+//	//{
+//	//	for (int j = 1; j < i + 1; j++)
+//	//	{
+//	//		printf("%d * %d = %-2d ", j, i, j * i);
+//	//	}
+//	//	putchar(10);
+//	//}
+//	//int c = 0;
+//	//for (int n = 101; n < 201; n += 2)
+//	//{
+//	//	if (is_prime(n))
+//	//	{
+//	//		cout << n << ' ';
+//	//		c++;
+//	//	}
+//	//}
+//	//cout << endl << c << endl;
+//	return 0;
+//}
+//int binary_search(int* p, int n, int k)
+//{
+//	assert(p);
+//	int l = 0, r = n;
+//	while (l < r)
+//	{
+//		int m = (l & r) + ((l ^ r) >> 1);
+//		if (p[m] == k)	return m;
+//		else if (p[m] < k)	l = m + 1;
+//		else r = m;
+//	}
+//	return -1;
+//}
+//bool is_leap_year(int y)
+//{
+//	return ((y % 4 == 0) && (y % 100)) || (y % 400 == 0);
+//}
+//void _my_swap(int* pa, int* pb)
+//{
+//	assert(pa && pb);
+//	int t = *pa;
+//	*pa = *pb;
+//	*pb = t;
+//}
+//void my_swap(int* pa, int* pb)
+//{
+//	assert(pa && pb);
+//	*pa = *pa + *pb;
+//	*pb = *pa - *pb;
+//	*pa = *pa - *pb;
+//}
+//void MySwap(int* pa, int* pb)
+//{
+//	assert(pa && pb);
+//	*pa ^= *pb;
+//	*pb ^= *pa;
+//	*pa ^= *pb;
+//}
+//void my_swap(int& ra, int& rb)
+//{
+//	ra ^= rb;
+//	rb ^= ra;
+//	ra ^= rb;
+//}
+//void print_table(int n)
+//{
+//	for (int i = 1; i < n + 1; i++)
+//	{
+//		for (int j = 1; j < i + 1; j++)
+//		{
+//			printf("%d * %d = %-3d ", j, i, j * i);
+//		}
+//		putchar(10);
+//	}
+//}
+//int Func(int n)
+//{
+//	if (5 == n)	return 2;
+//	return 2 * Func(n + 1);
+//}
+//void Print(int n)
+//{
+//	if (n > 9)	Print(n / 10);
+//	printf("%d ", n % 10);
+//}
+//long long Factorial(int n)
+//{
+//	return n <= 1 ? 1ll : n * Factorial(n - 1);
+//}
+//long long Factorial(int n)
+//{
+//	long long r = 1ll;
+//	for (int i = 1; i <= n; i++)	r *= i;
+//	return r;
+//}
+//size_t MyStrlen(const char* str)
+//{
+//	assert(str);
+//	size_t l = 0;
+//	while (*str++) l++;
+//	return l;
+//}
+//void order_reverse_string(char* str)
+//{
+//	assert(str);
+//	int l = 0, r = (int)MyStrlen(str) - 1;
+//	while (l < r)
+//	{
+//		char t = str[l];
+//		str[l] = str[r];
+//		str[r] = t;
+//		r--, l++;
+//	}
+//}
+//void recur_reverse_string(char* str)
+//{
+//	assert(str);
+//	int len = (int)MyStrlen(str);
+//	if (len <= 1)	return;
+//	int l = 0;
+//	int r = len - 1;
+//	char t = str[l];
+//	str[l] = str[r];
+//	str[r] = '\0';
+//	recur_reverse_string(str + 1);
+//	str[r] = t;
+//}
+//size_t DigitSum(size_t n)
+//{
+//	if (n < 10)	return n;
+//	return DigitSum(n / 10) + n % 10;
+//}
+//long long Fibonaccia(int n)
+//{
+//	return n <= 1 ? n : Fibonaccia(n - 1) + Fibonaccia(n - 2);
+//}
+//long long Fibonaccia(int n)
+//{
+//	if (!n)	return n;
+//	int a = 0;
+//	int b = 1;
+//	int c = 0;
+//	while (n >= 2)
+//	{
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	return b;
+//}
+//double Pow(int n, int k)
+//{
+//	if (k == 0)
+//		return 1.0;
+//	else if (k > 0)
+//		return (double)Pow(n, k - 1) * n;
+//	else
+//		return 1.0 / (double)Pow(n, -k);
+//}
+//int main()
+//{
+//	//int n = 0;
+//	//int k = 0;
+//	//scanf("%d%d", &n, &k);
+//	//if (!n)	cout << "Err" << endl;
+//	//else cout << Pow(n, k) << endl;
+//	//int n = 0;
+//	//scanf("%d", &n);
+//	//cout << Fibonaccia(n) << endl;
+//	//size_t n = 0u;
+//	//std::cin >> n;
+//	//cout << DigitSum(n) << endl;
+//	//char arr[20] = "";
+//	//printf("%s\n", arr);
+//	//order_reverse_string(arr);
+//	//printf("%s\n", arr);
+//	//recur_reverse_string(arr);
+//	//printf("%s\n", arr);
+//	//int n = 0;
+//	//scanf("%d", &n);
+//	//cout << Factorial(n) << endl;
+//	//int n = 0;
+//	//std::cin >> n;
+//	//Print(n);
+//	//cout << Func(2) << endl;
+//	//int n = 0;
+//	//std::cin >> n;
+//	//print_table(n);
+//	//int a = 10;
+//	//int b = 30;
+//	//cout << a << " " << b << endl;
+//	//my_swap(a, b);
+//	//cout << a << " " << b << endl;
+//	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int n = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//for (int k = 0; k < 12; k++)
+//	//{
+//	//	int idx = binary_search(arr, n, k);
+//	//	if (-1 == idx)	cout << "find none" << endl;
+//	//	else cout << idx << endl;
+//	//}
+//	//int y = 0;
+//	//std::cin >> y;
+//	//if (is_leap_year(y))	cout << "yes" << endl;
+//	//else cout << "no" << endl;
+//	return 0;
+//}
+//void bubble_sort(int* p, int n)
+//{
+//	assert(p);
+//	bool f = false;
+//	for (int i = 0; i < n - 1; i++)
+//	{
+//		f = false;
+//		for (int j = 0; j < n - 1 - i; j++)
+//		{
+//			if (p[j] > p[j + 1])
+//			{
+//				int t = p[j];
+//				p[j] = p[j + 1];
+//				p[j + 1] = t;
+//				f = true;
+//			}
+//		}
+//		if (!f)	break;
+//	}
+//}
+//int main()
+//{
+//	////int arr[] = { 1, 2 ,3, 4, 5 ,6, 7, 8, 10, 9 };
+//	//int arr[] = { 3, 1, 7, 5, 8, 9, 0, 2, 4, 6 };
+//	//int n = sizeof(arr) / sizeof(arr[0]);
+//	//bubble_sort(arr, n);
+//	//for (int i = 0; i < n; i++)	cout << arr[i] << ' '; cout << endl;
+//	//int arr[10] = { 1, 2, 3, 4, 5 };
+//	//cout << sizeof(arr) << endl;
+//	//printf("0X%p, 0X%p\n", arr, arr + 1);
+//	//printf("0X%p, 0X%p\n", &arr[0], &arr[0] + 1);
+//	//printf("0X%p, 0X%p\n", &arr, &arr + 1);
+//	//printf("%d\n", *arr);
+//	//int arr[] = { 3, 1, 7, 5, 8, 9, 0, 2, 4, 6 };
+//	//int n = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//bubble_sort(arr, n);
+//	//for (int i = 0; i < n; i++)	cout << arr[i] << ' '; cout << endl;
+//	//int arr[10];
+//	//char ch[4];
+//	//int n = 8;
+//	//int arr[n];
+//	//int arr[10];
+//	//int count = 10;
+//	//int arr[count];
+//	//char arr3[10];
+//	//float arr4[1];
+//	//double arr5[20];
+//	//int arr3[5] = { 1, 2, 3, 4, 5 };
+//	//char arr4[3] = { 'a', 98, 'c' };
+//	//char arr5[] = { 'a', 'b', 'c' };
+//	//char arr6[] = "abcdef";
+//	//char ch[5] = { 't', 'z', 'h' };
+//	//char ch1[] = { 't', 'z', 'h' };
+//	//puts(ch);
+//	//char str1[5] = "tzh";
+//	//char str2[] = "tzh";
+//	//char ch5[] = "tzh";
+//	//char ch6[] = { 't', 'z', 'h' };
+//	//cout << sizeof(ch5) << " " << sizeof(ch6) << endl;
+//	//printf("%s\n", ch5);
+//	//printf("%s\n", ch6);
+//	//printf("%d, %d\n", strlen(ch5), strlen(ch6));
+//	//int arr[10] = { 0 };
+//	//int sz = (int)(sizeof(arr) / sizeof(*arr));
+//	//for (int i = 0; i < sz; i++)
+//	//{
+//	//	arr[i] = i;
+//	//}
+//	//for (int i = 0; i < sz; i++)
+//	//{
+//	//	cout << arr[i] << ' ';
+//	//}
+//	//cout << endl;
+//	//printf("%x\n", 0x12);
+//	//printf("%p\n", 0x12);
+//	//int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//for (int i = 9; i >= 0; i--)
+//	//{
+//	//	printf("&arr[%d] = 0X%p\n", i, &arr[i]);
+//	//}
+//	//int(*p)[5] = (int(*)[5])arr;
+//	//for (int i = 0; i < sizeof(arr) / sizeof(int[5]); i++)
+//	//{
+//	//	for (int j = 0; j < 5; j++)
+//	//	{
+//	//		printf("%d ", p[i][j]);
+//	//	}
+//	//	putchar(10);
+//	//}
+//	//int* p = arr;
+//	//for (int i = 0; i < 10; i++)
+//	//{
+//	//	cout << *p++ << ' ';
+//	//}
+//	//cout << endl;
+//	//int arr1[3][4];
+//	//int arr2[3][5];
+//	//double arr3[2][4];
+//	//int arr4[3][4] = { 1, 2, 3, 4 };
+//	//int arr5[3][4] = { { 1, 2 }, { 4, 5 } };
+//	//int arr6[][4] = { { 2, 3 }, { 4, 5 } };
+//	//int arr[][4] = { { 1, 2 }, { 3, 4 }, { 4, 5 } };
+//	//int arr1[3][4];
+//	//char arr2[3][5];
+//	//int arr[3][4] = { 0 };
+//	//for (int i = 0; i < 3; i++)
+//	//{
+//	//	for (int j = 0; j < 4; j++)
+//	//	{
+//	//		cout << (arr[i][j] = i * 4 + j) << ' ';
+//	//	}
+//	//	cout << endl;
+//	//}
+//	//int arr[3][4] = { 0 };
+//	//for (int i = 2; i >= 0; i--)
+//	//{
+//	//	for (int j = 3; j >= 0; j--)
+//	//	{
+//	//		printf("&arr[%d][%d] = 0X%p\n", i, j, &arr[i][j]);
+//	//	}
+//	//	cout << endl;
+//	//}
+//	//int arr[][4] = { { 1, 2 }, { 3, 4 }, { 4, 5 } };
+//	//int r = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//for (int i = 0; i < r; i++)
+//	//{
+//	//	for (int j = 0; j < 4; j++)
+//	//	{
+//	//		cout << arr[i][j] << ' ';
+//	//	}
+//	//	cout << endl;
+//	//}
+//	//int* p = (int*)arr;
+//	//for (int i = 0; i < r * 4; i++)	cout << p[i] << ' '; cout << endl;
+//	return 0;
+//}
+//size_t CountOfOne1(size_t n)
+//{
+//	size_t r = 0;
+//	while (n)
+//	{
+//		if (n & 0x01)	r++;
+//		n /= 2;
+//	}
+//	return r;
+//}
+//size_t CountOfOne2(int n)
+//{
+//	size_t r = 0;
+//	for (int i = 0; i < 32; i++)
+//	{
+//		if ((1 << i) & n)	r++;
+//	}
+//	return r;
+//}
+//size_t CountOfOne3(int n)
+//{
+//	size_t r = 0;
+//	while (n)
+//	{
+//		n &= (n - 1);
+//		r++;
+//	}
+//	return r;
+//}
+//size_t CountOfOne4(int n)
+//{
+//	size_t r = 0;
+//	while (n)
+//	{
+//		n -= (n & (~n + 1));
+//		r++;
+//	}
+//	return r;
+//}
+//size_t CountOfOne5(int n)//µûÐÎËã·¨
+//{
+//	n = (n & 0X55555555) + ((n & 0XAAAAAAAA) >> 1);
+//	n = (n & 0X33333333) + ((n & 0XCCCCCCCC) >> 2);
+//	n = (n & 0X0F0F0F0F) + ((n & 0XF0F0F0F0) >> 4);
+//	n = (n & 0X00FF00FF) + ((n & 0XFF00FF00) >> 8);
+//	n = (n & 0X0000FFFF) + ((n & 0XFFFF0000) >> 16);
+//	return size_t(n);
+//}
+//void test1(int arr[])
+//{
+//	cout << sizeof(arr) << endl;
+//}
+//void test2(char ch[])
+//{
+//	cout << sizeof(ch) << endl;
+//}
+//void MySwapArr(int a[], int b[], int n)
+//{
+//	for (int i = 0; i < n; i++)
+//	{
+//		int t = a[i];
+//		a[i] = b[i];
+//		b[i] = t;
+//	}
+//}
+//void InitArr(int arr[], int n)
+//{
+//	for (int i = 0; i < n; i++)
+//	{
+//		arr[i] = 0;
+//	}
+//}
+//void PrintArr(int arr[], int n)
+//{
+//	for (int i = 0; i < n; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+//void ReverseArr(int arr[], int n)
+//{
+//	int l = 0, r = n - 1;
+//	while (l < r)
+//	{
+//		int t = arr[l];
+//		arr[l] = arr[r];
+//		arr[r] = t;
+//		l++, r--;
+//	}
+//}
+//void MyBubbleSort(int* p, int n)
+//{
+//	assert(p);
+//	bool f = false;
+//	for (int i = 0; i < n - 1; i++)
+//	{
+//		f = false;
+//		for (int j = 0; j < n - 1 - i; j++)
+//		{
+//			if (p[j] < p[j + 1])
+//			{
+//				int t = p[j];
+//				p[j] = p[j + 1];
+//				p[j + 1] = t;
+//				f = true;
+//			}
+//		}
+//		if (!f)
+//			break;
+//	}
+//}
+//int fun()
+//{
+//	static int count = 1;
+//	return ++count;
+//}
+//void test1()
+//{
+//	cout << "hehe" << endl;
+//}
+//void test2(const char* str)
+//{
+//	assert(str);
+//	cout << str << endl;
+//}
+//struct Stu
+//{
+//	char _name[20];
+//	int _age;
+//	char _sex;
+//	double _score;
+//};
+//void set_age1(struct Stu stu)
+//{
+//	stu._age = 28;
+//}
+//void set_age2(struct Stu* ps)
+//{
+//	assert(ps);
+//	ps->_age = 18;
+//}
+//void test1()
+//{
+//	int a = 10;
+//	cout << a << endl;
+//	int* pa = &a;
+//	cout << *pa << endl;
+//	*pa = 20;
+//	cout << a << endl;
+//	cout << *pa << endl;
+//	cout << pa << endl;
+//	cout << &a << endl;
+//}
+//void test2()
+//{
+//	//int a = 0X11223344;
+//	//int* pi = &a;
+//	//*pi = 0;
+//	//int a = 0X11223344;
+//	//char* pc = (char*)(&a);
+//	//*pc = 0;
+//	//int arr[10] = { 0 };
+//	//int* p = arr;
+//	//char* pc = (char*)arr;
+//	//printf("%p, %p\n", p, p + 1);
+//	//printf("%p, %p\n", pc, pc + 1);
+//	//int arr[10] = { 0 };
+//	//int* p = arr;
+//	//for (int i = 0; i < 10; i++)
+//	//{
+//	//	*(p + i) = 1;
+//	//}
+//	//for (int i = 0; i < 10; i++)
+//	//{
+//	//	cout << p[i] << endl;
+//	//}
+//	//int arr[10] = { 0 };
+//	//char* p = (char*)arr;
+//	//for (int i = 0; i < 10; i++)
+//	//{
+//	//	*(p + i) = 1;
+//	//}
+//	//for (int i = 0; i < 10; i++)
+//	//{
+//	//	cout << arr[i] << endl;
+//	//}
+//}
+//int main()
+//{
+//	//test1();
+//	test2();
+//	//int a = 1;
+//	//int b = 2;
+//	//int c = (a > b, a = b + 10, a, b = a + 1);
+//	//cout << a << endl;
+//	//cout << b << endl;
+//	//cout << c << endl;
+//	//int a = 3;
+//	//int b = 5;
+//	//int c = 0;
+//	//int d = (c = 5, a = c + 3, b = a - 4, c += 5);
+//	//cout << a << endl;
+//	//cout << b << endl;
+//	//cout << c << endl;
+//	//cout << d << endl;
+//	//int a = 3;
+//	//int b = 0;
+//	//if (a > 5)	b = 1;
+//	//else b = -1;
+//	//cout << b << endl;
+//	//b = a > 5 ? 1 : -1;
+//	//cout << a << endl;
+//	//cout << b << endl;
+//	//struct Stu stu;
+//	//struct Stu* ps = &stu;
+//	//stu._age = 20;
+//	//cout << stu._age << endl;
+//	//set_age1(stu);
+//	//cout << stu._age << endl;
+//	//set_age2(&stu);
+//	//cout << stu._age << endl;
+//	//int arr[10] = { 0 };
+//	//arr[9] = 10;
+//	//test1();
+//	//test2("hello world.");
+//	//int i = 0, a = 1, b = 2, c = , d = 4;
+//	//i = a++ && ++b && d++;
+//	//i = a++ || ++b || d++;
+//	//cout << i << endl;
+//	//cout << a << endl;
+//	//cout << b << endl;
+//	//cout << c << endl;
+//	//cout << d << endl;
+//	//struct Book
+//	//{
+//	//	char _name[20];
+//	//	char _id[20];
+//	//	int _price;
+//	//};
+//	//struct Book b = { "CÓïÑÔ", "20222222", 54 };
+//	//struct Book* pb = &b;
+//	//printf("%s, %s, %d\n", b._name, b._id, b._price);
+//	//printf("%s, %s, %d\n", (*pb)._name, (*pb)._id, (*pb)._price);
+//	//printf("%s, %s, %d\n", pb->_name, pb->_id, pb->_price);
+//	//char a = 0xb6;
+//	//short b = 0xb600;
+//	//int c = 0xb6000000;
+//	//if (a == 0xb6)	cout << "a" << endl;
+//	//if (b == 0xb600)	cout << "b" << endl;
+//	//if (c == 0xb6000000)	cout << "c" << endl;
+//	//char a = 3;
+//	//char b = 127;
+//	//char c = a + b;
+//	//printf("%d\n", c);
+//	//printf("%u\n", c);
+//	//char c = 1;
+//	//cout << sizeof(c) << endl;
+//	//cout << sizeof(+c) << endl;
+//	//cout << sizeof(-c) << endl;
+//	//cout << sizeof(!c) << endl;
+//	//cout << sizeof(~c) << endl;
+//	//int i = 0, a = 0, b = 2, c = 3, d = 4;
+//	//i = a++ || ++b || d++;
+//	//cout << a << " " << b << " " << c << " " << d << " " << i << endl;
+//	//int i = 0, a = 0, b = 2, c = 3, d = 4;
+//	//i = a++ && ++b && d++;
+//	//cout << a << " " << b << " " << c << " " << d << endl;
+//	//cout << i << endl;
+//	//int ans = fun() - fun() * fun();
+//	//cout << ans << endl;
+//	//int i = 1;
+//	//int res = (++i) + (++i) + (++i);
+//	//cout << res << endl;
+//	//cout << i << endl;
+// 	//printf("0X%p, 0X%p\n", &"hello tzh", &"hello tzh" + 1);
+//	//char s[] = "hello bit\0";
+//	//cout << strlen(s) << " " << sizeof(s) << endl;
+//	//cout << sizeof("hello tzh") << endl;//10
+//	//char acX[] = "abcdefg";
+//	//char acY[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
+//	//char str[] = "hello tzh";
+//	//cout << sizeof(str) << " " << strlen(str) << endl;
+//	//int arr1[] = { (1, 2, 3, 4, 5, 6) };
+//	//cout << sizeof(arr1) << endl;
+//	//int arr[] = { 1, 2, (3, 4), 5 };
+//	//cout << sizeof(arr) << endl;
+//	//int arr[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+//	//int n = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//MyBubbleSort(arr, n);
+//	//int arr[10];
+//	//InitArr(arr, 10);
+//	//PrintArr(arr, 10);
+//	//for (int i = 0; i < 10; i++)	arr[i] = i;
+//	//ReverseArr(arr, 10);
+//	//PrintArr(arr, 10);
+//	//int a[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int b[10] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+//	//MySwapArr(a, b, 10);
+//	//cout << (1 || 2) << endl;
+//	//cout << (1 | 2) << endl;
+// 	//cout << (1 && 2) << endl;
+//	//cout << (1 & 2) << endl;
+//	//int arr[10] = { 0 };
+//	//char ch[10] = "";
+//	//cout << sizeof(arr) << endl;
+//	//cout << sizeof(ch) << endl;
+//	//test1(arr);
+//	//test2(ch);
+//	//int a = 3.14;
+//	//int aa = (int)3.14;
+//	//int aaa = -10;
+//	//int* p = NULL;
+//	//a = -a;
+//	//p = &a;
+//	//cout << a << endl;
+//	//cout << *p << endl;
+//	//cout << sizeof(a) << endl;
+//	//cout << sizeof a << endl;
+//	//cout << sizeof(int) << endl;
+//	//cout << sizeof int << endl;//err
+//	//printf("%d\n", !2);
+//	//printf("%d\n", !0);
+//	//int a = 10;
+//	//printf("%p\n", &a);
+//	//int* pa = &a;
+//	//*pa = 20;
+//	//printf("%d\n", a);//20
+//	//int a = 1;
+//	//int b = (++a) + (++a) + (++a);
+//	//cout << b << endl;
+//	//int a = 10;
+//	//cout << a-- << endl;
+//	//cout << a << endl;
+//	//int a = 10;
+//	//int b = a--;
+//	//cout << a << " " << b << endl;
+//	//int a = 10;
+//	//int b = --a;
+//	//cout << a << " " << b << endl;
+//	//int a = 10;
+//	//int b = ++a;
+//	//cout << a << " " << b << endl;
+//	//int a = 10;
+//	//int b = a++;
+//	//cout << a << " " << b << endl;
+////	int a = -1;
+////	int b = ~a;
+////	cout << a << " " << b << endl;
+//	//short s = 5;
+//	//int a = 10;
+//	//cout << sizeof(s = a + 2) << endl;
+//	//cout << s << " " << a << endl;
+//	//int arr[10] = { 0 };
+//	//cout << sizeof(arr) << endl;
+//	//cout << sizeof(int[10]) << endl;
+//	//int a = 10;
+//	//cout << sizeof(a) << endl;
+//	//cout << sizeof a << endl;
+//	//cout << sizeof(int) << endl;
+//	//cout << sizeof int << endl;//err
+//	//int a = 10;
+//	//a = -a;
+//	//cout << a << endl;
+//	//a = -(-a);
+//	//cout << a << endl;
+//	//a = --a;
+//	//cout << a << endl;
+//	//int flag = 5;
+//	//if (flag)	cout << "haha" << endl;
+//	//flag = 0;
+//	//if (!flag)	cout << "hehe" << endl;
+//	//int flag = 0;
+//	//printf("%d\n", !flag);
+//	//flag = 1;
+//	//cout << !flag << endl;
+//	//flag = 100;
+//	//cout << !!flag << endl;
+//	//int x = 10;
+//	//x = x + 10;
+//	//cout << x << endl;
+//	//x += 10;
+//	//cout << x << endl;
+//	//int a = 10;
+//	//int x = 0;
+//	//int y = 20;
+//	//x = y + 1;
+//	//a = x;
+//	//cout << a << " " << x << " " << y << endl;
+////	int a = 10;
+////	int x = 0;
+////	int y = 20;
+////	a = x = y + 1;
+////	cout << a << " " << x << " " << y << endl;
+//	//int weight = 120;
+//	//printf("%d\n", weight);
+//	//weight = 89;
+//	//printf("%d\n", weight);
+//	//double salary = 10000.0;
+//	//printf("%.2lf\n", salary);
+//	//salary = 20000.0;
+//	//printf("%.2lf\n", salary);
+//	//int a = 13;
+//	//a |= (1 << 4);
+//	//cout << a << endl;
+//	//a &= (~(1 << 4));
+//	//cout << a << endl;
+//	//int n = 0;
+//	//std::cin >> n;
+//	//cout << CountOfOne1(n) << endl;
+//	//cout << CountOfOne2(n) << endl;
+//	//cout << CountOfOne3(n) << endl;
+//	//cout << CountOfOne4(n) << endl;
+//	//cout << CountOfOne5(n) << endl;
+//	//cout << 3 / 5 << endl;
+//	//cout << 6 / 5 << endl;
+//	//cout << (float)(3 / 5) << endl;
+//	//cout << (float)(6 / 5) << endl;
+//	//cout << 6 / 5.0f << endl;
+//	//int a = 7 % 3;
+//	//cout << a << endl;
+//	//int b = 5 % 3.0;//err
+//	//int c = 100 % 0;//err
+//	//int a = 2;
+//	//int b = a << 1;
+//	//cout << a << " " << b << endl;
+//	//int a = 10;
+//	//int b = a >> 1;
+//	//cout << a << ' ' << b << endl;
+//	//int n = -1;
+//	//n >>= 1;
+//	//cout << n << endl;
+//	//size_t m = -1;
+//	//m >>= 1;
+//	//cout << m << endl;
+//	//int n = 10;
+//	//n >>= -1;//warning
+//	//cout << n << endl;
+//	//int a = 3;
+//	//int b = 5;
+//	//int c = a & b;
+//	//cout << c << endl;
+//	//c = a | b;
+//	//cout << c << endl;
+//	//c = a ^ b;
+//	//cout << c << endl;
+//	//cout << (-1 ^ -2) << endl;
+//	//int a = 3;
+//	//int b = 5;
+//	//cout << a << " " << b << endl;
+//	//int t = a;
+//	//a = b;
+//	//b = t;
+//	//cout << a << " " << b << endl;
+//	//a = a + b;
+//	//b = a - b;
+//	//a = a - b;
+//	//cout << a << " " << b << endl;
+//	//a ^= b;
+//	//b ^= a;
+//	//a ^= b;
+//	//cout << a << " " << b << endl;
+//	return 0;
+//}
+#endif

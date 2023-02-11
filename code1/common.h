@@ -24,7 +24,7 @@
 //#include <cstdarg>
 //#include <cstdbool>
 //#include <climits>
-//#include <vector>
+#include <vector>
 //#include <list>
 //#include <cctype>
 //#include <cstddef>
