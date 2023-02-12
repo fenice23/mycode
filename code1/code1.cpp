@@ -8841,4 +8841,89 @@ void swap(int* p1, int* p2)
 //	//cout << a << " " << b << endl;
 //	return 0;
 //}
+//int* test()
+//{
+//	int a = 10;
+//	return &a;
+//}
+//size_t MyStrlen1(const char* str)
+//{
+//	assert(str);
+//	const char* eos = str;
+//	while (*eos++);
+//	return (eos - str - 1);
+//}
+//size_t MyStrlen2(const char* str)
+//{
+//	assert(str);
+//	size_t r = 0;
+//	while (*str++)	r++;
+//	return r;
+//}
+//size_t MyStrlen3(const char* str)
+//{
+//	assert(str);
+//	if (!*str)	return 0;
+//	return (1 + MyStrlen3(str + 1));
+//}
+//int main()
+//{
+//	//int arr[10] = { 1 ,2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//cout << (&arr[9] - &arr[0]) << endl;
+////#define N_VALUES 5
+////	float v[N_VALUES];
+////	float* vp;
+////	for (vp = &v[N_VALUES - 1]; vp >= &v[0];)
+////		*vp-- = 0.0f;
+////	cout << endl;
+////#define N_VALUES 5
+////	float v[N_VALUES];
+////	float* vp;
+////	for (vp = &v[N_VALUES]; vp > &v[0];) 
+////		* --vp = 0.0f;
+////	cout << endl;
+////#define N_VALUES 5
+////	float values[N_VALUES];
+////	float* vp = NULL;
+////	for (vp = &values[0]; vp < &values[N_VALUES];)
+////		* vp++ = 0.0f;
+////	system("pause");
+//	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int n = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//int* pB = arr, * pE = arr + n - 1;
+//	//while (pB <= pE)
+//	//{
+//	//	cout << *pB++ << endl;
+//	//}
+//	//const char* s1 = "";
+//	//const char* s2 = "abc";
+//	//cout << MyStrlen1(s1) << endl;
+//	//cout << MyStrlen1(s2) << endl;
+//	//cout << MyStrlen2(s1) << endl;
+//	//cout << MyStrlen2(s2) << endl;
+//	//cout << MyStrlen3(s1) << endl;
+//	//cout << MyStrlen3(s2) << endl;
+//	//int* p;
+//	//*p = 20;//非法写入
+//	//int arr[10] = { 0 };
+//	//int* p = arr;
+//	//for (int i = 0; i <= 11; i++)
+//	//{
+//	//	*p++ = i;//越界
+//	//}
+//	//int* p = test();//p是野指针
+//	//*p = 20;
+//	//int* p = NULL;//C中#define NULL ((void*)0)
+//	//CPP中 #define NULL 0
+//	//int* p = NULL;
+//	//*p = 20;//err
+//	//cout << *p << endl;//err
+//	//int* p = NULL;
+//	//if (NULL != p)
+//	//{
+//	//	*p = 20;
+//	//	cout << *p << endl;
+//	//}
+//	return 0;
+//}
 #endif
