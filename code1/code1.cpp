@@ -8926,4 +8926,973 @@ void swap(int* p1, int* p2)
 //	//}
 //	return 0;
 //}
+//void test()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int c = a + b;
+//}
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//struct B
+//{
+//	char _c;
+//	short _s;
+//	double _d;
+//};
+//struct Stu
+//{
+//	struct B _sb;
+//	char _name[20];
+//	int _age;
+//	char _id[20];
+//} s1, s2;
+//void Print1(struct Stu s)
+//{
+//	printf("%c %d %.2lf %s %d %s\n", s._sb._c, s._sb._s, s._sb._d, s._name, s._age, s._id);
+//}
+//void Print2(struct Stu* ps)
+//{
+//	assert(ps);
+//	printf("%c %d %.2lf %s %d %s\n", ps->_sb._c, ps->_sb._s, ps->_sb._d, ps->_name, ps->_age, ps->_id);
+//}
+//char* MyStrcat(char* dst, const char* src)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while (*cp) cp++;
+//	while ((*cp++ = *src++) != '\0');
+//	return dst;
+//}
+//void test2()
+//{
+//	printf("hehe\n");
+//}
+//void test1()
+//{
+//	test2();
+//}
+//void test()
+//{
+//	test1();
+//}
+//char* my_strcpy(char* dst, const char* src)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while ((*cp++ = *src++) != '\0');
+//	return dst;
+//}
+//char* MyStrcpy(char* d, const char* s)
+//{
+//	assert(d && s);
+//	char* c = d;
+//	while ((*c++ = *s++) != '\0');
+//	return d;
+//}
+//size_t MyStrlen1(const char* s)
+//{
+//	assert(s);
+//	size_t r = 0;
+//	while (*s++)	r++;
+//	return r;
+//}
+//size_t MyStrlen2(const char* s)
+//{
+//	assert(s);
+//	if (!*s)	return 0;
+//	return MyStrlen2(s + 1) + 1;
+//}
+//size_t MyStrlen3(const char* s)
+//{
+//	assert(s);
+//	const char* eos = s;
+//	while (*eos++);
+//	return (eos - s - 1);
+//}
+//int main()
+//{
+//	//int num = 10;
+//	//int* const p = (int*const)&num;
+//	//*p = 20;
+//	//cout << num << endl;
+//	//const int num = 10;
+//	//int* const p = &num;//err
+//	//int n = 100;
+//	//const int num = 10;
+//	////num = 20;//err
+//	//const int* p = &num;
+//	//const int n = 0;
+//	//p = &n;//ok
+//	////*p = 20;//err
+//	//cout << num << endl;
+//	//cout << *p << endl;
+//	//int n = 10;
+//	//int* p = &n;
+//	//*p = 20;
+//	//cout << n << endl;
+//	//const char* s1 = "";
+//	//const char* s2 = "abc";
+//	//cout << MyStrlen1(s1) << endl;
+//	//cout << MyStrlen1(s2) << endl;
+//	//cout << MyStrlen2(s1) << endl;
+//	//cout << MyStrlen2(s2) << endl;
+//	//cout << MyStrlen3(s1) << endl;
+//	//cout << MyStrlen3(s2) << endl;
+//	//char arr1[20] = "xxxxxxxxxxxxxxxxx";
+//	//char arr2[] = "hello";
+//	//puts(strcpy(arr1, arr2));
+//	//printf("%s\n", arr1);
+//	//puts(MyStrcpy(arr1, "大汉"));
+//	//puts(arr1);
+//	//int i = 0;
+//	//int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	////cout << &i << endl;
+//	////cout << &arr[9] << endl;
+//	//for (i = 0; i <= 12; i++)
+//	//{
+//	//	printf("hehh\n");
+//	//	arr[i] = 0;
+//	//}
+//	//int n = 0;
+//	//std::cin >> n;
+//	//int f = 1;
+//	//int s = 0;
+//	//for (int i = 1; i <= n; i++)
+//	//{
+//	//	f *= i;
+//	//	s += f;
+//	//}
+//	//cout << s << endl;
+//	//int n = 0;
+//	//scanf("%d", &n);
+//	//int s = 0;
+//	//int f = 1;
+//	//for (int i = 1; i <= n; i++)
+//	//{
+//	//	f = 1;
+//	//	for (int j = 1; j <= i; j++)
+//	//	{
+//	//		f *= j;
+//	//	}
+//	//	s += f;
+//	//}
+//	//cout << s << endl;
+//	//char arr1[20] = "xxxxxxx";
+//	//char arr2[] = "hello";
+//	////strcpy(arr1, arr2);
+//	//printf("%s\n", arr1);
+//	//puts(my_strcpy(arr1, arr2));
+//	//printf("%s\n", arr1);
+//	//test();
+//	//char arr1[20] = "hello ";
+//	//char arr2[] = "world!\n";
+//	//puts(MyStrcat(arr1, arr2));
+//	//struct Stu s = { { 'w', 20, 3.14 }, "tzh", 30, "202020202" };
+//	//printf("%c %hd %.2lf %s %d %s\n", s._sb._c, s._sb._s, s._sb._d, s._name, s._age, s._id);
+//	//struct Stu* ps = &s;
+//	//printf("%c %d %.2lf %s %d %s\n", ps->_sb._c, ps->_sb._s, ps->_sb._d, ps->_name, ps->_age, ps->_id);
+//	//Print1(s);
+//	//Print2(&s);
+//	//int a = 3;
+//	//int b = 5;
+//	//int c = Add(a, b);
+//	//cout << c << endl;
+//	//int arr[10] = { 1, 2 ,3, 4, 5, 6, 7, 8, 9, 10 };
+//	//printf("0X%p\n", arr);
+//	//printf("0X%p\n", &arr[0]);
+//	//int arr[10] = { 1, 2 ,3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int* p = arr;
+//	//int n = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//for (int i = 0; i < n; i++)
+//	//{
+//	//	printf("&arr[%d] = 0X%p === p + %d = 0X%p\n", i, &arr[i], i, p + i);
+//	//}
+//	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//int* p = arr;
+//	//for (int i = 0; i < n; i++)
+//	//{
+//	//	cout << *(p + i) << endl;
+//	//}
+//	//int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//printf("%d %d\n", arr[2], 2[arr]);
+//	//int* p = arr;
+//	//for (int i = 0; i < 10; i++)
+//	//{
+//	//	printf("%d %d\n", i[p], p[i]);
+//	//}
+//	//int a = 10;
+//	//int* pa = &a;
+//	//int** ppa = &pa;
+//	//int*** pppa = &ppa;
+//	//***pppa = 20;
+//	//cout << a << endl;
+//	//cout << *pa << endl;
+//	//const char* p = "hello world";
+//	//printf("%s\n", p);
+//	//int arr[10] = { 0 };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//for (int i = 0; i < n; i++)
+//	//{
+//	//	arr[i] = i + 1;
+//	//}
+//	//for (int i = 0; i < n; i++)
+//	//{
+//	//	test();
+//	//	printf("%d ", arr[i]);
+//	//}
+//	return 0;
+//}
+//size_t fun1(size_t n)
+//{
+//	size_t r = 0;
+//	while (n)
+//	{
+//		if (n & 0x01)
+//			r++;
+//		n >>= 1;
+//	}
+//	return r;
+//}
+//size_t fun2(int n)
+//{
+//	size_t r = 0;
+//	for (int i = 0; i < 32; i++)
+//	{
+//		if ((1 << i) & n)
+//			r++;
+//	}
+//	return r;
+//}
+//size_t fun3(int n)
+//{
+//	size_t r = 0;
+//	while (n)
+//	{
+//		r++;
+//		n &= (n - 1);
+//	}
+//	return r;
+//}
+//size_t fun4(int n)
+//{
+//	size_t r = 0;
+//	while (n)
+//	{
+//		r++;
+//		n -= (n & (-n));
+//	}
+//	return r;
+//}
+//size_t fun5(int n)//蝶形算法
+//{
+//	n = (n & 0X55555555) + ((n & 0XAAAAAAAA) >> 1);
+//	n = (n & 0X33333333) + ((n & 0XCCCCCCCC) >> 2);
+//	n = (n & 0X0F0F0F0F) + ((n & 0XF0F0F0F0) >> 4);
+//	n = (n & 0X00FF00FF) + ((n & 0XFF00FF00) >> 8);
+//	n = (n & 0X0000FFFF) + ((n & 0XFFFF0000) >> 16);
+//	return n;
+//}
+//size_t Func1(int a, int b)
+//{
+//	return fun5(a ^ b);
+//}
+//size_t Func2(int a, int b)
+//{
+//	size_t r = 0;
+//	for (int i = 0; i < 32; i++)
+//	{
+//		if (((1 << i) & a) != ((1 << i) & b))
+//			r++;
+//	}
+//	return r;
+//}
+//bool is_ok(int n)
+//{
+//	if (n <= 0)	return false;
+//	return !(n & (n - 1));
+//}
+//void PrintOdd(int n)
+//{
+//	for (int i = 31; i > 0; i -= 2)
+//	{
+//		if ((1 << i) & n)
+//			cout << '1';
+//		else
+//			cout << '0';
+//	}
+//	cout << endl;
+//}
+//void PrintEven(int n)
+//{
+//	for (int i = 30; i > -1; i -= 2)
+//	{
+//		if ((1 << i) & n)
+//			cout << '1';
+//		else
+//			cout << '0';
+//	}
+//	cout << endl;
+//}
+//int main()
+//{
+//	//int arr[] = { 1, 2, 3, 4, 5 };
+//	//short* p = (short*)arr;
+//	//for (int i = 0; i < 4; i++) * (p + i) = 0;
+//	//for (int i = 0; i < (int)(sizeof(arr) / sizeof(arr[0])); i++)
+//	//	cout << arr[i] << ' ';
+//	//cout << endl;
+//	//int a = 3;
+//	//int b = 5;
+//	//cout << a << " " << b << endl;
+//	//int t = a;
+//	//a = b;
+//	//b = t;
+//	//cout << a << " " << b << endl;
+//	//a = a + b;
+//	//b = a - b;
+//	//a = a - b;
+//	//cout << a << " " << b << endl;
+//	//a ^= b;
+//	//b ^= a;
+//	//a ^= b;
+//	//cout << a << " " << b << endl;
+//	//int n = 0;
+//	//std::cin >> n;
+//	//PrintOdd(n);
+//	//PrintEven(n);
+//	//int n = 0;
+//	//std::cin >> n;
+//	//if (is_ok(n))
+//	//{
+//	//	printf("Yes!\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("No!\n");
+//	//}
+//	//int m = 0;
+//	//int n = 0;
+//	//std::cin >> m >> n;
+//	//cout << Func1(m, n) << endl;
+//	//cout << Func2(m, n) << endl;
+//	//int n = 0;
+//	//scanf("%d", &n);
+//	//cout << fun1(n) << endl;
+//	//cout << fun2(n) << endl;
+//	//cout << fun3(n) << endl;
+//	//cout << fun4(n) << endl;
+//	//cout << fun5(n) << endl;
+//	//int a, b, c;
+//	//a = 5;
+//	//c = ++a;
+//	//b = ++c, c++, ++a, a++;
+//	//b += a++ + c;
+//	//cout << a << " " << b << " " << c << endl;
+//	return 0;
+//}
+//int cnt = 0;
+//int fib(int n)
+//{
+//	cnt++;
+//	return n <= 1 ? n + 1 : fib(n - 1) + fib(n - 2);
+//}
+//int a = 1;
+//void test()
+//{
+//	int a = 2;
+//	a += 1;
+//}
+//int gcd(int m, int n)
+//{
+//	return n ? gcd(n, m % n) : m;
+//}
+//int lcm(int m, int n)
+//{
+//	int r = m > n ? m : n;
+//	for (;;)
+//	{
+//		if ((r % m == 0) && (r % n == 0))	break;
+//		r++;
+//	}
+//	return r;
+//}
+//int lcm(int m, int n)
+//{
+//	return m / gcd(m, n) * n;
+//}
+//void reverse(char* l, char* r)
+//{
+//	assert(l && r);
+//	if (l >= r)	return;
+//	while (l < r)
+//	{
+//		char t = *l;
+//		*l = *r;
+//		*r = t;
+//		l++, r--;
+//	}
+//}
+//void fun(char* buff)
+//{
+//	assert(buff);
+//	//   I like Beijing
+//	reverse(buff, buff + strlen(buff) - 1);
+//	char* p = buff;
+//	char* q = NULL;
+//	while (*p)
+//	{
+//		while (*p && *p == ' ')	p++;
+//		q = p;
+//		while (*q && *q != ' ')	q++;
+//		reverse(p, q - 1);
+//		p = q;
+//	}
+//}
+//int main()
+//{
+//	//char buff[1024] = "";
+//	//fgets(buff, 1024, stdin);
+//	//buff[strlen(buff) - 1] = '\0';
+//	//puts(buff);
+//	//fun(buff);
+//	//puts(buff);
+//	//string s;
+//	//string r;
+//	//while (cin >> s)	r = s + ' ' + r;
+//	//cout << r << endl;
+//	//string str;
+//	//string res;
+//	//while (cin >> str)
+//	//{
+//	//	res = str + ' ' + res;
+//	//}
+//	//res.pop_back();
+//	//cout << res << endl;
+//	//int m = 0;
+//	//int n = 0;
+//	//scanf("%d%d", &m, &n);
+//	//cout << gcd(m, n) << endl;
+//	//printf("%d\n", lcm(m, n));
+//	//int x = 0;
+//	//int y = 0;
+//	//int count = 0;
+//	//for (x = 0, y = 0; (y = 123) && (x < 4); x++)
+//	//	count++;
+//	//cout << count;
+//	//double x = 0.0;
+//	//double y = 0.0;
+//	//x = 2;
+//	//y = x + 3 / 2;
+//	//cout << x << " " << y << endl;
+//	//int a = 0;
+//	//int c = 0;
+//	//do
+//	//{
+//	//	--c;
+//	//	a = a - 1;
+//	//} while (a > 0);
+//	//cout << a << endl;
+//	//cout << c << endl;
+//	//int/*hhh*/ a = 10; cout << a << endl;
+//	//test();
+//	//cout << a << endl;
+//	//int i = 1;
+//	//int j = i++;
+//	//cout << i << " " << j << endl;
+//	//int x = 1;
+//	//do
+//	//{
+//	//	printf("%2d\n", x++);
+//	//} while (x--);
+//	//fib(8);
+//	//printf("%d\n", cnt);
+	//int i = 0;
+	//int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	//printf("%p %p\n", &i, &arr[9]);
+	//for (i = 0; i <= 12; i++)
+	//{
+	//	arr[i] = 0;
+	//	printf("hehe\n");
+	//}
+//	return 0;
+//}
+//bool check_sys1(int d)
+//{
+//	return *(char*)(&d);
+//}
+//bool check_sys(int d)
+//{
+//	union
+//	{
+//		char _c;
+//		int _i;
+//	} U;
+//	U._i = 1;
+//	return U._c;
+//}
+//size_t i;
+//unsigned char i = 0;
+//int main()
+//{
+//	//double* d[5] = { NULL };
+//	//double* (*p)[5] = &d;
+//	//int a = 10;
+//	//int* pa = &a;
+//	//char ch = 'w';
+//	//char* pc = &ch;
+//	//int arr[10] = { 1, 2, 3, 4, 5 };
+//	//int(*p)[10] = &arr;
+//	//float b = 9.0f;
+//	//int* pi = (int*)(&b);
+//	//printf("%d\n", *pi);
+//	//int a[5] = { 1, 2, 3, 4, 5 };
+//	//int b[5] = { 2, 3, 4, 5, 6 };
+//	//int c[5] = { 3, 4, 5, 6, 7 };
+//	//int* arr[] = { a, b, c };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//for (int i = 0; i < n; i++)
+//	//{
+//	//	for (int j = 0; j < 5; j++)
+//	//	{
+//	//		printf("%d ", *(arr[i] + j));
+//	//		printf("%d ", arr[i][j]);
+//	//	}
+//	//	putchar(10);
+//	//}
+//	//int* arr[3];
+//	//int a = 10;
+//	//int b = 20;
+//	//int c = 30;
+//	//int* arr[] = { &a, &b, &c };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//for (int i = 0; i < n; i++)
+//	//	cout << *(arr[i]) << endl;
+//	//char ch = 'q';
+//	//char* pc = &ch;
+//	//const char* ps = "hello world";
+//	//cout << *pc << endl;
+//	//printf("%c\n", *ps);
+//	//char str1[] = "hello world.";
+//	//char str2[] = "hello world.";
+//	//const char* str3 = "hello world.";
+//	//const char* str4 = "hello world.";
+//	//if (str1 == str2) cout << "Yes" << endl;
+//	//else cout << "No" << endl;
+//	//if (str3 == str4) cout << "Yes" << endl;
+//	//else cout << "No" << endl;
+//	//const char* pstr = "hello world.";
+//	//printf("%s\n", pstr);
+//	//char ch = 'w';
+//	//char* pc = &ch;
+//	//cout << ch << ' ' << *pc << endl;
+//	//*pc = 't';
+//	//cout << ch << ' ' << *pc << endl;
+//	//float f = 5.5f;
+//	//int n = 9;
+//	//float* pF = (float*)(&n);
+//	//printf("%d\n", n);
+//	//printf("%f\n", *pF);
+//	//*pF = 9.0f;
+//	//printf("%d\n", n);
+//	//printf("%f\n", *pF);
+//	//unsigned char a = -128;
+//	//printf("%d %u\n", a, a);
+//	//unsigned char b = 128;
+//	//printf("%d %u\n", b, b);
+//	//int c = 0;
+//	//for (i = 0; i <= 255; i++)
+//	//	printf("%d hello world!\n", ++c);
+//	//char a[1000];
+//	//int i;
+//	//for (i = 0; i < 1000; i++)	a[i] = -1 - i;
+//	//printf("%d\n", strlen(a));
+//	//for (i = 9; i >= 0; i--) printf("%u\n", i);
+//	//char a = -1;
+//	//signed char b = -1;
+//	//unsigned char c = -1;
+//	//printf("a = %d, b = %d, c = %d\n", a, b, c);
+//	//printf("a = %u, b = %u, c = %u\n", a, b, c);
+//	//char aa = -128;
+//	//printf("%d, %u\n", aa, aa);
+//	//char bb = 128;
+//	//printf("%d, %u\n", bb, bb);
+//	//int i = -20;
+//	//unsigned int j = 10;
+//	//printf("%d\n", i + j);
+//	//printf("%u\n", i + j);
+//	//int a = -10;
+//	//int b = 10;
+//	//int data = 0x11223344;
+//	//int a = 0b10;
+//	//int data = 1;
+//	//if (check_sys(data))	cout << "小" << endl;
+//	//else cout << "大" << endl;
+//	//int arr1[10] = { 0 };
+//	//int arr2[5] = { 0 };
+//	//void p;//err
+//	//void* p;//ok
+//	//p + 1;//err
+//	//cout << sizeof(void) << endl;//err
+//	//cout << sizeof(void*);//ok
+//	//void* p = NULL;
+//	//p + 1;//err
+//	//void* p = (char*)malloc(10);
+//	//*p = 2;//err
+//	return 0;
+//}
+//void print1(int(*p)[5], int r)
+//{
+//	assert(p);
+//	for (int i = 0; i < r; i++)
+//	{
+//		for (int j = 0; j < 5; j++)
+//			printf("%d ", p[i][j]);
+//		putchar(10);
+//	}
+//}
+//void print2(int arr[][5], int r)
+//{
+//	assert(arr);
+//	for (int i = 0; i < r; i++)
+//	{
+//		for (int j = 0; j < 5; j++)
+//			printf("%d ", arr[i][j]);
+//		putchar(10);
+//	}
+//}
+//void print3(int arr[3][5], int r, int c)
+//{
+//	assert(arr);
+//	for (int i = 0; i < r; i++)
+//	{
+//		for (int j = 0; j < c; j++)
+//			printf("%d ", arr[i][j]);
+//		putchar(10);
+//	}
+//}
+//void print4(int(*p)[3][5])
+//{
+//	assert(p);
+//	for (int i = 0; i < 3; i++)
+//	{
+//		for (int j = 0; j < 5; j++)
+//			printf("%d ", (*p)[i][j]);
+//		putchar(10);
+//	}
+//}
+//void test(int(*p)[5]) {}//ok
+//void test(int** arr) {}//err
+//void test(int arr[3][5]) {}//ok
+//void test(int arr[][]) {}//err
+//void test(int arr[][5]) {}//ok
+//void test(int arr[3][]) {}//err
+//void test(int* arr) {}//err
+//void test(int* arr[5]) {}//err
+//void test1(int arr[]) {}
+//void test1(int arr[10]) {}
+//void test1(int* arr) {}
+//void test2(int* arr[]) {}
+//void test2(int** arr) {}
+//void test2(int* arr[20]) {}
+//int i;
+//void print1(int* p, int n)
+//{
+//	assert(p);
+//	for (int i = 0; i < n; i++)	cout << *p++ << ' ';
+//	cout << endl;
+//}
+//void print2(int* pB, int* pE)
+//{
+//	assert(pB && pE);
+//	while (pB <= pE)
+//		cout << *pB++ << ' ';
+//	cout << endl;
+//}
+//int main()
+//{
+//	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int n = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//print1(arr, n);
+//	//print2(arr, arr + n - 1);
+//	//int n = 0;
+//	//int a = 0;
+//	//int s = 0;
+//	//int t = 0;
+//	//scanf("%d%d", &n, &a);
+//	//for (int i = 0; i < n; i++)
+//	//{
+//	//	t = t * 10 + a;
+//	//	s += t;
+//	//}
+//	//cout << s << endl;
+//	//i--;
+//	//if (i > sizeof(i))	cout << ">" << endl;
+//	//else cout << "<=" << endl;
+//	//int arr[10] = { 0 };
+//	//int* arr2[20] = { 0 };
+//	//test1(arr);
+//	//test2(arr2);
+//	//int arr[3][5] = { 0 };
+//	//test(arr);
+//	//int arr[3][5] = { { 1, 2, 3, 4, 5 }, { 2, 3, 4, 5, 6 }, { 3, 4, 5, 6, 7 } };
+//	//print1(arr, 3);
+//	//print2(arr, 3);
+//	//print3(arr, 3, 5);
+//	//print4(&arr);
+//	//int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int(*p)[10] = &arr;
+//	//for (int i = 0; i < 10; i++)
+//	//	printf("%d ", (*p)[i]);
+//	//cout << endl;
+//	//int arr[10] = { 0 };
+//	//int* p1 = arr;
+//	//int(*p2)[10] = &arr;
+//	//printf("%p, %p\n", p1, p1 + 1);
+//	//printf("%p, %p\n", p2, p2 + 1);
+//	//cout << "--------------------------" << endl;
+//	//printf("%p, %p\n", &arr, p2);
+//	//printf("%p, %p\n", &arr + 1, p2 + 1);
+//	return 0;
+//}
+//struct student
+//{
+//	int num;
+//	char name[32];
+//	float score;
+//};
+//struct stu
+//{
+//	int num;
+//	char name[10];
+//	int age;
+//};
+//void fun(struct stu* ps)
+//{
+//	assert(ps);
+//	cout << (*ps).name << endl;
+//}
+//void reverse_i(char* s)
+//{
+//	assert(s);
+//	int l = 0, r = strlen(s) - 1;
+//	while (l < r)
+//	{
+//		char t = s[l];
+//		s[l] = s[r];
+//		s[r] = t;
+//		l++, r--;
+//	}
+//}
+//void reverse_r(char* s)
+//{
+//	assert(s);
+//	int len = strlen(s);
+//	if (len <= 1)	return;
+//	int l = 0, r = len - 1;
+//	char t = s[l];
+//	s[l] = s[r];
+//	s[r] = '\0';
+//	reverse_r(s + 1);
+//	s[r] = t;
+//}
+//size_t MyStrlen1(const char* s)
+//{
+//	assert(s);
+//	size_t r = 0;
+//	while (*s++)	r++;
+//	return r;
+//}
+//size_t MyStrlen2(const char* s)
+//{
+//	assert(s);
+//	if (!*s)	return 0;
+//	return 1 + MyStrlen2(s + 1);
+//}
+//size_t MyStrlen3(const char* s)
+//{
+//	assert(s);
+//	const char* eos = s;
+//	while (*eos++);
+//	return (eos - s - 1);
+//}
+//char* MyStrcpy(char* dst, const char* src)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while ((*cp++ = *src++) != '\0');
+//	return dst;
+//}
+//int main()
+//{
+//	//int n = 0;
+//	//scanf("%d", &n);
+//	//for (int i = 0; i < n; i++)
+//	//{
+//	//	for (int j = 0; j < n - 1 - i; j++) putchar(' ');
+//	//	for (int j = 0; j < 2 * i + 1; j++) putchar('*');
+//	//	putchar(10);
+//	//}
+//	//for (int i = 0; i < n - 1; i++)
+//	//{
+//	//	for (int j = 0; j < i + 1; j++) putchar(' ');
+//	//	for (int j = 0; j < 2 * (n - i) - 3; j++) putchar('*');
+//	//	putchar(10);
+//	//}
+//	//int n = 0;
+//	//std::cin >> n;
+//	//int x = n / 2;
+//	//int y = n / 2;
+//	//for (int i = 0; i < n; i++)
+//	//{
+//	//	for (int j = 0; j < n; j++)
+//	//	{
+//	//		if (abs(i - x) + abs(j - y) <= y)	putchar('*');
+//	//		else putchar(' ');
+//	//	}
+//	//	putchar(10);
+//	//}
+//	//char arr[20] = "";
+//	//cout << MyStrcpy(arr, "abcdef") << endl;
+//	//cout << MyStrlen3("") << endl;
+//	//cout << MyStrlen3("a") << endl;
+//	//char arr[] = "";
+//	//puts(arr);
+//	//reverse_i(arr);
+//	//puts(arr);
+//	//reverse_r(arr);
+//	//puts(arr);
+//	//int c = 0;
+//	//int l = 0;
+//	//int s = 0;
+//	//for (int i = 1; i < 100000; i++)
+//	//{
+//	//	int t = i;
+//	//	s = 0;
+//	//	l = 0;
+//	//	while (t)
+//	//	{
+//	//		l++;
+//	//		t /= 10;
+//	//	}
+//	//	t = i;
+//	//	while (t)
+//	//	{
+//	//		s += (int)(pow(t % 10, l));
+//	//		t /= 10;
+//	//	}
+//	//	if (s == i)
+//	//	{
+//	//		c++;
+//	//		cout << s << " ";
+//	//	}
+//	//}
+//	//cout << "-------------------------" << endl << c << endl;
+//	//struct stu studen[3] = { { 9801, "zhang", 20 }, { 9802, "wang", 19 }, { 9803, "zhao", 18 } };
+//	//fun(studen + 1);
+//	//cout << sizeof(student) << " " << sizeof(stu) << endl;
+//	//unsigned long pulArray[] = { 6, 7, 8, 9, 10 };
+//	//unsigned long* pulPtr = pulArray;
+//	//*(pulPtr + 3) += 3;
+//	//cout << *pulPtr << " " << *(pulPtr + 3) << endl;
+//	return 0;
+//}
+//bool is_ok(int n)
+//{
+//	return n & 0x01;
+//}
+//void func(int* p, int n, bool(*pf)(int))//前奇后偶
+//{
+//	assert(p && pf);
+//	int* pB = p, * pE = pB + n - 1;
+//	while (pB < pE)
+//	{
+//		while ((pB < pE) && (pf(*pB))) pB++;
+//		while ((pB < pE) && (!pf(*pE))) pE--;
+//		if (pB < pE)
+//		{
+//			*pB ^= *pE;
+//			*pE ^= *pB;
+//			*pB ^= *pE;
+//			pB++, pE--;
+//		}
+//	}
+//}
+//void foo(int arr[], int n)
+//{
+//	func(arr, n, is_ok);
+//}
+//void foo(int arr[], int n)
+//{
+//	assert(arr);
+//	int* a = (int*)malloc(n * sizeof(int));
+//	if (NULL == a)
+//	{
+//		perror("malloc fail");
+//		exit(errno);
+//	}
+//	int i = 0, j = 0;
+//	int e = n - 1;
+//	while (i < n)
+//	{
+//		if (arr[i] & 0x01)	a[j++] = arr[i++];
+//		else a[e--] = arr[i++];
+//	}
+//	e = n - 1;
+//	while (j < e)
+//	{
+//		a[j] ^= a[e];
+//		a[e] ^= a[j];
+//		a[j] ^= a[e];
+//		j++, e--;
+//	}
+//	i = 0;
+//	while (i < n)
+//	{
+//		arr[i] = a[i];
+//		i++;
+//	}
+//	free(a);
+//	a = NULL;
+//}
 #endif
+int main()
+{
+	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	//int n = (int)(sizeof(arr) / sizeof(*arr));
+	//foo(arr, n);
+	//for (int i = 0; i < n; i++)	cout << arr[i] << ' '; cout << endl;
+	//unsigned int a = 0x1234;
+	//unsigned char b = *(unsigned char*)(&a);
+	//unsigned char a = 200;
+	//unsigned char b = 100;
+	//unsigned char c = 0;
+	//c = a + b;
+	//printf("%d %d\n", a + b, c);
+	//printf("%u %u\n", a + b, c);
+	//int m = 0;
+	//int p = 1;
+	//scanf("%d", &m);
+	//if (m <= 0)	cout << "0" << endl;
+	//else cout << (m / p) * 2 - 1 << endl;
+	//int m = 0;
+	//int p = 1;
+	//int e = 0;
+	//int t = 0;
+	//std::cin >> m;
+	//if (m <= 0)	cout << "0" << endl;
+	//else
+	//{
+	//	t = e = m / p;
+	//	while (e >= 2)
+	//	{
+	//		t += e / 2;
+	//		e = e / 2 + e % 2;
+	//	}
+	//	cout << t << endl;
+	//}
+	return 0;
+}
