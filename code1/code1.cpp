@@ -9858,41 +9858,1005 @@ void swap(int* p1, int* p2)
 //	free(a);
 //	a = NULL;
 //}
+//int main()
+//{
+//	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//foo(arr, n);
+//	//for (int i = 0; i < n; i++)	cout << arr[i] << ' '; cout << endl;
+//	//unsigned int a = 0x1234;
+//	//unsigned char b = *(unsigned char*)(&a);
+//	//unsigned char a = 200;
+//	//unsigned char b = 100;
+//	//unsigned char c = 0;
+//	//c = a + b;
+//	//printf("%d %d\n", a + b, c);
+//	//printf("%u %u\n", a + b, c);
+//	//int m = 0;
+//	//int p = 1;
+//	//scanf("%d", &m);
+//	//if (m <= 0)	cout << "0" << endl;
+//	//else cout << (m / p) * 2 - 1 << endl;
+//	//int m = 0;
+//	//int p = 1;
+//	//int e = 0;
+//	//int t = 0;
+//	//std::cin >> m;
+//	//if (m <= 0)	cout << "0" << endl;
+//	//else
+//	//{
+//	//	t = e = m / p;
+//	//	while (e >= 2)
+//	//	{
+//	//		t += e / 2;
+//	//		e = e / 2 + e % 2;
+//	//	}
+//	//	cout << t << endl;
+//	//}
+//	//int arr[10][10] = { 0 };
+//	//for (int i = 0; i < 10; i++)
+//	//{
+//	//	arr[i][0] = arr[i][i] = 1;
+//	//}
+//	//for (int i = 2; i < 10; i++)
+//	//{
+//	//	for (int j = 1; j < i; j++)
+//	//		arr[i][j] = arr[i - 1][j] + arr[i - 1][j - 1];
+//	//}
+//	//for (int i = 0; i < 10; i++)
+//	//{
+//	//	for (int j = 0; j < i +  1; j++)
+//	//	{
+//	//		cout << arr[i][j] << ' ';
+//	//	}
+//	//	cout << endl;
+//	//}
+//	//char k = 0;
+//	//for (k = 'a'; k <= 'd'; k++)
+//	//{
+//	//	if (((k != 'a') + (k == 'c') + (k == 'd') + (k != 'd')) == 3)
+//	//	{
+//	//		cout << k << endl;
+//	//		break;
+//	//	}
+//	//}
+////	for (int a = 1; a <= 5; a++)
+////	{
+////		for (int b = 1; b <= 5; b++)
+////		{
+////			for (int c = 1; c <= 5; c++)
+////			{
+////				for (int d = 1; d <= 5; d++)
+////				{
+////					for (int e = 1; e <= 5; e++)
+////					{
+////						if ((a * b * c * d * e == 120) &&
+////							((b == 2) + (a == 3) == 1) &&
+////							((b == 2) + (e == 4) == 1) &&
+////							((c == 1) + (d == 2) == 1) &&
+////							((e == 4) + (a == 1) == 1) &&
+////							((c == 5) + (d == 3) == 1))
+////						{
+////							cout << "a = " << a << endl;
+////							cout << "b = " << b << endl;
+////							cout << "c = " << c << endl;
+////							cout << "d = " << d << endl;
+////							cout << "e = " << e << endl;
+////							goto End;
+////						}
+////					}
+////				}
+////			}
+////		}
+////	}
+////End:
+////	printf("Over\n");
+//	return 0;
+//}
+//void print(int* p, int n)
+//{
+//	assert(p);
+//	for (int i = 0; i < n; i++)	cout << *p++ << ' '; cout << endl;
+//}
+//void test(int* p) {}
+//void test(char* p) {}
+//void test(int** pptr)
+//{
+//	assert(pptr);
+//	printf("%d\n", **pptr);
+//	**pptr = 20;
+//}
+//void test(char** ppc)
+//{
+//	assert(ppc);
+//	cout << **ppc << endl;
+//}
+//void test0()
+//{
+//	printf("hhh\n");
+//}
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	if (y)
+//		return x / y;
+//	perror("Div Zero");
+//	exit(errno);
+//}
+//int main()
+//{
+//	//int(*pf1)(int, int) = Add;
+//	//int(*pf2)(int, int) = Sub;
+//	//int(*pf3)(int, int) = Mul;
+//	//int(*pf4)(int, int) = Div;
+//	//int(*pfArr[])(int, int) = { pf1, pf2, pf3, pf4 };
+//	//int n = (int)(sizeof(pfArr) / sizeof(*pfArr));
+//	//for (int i = 0; i < n; i++)
+//	//	printf("%d\n", pfArr[i](2, 3));
+//	//typedef void(*type)(int);
+//	//type s(int, type);
+//	//auto p = s;
+//	//void(*signal(int, void(*)(int)))(int);//void(*)(int) signal(int, void(*)(int));
+//	//auto q = signal;
+//	//p = q;
+//	//( *( void (*)() ) 0 ) ();
+//	//int(*pf)(int, int) = &Add;
+//	//printf("%d\n", (*pf)(1, 2));
+//	//int(*pF)(int, int) = Add;
+//	//printf("%d\n", (*pF)(1, 2));
+//	//printf("%d\n", (**pF)(1, 2));
+//	//printf("%d\n", (********pF)(1, 2));
+//	//printf("%d\n", pF(1, 2));
+//	//printf("%d\n", Add(1, 2));
+//	//printf("%p\n", &Add);
+//	//printf("%p\n", Add);
+//	//int a = 10;
+//	//int* pa = &a;
+//	//char ch = 'w';
+//	//char* pc = &ch;
+//	//int arr[10] = { 0 };
+//	//int(*parr)[10] = &arr;
+//	//printf("%p\n", test0);
+//	//printf("%p\n", &test0);
+//	//void(*p1)() = test0;
+//	//void(*p2)() = &test0;
+//	//p1();
+//	//(*p1)();
+//	//(****p1)();
+//	//(*p2)();
+//	//void(*p)();//指针
+//	//void* p();//声明
+//	//char c = 'b';
+//	//char* pc = &c;
+//	//char** ppc = &pc;
+//	//char* arr[10] = { &c, NULL };
+//	//test(&pc);
+//	//test(ppc);
+//	//test(arr);
+//	//int n = 10;
+//	//int* p = &n;
+//	//int** pp = &p;
+//	//test(pp);
+//	//cout << n << endl;
+//	//test(&p);
+//	//cout << n << endl;
+//	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int* p = arr;
+//	//int n = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//print(p, n);
+//	return 0;
+//}
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	if (y)
+//		return x / y;
+//	perror("Div Zero");
+//	exit(errno);
+//}
+//void Menu()
+//{
+//	printf("***********************************\n");
+//	printf("*****     1.Add     2.Sub     *****\n");
+//	printf("*****     3.Mul     4.Div     *****\n");
+//	printf("*****          0.Exit         *****\n");
+//	printf("***********************************\n");
+//}
+//int main()
+//{
+//	int input = 0;
+//	int x = 0;
+//	int y = 0;
+//	do
+//	{
+//		Menu();
+//		printf("please input an integer number:>");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 0:
+//			printf("Exiting...\n");
+//			break;
+//		case 1:
+//			printf("请输入两个操作数:>");
+//			scanf("%d%d", &x, &y);
+//			printf("%d\n", Add(x, y));
+//			break;
+//		case 2:
+//			printf("请输入两个操作数:>");
+//			scanf("%d%d", &x, &y);
+//			printf("%d\n", Sub(x, y));
+//			break;
+//		case 3:
+//			printf("请输入两个操作数:>");
+//			scanf("%d%d", &x, &y);
+//			printf("%d\n", Mul(x, y));
+//			break;
+//		case 4:
+//			printf("请输入两个操作数:>");
+//			scanf("%d%d", &x, &y);
+//			printf("%d\n", Div(x, y));
+//			break;
+//		default:
+//			printf("Data Err! Again\n");
+//			break;
+//		}
+//	} while (input);
+//	cout << "成功退出" << endl;
+//	return 0;
+//}
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	if (y)
+//		return x / y;
+//	perror("Div Zero");
+//	exit(errno);
+//}
+//void Menu()
+//{
+//	printf("***********************************\n");
+//	printf("*****     1.Add     2.Sub     *****\n");
+//	printf("*****     3.Mul     4.Div     *****\n");
+//	printf("*****          0.Exit         *****\n");
+//	printf("***********************************\n");
+//}
+//int main()
+//{
+//	int input = 0;
+//	int x = 0;
+//	int y = 0;
+//	int(*pfArr[])(int, int) = { NULL, Add, Sub, Mul, Div };
+//	int n = (int)(sizeof(pfArr) / sizeof(*pfArr));
+//	while (1)
+//	{
+//		Menu();
+//		printf("please input an integer number:>");
+//		scanf("%d", &input);
+//		if (!input)	break;
+//		else if (input > n - 1 || input < 0)	continue;
+//		else
+//		{
+//			printf("请输入两个操作数:>");
+//			std::cin >> x >> y;
+//			cout << (*pfArr[input])(x, y) << endl;
+//		}
+//	}
+//	cout << "成功退出" << endl;
+//	return 0;
+//}
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	if (y)
+//		return x / y;
+//	perror("Div Zero");
+//	exit(errno);
+//}
+//void Menu()
+//{
+//	printf("***********************************\n");
+//	printf("*****     1.Add     2.Sub     *****\n");
+//	printf("*****     3.Mul     4.Div     *****\n");
+//	printf("*****          0.Exit         *****\n");
+//	printf("***********************************\n");
+//}
+//int Calc(int(*Op)(int, int))
+//{
+//	assert(Op);
+//	int x = 0;
+//	int y = 0;
+//	cout << "please input two operands:>";
+//	std::cin >> x >> y;
+//	return (*Op)(x, y);
+//}
+//int main()
+//{
+//	int input = 0;
+//	int x = 0;
+//	int y = 0;
+//	do
+//	{
+//		Menu();
+//		printf("please input an integer number:>");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 0:
+//			printf("Exiting...");
+//			break;
+//		case 1:
+//			printf("%d\n", Calc(Add));
+//			break;
+//		case 2:
+//			printf("%d\n", Calc(Sub));
+//			break;
+//		case 3:
+//			printf("%d\n", Calc(Mul));
+//			break;
+//		case 4:
+//			printf("%d\n", Calc(Div));
+//			break;
+//		default:
+//			printf("Data Err! Again\n");
+//			break;
+//		}
+//	} while (input);
+//	cout << "成功退出" << endl;
+//	return 0;
+//}
+//void bubble_sort(int* arr, int n)
+//{
+//	assert(arr);
+//	bool f = false;
+//	for (int i = 0; i < n - 1; i++)
+//	{
+//		f = false;
+//		for (int j = 0; j < n - 1 - i; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				f = true;
+//				arr[j] ^= arr[j + 1];
+//				arr[j + 1] ^= arr[j];
+//				arr[j] ^= arr[j + 1];
+//			}
+//		}
+//		if (!f)	break;
+//	}
+//}
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	assert(e1 && e2);
+//	return -(*(int*)e1 - *(int*)e2);
+//}
+//void print(int* p, int n)
+//{
+//	assert(p);
+//	for (int i = 0; i < n; i++)	cout << *p++ << ' '; cout << endl;
+//}
+//void Swap(char* p1, char* p2, size_t width)
+//{
+//	assert(p1 && p2);
+//	for (int i = 0; i < width; i++)
+//	{
+//		char t = *p1;
+//		*p1 = *p2;
+//		*p2 = t;
+//		p1++, p2++;
+//	}
+//}
+//void MyBubbleSort(void* base, size_t n, size_t width, int(*cmp)(const void*, const void*))
+//{
+//	assert(base && cmp);
+//	bool flag = false;
+//	for (size_t i = 0; i < n - 1; i++)
+//	{
+//		flag = false;
+//		for (size_t j = 0; j < n - 1 - i; j++)
+//		{
+//			if (cmp((char*)base + j * width, (char*)base + (j + 1) * width) > 0)
+//			{
+//				flag = true;
+//				Swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
+//			}
+//		}
+//		if (!flag)	break;
+//	}
+//}
+//const double Eps = 1e-6;
+//int cmp_double(const void* e1, const void* e2)
+//{
+//	assert(e1 && e2);
+//	double* p1 = (double*)e1;
+//	double* p2 = (double*)e2;
+//	double gap = *p1 - *p2;
+//	if (abs(gap) < Eps)	return 0;
+//	else if (gap > Eps)	return 1;
+//	else return -1;
+//}
+//typedef struct _Stu
+//{
+//	char _name[20];
+//	int _age;
+//} Stu;
+//int cmp_name(const void* e1, const void* e2)
+//{
+//	assert(e1 && e2);
+//	return strcmp(((Stu*)e1)->_name, ((Stu*)e2)->_name);
+//}
+//int cmp_age(const void* e1, const void* e2)
+//{
+//	assert(e1 && e2);
+//	return ((Stu*)e1)->_age - ((Stu*)e2)->_age;
+//}
+//int cmp_str(const void* e1, const void* e2)
+//{
+//	assert(e1 && e2);
+//	return strcmp(*(char**)e1, *(char**)e2);
+//}
+//typedef struct _Emp
+//{
+//	const char* _name;
+//	int _age;
+//} Emp;
+//int cmp_name1(const void* e1, const void* e2)
+//{
+//	assert(e1 && e2);
+//	return strcmp(((Emp*)e1)->_name, ((Emp*)e2)->_name);
+//}
+//int cmp_age1(const void* e1, const void* e2)
+//{
+//	assert(e1 && e2);
+//	return ((Emp*)e1)->_age - ((Emp*)e2)->_age;
+//}
+//int main()
+//{
+//	//Emp e[] = { { "Peter", 20 }, { "Eric", 18 }, { "Frank", 11 } };
+//	//int n = (int)(sizeof(e) / sizeof(*e));
+//	//MyBubbleSort(e, n, sizeof(*e), cmp_name1);
+//	//MyBubbleSort(e, n, sizeof(*e), cmp_age1);
+//	//cout << sizeof Emp << endl;//8
+//	//const char* cParr[] = { "Microsoft", "HuaWei", "Apple", "Google", "IBM" };
+//	//int n = (int)(sizeof(cParr) / sizeof(*cParr));
+//	//MyBubbleSort(cParr, n, sizeof(*cParr), cmp_str);
+//	//Stu s[] = { { "zhangsan", 30 }, { "lisi", 34 }, { "wangwu", 20 } };
+//	//int n = (int)(sizeof(s) / sizeof(*s));
+//	//MyBubbleSort(s, n, sizeof(*s), cmp_name);
+//	//MyBubbleSort(s, n, sizeof(*s), cmp_age);
+//	//int arr[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 11, 12, 13, 14, 15, 16 };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//MyBubbleSort(arr, n, sizeof(arr[0]), cmp_int);
+//	//Stu s[] = { { "zhangsan", 30 }, { "lisi", 33 }, { "wangwu", 20 } };
+//	//int n = (int)(sizeof(s) / sizeof(*s));
+//	//qsort(s, n, sizeof(*s), cmp_name);
+//	//qsort(s, n, sizeof(*s), cmp_age);
+//	//double d[] = { 9.0, 8.0, 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.0 };
+//	//int n = (int)(sizeof(d) / sizeof(*d));
+//	//qsort(d, n, sizeof(*d), cmp_double);
+//	//int arr[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 11, 12, 13, 14, 15 };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//print(arr, n);
+//	//qsort(arr, n, sizeof(*arr), cmp_int);
+//	//print(arr, n);
+////void qsort(void* base, size_t n, size_t eleSize, int(*cmp)(const void*, const void*));
+//	//int arr[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//print(arr, n);
+//	////MyBubbleSort(arr, n, sizeof(arr[0]), cmp_int);
+//	////qsort(arr, n, sizeof(arr[0]), cmp_int);
+//	//bubble_sort(arr, n);
+//	//print(arr, n);
+//	return 0;
+//}
+//#pragma warning(disable:6066)
+//int main()
+//{
+//	//const char* c[] = { "ENTER", "NEW", "POINT", "FIRST" };
+//	//const char** cp[] = { c + 3, c + 2, c + 1, c };
+//	//const char*** cpp = cp;
+//	//printf("%s\n", **++cpp);
+//	//printf("%s\n", *-- * ++cpp + 3);
+//	//printf("%s\n", *cpp[-2] + 3);
+//	//printf("%s\n", cpp[-1][-1] + 1);
+//	//const char* a[] = { "work", "at", "alibaba" };
+//	//const char** ppa = a;
+//	//ppa++;
+//	//printf("%s\n", *ppa);
+//	//int aa[2][5] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int* ptr1 = (int*)(&aa + 1);
+//	//int* ptr2 = *(aa + 1);
+//	//printf("%d %d\n", *(ptr1 - 1), *(ptr2 - 1));
+//	//int a[5][5];
+//	//int(*p)[4];
+//	//p = (int(*)[4])a;
+//	//printf("%p, %d\n", &p[4][2] - &a[4][2], &p[4][2] - &a[4][2]);
+//	//int a[3][2] = { (0, 1), (2, 3), (4, 5) };
+//	//int* p = a[0];
+//	//printf("%d\n", p[0]);
+//	//int a[4] = { 1, 2, 3, 4 };
+//	//int* ptr1 = (int*)(&a + 1);
+//	//int* ptr2 = (int*)((int)a + 1);
+//	//printf("%x, %x\n", ptr1[-1], *ptr2);
+//	//struct Test
+//	//{
+//	//	int _Num;
+//	//	char* pcName;
+//	//	short _sDate;
+//	//	char _cha[2];
+//	//	short _sBa[4];
+//	//}*p;
+//	////cout << sizeof(struct Test) << endl;
+//	//p = (struct Test*)0X100000;
+//	//printf("%p\n", p + 0x01);
+//	//printf("%p\n", (unsigned int*)p + 0x01);
+//	//printf("%p\n", (void*)((unsigned long)p + 0x01));
+//	//short s = 5;
+//	//int a = 4;
+//	//printf("%d\n", sizeof(s = a + 6));
+//	//printf("%d\n", s);
+//	//int a[5] = { 1, 2, 3, 4, 5 };
+//	//int* ptr = (int*)(&a + 1);
+//	//cout << *(a + 1) << " " << *(ptr - 1) << endl;
+//	//char* p = "abcdef";
+//	//printf("%d\n", strlen(p));
+//	//printf("%d\n", strlen(p + 1));
+//	//printf("%d\n", strlen(*p));
+//	//printf("%d\n", strlen(p[0]));
+//	//printf("%d\n", strlen(&p));
+//	//printf("%d\n", strlen(&p + 1));
+//	//printf("%d\n", strlen(&p[0] + 1));
+//	//printf("%d\n", sizeof(p));
+//	//printf("%d\n", sizeof(p + 1));
+//	//printf("%d\n", sizeof(*p));
+//	//printf("%d\n", sizeof(p[0]));
+//	//printf("%d\n", sizeof(&p));
+//	//printf("%d\n", sizeof(&p + 1));
+//	//printf("%d\n", sizeof(&p[0] + 1));
+//	//int a[3][4] = { 0 };
+//	//printf("%d\n", sizeof(a));
+//	//printf("%d\n", sizeof(a[0][0]));
+//	//printf("%d\n", sizeof(a[0]));
+//	//printf("%d\n", sizeof(a[0] + 1));
+//	//printf("%d\n", sizeof(*(a[0] + 1)));
+//	//printf("%d\n", sizeof(a + 1));
+//	//printf("%d\n", sizeof(*(a + 1)));
+//	//printf("%d\n", sizeof(&a[0] + 1));
+//	//printf("%d\n", sizeof(*(&a[0] + 1)));
+//	//printf("%d\n", sizeof(*a));
+//	//printf("%d\n", sizeof(a[3]));
+//	//char arr[] = "abcdef";
+//	//printf("%d\n", strlen(arr));
+//	//printf("%d\n", strlen(arr + 0));
+//	//printf("%d\n", strlen(*arr));
+//	//printf("%d\n", strlen(arr[1]));
+//	//printf("%d\n", strlen(&arr));
+//	//printf("%d\n", strlen(&arr + 1));
+//	//printf("%d\n", strlen(&arr[0] + 1));
+//	//printf("%d\n", sizeof(arr));
+//	//printf("%d\n", sizeof(arr + 0));
+//	//printf("%d\n", sizeof(*arr));
+//	//printf("%d\n", sizeof(arr[1]));
+//	//printf("%d\n", sizeof(&arr));
+//	//printf("%d\n", sizeof(&arr + 1));
+//	//printf("%d\n", sizeof(&arr[0] + 1));
+//	//char arr[] = { 'a', 'b', 'c', 'd', 'e', 'f' };
+//	//printf("%d\n", strlen(arr));
+//	//printf("%d\n", strlen(arr + 0));
+//	////printf("%d\n", strlen(*arr));
+//	////printf("%d\n", strlen(arr[1]));
+//	//printf("%d\n", strlen(&arr));
+//	//printf("%d\n", strlen(&arr + 1));
+//	//printf("%d\n", strlen(&arr[0] + 1));
+//	//printf("%d\n", sizeof(arr));
+//	//printf("%d\n", sizeof(arr + 0));
+//	//printf("%d\n", sizeof(*arr));
+//	//printf("%d\n", sizeof(arr[1]));
+//	//printf("%d\n", sizeof(&arr));
+//	//printf("%d\n", sizeof(&arr + 1));
+//	//printf("%d\n", sizeof(&arr[0] + 1));
+//	//int a[] = { 1, 2, 3, 4 };
+//	//printf("%d\n", sizeof(a));
+//	//printf("%d\n", sizeof(a + 0));
+//	//printf("%d\n", sizeof(*a));
+//	//printf("%d\n", sizeof(a + 1));
+//	//printf("%d\n", sizeof(a[1]));
+//	//printf("%d\n", sizeof(&a));
+//	//printf("%d\n", sizeof(*&a));
+//	//printf("%d\n", sizeof(&a + 1));
+//	//printf("%d\n", sizeof(&a[0]));
+//	//printf("%d\n", sizeof(&a[0] + 1));
+//	return 0;
+//}
+//int find(int(*p)[5], int r, int k, int* px, int* py)
+//{
+//	assert(p && px && py);
+//	int col = 4;
+//	int row = 0;
+//	while (row < r && col >= 0)
+//	{
+//		if (p[row][col] > k) col--;
+//		else if (p[row][col] < k) row++;
+//		else
+//		{
+//			*px = row, * py = col;
+//			return 1;
+//		}
+//	}
+//	return -1;
+//}
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	assert(e1 && e2);
+//	return *(int*)e1 - *(int*)e2;
+//}
+//void swap(char* p1, char* p2, size_t eleSize)
+//{
+//	assert(p1 && p2);
+//	while (eleSize--)
+//	{
+//		*p1 ^= *p2;
+//		*p2 ^= *p1;
+//		*p1 ^= *p2;
+//		p1++, p2++;
+//	}
+//}
+//void MyBubbleSort(void* base, size_t n, size_t eleSize, int(*cmp)(const void*, const void*))
+//{
+//	assert(base && cmp);
+//	bool flag = false;
+//	for (size_t i = 0; i < n - 1; i++)
+//	{
+//		flag = false;
+//		for (size_t j = 0; j < n - 1 - i; j++)
+//		{
+//			if (cmp((char*)base + j * eleSize, (char*)base + (j + 1) * eleSize) > 0)
+//			{
+//				swap((char*)base + j * eleSize, (char*)base + (j + 1) * eleSize, eleSize);
+//				flag = true;
+//			}
+//		}
+//		if (!flag)break;
+//	}
+//}
+//int cmp_str(const void* e1, const void* e2)
+//{
+//	assert(e1 && e2);
+//	return strcmp(*(char**)e1, *(char**)e2);
+//}
+//size_t MyStrlen(const char* s)
+//{
+//	assert(s);
+//	size_t r = 0;
+//	while (*s++) r++;
+//	return r;
+//}
+//size_t _my_strlen(const char* s)
+//{
+//	assert(s);
+//	if (!*s)	return 0;
+//	return 1 + _my_strlen(1 + s);
+//}
+//size_t my_strlen(const char* s)
+//{
+//	assert(s);
+//	const char* eos = s;
+//	while (*eos++);
+//	return (eos - s - 1);
+//}
+//size_t MyStrlen(const char* s)
+//{
+//	assert(s);
+//	const char* eos = s;
+//	while (*eos++);
+//	return (eos - s - 1);
+//}
+//void reverse(char* pl, char* pr)
+//{
+//	assert(pl && pr);
+//	if (pr - pl <= 0)	return;
+//	while (pl < pr)
+//	{
+//		*pl ^= *pr;
+//		*pr ^= *pl;
+//		*pl ^= *pr;
+//		pr--, pl++;
+//	}
+//}
+//void string_left_rotate1(char* s, int k)
+//{
+//	assert(s);
+//	int l = strlen(s);
+//	k %= l;
+//	if (k <= 0)	return;
+//	while (k--)
+//	{
+//		char t = s[0];
+//		for (int i = 1; i < l; i++)
+//		{
+//			s[i - 1] = s[i];
+//		}
+//		s[l - 1] = t;
+//	}
+//}
+//void string_left_rotate(char* s, int k)
+//{
+//	assert(s);
+//	int l = strlen(s);
+//	k %= l;
+//	if (k <= 0)	return;
+//	reverse(s, s + k - 1);
+//	reverse(s + k, s + l - 1);
+//	reverse(s, s + l - 1);
+//}
+//char* MyStrcpy(char* dst, const char* src)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while ((*cp++ = *src++) != '\0');
+//	return dst;
+//}
+//char* MyStrcat(char* dst, const char* src)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while (*cp) cp++;
+//	while ((*cp++ = *src++) != '\0');
+//	return dst;
+//}
+//int MyStrcmp(const char* s1, const char* s2)
+//{
+//	assert(s1 && s2);
+//	while (*s1 == *s2)
+//	{
+//		if (!*s1)	return 0;
+//		s1++, s2++;
+//	}
+//	return *s1 - *s2;
+//}
+//const char* MyStrstr(const char* str, const char* subStr)
+//{
+//	assert(str && subStr);
+//	if (!*subStr)	return str;
+//	int l1 = strlen(str);
+//	int l2 = strlen(subStr);
+//	if (l1 < l2)	return NULL;
+//	for (int i = 0; (i + l2) <= l1; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < l2; j++)
+//		{
+//			if (str[i + j] != subStr[j])
+//				break;
+//		}
+//		if (j == l2) return str + i;
+//	}
+//	return NULL;
+//}
+//int my_strcmp(const char* s1, const char* s2)
+//{
+//	assert(s1 && s2);
+//	while (*s1 == *s2)
+//	{
+//		if (!*s1)	return 0;
+//		s1++, s2++;
+//	}
+//	return *s1 - *s2;
+//}
+//int main()
+//{
+//	//char arr[20] = "hello";
+//	//cout << strncat(arr, arr, 5);
+//	//char arr[20] = "hello";
+//	//puts(strcat(arr, arr));//err
+//	//char arr[20] = "hello";
+//	//puts(strcat(arr, " world"));
+//	//puts(MyStrcat(arr, " world"));
+//	//puts(arr);
+//	//char arr1[20] = "hello \0##########";
+//	//char arr2[] = "world";
+//	//puts(MyStrcat(arr1, arr2));
+//	//printf(MyStrcat(arr1, arr2));
+//	//char arr[20] = "";
+//	//puts(MyStrcpy(arr, "Tell Me Why!"));
+//	//printf(arr);
+//	//char arr[5] = "####";
+//	//const char* p = "hello world";
+//	//puts(strcpy(arr, p));//err
+//	//char arr2[20] = "#############";
+//	//puts(strcpy(arr2, "hello"));
+//	//char arr1[1024] = "###############";
+//	//char arr3[] = { 'a', 'b', 'c' };
+//	//puts(strcpy(arr1, arr3));//err:越界
+//	//char arr[20] = "";
+//	////arr = "hello";//err
+//	//const char* p = "hello";
+//	//puts(strcpy(arr, p));
+//	//printf("%s\n", arr);
+//	//const char* s1 = "abcdef";
+//	//const char* s2 = "cdef";
+//	//cout << MyStrstr(s1, s2) << endl;
+//	//char arr[] = "ABCDEFGH";
+//	//int k = 0;
+//	//scanf("%d", &k);
+//	//string_left_rotate(arr, k);
+//	//puts(arr);
+//	//char arr1[] = "abc";
+//	//int len = strlen(arr1);
+//	//printf("len = %d\n", len);
+//	//char arr2[] = { 'a', 'b', 'c' };
+//	//printf("%d\n", strlen(arr2));
+//	//const char* str1 = "abcdef";
+//	//const char* str2 = "bbb";
+//	//if (strlen(str2) - strlen(str1) > 0)	cout << " > " << endl;
+//	//else cout << " <= " << endl;
+//	//cout << my_strlen("a") << endl;
+//	//cout << my_strlen("") << endl;
+//	//cout << _my_strlen("a") << endl;
+//	//cout << _my_strlen("") << endl;
+//	//cout << MyStrlen("a") << endl;
+//	//cout << MyStrlen("") << endl;
+//	//int arr[] = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//MyBubbleSort(arr, n, sizeof(*arr), cmp_int);
+//	//const char* arr[] = { "Alibaba", "Baidu", "Tecent", "HuaWei", "Totik" };
+//	//int n = (int)(sizeof(arr) / sizeof(*arr));
+//	//MyBubbleSort(arr, n, sizeof(*arr), cmp_str);
+//	//int arr[3][5] = { { 1, 3, 5, 7, 9 }, { 4, 12, 15, 17, 19 }, { 9, 18, 21, 26, 27 } };
+//	//int k = 0;
+//	//int x = 0;
+//	//int y = 0;
+//	//std::cin >> k;
+//	//int ret = find(arr, 3, k, &x, &y);
+//	//if (ret == -1)	cout << "find none" << endl;
+//	//else cout << "xidx = " << x << "yidx = " << y << endl;
+//	//int aa[2][5] = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+//	//int* ptr1 = (int*)(&aa + 1);
+//	//int* ptr2 = (int*)(*(aa + 1));
+//	//printf("%d, %d\n", *(ptr1 - 1), *(ptr2 - 1));
+//	//int a[5] = { 5, 4, 3, 2, 1 };
+//	//int* ptr = (int*)(&a + 1);
+//	//printf("%d %d\n", *(a + 1), *(ptr - 1));
+//	return 0;
+//}
+//bool is_string_rotate(char* s1, char* s2)
+//{
+//	assert(s1 && s2);
+//	int l1 = strlen(s1), l2 = strlen(s2);
+//	if (l1 != l2)	return false;
+//	strncat(s1, s1, l1);
+//	//if (strstr(s1, s2))	return true;
+//	//else return false;
+//	return strstr(s1, s2);
+//}
+//bool is_string_rotate(char* s1, char* s2)
+//{
+//	assert(s1, s2);
+//	int l1 = strlen(s1), l2 = strlen(s2);
+//	if (l1 != l2)	return false;
+//	while (l2--)
+//	{
+//		char t = s1[0];
+//		int i = 0;
+//		for (i = 1; i < l1; i++)	s1[i - 1] = s1[i];
+//		s1[l1 - 1] = t;
+//		if (!strcmp(s1, s2))	return true;
+//	}
+//	return false;
+//}
 #endif
+#pragma warning(disable:6053)
+char* MyStrncpy(char* dst, const char* src, size_t n)
+{
+	assert(dst && src);
+	char* cp = dst;
+	while (n && ((*cp++ = *src++) != '\0'))	n--;
+	if (n)
+		while (--n)
+			* cp++ = '\0';
+	return dst;
+}
+#pragma warning(disable:6001)
+char* MyStrncat(char* dst, const char* src, size_t n)
+{
+	assert(dst && src);
+	char* cp = dst;
+	while (*cp)	cp++;
+	while (n--) if ((*cp++ = *src++) == '\0')	return dst;
+	*cp = '\0';
+	return dst;
+}
 int main()
 {
-	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	//int n = (int)(sizeof(arr) / sizeof(*arr));
-	//foo(arr, n);
-	//for (int i = 0; i < n; i++)	cout << arr[i] << ' '; cout << endl;
-	//unsigned int a = 0x1234;
-	//unsigned char b = *(unsigned char*)(&a);
-	//unsigned char a = 200;
-	//unsigned char b = 100;
-	//unsigned char c = 0;
-	//c = a + b;
-	//printf("%d %d\n", a + b, c);
-	//printf("%u %u\n", a + b, c);
-	//int m = 0;
-	//int p = 1;
-	//scanf("%d", &m);
-	//if (m <= 0)	cout << "0" << endl;
-	//else cout << (m / p) * 2 - 1 << endl;
-	//int m = 0;
-	//int p = 1;
-	//int e = 0;
-	//int t = 0;
-	//std::cin >> m;
-	//if (m <= 0)	cout << "0" << endl;
-	//else
-	//{
-	//	t = e = m / p;
-	//	while (e >= 2)
-	//	{
-	//		t += e / 2;
-	//		e = e / 2 + e % 2;
-	//	}
-	//	cout << t << endl;
-	//}
+	//char str1[20];
+	//char str2[20];
+	//strcpy(str1, "To be ");
+	//strcpy(str2, "or not to be");
+	//strncat(str1, str2, 6);
+	//puts(str1);
+	//char arr1[20] = "hello \0xxxxxxxx";
+	//char arr2[] = "world";
+	//std::cout << MyStrncat(arr1, arr2, 3) << std::endl;
+	//char str1[] = "To be or not to be";
+	//char str2[40];
+	//char str3[40];
+	//strncpy(str2, str1, sizeof(str2));
+	//strncpy(str3, str2, 5);
+	//str3[5] = '\0';
+	//puts(str2);
+	//puts(str3);
+	//puts(str1);
+	//char arr1[20] = "abcdef";
+	//char arr2[] = "qwer";
+	//cout << MyStrncpy(arr1, arr2, 2) << endl;
+	//char arr3[20] = "abcdefghijk";
+	//char arr4[] = "qwer";
+	//cout << MyStrncpy(arr3, arr4, 6) << endl;
+	//const char* p = "abcdef";
+	//const char* q = "abcdef";
+	//int ret = strcmp(p, q);
+	//if (ret == 0)	cout << "p == q" << endl;
+	//else if (ret > 0)	cout << "p > q" << endl;
+	//else cout << "p < q" << endl;
+	//if (!strcmp("abc", "abc"))	cout << "==" << endl;
+	//else cout << "!=" << endl;
+	//int ret = strcmp("aaa", "aaa");
+	//cout << ret << endl;
+	//int ret = strcmp("abbb", "abq");
+	//cout << ret << endl;
+	//ret = strcmp("aqqq", "aaaa");
+	//cout << ret << endl;
+	//const char* p = "obc";
+	//const char* q = "abcdef";
+	//if ("obc" > "abcdef") {}//err
+	//if (p > q) {}//err
+	//char arr1[100] = "AABCD";
+	//char arr2[100] = "BCCAA";
+	//if (is_string_rotate(arr1, arr2))	cout << "Yes" << endl;
+	//else cout << "No" << endl;
 	return 0;
 }
