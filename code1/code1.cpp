@@ -10788,75 +10788,680 @@ void swap(int* p1, int* p2)
 //	}
 //	return false;
 //}
+//#pragma warning(disable:6053)
+//char* MyStrncpy(char* dst, const char* src, size_t n)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while (n && ((*cp++ = *src++) != '\0'))	n--;
+//	if (n)
+//		while (--n)
+//			* cp++ = '\0';
+//	return dst;
+//}
+//#pragma warning(disable:6001)
+//char* MyStrncat(char* dst, const char* src, size_t n)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while (*cp)	cp++;
+//	while (n--) if ((*cp++ = *src++) == '\0')	return dst;
+//	*cp = '\0';
+//	return dst;
+//}
+//int MyStrncmp(const char* s1, const char* s2, size_t n)
+//{
+//	assert(s1 && s2);
+//	if (!n)	return 0;
+//	while (--n && *s1 == *s2)
+//	{
+//		if (!*s1)	return 0;
+//		s1++, s2++;
+//	}
+//	return *s1 - *s2;
+//}
+//const char* MyStrstr(const char* str, const char* subStr)
+//{
+//	assert(str && subStr);
+//	if (!*subStr)	return str;
+//	int lenStr = strlen(str);
+//	int lenSubStr = strlen(subStr);
+//	if (lenStr < lenSubStr)	return NULL;
+//	for (int i = 0; i + lenSubStr <= lenStr; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < lenSubStr; j++)if (str[i + j] != subStr[j])break;
+//		if (j == lenSubStr)	return str + i;
+//	}
+//	return NULL;
+//}
+//size_t MyStrlen(const char* s)
+//{
+//	assert(s);
+//	size_t r = 0;
+//	while (*s++)r++;
+//	return r;
+//}
+//size_t _my_strlen(const char* s)
+//{
+//	assert(s);
+//	if (!*s)	return 0;
+//	return 1 + _my_strlen(1 + s);
+//}
+//size_t my_strlen(const char* s)
+//{
+//	assert(s);
+//	const char* eos = s;
+//	while (*eos++);
+//	return (eos - s - 1);
+//}
+//char* MyStrcpy(char* dst, const char* src)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while ((*cp++ = *src++) != '\0');
+//	return dst;
+//}
+//char* MyStrcat(char* dst, const char* src)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while (*cp)cp++;
+//	while ((*cp++ = *src++) != '\0');
+//	return dst;
+//}
+//int main()
+//{
+//	//char str[] = "This is a simple string";
+//	//char* pch = strstr(str, "simple");
+//	//if (pch != NULL)	strncpy(pch, "sample", 6);
+//	//puts(str);
+//	//char arr1[] = "abcdef";
+//	//char arr2[] = "bcd";
+//	//const char* pF = MyStrstr(arr1, arr2);
+//	//if (pF)	cout << pF << endl;
+//	//else cout << "find none!" << endl;
+//	//const char* p = "abcdef";
+//	//const char* q = "abcqwert";
+//	//int ret = strcmp(p, q);
+//	//cout << ret << endl;
+//	//ret = MyStrncmp(p, q, 3);
+//	//cout << ret << endl;
+//	//ret = MyStrncmp(p, q, 4);
+//	//cout << ret << endl;
+//	//char str[][5] = { "R2D2", "C3PO", "R2A6" };
+//	//int n = sizeof(str) / sizeof(str[0]);
+//	//puts("Looking for R2 astromech droids...");
+//	//for (int i = 0; i < n; i++)
+//	//{
+//	//	if (!MyStrncmp(str[i], "R2XX", 2))
+//	//	{
+//	//		printf("found %s\n", str[i]);
+//	//	}
+//	//}
+//	//char str1[20];
+//	//char str2[20];
+//	//strcpy(str1, "To be ");
+//	//strcpy(str2, "or not to be");
+//	//strncat(str1, str2, 6);
+//	//puts(str1);
+//	//char arr1[20] = "hello \0xxxxxxxx";
+//	//char arr2[] = "world";
+//	//std::cout << MyStrncat(arr1, arr2, 3) << std::endl;
+//	//char str1[] = "To be or not to be";
+//	//char str2[40];
+//	//char str3[40];
+//	//strncpy(str2, str1, sizeof(str2));
+//	//strncpy(str3, str2, 5);
+//	//str3[5] = '\0';
+//	//puts(str2);
+//	//puts(str3);
+//	//puts(str1);
+//	//char arr1[20] = "abcdef";
+//	//char arr2[] = "qwer";
+//	//cout << MyStrncpy(arr1, arr2, 2) << endl;
+//	//char arr3[20] = "abcdefghijk";
+//	//char arr4[] = "qwer";
+//	//cout << MyStrncpy(arr3, arr4, 6) << endl;
+//	//const char* p = "abcdef";
+//	//const char* q = "abcdef";
+//	//int ret = strcmp(p, q);
+//	//if (ret == 0)	cout << "p == q" << endl;
+//	//else if (ret > 0)	cout << "p > q" << endl;
+//	//else cout << "p < q" << endl;
+//	//if (!strcmp("abc", "abc"))	cout << "==" << endl;
+//	//else cout << "!=" << endl;
+//	//int ret = strcmp("aaa", "aaa");
+//	//cout << ret << endl;
+//	//int ret = strcmp("abbb", "abq");
+//	//cout << ret << endl;
+//	//ret = strcmp("aqqq", "aaaa");
+//	//cout << ret << endl;
+//	//const char* p = "obc";
+//	//const char* q = "abcdef";
+//	//if ("obc" > "abcdef") {}//err
+//	//if (p > q) {}//err
+//	//char arr1[100] = "AABCD";
+//	//char arr2[100] = "BCCAA";
+//	//if (is_string_rotate(arr1, arr2))	cout << "Yes" << endl;
+//	//else cout << "No" << endl;
+//	return 0;
+//}
+//int MyStrcmp(const char* s1, const char* s2)
+//{
+//	assert(s1 && s2);
+//	while (*s1 == *s2)
+//	{
+//		if (!*s1)return 0;
+//		s1++, s2++;
+//	}
+//	return *s1 - *s2;
+//}
+//char* MyStrncpy(char* dst, const char* src, size_t n)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	if (!n)	return dst;
+//	while (n && ((*cp++ = *src++) != '\0')) n--;
+//	if (n)
+//		while (--n)
+//			* cp++ = '\0';
+//	return dst;
+//}
+//char* MyStrncat(char* dst, const char* src, size_t n)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while (*cp)cp++;
+//	while (n--)
+//	{
+//		if (!(*cp++ = *src++))	return dst;
+//	}
+//	*cp = '\0';
+//	return dst;
+//}
+//int MyStrncmp(const char* s1, const char* s2, size_t n)
+//{
+//	assert(s1 && s2);
+//	if (!n)	return 0;
+//	while (--n && *s1 == *s2)
+//	{
+//		if (!*s1)	return 0;
+//		s1++, s2++;
+//	}
+//	return *s1 - *s2;
+//}
+//void* MyMemcpy(void* dst, const void* src, size_t n)
+//{
+//	assert(dst && src);
+//	char* cp = (char*)dst;
+//	const char* s = (const char*)src;
+//	while (n--)* cp++ = *s++;
+//	return dst;
+//}
+//void* MyMemmove(void* dst, const void* src, size_t n)
+//{
+//	assert(dst && src);
+//	char* cp = (char*)dst;
+//	const char* s = (const char*)src;
+//	if (cp < s)
+//		while (n--)* cp++ = *s++;
+//	else
+//		while (n--)cp[n] = s[n];
+//	return dst;
+//}
+//void* MyMemset(void* p, int val, size_t n)
+//{
+//	assert(p);
+//	char* s = (char*)p;
+//	while (n--)* s++ = val;
+//	return p;
+//}
+//int MyMemcmp(const void* p1, const void* p2, size_t n)
+//{
+//	assert(p1 && p2);
+//	if (!n)	return 0;
+//	const char* s1 = (const char*)p1;
+//	const char* s2 = (const char*)p2;
+//	while (--n && *s1 == *s2)
+//	{
+//		s1++, s2++;
+//	}
+//	return *s1 - *s2;
+//}
+//int a, b, c;
+//struct
+//{
+//	int _a;
+//	char _b;
+//	float _c;
+//} x;
+//struct
+//{
+//	int _a;
+//	char _b;
+//	float _c;
+//} a[20], *p;
+//int main()
+//{
+//	//struct Point {
+//	//	int _x;
+//	//	int _y;
+//	//} p1;
+//	//struct Point p2;
+//	//struct Point p3 = { 1, 2 };
+//	//struct Stu {
+//	//	char _name[15];
+//	//	int _age;
+//	//};
+//	//struct Stu s = { "zhangsan", 22 };
+//	//struct _Node
+//	//{
+//	//	int _data;
+//	//	struct Point p;
+//	//	struct _Node* _next;
+//	//} n1 = { 10, { 3, 4 }, NULL };
+//	//struct _Node n2 = { 20, { 1, 2 }, NULL };
+//	//typedef struct _Node {
+//	//	int _data;
+//	//	struct _Node* _next;
+//	//} Node;
+//	//cout << sizeof(Node) << endl;
+//	//struct Node
+//	//{
+//	//	int _data;
+//	//	struct Node* _next;
+//	//};
+//	//struct _A {
+//	//	char _ch;
+//	//	short _sh;
+//	//	int _in;
+//	//};
+//	//struct _B {
+//	//	char _ch;
+//	//	struct _A _sa;
+//	//	double _d;
+//	//};
+//	//struct _N {
+//	//	int _in;
+//	//	struct _N _n;
+//	//};
+//	//p = &x;//err
+//	//struct _Book
+//	//{
+//	//	char _name[20];
+//	//	int _price;
+//	//	char _id[12];
+//	//} b4, b5, b6;
+//	//struct _Book b1;
+//	//struct _Book b2;
+//	//struct _Book b3;
+//	//struct Stu {
+//	//	char _name[20];
+//	//	int _age;
+//	//	char _sex[5];
+//	//	char _id[20];
+//	//};
+//	//struct tag {
+//	//	member_list;
+//	//} variable_list;
+//	//struct
+//	//{
+//	//	char _name[40];
+//	//	int _age;
+//	//} person, person_copy;
+//	//char myname[] = "Pierre de Fermat";
+//	//memcpy(person._name, myname, strlen(myname) + 1);
+//	//person._age = 46;
+//	//memcpy(&person_copy, &person, sizeof(person));
+//	//printf("person_copy: %s, %d\n", person_copy._name, person_copy._age);
+//	//char str[] = "memmove can be very useful......";
+//	//memmove(str + 20, str + 15, 11);
+//	//puts(str);
+//	//int arr[10] = { 0 };
+//	//int* p = (int*)MyMemset(arr, 1, 5 * sizeof(int));
+//	//for (int i = 0; i < 10; i++) cout << *p++ << ' '; cout << endl;
+//	//float arr1[] = { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f };
+//	//float arr2[] = { 1.0f, 3.0f };
+//	//int ret = MyMemcmp(arr1, arr2, 1 * sizeof(float));
+//	//cout << ret << endl;
+//	//ret = MyMemcmp(arr1, arr2, 2 * sizeof(float));
+//	//cout << ret << endl;
+//	//int arr3[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int arr4[10] = { 1, 2 };
+//	//ret = MyMemcmp(arr3, arr4, 2 * sizeof(int));
+//	//cout << ret << endl;
+//	//ret = MyMemcmp(arr3, arr4, 9);
+//	//cout << ret << endl;
+//	//int arr1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//MyMemmove(arr1, arr1 + 2, 5 * sizeof(int));
+//	//MyMemmove(arr1 + 2, arr1, 5 * sizeof(int));
+//	//int arr1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	//int arr2[10] = { 0 };
+//	//int* p = (int*)memcpy(arr2, arr1, 5 * sizeof(int));
+//	//for (int i = 0; i < 10; i++)	cout << *p++ << ' '; cout << endl;
+//	//strcpy((char*)arr2, (char*)arr1);
+//	//char str[20] = "";
+//	//fgets(str, 20, stdin);
+//	//str[strlen(str) - 1] = '\0';
+//	//for (int i = 0; str[i]; i++)
+//	//{
+//	//	if (isupper(str[i])) str[i] = tolower(str[i]); putchar(str[i]);
+//	//}
+//	//char str[] = "The C String.";
+//	//puts(str);
+//	//for (int i = 0; str[i]; i++) if (islower(str[i]))	str[i] = toupper(str[i]);
+//	//puts(str);
+//	//int i = 0;
+//	//char str[] = "Test String.\n";
+//	//puts(str);
+//	//while (str[i])
+//	//{
+//	//	if (isupper(str[i]))	str[i] = tolower(str[i]);
+//	//	i++;
+//	//}
+//	//puts(str);
+//	//char ch = '#';
+//	//if (ch >= 'a' && ch <= 'z')	cout << "Yes" << endl;
+//	//else cout << "No" << endl;
+////	char ch = '#';
+////	cout << isdigit(ch) << endl;
+////	cout << isdigit('0') << endl;
+////	ch = 'Z';
+////	cout << islower(ch) << endl;
+////	ch = 'a';
+////	cout << islower(ch) << endl;
+//	//FILE* fp = fopen("txt.txt", "r");
+//	//if (NULL == fp)
+//	//{
+//	//	printf("fopen fail:%s\n", strerror(errno));
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fclose(fp);
+//	//fp = NULL;
+//	//FILE* fp = fopen("test.t", "r");
+//	//if (NULL == fp)
+//	//{
+//	//	printf("fopen fail: %s\n", strerror(errno));
+//	//	perror("fopen fail");
+//	//	return errno;
+//	//}
+//	//fclose(fp);
+//	//fp = NULL;
+//	//printf("%s\n", strerror(0));
+//	//printf("%s\n", strerror(1));
+//	//printf("%s\n", strerror(2));
+//	//printf("%s\n", strerror(3));
+//	//printf("%s\n", strerror(4));
+//	//printf("%s\n", strerror(5));
+//	//char str[] = "- This, a sample string.";
+//	//char arr[30] = "";
+//	//strcpy(arr, str);
+//	//const char* sep = "- ,.";
+//	//for (char* p = strtok(arr, sep); p; p = strtok(NULL, sep)) puts(p);
+//	//const char* p = "192.168.30.54";
+//	//char arr[100] = "";
+//	//strcpy(arr, p);
+//	//char tmp[100] = "";
+//	//strcpy(tmp, arr);
+//	//const char* sep = ".";
+//	//for (char* p = strtok(tmp, sep); p; p = strtok(NULL, sep)) puts(p);
+//	//const char* p = "1606764181@qq.com tzh";
+//	//const char* sep = "@. ";
+//	//char str[100] = "";
+//	//strcpy(str, p);
+//	//char t[100] = "";
+//	//strcpy(t, str);
+//	//for (char* pc = strtok(t, sep); pc; pc = strtok(NULL, sep))puts(pc);
+//	//char arr1[20] = "abcdef\0xxxxxxx";
+//	//char arr2[] = "acd";
+//	//cout << MyStrncat(arr1, arr2, 6);
+//	return 0;
+//}
+//struct _S
+//{
+//	char _c;
+//	int _i;
+//} s1, s2;
+//struct _B
+//{
+//	double _d;
+//	struct _S _s;
+//	char _c;
+//};
+//#pragma pack(8)
+//struct _S1 {
+//	char _c1;
+//	int _i;
+//	char _c2;
+//};
+//#pragma pack()
+//#pragma pack(1)
+//struct _S2 {
+//	char _c1;
+//	int _i;
+//	char _c2;
+//};
+//#pragma pack()
+//struct S0 {
+//	char _c1;
+//	int _i;
+//	char _c2;
+//};
+//#pragma pack(2)
+//struct S1 {
+//	char _c1;
+//	int _i;
+//	char _c2;
+//};
+//#pragma pack()
+//#pragma pack(1)
+//struct S2 {
+//	char _c1;
+//	int _i;
+//	char _c2;
+//};
+//#pragma pack()
+//struct S {
+//	int _data[1000];
+//	int _num;
+//};
+//struct S s = { { 1, 2, 3, 4 }, 1000 };
+//void print1(struct S s) {
+//	printf("%d\n", s._num);
+//}
+//void print2(struct S* ps) {
+//	assert(ps != NULL);
+//	printf("%d\n", ps->_num);
+//}
+//int main()
+//{
+//	//struct B {
+//	//	char _a : 3;
+//	//	char _b : 4;
+//	//	char _c : 5;
+//	//	char _d : 4;
+//	//};
+//	//struct B b = { 0 };
+//	////cout << sizeof B << endl;
+//	////cout << sizeof b << endl;
+//	//b._a = 10;
+//	//b._b = 12;
+//	//b._c = 3;
+//	//b._d = 4;
+//	//std::cout << "Hello World!" << std::endl;
+//	//struct A {
+//	//	int _a : 2;
+//	//	int _b : 5;
+//	//	int _c : 10;
+//	//	int _d : 30;
+//	//};
+//	//cout << sizeof A << endl;
+//	//print1(s);
+//	//print2(&s);
+//	//cout << sizeof(S0) << " " << sizeof(S1) << " " << sizeof(S2) << endl;
+////#define OFFSETOF(s, m) (size_t)(&(((s*)0)->m) - 0x00)
+////	cout << offsetof(_S1, _c1) << " " << OFFSETOF(_S1, _c1) << endl;
+////	cout << offsetof(_S1, _i)  << " " << OFFSETOF(_S1, _i) << endl;
+////	cout << offsetof(_S1, _c2) << " " << OFFSETOF(_S1, _c2) << endl;
+////	cout << offsetof(_S2, _c1) << " " << OFFSETOF(_S2, _c1) << endl;
+////	cout << offsetof(_S2, _i)  << " " << OFFSETOF(_S2, _i) << endl;
+////	cout << offsetof(_S2, _c2) << " " << OFFSETOF(_S2, _c2) << endl;
+//	//cout << sizeof(_S1) << endl;
+//	//cout << sizeof(_S2) << endl;
+//	//struct _S1 {
+//	//	char _c1;
+//	//	int _i;
+//	//	char _c2;
+//	//};
+//	//struct _S2 {
+//	//	char _c1;
+//	//	char _c2;
+//	//	int _i;
+//	//};
+//	//struct _S3 {
+//	//	double _d;
+//	//	char _c;
+//	//	int _i;
+//	//};
+//	//struct _S4 {
+//	//	char _c1;
+//	//	struct _S3 s3;
+//	//	double _d;
+//	//};
+//	//struct _S5 {
+//	//	char _c1;
+//	//	int _i;
+//	//	double _d;
+//	//} s5;
+//	//cout << sizeof(struct _S1) << endl;
+//	//cout << sizeof(struct _S2) << endl;
+//	//cout << sizeof(struct _S3) << endl;
+//	//cout << sizeof(struct _S4) << endl;
+//	//cout << sizeof(s5) << endl;
+//	//struct _S {
+//	//	int _i;
+//	//	char _c;
+//	//} s;
+//	//struct _SS {
+//	//	char _c1;
+//	//	int _i;
+//	//	char _c2;
+//	//} ss;
+//	//cout << sizeof(struct _S) << endl;
+//	//cout << sizeof(struct _SS) << endl;
+//	//cout << sizeof(s) << endl;
+//	//cout << sizeof(ss) << endl;
+//	//struct _B sb = { 3.14, { 't', 100 }, 'z' };
+//	//struct _B* ps = &sb;
+//	//printf("%.2lf, %c, %d, %c\n", sb._d, sb._s._c, sb._s._i, sb._c);
+//	//printf("%.2lf, %c, %d, %c\n", ps->_d, ps->_s._c, ps->_s._i, ps->_c);
+//	return 0;
+//}
+//enum Day {
+//	_Mon,
+//	_Tues,
+//	_Wed,
+//	_Thur,
+//	_Fri,
+//	_Sat,
+//	_Sun
+//};
+//enum _Sex {
+//	_MALE,
+//	_FEMALE,
+//	_SECRET
+//};
+//enum Color {
+//	_RED = 5,
+//	_GREEN = 8,
+//	_BLUE
+//};
+//void menu() {
+//	printf("*******************************\n");
+//	printf("****    1.add    2.sub     ****\n");
+//	printf("****    3.mul    4.Div     ****\n");
+//	printf("****         0.exit        ****\n");
+//	printf("*******************************\n");
+//}
+//enum _OP {
+//	_EXIT,
+//	_ADD,
+//	_SUB,
+//	_MUL,
+//	_DIV
+//};
 #endif
-#pragma warning(disable:6053)
-char* MyStrncpy(char* dst, const char* src, size_t n)
-{
-	assert(dst && src);
-	char* cp = dst;
-	while (n && ((*cp++ = *src++) != '\0'))	n--;
-	if (n)
-		while (--n)
-			* cp++ = '\0';
-	return dst;
+bool is_small_endian1() {
+	int a = 0x01;
+	return (*(char*)(&a));
 }
-#pragma warning(disable:6001)
-char* MyStrncat(char* dst, const char* src, size_t n)
-{
-	assert(dst && src);
-	char* cp = dst;
-	while (*cp)	cp++;
-	while (n--) if ((*cp++ = *src++) == '\0')	return dst;
-	*cp = '\0';
-	return dst;
+bool is_small_endian() {
+	union _U {
+		char _c;
+		int _in;
+	} u;
+	u._in = 0x01;
+	return u._c;
 }
 int main()
 {
-	//char str1[20];
-	//char str2[20];
-	//strcpy(str1, "To be ");
-	//strcpy(str2, "or not to be");
-	//strncat(str1, str2, 6);
-	//puts(str1);
-	//char arr1[20] = "hello \0xxxxxxxx";
-	//char arr2[] = "world";
-	//std::cout << MyStrncat(arr1, arr2, 3) << std::endl;
-	//char str1[] = "To be or not to be";
-	//char str2[40];
-	//char str3[40];
-	//strncpy(str2, str1, sizeof(str2));
-	//strncpy(str3, str2, 5);
-	//str3[5] = '\0';
-	//puts(str2);
-	//puts(str3);
-	//puts(str1);
-	//char arr1[20] = "abcdef";
-	//char arr2[] = "qwer";
-	//cout << MyStrncpy(arr1, arr2, 2) << endl;
-	//char arr3[20] = "abcdefghijk";
-	//char arr4[] = "qwer";
-	//cout << MyStrncpy(arr3, arr4, 6) << endl;
-	//const char* p = "abcdef";
-	//const char* q = "abcdef";
-	//int ret = strcmp(p, q);
-	//if (ret == 0)	cout << "p == q" << endl;
-	//else if (ret > 0)	cout << "p > q" << endl;
-	//else cout << "p < q" << endl;
-	//if (!strcmp("abc", "abc"))	cout << "==" << endl;
-	//else cout << "!=" << endl;
-	//int ret = strcmp("aaa", "aaa");
-	//cout << ret << endl;
-	//int ret = strcmp("abbb", "abq");
-	//cout << ret << endl;
-	//ret = strcmp("aqqq", "aaaa");
-	//cout << ret << endl;
-	//const char* p = "obc";
-	//const char* q = "abcdef";
-	//if ("obc" > "abcdef") {}//err
-	//if (p > q) {}//err
-	//char arr1[100] = "AABCD";
-	//char arr2[100] = "BCCAA";
-	//if (is_string_rotate(arr1, arr2))	cout << "Yes" << endl;
-	//else cout << "No" << endl;
+	//union Un1 {
+	//	char _c[5];
+	//	int _i;
+	//};
+	//union Un2 {
+	//	short _c[7];
+	//	int _i;
+	//};
+	//cout << sizeof(union Un1) << endl;
+	//cout << sizeof(union Un2) << endl;
+	//if (is_small_endian1())cout << "ะก" << endl;
+	//else cout << "ด๓" << endl;
+	//union UN {
+	//	char _c;
+	//	int _i;
+	//} un;
+	////cout << sizeof(UN) << endl;
+	////cout << sizeof(un) << endl;
+	////printf("0X%p, 0X%p, 0X%p\n", &un, &un._c, &un._i);
+	//un._i = 0x11223344;
+	//printf("%#X\n", un._c);
+	//printf("%#X\n", un._i);
+	//un._c = 0x55;
+	//printf("%#X\n", un._c);
+	//printf("%#X\n", un._i);
+	//int input = 0;
+	//do {
+	//	menu();
+	//	printf("please input your select:>");
+	//	scanf("%d", &input);
+	//	switch (input) {
+	//	case _EXIT:
+	//		break;
+	//	case _ADD:
+	//		break;
+	//	case _SUB:
+	//		break;
+	//	case _MUL:
+	//		break;
+	//	case _DIV:
+	//		break;
+	//	default:
+	//		break;
+	//	}
+	//} while (input);
+	//Color c = _BLUE;
+	//cout << _RED << endl;
+	//cout << _GREEN << endl;
+	//cout << _BLUE << endl;
+	//cout << Color::_BLUE << endl;
+	//cout << sizeof(Color) << endl;
+	//cout << sizeof(c) << endl;
+	//cout << sizeof(_RED) << endl;
+	//cout << sizeof(_GREEN) << endl;
+	//cout << sizeof(_BLUE) << endl;
+	//cout << sizeof(0) << endl;
 	return 0;
 }
