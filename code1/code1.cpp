@@ -11392,76 +11392,865 @@ void swap(int* p1, int* p2)
 //	_MUL,
 //	_DIV
 //};
+//bool is_small_endian1() {
+//	int a = 0x01;
+//	return (*(char*)(&a));
+//}
+//bool is_small_endian() {
+//	union _U {
+//		char _c;
+//		int _in;
+//	} u;
+//	u._in = 0x01;
+//	return u._c;
+//}
+//int main()
+//{
+//	//union Un1 {
+//	//	char _c[5];
+//	//	int _i;
+//	//};
+//	//union Un2 {
+//	//	short _c[7];
+//	//	int _i;
+//	//};
+//	//cout << sizeof(union Un1) << endl;
+//	//cout << sizeof(union Un2) << endl;
+//	//if (is_small_endian1())cout << "小" << endl;
+//	//else cout << "大" << endl;
+//	//union UN {
+//	//	char _c;
+//	//	int _i;
+//	//} un;
+//	////cout << sizeof(UN) << endl;
+//	////cout << sizeof(un) << endl;
+//	////printf("0X%p, 0X%p, 0X%p\n", &un, &un._c, &un._i);
+//	//un._i = 0x11223344;
+//	//printf("%#X\n", un._c);
+//	//printf("%#X\n", un._i);
+//	//un._c = 0x55;
+//	//printf("%#X\n", un._c);
+//	//printf("%#X\n", un._i);
+//	//int input = 0;
+//	//do {
+//	//	menu();
+//	//	printf("please input your select:>");
+//	//	scanf("%d", &input);
+//	//	switch (input) {
+//	//	case _EXIT:
+//	//		break;
+//	//	case _ADD:
+//	//		break;
+//	//	case _SUB:
+//	//		break;
+//	//	case _MUL:
+//	//		break;
+//	//	case _DIV:
+//	//		break;
+//	//	default:
+//	//		break;
+//	//	}
+//	//} while (input);
+//	//Color c = _BLUE;
+//	//cout << _RED << endl;
+//	//cout << _GREEN << endl;
+//	//cout << _BLUE << endl;
+//	//cout << Color::_BLUE << endl;
+//	//cout << sizeof(Color) << endl;
+//	//cout << sizeof(c) << endl;
+//	//cout << sizeof(_RED) << endl;
+//	//cout << sizeof(_GREEN) << endl;
+//	//cout << sizeof(_BLUE) << endl;
+//	//cout << sizeof(0) << endl;
+//	return 0;
+//}
+//int main()
+//{
+//	//int n = 0;
+//	//scanf("%d", &n);
+//	//int* p = (int*)malloc(n * sizeof(int));
+//	//if (NULL == p) {
+//	//	perror("malloc fail");
+//	//	return errno;
+//	//}
+//	//for (int i = 0; i < n; i++)cout << (p[i] = 0) << ' '; cout << endl;
+//	//free(p);
+//	//p = nullptr;
+//	//int* p = (int*)calloc(10, sizeof(int));
+//	//if (NULL == p)
+//	//{
+//	//	perror("calloc fail");
+//	//	return errno;
+//	//}
+//	//for (int i = 0; i < 10; i++) cout << p[i] << ' '; cout << endl;
+//	//for (int i = 0; i < 10; i++) cout << (p[i] = i) << ' '; cout << endl;
+//	//free(p);
+//	//p = nullptr;
+//	//int* p1 = (int*)malloc(10 * sizeof(int));
+//	//int* p2 = (int*)calloc(10, sizeof(int));
+//	//if (NULL == p1) {
+//	//	perror("malloc fail");
+//	//	return errno;
+//	//}
+//	//if (NULL == p2) {
+//	//	perror("calloc fail");
+//	//	return errno;
+//	//}
+//	//for (int i = 0; i < 10; i++) cout << p1[i] << ' ' << p2[i] << endl;
+//	//free(p1);
+//	//free(p2);
+//	//p1 = nullptr;
+//	//p2 = nullptr;
+//	//int* p = (int*)malloc(25 * sizeof(int));
+//	//if (NULL == p) {
+//	//	perror("malloc fail");
+//	//	return errno;
+//	//}
+//	//for (int i = 0; i < 25; i++)	p[i] = i;
+//	//int* t = (int*)realloc(p, 250 * sizeof(int));
+//	//if (!t) {
+//	//	perror("realloc fail");
+//	//	free(p);
+//	//	p = NULL;
+//	//	return errno;
+//	//}
+//	//p = t;
+//	//for (int i = 25; i < 250; i++) p[i] = i;
+//	//for (int i = 0; i < 250; i++) cout << p[i] << ' '; cout << endl;
+//	//free(p);
+//	//p = nullptr;
+//	//int* p = (int*)calloc(10, sizeof(int));
+//	//if (NULL == p) {
+//	//	perror("calloc fail");
+//	//	return errno;
+//	//}
+//	//for (int i = 0; i < 10; i++) * (p + i) = 5;
+//	//int* ptr = (int*)realloc(p, 2000 * sizeof(int));
+//	//if (!ptr) {
+//	//	perror("realloc fail");
+//	//	free(p);
+//	//	p = nullptr;
+//	//	return errno;
+//	//}
+//	//p = ptr;
+//	//for (int i = 10; i < 2000; i++) * (p + i) = 5;
+//	//for (int i = 0; i < 2000; i++) cout << *(p + i) << ' '; cout << endl;
+//	//free(p);
+//	//p = NULL;
+//	//int* p = (int*)realloc(NULL, 10 * sizeof(int));
+//	//int* p = (int*)malloc(100);
+//	//if (!p) {
+//	//	perror("malloc fail");
+//	//	return errno;
+//	//}
+//	//int* p = (int*)malloc(INT_MAX * sizeof(int));
+//	//if (p)
+//	//	for (int i = 0; i < 10; i++) * (p + i) = i;
+//	//free(p);
+//	//p = NULL;
+//	//int* p = (int*)malloc(10 * sizeof(int));
+//	//if (!p) {
+//	//	perror("malloc fail");
+//	//	return errno;
+//	//}
+//	//for (int i = 0; i < 40; i++) * (p + i) = i;//err
+//	//free(p);
+//	//p = nullptr;
+//	//int arr[10] = { 0 };
+//	//int* p = arr;
+//	//free(p);
+//	//p = nullptr;
+//	//int* p = (int*)malloc(10 * sizeof(int));
+//	//if (!p) {
+//	//	perror("malloc fail");
+//	//	return errno;
+//	//}
+//	//for (int i = 0; i < 5; i++) * p++ = i;
+//	//free(p);//err
+//	//p = nullptr;
+//	//int* p = (int*)malloc(100);
+//	//if (!p) {
+//	//	perror("malloc fail");
+//	//	return errno;
+//	//}
+//	////free(p);
+//	////p = NULL;
+//	////free(p);//ok,free(NULL)无事发生
+//	////free(p);
+//	////free(p);//err:多次释放
+//	////p = NULL;
+//	return 0;
+//}
+//int globalVar = 1;
+//static int staticGlobalVar = 1;
+//char* GetMemory4(char* p) {
+//	p = (char*)malloc(100);
+//	return p;
+//}
+//void test() {
+//	const char* p = "hello world";
+//	printf(p);
+//	char* str = NULL;
+//	str = GetMemory4(str);
+//	strcpy(str, "hello world");
+//	printf(str);
+//	free(str);
+//	str = NULL;
+//}
+//void GetMemory(char** pp) {
+//	*pp = (char*)malloc(100);
+//}
+//void test2() {
+//	char* str = NULL;
+//	GetMemory(&str);
+//	strcpy(str, "hello world");
+//	printf(str);
+//	free(str);
+//	str = NULL;
+//}
+//size_t MyStrlen(const char* str) {
+//	assert(str != NULL);
+//	size_t count = 0;
+//	while (*str++) {
+//		count++;
+//	}
+//	return count;
+//}
+//size_t _my_strlen(const char* str) {
+//	assert(str != NULL);
+//	if (!*str) {
+//		return 0;
+//	}
+//	else {
+//		return (1 + _my_strlen(str + 1));
+//	}
+//}
+//size_t my_strlen(const char* str) {
+//	assert(str != NULL);
+//	const char* eos = str;
+//	while (*eos++) {
+//		;
+//	}
+//	return (eos - str - 1);
+//}
+//char* MyStrcpy(char* dst, const char* src)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while ((*cp++ = *src++) != '\0');
+//	return dst;
+//}
+//char* MyStrcat(char* dst, const char* src)
+//{
+//	assert(dst && src);
+//	char* cp = dst;
+//	while (*cp)cp++;
+//	while ((*cp++ = *src++) != '\0');
+//	return dst;
+//}
+//int MyStrcmp(const char* s1, const char* s2)
+//{
+//	assert(s1 && s2);
+//	while (*s1 == *s2)
+//	{
+//		if (!*s1)	return 0;
+//		s1++, s2++;
+//	}
+//	return *s1 - *s2;
+//}
+//char* MyStrncpy(char* dst, const char* src, size_t n)
+//{
+//	assert(dst && src);
+//	if (!n)	return dst;
+//	char* cp = dst;
+//	while (n && (*cp++ = *src++))n--;
+//	if (n) while (--n) * cp++ = '\0';
+//	return dst;
+//}
+//char* MyStrncat(char* dst, const char* src, size_t n)
+//{
+//	assert(dst && src);
+//	if (!n)	return dst;
+//	char* cp = dst;
+//	while (*cp)cp++;
+//	while (n--)if (!(*cp++ = *src++))return dst;
+//	*cp = '\0';
+//	return dst;
+//}
+//int MyStrncmp(const char* s1, const char* s2, size_t n)
+//{
+//	assert(s1 && s2);
+//	if (!n)	return 0;
+//	while (--n && *s1 == *s2)
+//	{
+//		if (!*s1)	return 0;
+//		s1++, s2++;
+//	}
+//	return *s1 - *s2;
+//}
+//const char* MyStrstr(const char* str, const char* subStr)
+//{
+//	assert(str && subStr);
+//	if (!*subStr)return str;
+//	int lenStr = strlen(str);
+//	int lenSubStr = strlen(subStr);
+//	if (lenStr < lenSubStr)	return NULL;
+//	for (int i = 0; (i + lenSubStr) <= lenStr; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < lenSubStr; j++)	if (str[i + j] != subStr[j])break;
+//		if (j == lenSubStr)	return str + i;
+//	}
+//	return NULL;
+//}
+//void* MyMemcpy(void* dst, const void* src, size_t n)
+//{
+//	assert(dst && src);
+//	if (!n)	return dst;
+//	char* cp = (char*)dst;
+//	const char* s = (const char*)src;
+//	while (n--)* cp++ = *s++;
+//	return dst;
+//}
+//void* MyMemmove(void* dst, const void* src, size_t n)
+//{
+//	assert(dst && src);
+//	if (!n)	return dst;
+//	char* cp = (char*)dst;
+//	const char* s = (const char*)src;
+//	if (cp < s) while (n--)* cp++ = *s++;
+//	else while (n--) while (n--)cp[n] = s[n];
+//	return dst;
+//}
+//void* MyMemset(void* p, int val, size_t n)
+//{
+//	assert(p);
+//	if (!n)	return p;
+//	char* ptr = (char*)p;
+//	while (n--)* ptr++ = (char)val;
+//	return p;
+//}
+//int MyMemcmp(void* p1, void* p2, size_t n)
+//{
+//	assert(p1 && p2);
+//	if (!n)	return 0;
+//	char* ptr1 = (char*)p1;
+//	char* ptr2 = (char*)p2;
+//	while (--n && *ptr1 == *ptr2)	ptr1++, ptr2++;
+//	return *ptr1 - *ptr2;
+//}
+//int main()
+//{
+//	//test();
+//	//test2();
+//	//static int staticVar = 1;
+//	//int localVar = 1;
+//	//int num1[10] = { 1, 2, 3, 4 };
+//	//char char2[] = "abcd";
+//	//const char* pChar3 = "abcd";
+//	//int* ptr1 = (int*)malloc(4 * sizeof(int));
+//	//int* ptr2 = (int*)calloc(4, sizeof(int));
+//	//int* ptr3 = (int*)realloc(ptr2, 4 * sizeof(int));
+//	//free(ptr1);
+//	//ptr1 = NULL;
+//	//free(ptr3);
+//	//ptr3 = NULL;
+//	//int sc = 0;
+//	//int sum = 0;
+//	//int mi = 101;
+//	//int ma = -1;
+//	//for (int i = 0; i < 7; i++)
+//	//{
+//	//	scanf("%d", &sc);
+//	//	sum += sc;
+//	//	if (ma < sc)ma = sc;
+//	//	if (mi > sc)mi = sc;
+//	//}
+//	//printf("%.2lf\n", (double(sum - mi - ma) / (7.0 - 2.0)));
+//	//int arr[7] = { 0 };
+//	//while (~scanf("%d%d%d%d%d%d%d", &arr[0], &arr[1], &arr[2], &arr[3], &arr[4], &arr[5], &arr[6]))
+//	//{
+//	//	double av = 0.0;
+//	//	int s = arr[0];
+//	//	int mi = arr[0];
+//	//	int ma = arr[0];
+//	//	for (int i = 1; i < 7; i++)
+//	//	{
+//	//		if (mi > arr[i])mi = arr[i];
+//	//		if (ma < arr[i])ma = arr[i];
+//	//		s += arr[i];
+//	//	}
+//	//	s = s - mi - ma;
+//	//	av = (double)s / 5.0;
+//	//	printf("%.2lf\n", av);
+//	//}
+//	//unsigned char puc[4];
+//	//struct tagPim {
+//	//	unsigned char ucPim1;
+//	//	unsigned char ucData0 : 1;
+//	//	unsigned char ucData1 : 2;
+//	//	unsigned char ucData2 : 3;
+//	//} *pstPimData;
+//	////cout << sizeof(tagPim) << endl;
+//	//pstPimData = (struct tagPim*)puc;
+//	//memset(puc, 0, 4);
+//	//pstPimData->ucPim1 = 2;
+//	//pstPimData->ucData0 = 3;
+//	//pstPimData->ucData1 = 4;
+//	//pstPimData->ucData2 = 5;
+//	//printf("%02x %02x %02x %02x\n", puc[0], puc[1], puc[2], puc[3]);
+//	//int n = 0;
+//	//scanf("%d", &n);
+//	//int* p = (int*)malloc((n + 1) * sizeof(int));
+//	//if (!p) {
+//	//	perror("malloc fail");
+//	//	return errno;
+//	//}
+//	//for (int i = 0; i < n; i++) scanf("%d", p + i);
+//	//int m = 0;
+//	//scanf("%d", &m);
+//	//int i = 0;
+//	//for (i = n - 1; i >= 0; i--)
+//	//	if (p[i] > m) p[i + 1] = p[i];
+//	//	else break;
+//	//p[i + 1] = m;
+//	//for (i = 0; i < n + 1; i++)	cout << p[i] << ' '; cout << endl;
+//	//free(p);
+//	//p = NULL;
+//	//union Un {
+//	//	short s[7];
+//	//	int n;
+//	//};
+//	//cout << sizeof(Un) << endl;
+//	//struct S {
+//	//	char b;
+//	//	int c[];
+//	//};
+//	//cout << sizeof(S) << endl;
+//	//union {
+//	//	short k;
+//	//	char i[2];
+//	//} *s, a;
+//	//s = &a;
+//	//s->i[0] = 0x39;
+//	//s->i[1] = 0x38;
+//	//printf("%x\n", a.k);
+//	//typedef struct {
+//	//	int a;
+//	//	char b;
+//	//	short c;
+//	//	short d;
+//	//} AA_t;
+//	//printf("%d\n", sizeof(AA_t));
+//	//int arr[] = { 1, 2, 3, 4, 5, 1, 2, 3, 4 };
+//	//int sz = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//int tmp = 0;
+//	//for (int i = 0; i < sz; i++) tmp ^= arr[i];
+//	//printf("tmp = %d\n", tmp);
+//	//int arr[] = { 1, 2, 3, 4, 5, 6, 1, 2, 3, 4 };
+//	//int sz = (int)(sizeof(arr) / sizeof(arr[0]));
+//	//int pos = 0;
+//	//int tmp = 0;
+//	//int res1 = 0;
+//	//int res2 = 0;
+//	//for (int i = 0; i < sz; i++) {
+//	//	tmp ^= arr[i];
+//	//}
+//	//for (int i = 0; i < 32; i++) {
+//	//	if ((1 << i) & tmp) {
+//	//		pos = i;
+//	//		break;
+//	//	}
+//	//}
+//	//for (int i = 0; i < sz; i++) {
+//	//	if ((1 << pos) & arr[i]) {
+//	//		res1 ^= arr[i];
+//	//	}
+//	//	else {
+//	//		res2 ^= arr[i];
+//	//	}
+//	//}
+//	//printf("res1 = %d, res2 = %d\n", res1, res2);
+//	return 0;
+//}
 #endif
-bool is_small_endian1() {
-	int a = 0x01;
-	return (*(char*)(&a));
-}
-bool is_small_endian() {
-	union _U {
-		char _c;
-		int _in;
-	} u;
-	u._in = 0x01;
-	return u._c;
-}
 int main()
 {
-	//union Un1 {
-	//	char _c[5];
-	//	int _i;
-	//};
-	//union Un2 {
-	//	short _c[7];
-	//	int _i;
-	//};
-	//cout << sizeof(union Un1) << endl;
-	//cout << sizeof(union Un2) << endl;
-	//if (is_small_endian1())cout << "小" << endl;
-	//else cout << "大" << endl;
-	//union UN {
-	//	char _c;
-	//	int _i;
-	//} un;
-	////cout << sizeof(UN) << endl;
-	////cout << sizeof(un) << endl;
-	////printf("0X%p, 0X%p, 0X%p\n", &un, &un._c, &un._i);
-	//un._i = 0x11223344;
-	//printf("%#X\n", un._c);
-	//printf("%#X\n", un._i);
-	//un._c = 0x55;
-	//printf("%#X\n", un._c);
-	//printf("%#X\n", un._i);
-	//int input = 0;
-	//do {
-	//	menu();
-	//	printf("please input your select:>");
-	//	scanf("%d", &input);
-	//	switch (input) {
-	//	case _EXIT:
-	//		break;
-	//	case _ADD:
-	//		break;
-	//	case _SUB:
-	//		break;
-	//	case _MUL:
-	//		break;
-	//	case _DIV:
-	//		break;
-	//	default:
-	//		break;
-	//	}
-	//} while (input);
-	//Color c = _BLUE;
-	//cout << _RED << endl;
-	//cout << _GREEN << endl;
-	//cout << _BLUE << endl;
-	//cout << Color::_BLUE << endl;
-	//cout << sizeof(Color) << endl;
-	//cout << sizeof(c) << endl;
-	//cout << sizeof(_RED) << endl;
-	//cout << sizeof(_GREEN) << endl;
-	//cout << sizeof(_BLUE) << endl;
-	//cout << sizeof(0) << endl;
+
 	return 0;
 }
+/*
+#define DEBUG_PRINT printf("file:%s line:%d date:%s time:%s function: %s\n",\
+__FILE__,__LINE__, __DATE__, __TIME__, __FUNCTION__)
+void test3() {
+	DEBUG_PRINT; \续行符
+}
+#define M 1000;这后面的;可能导致后续写代码出现问题
+void test4() {
+	int m = M; int m = 1000; ;
+	int a = 10;
+	int b = 0;
+	if (a > 10)
+		b = M; err: b = 1000; ; 导致出错
+	else
+		b = -M;
+}
+#define SQUARE(X) ((X)*(X))
+#define DOUBLE(X) ((X)+(X))
+void test5() {
+	printf("%d\n", SQUARE(3 + 1));
+	printf("%d\n", 10 * DOUBLE(4));
+	printf("%d\n", 10 * (4) + (4));
+	printf("%d\n", 3 * 3);
+	printf("%d\n", 3 + 1 * 3 + 1);
+}
+#define M 100
+#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+void test6() {
+	int max = MAX(101, M);
+	printf("max = %d\n", max);
+	printf("M = %d\n", M);
+}
+void print(int x) {
+	printf("the value of x is %d\n", x);
+}
+void test7() {
+	printf("hello world\n"); hello world
+		printf("hello " "world\n"); hello world
+
+		int a = 10;
+	print(a);
+	the value of a is 10
+		int b = 20;
+	print(b);
+	the value of b is 20
+		int c = 30;
+	print(c);
+	the value of c is 30
+}
+#define PRINTF(X,FORMAT) printf("the value of "#X" is "FORMAT"\n", X)
+void test8() {
+	这种使用方式只有宏中才能使用
+		int a = 10;
+	the value of a is 10
+		int b = 20;
+	the value of b is 20
+		int c = 30;
+	the value of c is 30
+		float f = 5.5f;
+	the value of f is 5.50
+		想让上述打印出想要的结果, 使用函数做不到, 可以使用宏里的#
+		PRINTF(a, "%d"); printf("the value of ""a"" is ""%d""\n", a);
+	PRINTF(b, "%d"); printf("the value of ""b"" is ""%d""\n", b);
+	PRINTF(c, "%d"); printf("the value of ""c"" is ""%d""\n", c);
+	PRINTF(f, "%.2f"); printf("the value of ""f"" is ""%.2f""\n", f);
+}
+#define CAT(X, Y) (X##Y)
+#define CATS(X, Y, Z) (X##Y##Z)##只在宏定义中才能使用
+void test9() {
+	int class101 = 100;
+	printf("%d\n", CAT(class, 101)); 打印100, 解释:class##101--->class101, ##合并两个符号为一个符号
+		printf("%d\n", class101); 100
+
+		int class101101 = 10;
+	printf("%d\n", CATS(class, 101, 101)); 打印10, 解释:class##101##101--->class101101, ##合并两个符号为一个符号
+		printf("%d\n", class101101); 10
+}
+void test10() {
+#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+	int a = 5;
+	int b = 8;
+	int m = MAX(a++, b++);
+	printf("a = %d, b = %d, m = %d\n", a, b, m); 6 10 9
+}
+int Max(int x, int y) {
+	return (x > y) ? x : y;
+}
+void test11() {
+#define MAX(X, Y) (((X) >(Y)) ? (X) : (Y))
+	int a = 5;
+	int b = 8;
+	int m = MAX(a, b);
+	int m = (((a) > (b)) ? (a) : (b));
+	m = Max(a, b);
+}
+#define MALLOC(num, type) (type*)malloc(num * sizeof(type))
+void test12() {
+	int* p1 = (int*)malloc(10 * sizeof(int));
+	if (NULL == p1) {
+		perror("test12 p1 malloc");
+		return;
+	}
+	int* p2 = MALLOC(10, int);
+	if (NULL == p2) {
+		perror("test12 p2 malloc");
+		free(p1);
+		p1 = NULL;
+		return;
+	}
+	free(p1);
+	p1 = NULL;
+	free(p2);
+	p2 = NULL;
+}
+void test13() {
+#define M 100
+	int a = M;
+	printf("a = %d\n", a); 100
+#undef M
+#define M 1000
+		a = M;
+	printf("a = %d\n", a); 1000
+#undef M
+#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+		int a = 3;
+	int b = 5;
+	printf("%d\n", MAX(a, b));
+#undef MAX
+	int a = 3;
+	int b = 5;
+	printf("%d\n", MAX(a, b)); err
+}
+#define PRINT
+void test14() {
+#ifdef PRINT
+	printf("hehe\n");
+#endif
+}
+void test15() {
+#define __DEBUG__
+	int i = 0;
+	int arr[10] = { 0 };
+	for (i = 0; i < 10; i++) {
+		arr[i] = i;
+#ifdef __DEBUG__调试性代码,删除可惜,保留又碍事,我们进行选择性编译
+		printf("%d ", arr[i]); 为了观察数组是否赋值成功
+			#endif__DEBUG__
+	}
+}
+void test16() {
+#if 1
+	printf("hehe\n"); 打印
+#endif
+#if 0
+		printf("haha\n"); 不打印
+#endif
+#if 1-2
+		printf("hhhh\n"); 打印
+#endif
+
+#define FLAG 1
+#if FLAG#if 1
+		printf("Good\n"); 打印
+#endif
+}
+void test17() {
+#if 1==2
+	printf("hehe\n");
+#elif 2==3
+	printf("haha\n");
+#else
+	printf("heihei\n");
+#endif
+}
+void test18() {
+#define TEST 0ok,照样打印test
+#ifdef TEST如果TEST定义了,下面代码参与编译
+	printf("test\n");
+#endif
+
+#define HEHE 1
+#ifndef HEHE如果HEHE没有定义,则下面代码参与编译
+	printf("hehe\n");
+#endif!HEHE
+}
+void test19() {
+#define TEST
+#define HEHE
+	如果TEST定义了, 1, 2参与编译
+#ifdef TEST1
+		printf("test1\n");
+	#endifTEST
+#if defined(TEST)2
+		printf("test2\n");
+	#endifTEST
+
+		如果HEHE不定义, 下面参与编译
+#ifndef HEHE3
+		printf("hehe1\n");
+#endif!HEHE
+#if !defined(HEHE)4
+	printf("hehe2\n");
+#endif!HEHE
+	1和2意思是一样的, 3和4意思是一样的, 1和3是相反的意思, 2和4是相反的意思
+}
+void test0() {
+柔性数组:flexible array是指C99中结构体最后一个元素允许是未知大小的数组, 这就叫柔性数组成员
+	typedef struct st_type {
+	int _i;
+	int _a[0]; 柔性数组成员, 大小是未知的
+} type_a;
+ 有些编译器会报错无法编译可以改成:
+	 typedef struct st_type {
+		 int _i;
+		 int _a[]; 柔性数组成员, 大小是未知的
+	 } type_a;
+ 柔性数组的特点:1.结构体中的柔性数组成员前面必须至少一个其他成员
+	 2.sizeof返回的这种结构体大小不包括柔性数组的内存
+	 3.包含柔性数组成员的结构体用malloc函数进行内存动态分配并且分配的内存应该大于结构体的大小, 以适应柔性数组的预期大小
+	 typedef struct st_type {
+	 int _i;
+	 int _a[0];
+ } type_a;
+		 printf("%d\n", sizeof(type_a)); 4
+			 int i = 0;
+		 type_a* p = (type_a*)malloc(1 * sizeof(type_a) + 100 * sizeof(int));
+		 if (NULL == p) {
+			 perror("test0 p malloc");
+			 return;
+		 }
+		 p->_i = 100;
+		 for (i = 0; i < 100; i++) {
+			 p->_a[i] = i;
+		 }
+		 for (i = 0; i < 100; i++) {
+			 printf("%d ", p->_a[i]);
+		 }
+		 free(p); 一次性就释放完了空间
+			 p = NULL;
+		 上述柔性数组成员_a相当于获得了100个整形元素的连续空间
+			 柔性数组的优势 : 上述的type_a结构体也可以设计为:
+		 typedef struct st_type {
+			 int _i;
+			 int* p_a;
+		 } type_a;
+		 type_a* p = (type_a*)malloc(1 * sizeof(type_a));
+		 if (NULL == p) {
+			 perror("test0 p malloc");
+			 return;
+		 }
+		 p->_i = 100;
+		 p->p_a = (int*)malloc(p->_i * sizeof(int));
+		 if (NULL == p->p_a) {
+			 perror("test0 p->p_a malloc");
+			 free(p);
+			 p = NULL;
+			 return;
+		 }
+		 int i = 0;
+		 for (i = 0; i < 100; i++) {
+			 p->p_a[i] = i;
+		 }
+		 for (i = 0; i < 100; i++) {
+			 printf("%d ", p->p_a[i]);
+		 }
+		 free(p->p_a);
+		 p->p_a = NULL;
+		 free(p); 需要多次释放空间, 而且可能会因为释放顺序错误的原因导致程序崩溃
+			 p = NULL;
+		 上述柔性数组和非柔性数组可以完成相同的功能, 但是柔性数组有两个好处:第一个好处是方便内存释放:
+		 如果我们的代码是在一个给别人用的函数中, 你在里面做了二次内存分配, 并把整个结构体返回给用户, 用户调用free可以释放结构体, 但是用户并不知道这个结构体内的成员也需要free, 所以你不能指望用户来发现这个事, 所以如果我们把结构体的内存以及其成员要的内存一次性分配好了, 并返回给用户一个结构体, 用户做一次free就可以把所有的内存也给释放掉
+			 第二个好处是有利于访问速度 : 连续的内存有益于提高访问数组, 也有益于减少内存碎片(其实我个人感觉也没多高, 反正你跑不了要用做偏移量的加法来寻址)
+}
+void test1() {
+	柔性数组成员	C99标准引入的概念
+		struct S1 {
+		int _n;
+		int _a[0];
+	};
+	struct S2 {
+		int _n;
+		int _a[];
+	};
+
+	struct S {
+		int _n;
+		int _a[0];
+	};
+	struct S s = { 0 };
+	printf("%d\n", sizeof(s)); 4
+
+		struct S* ps = (struct S*)malloc(sizeof(struct S) + 10 * sizeof(int));
+	开辟的44个字节是连续的, ps指向这段空间的首地址
+		if (NULL == ps) {
+			perror("test1 ps malloc");
+			return;
+		}
+	ps->_n = 10;
+	int i = 0;
+	for (i = 0; i < 10; i++) {
+		ps->_a[i] = i;
+	}
+	for (i = 0; i < 10; i++) {
+		printf("%d ", ps->_a[i]);
+	}
+	printf("\n");
+	struct S* ptr = (struct S*)realloc(ps, sizeof(struct S) + 20 * sizeof(int));
+	if (NULL == ptr) {
+		perror("test1 ptr realloc");
+		free(ps);
+		ps = NULL;
+		return;
+	}
+	ps = ptr;
+	ps->_n = 20;
+	for (i = 10; i < 20; i++) {
+		ps->_a[i] = i;
+	}
+	for (i = 0; i < 20; i++) {
+		printf("%d ", ps->_a[i]);
+	}
+	printf("\n");
+	free(ps);
+	ps = NULL;
+
+	struct S {
+		int _n;
+		int* _a;
+	};
+	struct S* ps = (struct S*)malloc(1 * sizeof(struct S));
+	if (NULL == ps) {
+		perror("test1 ps malloc");
+		return;
+	}
+	ps->_n = 10;
+	ps->_a = (int*)malloc(10 * sizeof(int));
+	if (NULL == ps->_a) {
+		perror("test1 ps->_a malloc");
+		free(ps);
+		ps = NULL;
+		return;
+	}
+	int i = 0;
+	for (i = 0; i < 10; i++) {
+		ps->_a[i] = i;
+	}
+	for (i = 0; i < 10; i++) {
+		printf("%d ", ps->_a[i]);
+	}
+	printf("\n");
+	int* p = (int*)realloc(ps->_a, 20 * sizeof(int));
+	if (NULL == p) {
+		perror("test1 p realloc");
+		free(ps->_a);
+		ps->_a = NULL;
+		free(ps);
+		ps = NULL;
+		return;
+	}
+	ps->_a = p;
+	ps->_n = 20;
+	for (i = 10; i < 20; i++) {
+		ps->_a[i] = i;
+	}
+	for (i = 0; i < 20; i++) {
+		printf("%d ", ps->_a[i]);
+	}
+	printf("\n");
+	free(ps->_a);
+	ps->_a = NULL;
+	free(ps);
+	ps = NULL;
+}
+#endif
+*/
