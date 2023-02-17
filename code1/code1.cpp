@@ -1,630 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-//#include "common.h"//ds-code
 #if 0
-//void func1(int n)//O(n^n)
-//{
-//	int count = 0;
-//	for (int i = 0; i < n; i++)
-//	{
-//		for (int j = 0; j < n; j++)
-//		{
-//			++count;
-//		}
-//	}
-//	for (int k = 0; k < 2 * n; k++)
-//	{
-//		++count;
-//	}
-//	int m = 10;
-//	while (m--)
-//	{
-//		++count;
-//	}
-//	printf("%d\n", count);
-//}
-//void func2(int n)//O(n)
-//{
-//	int count = 0;
-//	for (int k = 0; k < 2 * n; k++)
-//	{
-//		++count;
-//	}
-//	int m = 10;
-//	while(m--)
-//	{
-//		++count;
-//	}
-//	printf("%d\n", count);
-//}
-//void func3(int n, int m)//未知m与n的关系:O(m + n)
-//{						//m和n差不多:O(m)或者O(n)
-//						//m远大于n:O(m)
-//						//n远大于m:O(n)
-//	int count = 0;
-//	for (int k = 0; k < m; k++)
-//	{
-//		++count;
-//	}
-//	for (int k = 0; k < n; k++)
-//	{
-//		++count;
-//	}
-//	printf("%d\n", count);
-//}
-//void func4(int n)//O(1)
-//{
-//	int count = 0;
-//	for (int k = 0; k < 100; k++)
-//	{
-//		++count;
-//	}
-//	printf("%d\n", count);
-//}
-//const char* strchr(const char* str, int character);//O(n)
-//const char* MyStrchr(const char* str, int ch)
-//{
-//	assert(str);
-//	while (*str)
-//	{
-//		if (*str == ch)
-//			return str;
-//		str++;
-//	}
-//	return nullptr;
-//}
-//void bubblesort(int* p, int n)//O((n - 1) * n / 2)--->O(n^2)	O(1)
-//{
-//	assert(p);
-//	bool flag = false;
-//	for (int i = 0; i < n - 1; i++)
-//	{
-//		flag = false;
-//		for (int j = 0; j < n - 1 - i; j++)
-//		{
-//			if (p[j] < p[j + 1])
-//			{
-//				int t = p[j];
-//				p[j] = p[j + 1];
-//				p[j + 1] = t;
-//				flag = true;
-//			}
-//		}
-//		if (!flag)
-//			break;
-//	}
-//}
-//int binarysearch(int* p, int n, int k)//O(logn)	O(1)
-//{
-//	assert(p);
-//	int l = 0;
-//	int r = n - 1;
-//	int mid = 0;
-//	while (l <= r)
-//	{
-//		mid = (l & r) + ((l ^ r) >> 1);
-//		if (p[mid] == k)
-//			return mid;
-//		else if (p[mid] > k)
-//			r = mid - 1;
-//		else
-//			l = mid + 1;
-//	}
-//	return -1;
-//}
-//long long fac(size_t n)//O(n)	O(n)
-//{
-//	if (n <= 1)
-//		return 1;
-//	else
-//		return fac(n - 1) * n;
-//}
-//long long fib(size_t n)//O(2^n)	O(n)
-//{
-//	if (n <= 1)
-//		return n;
-//	else
-//		return fib(n - 1) + fib(n - 2);
-//}
-//long long* fib(size_t n)//O(n)	O(n)
-//{
-//	long long* fibArr = (long long*)malloc((n + 1) * sizeof(long long));
-//	if (NULL == fibArr)
-//	{
-//		perror("fun fib fibArr malloc error");
-//		return NULL;
-//	}
-//	fibArr[0] = 0;
-//	if (n == 0)
-//		return fibArr;
-//	fibArr[1] = 1ll;
-//	for (size_t i = 2; i < n + 1; i++)
-//	{
-//		fibArr[i] = fibArr[i - 1] + fibArr[i - 2];
-//	}
-//	return fibArr;
-//}
-//int main()//时间是一去不复返的,要累计,空间是可以重复利用的,不累计
-//{
-//	//func1(10);
-//	//func2(100);
-//	//func3(10, 20);
-//	//func4(101110);
-//	//int arr[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
-//	//bubblesort(arr, (int)(sizeof(arr) / sizeof(arr[0])));
-//	//std::cout << fac(10) << std::endl;
-//	//std::cout << fib(100) << std::endl;
-//	//long long r = fib(2)[2];
-//	//std::cout << r << std::endl;
-//	return 0;
-//}
-//#include "SeqList.h"//SeqList
-//void TestSeqList1()
-//{
-//	SL msl;
-//	SeqListInit(&msl);
-//	SeqListPushBack(&msl, 1);
-//	SeqListPushBack(&msl, 2);
-//	SeqListPushBack(&msl, 3);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 5);
-//	SeqListPrint(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPrint(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPrint(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPrint(&msl);
-//	SeqListDestroy(&msl);
-//}
-//void TestSeqList2()
-//{
-//	SL msl;
-//	SeqListInit(&msl);
-//	SeqListPushBack(&msl, 1);
-//	SeqListPushBack(&msl, 12);
-//	SeqListPushBack(&msl, 13);
-//	SeqListPushBack(&msl, 14);
-//	SeqListPrint(&msl);
-//	SeqListPushFront(&msl, 20);
-//	SeqListPushFront(&msl, 21);
-//	SeqListPushFront(&msl, 22);
-//	SeqListPushFront(&msl, 23);
-//	SeqListPushFront(&msl, 244);
-//	SeqListPrint(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPrint(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPrint(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPrint(&msl);
-//	SeqListDestroy(&msl);
-//}
-//void TestSeqList3()
-//{
-//	SL msl;
-//	SeqListInit(&msl);
-//	SeqListPushBack(&msl, 12);
-//	SeqListPushBack(&msl, 21);
-//	SeqListPushBack(&msl, 31);
-//	SeqListPushBack(&msl, 51);
-//	SeqListPrint(&msl);
-//	SeqListInsert(&msl, 2, 2);
-//	SeqListPrint(&msl);
-//	SeqListInsert(&msl, 0, 11);
-//	SeqListPrint(&msl);
-//	SeqListInsert(&msl, msl._size, 333);
-//	SeqListPrint(&msl);
-//	int pos = SeqListFind(&msl, 21);
-//	if (-1 != pos)
-//	{
-//		SeqListInsert(&msl, pos, 2222);
-//	}
-//	SeqListPrint(&msl);
-//	SeqListDestroy(&msl);
-//}
-//void TestSeqList4()
-//{
-//	SL msl;
-//	SeqListInit(&msl);
-//	SeqListPushBack(&msl, 4);
-//	SeqListPushBack(&msl, 12);
-//	SeqListPushBack(&msl, 13);
-//	SeqListPushBack(&msl, 14);
-//	SeqListPrint(&msl);
-//	SeqListPushFront(&msl, 5);
-//	SeqListPushFront(&msl, 12);
-//	SeqListPushFront(&msl, 13);
-//	SeqListPushFront(&msl, 14);
-//	SeqListPrint(&msl);
-//	SeqListErase(&msl, 1);
-//	SeqListPrint(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPopFront(&msl);
-//	SeqListPrint(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPopBack(&msl);
-//	SeqListPrint(&msl);
-//	SeqListBubbleSort(&msl);
-//	SeqListPrint(&msl);
-//	int pos = SeqListBinarySearch(&msl, 5);
-//	if (-1 != pos)
-//	{
-//		SeqListErase(&msl, pos);
-//	}
-//	SeqListPrint(&msl);
-//	SeqListDestroy(&msl);
-//}
-//int main()
-//{
-//	//TestSeqList1();
-//	//TestSeqList2();
-//	//TestSeqList3();
-//	//TestSeqList4();
-//	return 0;
-//}
-//int main()
-//{
-//	int* p1 = (int*)malloc(10 * sizeof(int));
-//	int* p2 = (int*)realloc(p1, 50 * sizeof(int));
-//	return 0;
-//}
-//#include "SList.h"//SList
-//void TestSList1()
-//{
-//	SLTNode* phead;
-//	SListInit(&phead);
-//	SListPrint(phead);
-//	SListPushBack(&phead, 1);
-//	SListPrint(phead);
-//	SListPushBack(&phead, 2);
-//	SListPrint(phead);
-//	SListPushBack(&phead, 3);
-//	SListPrint(phead);
-//	SListPushFront(&phead, 1);
-//	SListPrint(phead);
-//	SListPushFront(&phead, 2);
-//	SListPrint(phead);
-//	SListPushFront(&phead, 3);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	SListDestroy(&phead);
-//	//std::cout << phead;
-//}
-//void TestSList2()
-//{
-//	SLTNode* phead;
-//	SListInit(&phead);
-//	SListPushFront(&phead, 1);
-//	SListPrint(phead);
-//	SListPushFront(&phead, 2);
-//	SListPrint(phead);
-//	SListPushFront(&phead, 3);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	SListPopFront(&phead);
-//	SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	//SListPopBack(&phead);
-//	//SListPrint(phead);
-//	SListDestroy(&phead);
-//}
-//void TestSList3()
-//{
-//	SLTNode* phead;
-//	SListInit(&phead);
-//	SListPushFront(&phead, 1);
-//	SListPushFront(&phead, 2);
-//	SListPushFront(&phead, 3);
-//	SListPushFront(&phead, 2);
-//	SListPushFront(&phead, 4);
-//	SListPushFront(&phead, 2);
-//	SListPushFront(&phead, 2);
-//	SListPushFront(&phead, 4);
-//	SListPushFront(&phead, 2);
-//	SListPrint(phead);
-//	SLTNode* pfind = SListFind(phead, 2);
-//	int c = 0;
-//	while (pfind)//多个重复元素进行查找
-//	{
-//		printf("第%d个2, %p--->%d\n", ++c, pfind, pfind->_data);
-//		pfind = SListFind(pfind->_next, 2);
-//	}
-//	pfind = SListFind(phead, 3);
-//	if (pfind)
-//	{
-//		pfind->_data = 30;
-//	}
-//	SListPrint(phead);
-//	SListDestroy(&phead);
-//}
-//void TestSList4()
-//{
-//	SLTNode* phead;
-//	SListInit(&phead);
-//	SListPushFront(&phead, 1);
-//	SListPushFront(&phead, 2);
-//	SListPushFront(&phead, 3);
-//	SListPushFront(&phead, 4);
-//	SListPrint(phead);
-//	SLTNode* pfind = SListFind(phead, 3);
-//	if (pfind)
-//	{
-//		SListInsert(&phead, pfind, 30);
-//	}
-//	SListPrint(phead);
-//	pfind = SListFind(phead, 4);
-//	if (pfind)
-//	{
-//		SListInsert(&phead, pfind, 40);
-//	}
-//	SListPrint(phead);
-//	SListDestroy(&phead);
-//}
-//void Test()
-//{
-//	//TestSList1();
-//	//TestSList2();
-//	//TestSList3();
-//	//TestSList4();
-//}
-//int main()
-//{
-//	Test();
-//	return 0;
-//}
-//#include "List.h"//List
-//void TestList1()
-//{
-//	//LTNode* phead = ListInit();
-//	LTNode* phead;
-//	ListInit(&phead);
-//	ListPushBack(phead, 1);
-//	ListPushBack(phead, 2);
-//	ListPushBack(phead, 3);
-//	ListPushBack(phead, 4);
-//	ListPrintO(phead);
-//	ListPrintR(phead);
-//	ListDestroy(&phead);
-//}
-//void TestList2()
-//{
-//	LTNode* phead;
-//	ListInit(&phead);
-//	//ListPushFront(phead, 1);
-//	//ListPushFront(phead, 2);
-//	//ListPushFront(phead, 3);
-//	//ListPushFront(phead, 4);
-//	ListPushBack(phead, 1);
-//	ListPushBack(phead, 2);
-//	ListPushBack(phead, 3);
-//	ListPushBack(phead, 4);
-//	ListPrintO(phead);
-//	//ListPrintR(phead);
-//	//ListPopBack(phead);
-//	//ListPrintO(phead);
-//	//ListPopBack(phead);
-//	//ListPrintO(phead);
-//	//ListPopBack(phead);
-//	//ListPrintO(phead);
-//	//ListPopBack(phead);
-//	//ListPrintO(phead);
-//	//ListPopBack(phead);
-//	//ListPrintO(phead);
-//
-//	ListPopFront(phead);
-//	ListPrintO(phead);
-//	ListPopFront(phead);
-//	ListPrintO(phead);
-//	ListPopFront(phead);
-//	ListPrintO(phead);
-//	ListPopFront(phead);
-//	ListPrintO(phead);
-//	ListPopFront(phead);
-//	ListPrintO(phead);
-//
-//	ListDestroy(&phead);
-//}
-//int main()
-//{
-//	//TestList1();
-//	TestList2();
-//	return 0;
-//}
-//#include "Stack.h"//Stack
-//void TestStack1()
-//{
-//	ST st;
-//	StackInit(&st);
-//	printf("%d\n", StackSize(&st));
-//	StackPush(&st, 1);
-//	printf("%d\n", StackSize(&st));
-//	StackPush(&st, 2);
-//	printf("%d\n", StackSize(&st));
-//	StackPush(&st, 3);
-//	printf("%d\n", StackSize(&st));
-//	StackPush(&st, 4);
-//	while (!StackEmpty(&st))
-//	{
-//		printf("%d ", StackTop(&st));
-//		StackPop(&st);
-//	}
-//	printf("%d\n", StackSize(&st));
-//	StackDestroy(&st);
-//}
-//int main()
-//{
-//	TestStack1();
-//	return 0;
-//}
-//#include "Queue.h"//Queuee
-//void TestQueue1()
-//{
-//	Queue que;
-//	QueueInit(&que);
-//	printf("%d\n", QueueSize(&que));
-//	QueuePush(&que, 1);
-//	printf("%d\n", QueueSize(&que));
-//	QueuePush(&que, 2);
-//	printf("%d ", QueueFront(&que));
-//	QueuePop(&que);
-//	QueuePush(&que, 3);
-//	QueuePush(&que, 4);
-//	printf("%d\n", QueueSize(&que));
-//	while (!QueueEmpty(&que))
-//	{
-//		printf("%d ", QueueFront(&que));
-//		QueuePop(&que);
-//	}
-//	QueueDestroy(&que);
-//}
-//int main()
-//{
-//	TestQueue1();
-//	return 0;
-//}
-#endif
-//#include "common.h"//cpp-code
-#if 0
-int main()
-{
-	return 0;
-}
-#endif
-//OJ测试调试
-#if 0
-//class Node {
-//public:
-//	int val;
-//	Node* next;
-//	Node* random;
-//	Node(int _val) {
-//		val = _val;
-//		next = NULL;
-//		random = NULL;
-//	}
-//};
-//Node* copyRandomList(Node* head) {
-//	if (!head)  return head;
-//	auto headCpy = head;
-//	while (headCpy) {
-//		auto newNode = new Node(headCpy->val);
-//		auto next = headCpy->next;
-//		newNode->next = next;
-//		headCpy->next = newNode;
-//		headCpy = next;
-//	}
-//	headCpy = head;
-//	Node* copyHead = head->next;
-//	while (headCpy) {
-//		if (headCpy->random)
-//			copyHead->random = headCpy->random->next;
-//		else
-//			copyHead->random = nullptr;
-//		headCpy = copyHead->next;
-//		if (headCpy)
-//			copyHead = headCpy->next;
-//	}
-//	copyHead = head->next;
-//	auto copy = copyHead;
-//	headCpy = head;
-//	while (headCpy) {
-//		auto nexth = copy->next;
-//		headCpy = headCpy->next = nexth;
-//		if (headCpy) {
-//			auto nextc = headCpy->next;
-//			copy = copy->next = nextc;
-//		}
-//	}
-//	return copyHead;
-//}
-//int main()
-//{
-//	Node* n1 = new Node(1);
-//	Node* n2 = new Node(2);
-//	Node* n3 = new Node(3);
-//	Node* n4 = new Node(4);
-//	Node* n5 = new Node(5);
-//	Node* n6 = new Node(6);
-//	Node* n7 = new Node(7);
-//	n1->next = n2;
-//	n2->next = n3;
-//	n3->next = n4;
-//	n4->next = n5;
-//	n5->next = n6;
-//	n6->next = n7;
-//	n7->next = nullptr;
-//	n1->random = n4;
-//	n2->random = n5;
-//	n3->random = n1;
-//	n4->random = nullptr;
-//	n5->random = n5;
-//	n6->random = n3;
-//	n7->random = n6;
-//	Node* ret = copyRandomList(n1);
-//	return 0;
-//}
-#endif
-#include "common.h"//c-code
-#if 0
+//#include "common.h"//c-code
 //int Add(int x, int y)
 //{
 //	int z = 0;
@@ -975,210 +351,210 @@ int main()
 //		return 0;
 //	return 1;
 //}
-int main()
-{
-	//int ch = 0;
-	////while ((ch = getchar()) != EOF)
-	//while (~(ch = getchar()))
-	//{
-	//	putchar(ch);
-	//}
-	//int ch = getchar();
-	//printf("%c\n", ch);
-	//putchar(ch);
-	//int i = 1;
-	//while (i <= 10)
-	//{
-	//	if (i == 5)
-	//	{
-	//		break;
-	//	}
-	//	printf("%d ", i);
-	//	i++;
-	//}
-	//int i = 1;
-	//while (i <= 10)
-	//{
-	//	if (i == 5)
-	//		continue;
-	//	printf("%d ", i);
-	//	i++;
-	//}
-	//while (1)
-	//	printf("hehe\n");
-	//int n = 1;
-	//int m = 2;
-	//switch (n)
-	//{
-	//case 1: m++;
-	//case 2:	n++;
-	//case 3:
-	//	switch (n)
-	//	{
-	//	case 1:
-	//		n++;
-	//	case 2:m++; n++;
-	//		break;
-	//	}
-	//case 4:
-	//	m++;
-	//	break;
-	//default:
-	//	break;
-	//}
-	//printf("m = %d, n = %d\n", m, n);
-	//int day = 0;
-	//scanf("%d", &day);
-	//switch (day)
-	//{
-	//case 1:
-	//case 2:
-	//case 3:
-	//case 4:
-	//case 5:
-	//	printf("weekday\n");
-	//	break;
-	//case 6:
-	//case 7:
-	//	printf("weekend\n");
-	//	break;
-	//default:
-	//	printf("data err!\n");
-	//	break;
-	//}
-	//int day = 0;
-	//scanf("%d", &day);
-	//switch (day)
-	//{
-	//case 1:
-	//	printf("1");
-	//	break;
-	//case 2:
-	//	printf("2");
-	//	break;
-	//case 3:
-	//	printf("3");
-	//	break;
-	//case 4:
-	//	printf("4");
-	//	break;
-	//case 5:
-	//	printf("5");
-	//	break;
-	//case 6:
-	//	printf("6");
-	//	break;
-	//case 7:
-	//	printf("7");
-	//	break;
-	//default:
-	//	printf("data err\n");
-	//	break;
-	//}
-	//for (int i = 1; i < 101; i += 2)
-	//{
-	//	printf("%d ", i);
-	//}
-	//for (int i = 1; i <= 100; i++)
-	//	if (i & 0x01)
-	//		printf("%d ", i);
-	//int num = -15;
-	//if (num % 2 == 1)//err
-	//	printf("奇数\n");
-	//int num = 16;
-	//if (num & 0x01)
-	//	printf("odd n\n");
-	//else
-	//	printf("eve n\n");
-	//int num = 3;
-	////if (num == 5)
-	//if (5 == num)
-	//{
-	//	printf("hehe\n");
-	//}
-	//std::cout << test();
-	//int age = 170;
-	//if (age >= 18)
-	//{
-	//	printf("成年\n");
-	//}
-	//if (age >= 18)
-	//{
-	//	printf("成年\n");
-	//}
-	//else
-	//{
-	//	printf("未成年\n");
-	//	printf("不能谈恋爱\n");
-	//}
-	//if (age < 18)
-	//{
-	//	printf("少年\n");
-	//}
-	//else if (age < 26 && age >= 18)
-	//{
-	//	printf("青年\n");
-	//}
-	//else if (age >= 26 && age < 40)
-	//{
-	//	printf("壮年\n");
-	//}
-	//else if (age >= 40 && age < 60)
-	//{
-	//	printf("中年\n");
-	//}
-	//else if (age >= 60 && age < 100)
-	//{
-	//	printf("老年\n");
-	//}
-	//else if (age >= 100)
-	//{
-	//	printf("老不死\n");
-	//}
-	//else
-	//{
-	//	printf("数据有误\n");
-	//}
-	//printf("hehe\n");
-	//3 + 4;
-	//;
-	//int m = 0;
-	//printf("请输入一个整数:>");
-	//scanf("%d", &m);
-	//printf("%s\n", m % 5 ? "NO" : "YES");
-	//int i;
-	//int a = 2;
-	//for (i = 0; i < 5; i++)
-	//{
-	//	printf("%d, ", sum(a));
-	//}
-	//int a = 0;
-	//int b = 0;
-	//scanf("%d%d", &a, &b);
-	//int m = Max(a, b);
-	//printf("m = %d\n", m);
-	//int num = 1;
-	//printf("num = %d\n", num);
-	//char arr[] = { 'b', 'i', 't' };
-	//printf("%d\n", strlen(arr));
-	//int n = 10;
-	//int arr[n] = { 0 };
-	//printf("%d\n", strlen("c:\test\121"));
-	//int a = 0;
-	//int b = 2;
-	//if (a == 1)
-	//{
-	//	if (b == 2)
-	//	{
-	//		printf("hehe\n");
-	//	}
-	//	else
-	//	{
-	//		printf("haha\n");
-	//	}
-	//}
-	return 0;
-}
+//int main()
+//{
+//	//int ch = 0;
+//	////while ((ch = getchar()) != EOF)
+//	//while (~(ch = getchar()))
+//	//{
+//	//	putchar(ch);
+//	//}
+//	//int ch = getchar();
+//	//printf("%c\n", ch);
+//	//putchar(ch);
+//	//int i = 1;
+//	//while (i <= 10)
+//	//{
+//	//	if (i == 5)
+//	//	{
+//	//		break;
+//	//	}
+//	//	printf("%d ", i);
+//	//	i++;
+//	//}
+//	//int i = 1;
+//	//while (i <= 10)
+//	//{
+//	//	if (i == 5)
+//	//		continue;
+//	//	printf("%d ", i);
+//	//	i++;
+//	//}
+//	//while (1)
+//	//	printf("hehe\n");
+//	//int n = 1;
+//	//int m = 2;
+//	//switch (n)
+//	//{
+//	//case 1: m++;
+//	//case 2:	n++;
+//	//case 3:
+//	//	switch (n)
+//	//	{
+//	//	case 1:
+//	//		n++;
+//	//	case 2:m++; n++;
+//	//		break;
+//	//	}
+//	//case 4:
+//	//	m++;
+//	//	break;
+//	//default:
+//	//	break;
+//	//}
+//	//printf("m = %d, n = %d\n", m, n);
+//	//int day = 0;
+//	//scanf("%d", &day);
+//	//switch (day)
+//	//{
+//	//case 1:
+//	//case 2:
+//	//case 3:
+//	//case 4:
+//	//case 5:
+//	//	printf("weekday\n");
+//	//	break;
+//	//case 6:
+//	//case 7:
+//	//	printf("weekend\n");
+//	//	break;
+//	//default:
+//	//	printf("data err!\n");
+//	//	break;
+//	//}
+//	//int day = 0;
+//	//scanf("%d", &day);
+//	//switch (day)
+//	//{
+//	//case 1:
+//	//	printf("1");
+//	//	break;
+//	//case 2:
+//	//	printf("2");
+//	//	break;
+//	//case 3:
+//	//	printf("3");
+//	//	break;
+//	//case 4:
+//	//	printf("4");
+//	//	break;
+//	//case 5:
+//	//	printf("5");
+//	//	break;
+//	//case 6:
+//	//	printf("6");
+//	//	break;
+//	//case 7:
+//	//	printf("7");
+//	//	break;
+//	//default:
+//	//	printf("data err\n");
+//	//	break;
+//	//}
+//	//for (int i = 1; i < 101; i += 2)
+//	//{
+//	//	printf("%d ", i);
+//	//}
+//	//for (int i = 1; i <= 100; i++)
+//	//	if (i & 0x01)
+//	//		printf("%d ", i);
+//	//int num = -15;
+//	//if (num % 2 == 1)//err
+//	//	printf("奇数\n");
+//	//int num = 16;
+//	//if (num & 0x01)
+//	//	printf("odd n\n");
+//	//else
+//	//	printf("eve n\n");
+//	//int num = 3;
+//	////if (num == 5)
+//	//if (5 == num)
+//	//{
+//	//	printf("hehe\n");
+//	//}
+//	//std::cout << test();
+//	//int age = 170;
+//	//if (age >= 18)
+//	//{
+//	//	printf("成年\n");
+//	//}
+//	//if (age >= 18)
+//	//{
+//	//	printf("成年\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("未成年\n");
+//	//	printf("不能谈恋爱\n");
+//	//}
+//	//if (age < 18)
+//	//{
+//	//	printf("少年\n");
+//	//}
+//	//else if (age < 26 && age >= 18)
+//	//{
+//	//	printf("青年\n");
+//	//}
+//	//else if (age >= 26 && age < 40)
+//	//{
+//	//	printf("壮年\n");
+//	//}
+//	//else if (age >= 40 && age < 60)
+//	//{
+//	//	printf("中年\n");
+//	//}
+//	//else if (age >= 60 && age < 100)
+//	//{
+//	//	printf("老年\n");
+//	//}
+//	//else if (age >= 100)
+//	//{
+//	//	printf("老不死\n");
+//	//}
+//	//else
+//	//{
+//	//	printf("数据有误\n");
+//	//}
+//	//printf("hehe\n");
+//	//3 + 4;
+//	//;
+//	//int m = 0;
+//	//printf("请输入一个整数:>");
+//	//scanf("%d", &m);
+//	//printf("%s\n", m % 5 ? "NO" : "YES");
+//	//int i;
+//	//int a = 2;
+//	//for (i = 0; i < 5; i++)
+//	//{
+//	//	printf("%d, ", sum(a));
+//	//}
+//	//int a = 0;
+//	//int b = 0;
+//	//scanf("%d%d", &a, &b);
+//	//int m = Max(a, b);
+//	//printf("m = %d\n", m);
+//	//int num = 1;
+//	//printf("num = %d\n", num);
+//	//char arr[] = { 'b', 'i', 't' };
+//	//printf("%d\n", strlen(arr));
+//	//int n = 10;
+//	//int arr[n] = { 0 };
+//	//printf("%d\n", strlen("c:\test\121"));
+//	//int a = 0;
+//	//int b = 2;
+//	//if (a == 1)
+//	//{
+//	//	if (b == 2)
+//	//	{
+//	//		printf("hehe\n");
+//	//	}
+//	//	else
+//	//	{
+//	//		printf("haha\n");
+//	//	}
+//	//}
+//	return 0;
+//}
 //void menu()
 //{
 //	printf("*****************************\n");
@@ -4484,16 +3860,16 @@ int main()
 //	}
 //	return 0;
 //}
-size_t my_strlen(const char* str)
-{
-	assert(str);
-	size_t r = 0;
-	while (*str++)
-	{
-		r++;
-	}
-	return r;
-}
+//size_t my_strlen(const char* str)
+//{
+//	assert(str);
+//	size_t r = 0;
+//	while (*str++)
+//	{
+//		r++;
+//	}
+//	return r;
+//}
 //size_t MyStrlen(const char* str)
 //{
 //	assert(str);
@@ -7398,13 +6774,13 @@ int Sub(int x, int y)
 //	TestGame();
 //	return 0;
 //}
-void swap(int* p1, int* p2)
-{
-	assert(p1 && p2);
-	*p1 ^= *p2;
-	*p2 ^= *p1;
-	*p1 ^= *p2;
-}
+//void swap(int* p1, int* p2)
+//{
+//	assert(p1 && p2);
+//	*p1 ^= *p2;
+//	*p2 ^= *p1;
+//	*p1 ^= *p2;
+//}
 //int gcd(int m, int n)
 //{
 //	return n ? gcd(n, m % n) : m;
@@ -11873,384 +11249,818 @@ void swap(int* p1, int* p2)
 //	//printf("res1 = %d, res2 = %d\n", res1, res2);
 //	return 0;
 //}
+//#define MAX_N 200
+//int prime[MAX_N + 10] = { 0 };
+//void init_prime()
+//{
+//	for (int i = 2; i * i <= MAX_N; i++)
+//	{
+//		if (prime[i])continue;
+//		for (int j = i * i; j <= MAX_N; j += i)
+//			prime[j] = 1;
+//	}
+//	for (int i = 2; i <= MAX_N; i++)
+//		if (!prime[i])prime[++prime[0]] = i;
+//}
+//int main()//素数晒算法
+//{
+//	init_prime();
+//	cout << "total prime : " << prime[0] << endl;
+//	cout << "---------------------" << endl;
+//	//for (int i = 1; i <= prime[0]; i++)cout << prime[i] << endl;
+//	int x = 0;
+//	while (cin >> x)
+//	{
+//		printf("prime[%d] = %d\n", x, prime[x]);
+//	}
+//	return 0;
+//}
+//int main()
+//{
+////#define SQUARE(X) ((X)*(X))
+////#define DOUBLE(X) ((X)+(X))
+////	printf("%d\n", SQUARE(3 + 1));
+////	printf("%d\n", 10 * DOUBLE(4));
+////	printf("%d\n", 10 * (4) + (4));
+////	printf("%d\n", 3 * 3);
+////	printf("%d\n", 3 + 1 * 3 + 1);
+////#define M 100
+////#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+////	int max = MAX(101, M);
+////	printf("max = %d\n", max);
+////	printf("M = %d\n", M);
+////#undef M
+////#undef MAX
+//	//printf("hello world\n");
+//	//printf("hello ""world\n");
+////#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+////	int a = 5;
+////	int b = 8;
+////	int m = MAX(a++, b++);
+////	printf("a = %d, b = %d, m = %d\n", a, b, m);
+//	return 0;
+//}
+//void output(int n, int m, int left, vector<int>& buff)
+//{
+//	if (buff.size() == m)
+//	{
+//		for (int i = 0; i < m; i++)
+//		{
+//			cout << buff[i];
+//			if (i != m - 1)	cout << ' ';
+//		}
+//		printf("\n");
+//		return;
+//	}
+//	for (int i = left; i <= n; i++)
+//	{
+//		buff.push_back(i);
+//		output(n, m, i + 1, buff);
+//		buff.pop_back();
+//	}
+//}
+//int main()
+//{
+//	int n, m;
+//	vector<int> buff;
+//	while (cin >> n >> m)
+//	{
+//		output(n, m, 1, buff);
+//	}
+//	return 0;
+//}
+//int f(int n)
+//{
+//	return n <= 1 ? 1 : n * f(n - 1);
+//}
+//int main()
+//{
+//	//int sum = 0;
+//	//for (int i = 0; i <= 100; i++)	sum += i;	cout << sum << endl;
+//	//cout << f(5) << endl;
+//	return 0;
+//}
+//int gcd(int a, int b)
+//{
+//	return b ? gcd(b, a % b) : a;
+//}
+//int lcm(int a, int b)
+//{
+//	return a / gcd(a, b) * b;
+//}
+//int main()
+//{
+//	int a, b;
+//	while (cin >> a >> b)
+//	{
+//		cout << gcd(a, b) << endl;
+//		cout << lcm(a, b) << endl;
+//	}
+//	return 0;
+//}
+//int f(int x)
+//{
+//	x = (x & 0X55555555) + ((x & 0XAAAAAAAA) >> 1);
+//	x = (x & 0X33333333) + ((x & 0XCCCCCCCC) >> 2);
+//	x = (x & 0X0F0F0F0F) + ((x & 0XF0F0F0F0) >> 4);
+//	x = (x & 0X00FF00FF) + ((x & 0XFF00FF00) >> 8);
+//	return x = (x & 0X0000FFFF) + ((x & 0XFFFF0000) >> 16);
+//}
+//int main()
+//{
+//	int x = 0;
+//	while (cin >> x)
+//	{
+//		cout << f(x) << endl;
+//	}
+//	return 0;
+//}
 #endif
+//#include "common.h"//cpp-code
+#if 0
 int main()
 {
-
 	return 0;
 }
-/*
-#define DEBUG_PRINT printf("file:%s line:%d date:%s time:%s function: %s\n",\
-__FILE__,__LINE__, __DATE__, __TIME__, __FUNCTION__)
-void test3() {
-	DEBUG_PRINT; \续行符
-}
-#define M 1000;这后面的;可能导致后续写代码出现问题
-void test4() {
-	int m = M; int m = 1000; ;
-	int a = 10;
-	int b = 0;
-	if (a > 10)
-		b = M; err: b = 1000; ; 导致出错
-	else
-		b = -M;
-}
-#define SQUARE(X) ((X)*(X))
-#define DOUBLE(X) ((X)+(X))
-void test5() {
-	printf("%d\n", SQUARE(3 + 1));
-	printf("%d\n", 10 * DOUBLE(4));
-	printf("%d\n", 10 * (4) + (4));
-	printf("%d\n", 3 * 3);
-	printf("%d\n", 3 + 1 * 3 + 1);
-}
-#define M 100
-#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
-void test6() {
-	int max = MAX(101, M);
-	printf("max = %d\n", max);
-	printf("M = %d\n", M);
-}
-void print(int x) {
-	printf("the value of x is %d\n", x);
-}
-void test7() {
-	printf("hello world\n"); hello world
-		printf("hello " "world\n"); hello world
-
-		int a = 10;
-	print(a);
-	the value of a is 10
-		int b = 20;
-	print(b);
-	the value of b is 20
-		int c = 30;
-	print(c);
-	the value of c is 30
-}
-#define PRINTF(X,FORMAT) printf("the value of "#X" is "FORMAT"\n", X)
-void test8() {
-	这种使用方式只有宏中才能使用
-		int a = 10;
-	the value of a is 10
-		int b = 20;
-	the value of b is 20
-		int c = 30;
-	the value of c is 30
-		float f = 5.5f;
-	the value of f is 5.50
-		想让上述打印出想要的结果, 使用函数做不到, 可以使用宏里的#
-		PRINTF(a, "%d"); printf("the value of ""a"" is ""%d""\n", a);
-	PRINTF(b, "%d"); printf("the value of ""b"" is ""%d""\n", b);
-	PRINTF(c, "%d"); printf("the value of ""c"" is ""%d""\n", c);
-	PRINTF(f, "%.2f"); printf("the value of ""f"" is ""%.2f""\n", f);
-}
-#define CAT(X, Y) (X##Y)
-#define CATS(X, Y, Z) (X##Y##Z)##只在宏定义中才能使用
-void test9() {
-	int class101 = 100;
-	printf("%d\n", CAT(class, 101)); 打印100, 解释:class##101--->class101, ##合并两个符号为一个符号
-		printf("%d\n", class101); 100
-
-		int class101101 = 10;
-	printf("%d\n", CATS(class, 101, 101)); 打印10, 解释:class##101##101--->class101101, ##合并两个符号为一个符号
-		printf("%d\n", class101101); 10
-}
-void test10() {
-#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
-	int a = 5;
-	int b = 8;
-	int m = MAX(a++, b++);
-	printf("a = %d, b = %d, m = %d\n", a, b, m); 6 10 9
-}
-int Max(int x, int y) {
-	return (x > y) ? x : y;
-}
-void test11() {
-#define MAX(X, Y) (((X) >(Y)) ? (X) : (Y))
-	int a = 5;
-	int b = 8;
-	int m = MAX(a, b);
-	int m = (((a) > (b)) ? (a) : (b));
-	m = Max(a, b);
-}
-#define MALLOC(num, type) (type*)malloc(num * sizeof(type))
-void test12() {
-	int* p1 = (int*)malloc(10 * sizeof(int));
-	if (NULL == p1) {
-		perror("test12 p1 malloc");
-		return;
-	}
-	int* p2 = MALLOC(10, int);
-	if (NULL == p2) {
-		perror("test12 p2 malloc");
-		free(p1);
-		p1 = NULL;
-		return;
-	}
-	free(p1);
-	p1 = NULL;
-	free(p2);
-	p2 = NULL;
-}
-void test13() {
-#define M 100
-	int a = M;
-	printf("a = %d\n", a); 100
-#undef M
-#define M 1000
-		a = M;
-	printf("a = %d\n", a); 1000
-#undef M
-#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
-		int a = 3;
-	int b = 5;
-	printf("%d\n", MAX(a, b));
-#undef MAX
-	int a = 3;
-	int b = 5;
-	printf("%d\n", MAX(a, b)); err
-}
-#define PRINT
-void test14() {
-#ifdef PRINT
-	printf("hehe\n");
 #endif
-}
-void test15() {
-#define __DEBUG__
-	int i = 0;
-	int arr[10] = { 0 };
-	for (i = 0; i < 10; i++) {
-		arr[i] = i;
-#ifdef __DEBUG__调试性代码,删除可惜,保留又碍事,我们进行选择性编译
-		printf("%d ", arr[i]); 为了观察数组是否赋值成功
-			#endif__DEBUG__
-	}
-}
-void test16() {
-#if 1
-	printf("hehe\n"); 打印
-#endif
+//OJ测试调试
 #if 0
-		printf("haha\n"); 不打印
+//class Node {
+//public:
+//	int val;
+//	Node* next;
+//	Node* random;
+//	Node(int _val) {
+//		val = _val;
+//		next = NULL;
+//		random = NULL;
+//	}
+//};
+//Node* copyRandomList(Node* head) {
+//	if (!head)  return head;
+//	auto headCpy = head;
+//	while (headCpy) {
+//		auto newNode = new Node(headCpy->val);
+//		auto next = headCpy->next;
+//		newNode->next = next;
+//		headCpy->next = newNode;
+//		headCpy = next;
+//	}
+//	headCpy = head;
+//	Node* copyHead = head->next;
+//	while (headCpy) {
+//		if (headCpy->random)
+//			copyHead->random = headCpy->random->next;
+//		else
+//			copyHead->random = nullptr;
+//		headCpy = copyHead->next;
+//		if (headCpy)
+//			copyHead = headCpy->next;
+//	}
+//	copyHead = head->next;
+//	auto copy = copyHead;
+//	headCpy = head;
+//	while (headCpy) {
+//		auto nexth = copy->next;
+//		headCpy = headCpy->next = nexth;
+//		if (headCpy) {
+//			auto nextc = headCpy->next;
+//			copy = copy->next = nextc;
+//		}
+//	}
+//	return copyHead;
+//}
+//int main()
+//{
+//	Node* n1 = new Node(1);
+//	Node* n2 = new Node(2);
+//	Node* n3 = new Node(3);
+//	Node* n4 = new Node(4);
+//	Node* n5 = new Node(5);
+//	Node* n6 = new Node(6);
+//	Node* n7 = new Node(7);
+//	n1->next = n2;
+//	n2->next = n3;
+//	n3->next = n4;
+//	n4->next = n5;
+//	n5->next = n6;
+//	n6->next = n7;
+//	n7->next = nullptr;
+//	n1->random = n4;
+//	n2->random = n5;
+//	n3->random = n1;
+//	n4->random = nullptr;
+//	n5->random = n5;
+//	n6->random = n3;
+//	n7->random = n6;
+//	Node* ret = copyRandomList(n1);
+//	return 0;
+//}
 #endif
-#if 1-2
-		printf("hhhh\n"); 打印
+//#include "common.h"//ds-code
+#if 0
+//void func1(int n)//O(n^n)
+//{
+//	int count = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < n; j++)
+//		{
+//			++count;
+//		}
+//	}
+//	for (int k = 0; k < 2 * n; k++)
+//	{
+//		++count;
+//	}
+//	int m = 10;
+//	while (m--)
+//	{
+//		++count;
+//	}
+//	printf("%d\n", count);
+//}
+//void func2(int n)//O(n)
+//{
+//	int count = 0;
+//	for (int k = 0; k < 2 * n; k++)
+//	{
+//		++count;
+//	}
+//	int m = 10;
+//	while(m--)
+//	{
+//		++count;
+//	}
+//	printf("%d\n", count);
+//}
+//void func3(int n, int m)//未知m与n的关系:O(m + n)
+//{						//m和n差不多:O(m)或者O(n)
+//						//m远大于n:O(m)
+//						//n远大于m:O(n)
+//	int count = 0;
+//	for (int k = 0; k < m; k++)
+//	{
+//		++count;
+//	}
+//	for (int k = 0; k < n; k++)
+//	{
+//		++count;
+//	}
+//	printf("%d\n", count);
+//}
+//void func4(int n)//O(1)
+//{
+//	int count = 0;
+//	for (int k = 0; k < 100; k++)
+//	{
+//		++count;
+//	}
+//	printf("%d\n", count);
+//}
+//const char* strchr(const char* str, int character);//O(n)
+//const char* MyStrchr(const char* str, int ch)
+//{
+//	assert(str);
+//	while (*str)
+//	{
+//		if (*str == ch)
+//			return str;
+//		str++;
+//	}
+//	return nullptr;
+//}
+//void bubblesort(int* p, int n)//O((n - 1) * n / 2)--->O(n^2)	O(1)
+//{
+//	assert(p);
+//	bool flag = false;
+//	for (int i = 0; i < n - 1; i++)
+//	{
+//		flag = false;
+//		for (int j = 0; j < n - 1 - i; j++)
+//		{
+//			if (p[j] < p[j + 1])
+//			{
+//				int t = p[j];
+//				p[j] = p[j + 1];
+//				p[j + 1] = t;
+//				flag = true;
+//			}
+//		}
+//		if (!flag)
+//			break;
+//	}
+//}
+//int binarysearch(int* p, int n, int k)//O(logn)	O(1)
+//{
+//	assert(p);
+//	int l = 0;
+//	int r = n - 1;
+//	int mid = 0;
+//	while (l <= r)
+//	{
+//		mid = (l & r) + ((l ^ r) >> 1);
+//		if (p[mid] == k)
+//			return mid;
+//		else if (p[mid] > k)
+//			r = mid - 1;
+//		else
+//			l = mid + 1;
+//	}
+//	return -1;
+//}
+//long long fac(size_t n)//O(n)	O(n)
+//{
+//	if (n <= 1)
+//		return 1;
+//	else
+//		return fac(n - 1) * n;
+//}
+//long long fib(size_t n)//O(2^n)	O(n)
+//{
+//	if (n <= 1)
+//		return n;
+//	else
+//		return fib(n - 1) + fib(n - 2);
+//}
+//long long* fib(size_t n)//O(n)	O(n)
+//{
+//	long long* fibArr = (long long*)malloc((n + 1) * sizeof(long long));
+//	if (NULL == fibArr)
+//	{
+//		perror("fun fib fibArr malloc error");
+//		return NULL;
+//	}
+//	fibArr[0] = 0;
+//	if (n == 0)
+//		return fibArr;
+//	fibArr[1] = 1ll;
+//	for (size_t i = 2; i < n + 1; i++)
+//	{
+//		fibArr[i] = fibArr[i - 1] + fibArr[i - 2];
+//	}
+//	return fibArr;
+//}
+//int main()//时间是一去不复返的,要累计,空间是可以重复利用的,不累计
+//{
+//	//func1(10);
+//	//func2(100);
+//	//func3(10, 20);
+//	//func4(101110);
+//	//int arr[] = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+//	//bubblesort(arr, (int)(sizeof(arr) / sizeof(arr[0])));
+//	//std::cout << fac(10) << std::endl;
+//	//std::cout << fib(100) << std::endl;
+//	//long long r = fib(2)[2];
+//	//std::cout << r << std::endl;
+//	return 0;
+//}
+//#include "SeqList.h"//SeqList
+//void TestSeqList1()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 1);
+//	SeqListPushBack(&msl, 2);
+//	SeqListPushBack(&msl, 3);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 5);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//void TestSeqList2()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 1);
+//	SeqListPushBack(&msl, 12);
+//	SeqListPushBack(&msl, 13);
+//	SeqListPushBack(&msl, 14);
+//	SeqListPrint(&msl);
+//	SeqListPushFront(&msl, 20);
+//	SeqListPushFront(&msl, 21);
+//	SeqListPushFront(&msl, 22);
+//	SeqListPushFront(&msl, 23);
+//	SeqListPushFront(&msl, 244);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//void TestSeqList3()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 12);
+//	SeqListPushBack(&msl, 21);
+//	SeqListPushBack(&msl, 31);
+//	SeqListPushBack(&msl, 51);
+//	SeqListPrint(&msl);
+//	SeqListInsert(&msl, 2, 2);
+//	SeqListPrint(&msl);
+//	SeqListInsert(&msl, 0, 11);
+//	SeqListPrint(&msl);
+//	SeqListInsert(&msl, msl._size, 333);
+//	SeqListPrint(&msl);
+//	int pos = SeqListFind(&msl, 21);
+//	if (-1 != pos)
+//	{
+//		SeqListInsert(&msl, pos, 2222);
+//	}
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//void TestSeqList4()
+//{
+//	SL msl;
+//	SeqListInit(&msl);
+//	SeqListPushBack(&msl, 4);
+//	SeqListPushBack(&msl, 12);
+//	SeqListPushBack(&msl, 13);
+//	SeqListPushBack(&msl, 14);
+//	SeqListPrint(&msl);
+//	SeqListPushFront(&msl, 5);
+//	SeqListPushFront(&msl, 12);
+//	SeqListPushFront(&msl, 13);
+//	SeqListPushFront(&msl, 14);
+//	SeqListPrint(&msl);
+//	SeqListErase(&msl, 1);
+//	SeqListPrint(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPopFront(&msl);
+//	SeqListPrint(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPopBack(&msl);
+//	SeqListPrint(&msl);
+//	SeqListBubbleSort(&msl);
+//	SeqListPrint(&msl);
+//	int pos = SeqListBinarySearch(&msl, 5);
+//	if (-1 != pos)
+//	{
+//		SeqListErase(&msl, pos);
+//	}
+//	SeqListPrint(&msl);
+//	SeqListDestroy(&msl);
+//}
+//int main()
+//{
+//	//TestSeqList1();
+//	//TestSeqList2();
+//	//TestSeqList3();
+//	//TestSeqList4();
+//	return 0;
+//}
+//int main()
+//{
+//	int* p1 = (int*)malloc(10 * sizeof(int));
+//	int* p2 = (int*)realloc(p1, 50 * sizeof(int));
+//	return 0;
+//}
+//#include "SList.h"//SList
+//void TestSList1()
+//{
+//	SLTNode* phead;
+//	SListInit(&phead);
+//	SListPrint(phead);
+//	SListPushBack(&phead, 1);
+//	SListPrint(phead);
+//	SListPushBack(&phead, 2);
+//	SListPrint(phead);
+//	SListPushBack(&phead, 3);
+//	SListPrint(phead);
+//	SListPushFront(&phead, 1);
+//	SListPrint(phead);
+//	SListPushFront(&phead, 2);
+//	SListPrint(phead);
+//	SListPushFront(&phead, 3);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	SListDestroy(&phead);
+//	//std::cout << phead;
+//}
+//void TestSList2()
+//{
+//	SLTNode* phead;
+//	SListInit(&phead);
+//	SListPushFront(&phead, 1);
+//	SListPrint(phead);
+//	SListPushFront(&phead, 2);
+//	SListPrint(phead);
+//	SListPushFront(&phead, 3);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	SListPopFront(&phead);
+//	SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	//SListPopBack(&phead);
+//	//SListPrint(phead);
+//	SListDestroy(&phead);
+//}
+//void TestSList3()
+//{
+//	SLTNode* phead;
+//	SListInit(&phead);
+//	SListPushFront(&phead, 1);
+//	SListPushFront(&phead, 2);
+//	SListPushFront(&phead, 3);
+//	SListPushFront(&phead, 2);
+//	SListPushFront(&phead, 4);
+//	SListPushFront(&phead, 2);
+//	SListPushFront(&phead, 2);
+//	SListPushFront(&phead, 4);
+//	SListPushFront(&phead, 2);
+//	SListPrint(phead);
+//	SLTNode* pfind = SListFind(phead, 2);
+//	int c = 0;
+//	while (pfind)//多个重复元素进行查找
+//	{
+//		printf("第%d个2, %p--->%d\n", ++c, pfind, pfind->_data);
+//		pfind = SListFind(pfind->_next, 2);
+//	}
+//	pfind = SListFind(phead, 3);
+//	if (pfind)
+//	{
+//		pfind->_data = 30;
+//	}
+//	SListPrint(phead);
+//	SListDestroy(&phead);
+//}
+//void TestSList4()
+//{
+//	SLTNode* phead;
+//	SListInit(&phead);
+//	SListPushFront(&phead, 1);
+//	SListPushFront(&phead, 2);
+//	SListPushFront(&phead, 3);
+//	SListPushFront(&phead, 4);
+//	SListPrint(phead);
+//	SLTNode* pfind = SListFind(phead, 3);
+//	if (pfind)
+//	{
+//		SListInsert(&phead, pfind, 30);
+//	}
+//	SListPrint(phead);
+//	pfind = SListFind(phead, 4);
+//	if (pfind)
+//	{
+//		SListInsert(&phead, pfind, 40);
+//	}
+//	SListPrint(phead);
+//	SListDestroy(&phead);
+//}
+//void Test()
+//{
+//	//TestSList1();
+//	//TestSList2();
+//	//TestSList3();
+//	//TestSList4();
+//}
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+//#include "List.h"//List
+//void TestList1()
+//{
+//	//LTNode* phead = ListInit();
+//	LTNode* phead;
+//	ListInit(&phead);
+//	ListPushBack(phead, 1);
+//	ListPushBack(phead, 2);
+//	ListPushBack(phead, 3);
+//	ListPushBack(phead, 4);
+//	ListPrintO(phead);
+//	ListPrintR(phead);
+//	ListDestroy(&phead);
+//}
+//void TestList2()
+//{
+//	LTNode* phead;
+//	ListInit(&phead);
+//	//ListPushFront(phead, 1);
+//	//ListPushFront(phead, 2);
+//	//ListPushFront(phead, 3);
+//	//ListPushFront(phead, 4);
+//	ListPushBack(phead, 1);
+//	ListPushBack(phead, 2);
+//	ListPushBack(phead, 3);
+//	ListPushBack(phead, 4);
+//	ListPrintO(phead);
+//	//ListPrintR(phead);
+//	//ListPopBack(phead);
+//	//ListPrintO(phead);
+//	//ListPopBack(phead);
+//	//ListPrintO(phead);
+//	//ListPopBack(phead);
+//	//ListPrintO(phead);
+//	//ListPopBack(phead);
+//	//ListPrintO(phead);
+//	//ListPopBack(phead);
+//	//ListPrintO(phead);
+//
+//	ListPopFront(phead);
+//	ListPrintO(phead);
+//	ListPopFront(phead);
+//	ListPrintO(phead);
+//	ListPopFront(phead);
+//	ListPrintO(phead);
+//	ListPopFront(phead);
+//	ListPrintO(phead);
+//	ListPopFront(phead);
+//	ListPrintO(phead);
+//
+//	ListDestroy(&phead);
+//}
+//int main()
+//{
+//	//TestList1();
+//	TestList2();
+//	return 0;
+//}
+//#include "Stack.h"//Stack
+//void TestStack1()
+//{
+//	ST st;
+//	StackInit(&st);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 1);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 2);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 3);
+//	printf("%d\n", StackSize(&st));
+//	StackPush(&st, 4);
+//	while (!StackEmpty(&st))
+//	{
+//		printf("%d ", StackTop(&st));
+//		StackPop(&st);
+//	}
+//	printf("%d\n", StackSize(&st));
+//	StackDestroy(&st);
+//}
+//int main()
+//{
+//	TestStack1();
+//	return 0;
+//}
+//#include "Queue.h"//Queuee
+//void TestQueue1()
+//{
+//	Queue que;
+//	QueueInit(&que);
+//	printf("%d\n", QueueSize(&que));
+//	QueuePush(&que, 1);
+//	printf("%d\n", QueueSize(&que));
+//	QueuePush(&que, 2);
+//	printf("%d ", QueueFront(&que));
+//	QueuePop(&que);
+//	QueuePush(&que, 3);
+//	QueuePush(&que, 4);
+//	printf("%d\n", QueueSize(&que));
+//	while (!QueueEmpty(&que))
+//	{
+//		printf("%d ", QueueFront(&que));
+//		QueuePop(&que);
+//	}
+//	QueueDestroy(&que);
+//}
+//int main()
+//{
+//	TestQueue1();
+//	return 0;
+//}
+//long long quick_pow(long long a, long long b)//快速幂
+//{
+//	long long ans = 1;
+//	long long tmp = a;
+//	while (b) {
+//		if (b & 0x01) ans *= tmp;
+//		tmp *= tmp;
+//		b /= 2;
+//	}
+//	return ans;
+//}
+//long long quick_mul(long long a, long long b)//快速乘
+//{
+//	long long ans = 0;
+//	long long tmp = a;
+//	while (b) {
+//		if (b & 0x01) ans += tmp;
+//		tmp += tmp;
+//		b /= 2;
+//	}
+//	return ans;
+//}
+//int main()
+//{
+//	long long a, b;
+//	while (cin >> a >> b) {
+//		printf("%lld ^ %lld = %lld\n", a, b, quick_pow(a, b));
+//		printf("%lld * %lld = %lld\n", a, b, quick_mul(a, b));
+//	}
+//	return 0;
+//}
+//long long quick_pow(long long a, long long b) {
+//	long long ans = 1;
+//	long long tmp = a;
+//	while (b) {
+//		if (b & 0x01)   ans *= tmp;
+//		tmp *= tmp;
+//		b >>= 1;
+//	}
+//	return ans;
+//}
+//long long quick_mul(long long a, long long b) {
+//	long long ans = 0;
+//	long long tmp = a;
+//	while (b) {
+//		if (b & 0x01)   ans += tmp;
+//		tmp += tmp;
+//		b >>= 1;
+//	}
+//	return ans;
+//}
+//int main() {
+//	long long a, b;
+//	while (cin >> a >> b) {
+//		printf("%lld ^ %lld = %lld\n", a, b, quick_pow(a, b));
+//		printf("%lld * %lld = %lld\n", a, b, quick_mul(a, b));
+//	}
+//	return 0;
+//}
 #endif
-
-#define FLAG 1
-#if FLAG#if 1
-		printf("Good\n"); 打印
-#endif
+#include "common.h"
+int main()
+{
+	return 0;
 }
-void test17() {
-#if 1==2
-	printf("hehe\n");
-#elif 2==3
-	printf("haha\n");
-#else
-	printf("heihei\n");
-#endif
-}
-void test18() {
-#define TEST 0ok,照样打印test
-#ifdef TEST如果TEST定义了,下面代码参与编译
-	printf("test\n");
-#endif
-
-#define HEHE 1
-#ifndef HEHE如果HEHE没有定义,则下面代码参与编译
-	printf("hehe\n");
-#endif!HEHE
-}
-void test19() {
-#define TEST
-#define HEHE
-	如果TEST定义了, 1, 2参与编译
-#ifdef TEST1
-		printf("test1\n");
-	#endifTEST
-#if defined(TEST)2
-		printf("test2\n");
-	#endifTEST
-
-		如果HEHE不定义, 下面参与编译
-#ifndef HEHE3
-		printf("hehe1\n");
-#endif!HEHE
-#if !defined(HEHE)4
-	printf("hehe2\n");
-#endif!HEHE
-	1和2意思是一样的, 3和4意思是一样的, 1和3是相反的意思, 2和4是相反的意思
-}
-void test0() {
-柔性数组:flexible array是指C99中结构体最后一个元素允许是未知大小的数组, 这就叫柔性数组成员
-	typedef struct st_type {
-	int _i;
-	int _a[0]; 柔性数组成员, 大小是未知的
-} type_a;
- 有些编译器会报错无法编译可以改成:
-	 typedef struct st_type {
-		 int _i;
-		 int _a[]; 柔性数组成员, 大小是未知的
-	 } type_a;
- 柔性数组的特点:1.结构体中的柔性数组成员前面必须至少一个其他成员
-	 2.sizeof返回的这种结构体大小不包括柔性数组的内存
-	 3.包含柔性数组成员的结构体用malloc函数进行内存动态分配并且分配的内存应该大于结构体的大小, 以适应柔性数组的预期大小
-	 typedef struct st_type {
-	 int _i;
-	 int _a[0];
- } type_a;
-		 printf("%d\n", sizeof(type_a)); 4
-			 int i = 0;
-		 type_a* p = (type_a*)malloc(1 * sizeof(type_a) + 100 * sizeof(int));
-		 if (NULL == p) {
-			 perror("test0 p malloc");
-			 return;
-		 }
-		 p->_i = 100;
-		 for (i = 0; i < 100; i++) {
-			 p->_a[i] = i;
-		 }
-		 for (i = 0; i < 100; i++) {
-			 printf("%d ", p->_a[i]);
-		 }
-		 free(p); 一次性就释放完了空间
-			 p = NULL;
-		 上述柔性数组成员_a相当于获得了100个整形元素的连续空间
-			 柔性数组的优势 : 上述的type_a结构体也可以设计为:
-		 typedef struct st_type {
-			 int _i;
-			 int* p_a;
-		 } type_a;
-		 type_a* p = (type_a*)malloc(1 * sizeof(type_a));
-		 if (NULL == p) {
-			 perror("test0 p malloc");
-			 return;
-		 }
-		 p->_i = 100;
-		 p->p_a = (int*)malloc(p->_i * sizeof(int));
-		 if (NULL == p->p_a) {
-			 perror("test0 p->p_a malloc");
-			 free(p);
-			 p = NULL;
-			 return;
-		 }
-		 int i = 0;
-		 for (i = 0; i < 100; i++) {
-			 p->p_a[i] = i;
-		 }
-		 for (i = 0; i < 100; i++) {
-			 printf("%d ", p->p_a[i]);
-		 }
-		 free(p->p_a);
-		 p->p_a = NULL;
-		 free(p); 需要多次释放空间, 而且可能会因为释放顺序错误的原因导致程序崩溃
-			 p = NULL;
-		 上述柔性数组和非柔性数组可以完成相同的功能, 但是柔性数组有两个好处:第一个好处是方便内存释放:
-		 如果我们的代码是在一个给别人用的函数中, 你在里面做了二次内存分配, 并把整个结构体返回给用户, 用户调用free可以释放结构体, 但是用户并不知道这个结构体内的成员也需要free, 所以你不能指望用户来发现这个事, 所以如果我们把结构体的内存以及其成员要的内存一次性分配好了, 并返回给用户一个结构体, 用户做一次free就可以把所有的内存也给释放掉
-			 第二个好处是有利于访问速度 : 连续的内存有益于提高访问数组, 也有益于减少内存碎片(其实我个人感觉也没多高, 反正你跑不了要用做偏移量的加法来寻址)
-}
-void test1() {
-	柔性数组成员	C99标准引入的概念
-		struct S1 {
-		int _n;
-		int _a[0];
-	};
-	struct S2 {
-		int _n;
-		int _a[];
-	};
-
-	struct S {
-		int _n;
-		int _a[0];
-	};
-	struct S s = { 0 };
-	printf("%d\n", sizeof(s)); 4
-
-		struct S* ps = (struct S*)malloc(sizeof(struct S) + 10 * sizeof(int));
-	开辟的44个字节是连续的, ps指向这段空间的首地址
-		if (NULL == ps) {
-			perror("test1 ps malloc");
-			return;
-		}
-	ps->_n = 10;
-	int i = 0;
-	for (i = 0; i < 10; i++) {
-		ps->_a[i] = i;
-	}
-	for (i = 0; i < 10; i++) {
-		printf("%d ", ps->_a[i]);
-	}
-	printf("\n");
-	struct S* ptr = (struct S*)realloc(ps, sizeof(struct S) + 20 * sizeof(int));
-	if (NULL == ptr) {
-		perror("test1 ptr realloc");
-		free(ps);
-		ps = NULL;
-		return;
-	}
-	ps = ptr;
-	ps->_n = 20;
-	for (i = 10; i < 20; i++) {
-		ps->_a[i] = i;
-	}
-	for (i = 0; i < 20; i++) {
-		printf("%d ", ps->_a[i]);
-	}
-	printf("\n");
-	free(ps);
-	ps = NULL;
-
-	struct S {
-		int _n;
-		int* _a;
-	};
-	struct S* ps = (struct S*)malloc(1 * sizeof(struct S));
-	if (NULL == ps) {
-		perror("test1 ps malloc");
-		return;
-	}
-	ps->_n = 10;
-	ps->_a = (int*)malloc(10 * sizeof(int));
-	if (NULL == ps->_a) {
-		perror("test1 ps->_a malloc");
-		free(ps);
-		ps = NULL;
-		return;
-	}
-	int i = 0;
-	for (i = 0; i < 10; i++) {
-		ps->_a[i] = i;
-	}
-	for (i = 0; i < 10; i++) {
-		printf("%d ", ps->_a[i]);
-	}
-	printf("\n");
-	int* p = (int*)realloc(ps->_a, 20 * sizeof(int));
-	if (NULL == p) {
-		perror("test1 p realloc");
-		free(ps->_a);
-		ps->_a = NULL;
-		free(ps);
-		ps = NULL;
-		return;
-	}
-	ps->_a = p;
-	ps->_n = 20;
-	for (i = 10; i < 20; i++) {
-		ps->_a[i] = i;
-	}
-	for (i = 0; i < 20; i++) {
-		printf("%d ", ps->_a[i]);
-	}
-	printf("\n");
-	free(ps->_a);
-	ps->_a = NULL;
-	free(ps);
-	ps = NULL;
-}
-#endif
-*/
