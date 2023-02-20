@@ -11457,7 +11457,7 @@ int main()
 //	return 0;
 //}
 #endif
-//#include "common.h"//ds-code
+#include "common.h"//ds-code
 #if 0
 //void func1(int n)//O(n^n)
 //{
@@ -12059,8 +12059,45 @@ int main()
 //	return 0;
 //}
 #endif
-#include "common.h"
+//struct TreeNode
+//{
+//	int _val;
+//	TreeNode* _child[N];
+//};
+//struct TreeNode
+//{
+//	int _val;
+//	//TreeSeqList sq;//C
+//	vector<TreeNode*> _child;//CPP
+//};
+//树中兄弟都是指的亲兄弟
+//struct TreeNode//经典左孩子右兄弟表示
+//{
+//	int _val;
+//	TreeNode* _lef_child;
+//	TreeNode* _rig_broth;
+//};
+//森林是多棵不相交的树的集合,一般在并查集中使用
+//树不一定都是链式表示的,也可能是数组表示的(并查集),表示方法是存储父节点的相对下标
+//任何一棵树都可以看成是根和子树构成的,子树的定义结构形态和父树是相似的---->树是递归定义的
+#include "Heap.h"
+void Print(HPDataType* p, int n)
+{
+	assert(p);
+	for (int i = 0; i < n; i++)	cout << *p++ << ' ';	cout << endl;
+}
+void TestHeap()
+{
+	HPDataType a[] = { 27, 15, 19, 18, 28, 34, 65, 49, 25, 37 };
+	int n = (int)(sizeof(a) / sizeof(*a));
+	Heap hp;
+	Print(a, n);
+	HeapInit(&hp, a, n);
+	Print(hp._a, hp._size);
+	HeapDestroy(&hp);
+}
 int main()
 {
+	TestHeap();
 	return 0;
 }
