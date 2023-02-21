@@ -12058,7 +12058,6 @@ int main()
 //	}
 //	return 0;
 //}
-#endif
 //struct TreeNode
 //{
 //	int _val;
@@ -12080,24 +12079,86 @@ int main()
 //森林是多棵不相交的树的集合,一般在并查集中使用
 //树不一定都是链式表示的,也可能是数组表示的(并查集),表示方法是存储父节点的相对下标
 //任何一棵树都可以看成是根和子树构成的,子树的定义结构形态和父树是相似的---->树是递归定义的
-#include "Heap.h"
-void Print(HPDataType* p, int n)
-{
-	assert(p);
-	for (int i = 0; i < n; i++)	cout << *p++ << ' ';	cout << endl;
-}
-void TestHeap()
-{
-	HPDataType a[] = { 27, 15, 19, 18, 28, 34, 65, 49, 25, 37 };
-	int n = (int)(sizeof(a) / sizeof(*a));
-	Heap hp;
-	Print(a, n);
-	HeapInit(&hp, a, n);
-	Print(hp._a, hp._size);
-	HeapDestroy(&hp);
-}
-int main()
-{
-	TestHeap();
-	return 0;
-}
+//#include "Heap.h"//Heap
+//void Print(HPDataType* p, int n)
+//{
+//	assert(p);
+//	for (int i = 0; i < n; i++)	cout << *p++ << ' ';	cout << endl;
+//}
+//void TestHeap()
+//{
+//	HPDataType a[] = { 27, 15, 19, 18, 28, 34, 65, 49, 25, 37 };
+//	int n = (int)(sizeof(a) / sizeof(*a));
+//	Heap hp;
+//	Print(a, n);
+//	HeapInit(&hp, a, n);
+//	Print(hp._a, hp._size);
+//	HeapPush(&hp, 1);
+//	HeapPush(&hp, 2);
+//	HeapPush(&hp, 3);
+//	while (!HeapEmpty(&hp)) {
+//		cout << HeapTop(&hp) << endl;
+//		HeapPop(&hp);
+//	}
+//	HeapDestroy(&hp);
+//}
+//void Swap(HPDataType* p1, HPDataType* p2)
+//{
+//	assert(p1 && p2);
+//	HPDataType t = *p1;
+//	*p1 = *p2;
+//	*p2 = t;
+//}
+//void AdjustD(HPDataType* p, int n, int root)
+//{//向下调整算法时间复杂度O(logn)
+//	//建小堆排降序,建大堆排升序
+//	assert(p);
+//	int parent = root;
+//	int child = 2 * parent + 1;
+//	while (child < n)
+//	{
+//		if ((child + 1 < n) && (p[child + 1] < p[child]))
+//		{
+//			child++;
+//		}
+//		if (p[child] < p[parent])
+//		{
+//			Swap(p + child, p + parent);
+//			parent = child;
+//			child = 2 * parent + 1;
+//		}
+//		else
+//		{
+//			break;
+//		}
+//	}
+//}
+//void HeapSort(HPDataType* p, int n)
+//{
+//	assert(p);
+//	for (int i = ((n - 1) - 1) / 2; i >= 0; i--)//堆排序先建堆,建堆时间复杂度O(N)
+//	{
+//		AdjustD(p, n, i);
+//	}
+//	int end = n - 1;
+//	while (end > 0)//首尾交换时间复杂度O(n * logn)
+//	{
+//		Swap(p, p + end);
+//		AdjustD(p, end, 0);
+//		end--;
+//	}
+//	//堆排序时间复杂度O(n) + O(n * logn) = O(n*logn)
+//}
+//void TestHeapSort()
+//{
+//	HPDataType a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//	int n = (int)(sizeof(a) / sizeof(*a));
+//	HeapSort(a, n);
+//}
+//int main()
+//{
+//	TestHeap();
+//	//TestHeapSort();
+//	return 0;
+//}
+#endif

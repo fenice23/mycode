@@ -13,3 +13,4 @@ void HeapPush(Heap* php, HPDataType x);
 void HeapPop(Heap* php);
 HPDataType HeapTop(Heap* php);
 bool HeapEmpty(Heap* php);
+int HeapSize(Heap* php);

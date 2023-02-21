@@ -75,3 +75,65 @@ void HeapDestroy(Heap* php)
 	php->_a = nullptr;
 	php->_size = php->_capacity = 0;
 }
+static void AdjustUp(HPDataType* p, int n, int child)
+{
+	assert(p);
+	int parent = (child - 1) / 2;
+	while (child > 0)
+	{
+		if (p[parent] > p[child])
+		{
+			MySwap(p + parent, p + child);
+			child = parent;
+			parent = (child - 1) / 2;
+		}
+		else
+		{
+			break;
+		}
+	}
+}
+void HeapPush(Heap* php, HPDataType x)
+{
+	assert(php);
+	if (php->_capacity == php->_size)
+	{
+		php->_capacity *= 2;
+		HPDataType* pt = (HPDataType*)realloc(php->_a, php->_capacity * sizeof(HPDataType));
+		if (!pt)
+		{
+			perror("realloc fail");
+			free(php->_a);
+			php->_a = NULL;
+			php->_capacity = php->_size = 0;
+			exit(errno);
+		}
+		php->_a = pt;
+	}
+	php->_a[php->_size++] = x;
+	AdjustUp(php->_a, php->_size, php->_size - 1);
+}
+bool HeapEmpty(Heap* php)
+{
+	assert(php);
+	return php->_size == 0;
+}
+void HeapPop(Heap* php)
+{
+	assert(php);
+	assert(!HeapEmpty(php));
+	MySwap(php->_a, php->_a + php->_size - 1);
+	php->_size--;
+	AdjustDown(php->_a, php->_size, 0);
+}
+HPDataType HeapTop(Heap* php)
+{
+	assert(php);
+	assert(!HeapEmpty(php));
+	return php->_a[0];
+}
+int HeapSize(Heap* php)
+{
+	assert(php);
+	return php->_size;
+}
