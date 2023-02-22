@@ -12162,3 +12162,103 @@ int main()
 //	return 0;
 //}
 #endif
+typedef char BTDataType;
+typedef struct _BinaryTreeNode
+{
+	BTDataType _data;
+	struct _BinaryTreeNode* _left;
+	struct _BinaryTreeNode* _right;
+} BTNode;
+void PrevOrder(BTNode* root)
+{
+	if (!root)
+	{
+		printf("NULL ");
+		return;
+	}
+	printf("%c ", root->_data);
+	PrevOrder(root->_left);
+	PrevOrder(root->_right);
+}
+void InOrder(BTNode* root)
+{
+	if (!root)
+	{
+		printf("NULL ");
+		return;
+	}
+	InOrder(root->_left);
+	printf("%c ", root->_data);
+	InOrder(root->_right);
+}
+void PostOrder(BTNode* root)
+{
+	if (!root)
+	{
+		printf("NULL ");
+		return;
+	}
+	PostOrder(root->_left);
+	PostOrder(root->_right);
+	printf("%c ", root->_data);
+}
+int TreeSize(BTNode* root)
+{
+	if (!root)	return 0;
+	return 1 + TreeSize(root->_left) + TreeSize(root->_right);
+}
+int TreeLeafSize(BTNode* root)
+{
+	if (!root)	return 0;
+	if (!root->_left && !root->_right) return 1;
+	return TreeLeafSize(root->_left) + TreeLeafSize(root->_right);
+}
+BTNode* CreateBTNode(BTDataType x)
+{
+	BTNode* node = (BTNode*)malloc(1 * sizeof(BTNode));
+	if (!node)
+	{
+		perror("malloc fail");
+		//Ïú»Ù
+		exit(errno);
+	}
+	node->_data = x;
+	node->_left = NULL;
+	node->_right = NULL;
+}
+int TreeDepth(BTNode* root)
+{
+	if (!root)	return 0;
+	if (!root->_left && !root->_right)	return 1;
+	int l = 1 + TreeDepth(root->_left);
+	int r = 1 + TreeDepth(root->_right);
+	return l > r ? l : r;
+}
+void Test()
+{
+	BTNode* A = CreateBTNode('A');
+	BTNode* B = CreateBTNode('B');
+	BTNode* C = CreateBTNode('C');
+	BTNode* D = CreateBTNode('D');
+	BTNode* E = CreateBTNode('E');
+	BTNode* F = CreateBTNode('F');
+	A->_left = B;
+	A->_right = C;
+	B->_left = D;
+	B->_right = E;
+	E->_right = F;
+	PrevOrder(A);
+	printf("\n");
+	InOrder(A);
+	printf("\n");
+	PostOrder(A);
+	printf("\n");
+	cout << TreeSize(A) << endl;
+	cout << TreeLeafSize(A) << endl;
+	cout << TreeDepth(A) << endl;
+}
+int main()
+{
+	Test();
+	return 0;
+}
