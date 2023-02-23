@@ -12234,6 +12234,27 @@ int TreeDepth(BTNode* root)
 	int r = 1 + TreeDepth(root->_right);
 	return l > r ? l : r;
 }
+int TreeLevelKSize(BTNode* root, int k) {
+	if (!root)	return 0;
+	if (1 == k)	return 1;
+	return TreeLevelKSize(root->_left, k - 1) + TreeLevelKSize(root->_right, k - 1);
+}
+BTNode* TreeFind(BTNode* root, BTDataType k) {//采用前序遍历进行查找
+	if (!root)	return NULL;
+	if (root->_data == k)	return root;
+	BTNode* res1 = TreeFind(root->_left, k);
+	if (res1)	return res1;
+	BTNode* res2 = TreeFind(root->_right, k);
+	if (res2)	return res2;
+	return NULL;
+}
+void TreeDestroy(BTNode* root) {//采用后序遍历进行销毁
+	if (!root)	return;
+	TreeDestroy(root->_left);
+	TreeDestroy(root->_right);
+	free(root);
+	root = NULL;
+}
 void Test()
 {
 	BTNode* A = CreateBTNode('A');
@@ -12256,6 +12277,15 @@ void Test()
 	cout << TreeSize(A) << endl;
 	cout << TreeLeafSize(A) << endl;
 	cout << TreeDepth(A) << endl;
+	cout << TreeLevelKSize(A, 4) << endl;
+	cout << TreeFind(A, 'A')->_data << endl;
+	cout << TreeFind(A, 'B')->_data << endl;
+	cout << TreeFind(A, 'C')->_data << endl;
+	cout << TreeFind(A, 'D')->_data << endl;
+	cout << TreeFind(A, 'E')->_data << endl;
+	cout << TreeFind(A, 'F')->_data << endl;
+	cout << TreeFind(A, 'G') << endl;
+	TreeDestroy(A);
 }
 int main()
 {
