@@ -1,6 +1,7 @@
 #pragma once
 #include "common.h"
-typedef int QueueDataType;
+struct BTNode;
+typedef BTNode* QueueDataType;
 typedef struct _QueueNode
 {
 	QueueDataType _data;

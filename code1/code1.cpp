@@ -12161,134 +12161,206 @@ int main()
 //	//TestHeapSort();
 //	return 0;
 //}
+//#include "Queue.h"
+//typedef char BTDataType;
+//typedef struct BTNode
+//{
+//	BTDataType _data;
+//	struct BTNode* _left;
+//	struct BTNode* _right;
+//} BTNode;
+//void PrevOrder(BTNode* root)
+//{
+//	if (!root)
+//	{
+//		printf("NULL ");
+//		return;
+//	}
+//	printf("%c ", root->_data);
+//	PrevOrder(root->_left);
+//	PrevOrder(root->_right);
+//}
+//void InOrder(BTNode* root)
+//{
+//	if (!root)
+//	{
+//		printf("NULL ");
+//		return;
+//	}
+//	InOrder(root->_left);
+//	printf("%c ", root->_data);
+//	InOrder(root->_right);
+//}
+//void PostOrder(BTNode* root)
+//{
+//	if (!root)
+//	{
+//		printf("NULL ");
+//		return;
+//	}
+//	PostOrder(root->_left);
+//	PostOrder(root->_right);
+//	printf("%c ", root->_data);
+//}
+//void TreeLevelOrder(BTNode* root) {//层序遍历使用队列进行
+//	if (!root)	return;
+//	Queue q;
+//	QueueInit(&q);
+//	QueuePush(&q, root);
+//	while (!QueueEmpty(&q)) {
+//		QueueDataType front = QueueFront(&q);
+//		if (front->_left)
+//			QueuePush(&q, front->_left);
+//		if (front->_right)
+//			QueuePush(&q, front->_right);
+//		cout << front->_data << ' ';
+//		QueuePop(&q);
+//	}
+//	QueueDestroy(&q);
+//}
+//void TreeLevelOrder(BTNode* root) {//层序遍历使用队列进行
+//	if (!root)	return;				//NULL也进行入队处理打印
+//	Queue q;
+//	QueueInit(&q);
+//	QueuePush(&q, root);
+//	while (!QueueEmpty(&q)) {
+//		QueueDataType front = QueueFront(&q);
+//		if (front) {
+//			QueuePush(&q, front->_left);
+//			QueuePush(&q, front->_right);
+//			cout << front->_data << ' ';
+//		}
+//		else
+//		{
+//			cout << "NULL ";
+//		}
+//		QueuePop(&q);
+//	}
+//	QueueDestroy(&q);
+//}
+//int TreeSize(BTNode* root)
+//{
+//	if (!root)	return 0;
+//	return 1 + TreeSize(root->_left) + TreeSize(root->_right);
+//}
+//int TreeLeafSize(BTNode* root)
+//{
+//	if (!root)	return 0;
+//	if (!root->_left && !root->_right) return 1;
+//	return TreeLeafSize(root->_left) + TreeLeafSize(root->_right);
+//}
+//BTNode* CreateBTNode(BTDataType x)
+//{
+//	BTNode* node = (BTNode*)malloc(1 * sizeof(BTNode));
+//	if (!node)
+//	{
+//		perror("malloc fail");
+//		//销毁
+//		exit(errno);
+//	}
+//	node->_data = x;
+//	node->_left = NULL;
+//	node->_right = NULL;
+//}
+//int TreeDepth(BTNode* root)
+//{
+//	if (!root)	return 0;
+//	if (!root->_left && !root->_right)	return 1;
+//	int l = 1 + TreeDepth(root->_left);
+//	int r = 1 + TreeDepth(root->_right);
+//	return l > r ? l : r;
+//}
+//int TreeLevelKSize(BTNode* root, int k) {
+//	if (!root)	return 0;
+//	if (1 == k)	return 1;
+//	return TreeLevelKSize(root->_left, k - 1) + TreeLevelKSize(root->_right, k - 1);
+//}
+//BTNode* TreeFind(BTNode* root, BTDataType k) {//采用前序遍历进行查找
+//	if (!root)	return NULL;
+//	if (root->_data == k)	return root;
+//	BTNode* res1 = TreeFind(root->_left, k);
+//	if (res1)	return res1;
+//	BTNode* res2 = TreeFind(root->_right, k);
+//	if (res2)	return res2;
+//	return NULL;
+//}
+//void TreeDestroy(BTNode* root) {//采用后序遍历进行销毁
+//	if (!root)	return;
+//	TreeDestroy(root->_left);
+//	TreeDestroy(root->_right);
+//	free(root);
+//	root = NULL;
+//}
+//bool TreeComplete(BTNode* root) {//利用队列实现二叉树的层序遍历(bfs),然后判断null是否连续,若连续则是完全二叉树,否则不是完全二叉树
+//	if (!root)	return true;
+//	bool flag = false;
+//	Queue q;
+//	QueueInit(&q);
+//	QueuePush(&q, root);
+//	while (!QueueEmpty(&q)) {
+//		QueueDataType front = QueueFront(&q);
+//		if (front) {
+//			QueuePush(&q, front->_left);
+//			QueuePush(&q, front->_right);
+//			//cout << front->_data << ' ';
+//			if (flag) {
+//				QueueDestroy(&q);
+//				return false;
+//			}
+//		}
+//		else {
+//			//cout << "NULL ";
+//			flag = true;
+//		}
+//		QueuePop(&q);
+//	}
+//	QueueDestroy(&q);
+//	return true;
+//}
+//void Test()
+//{
+//	BTNode* A = CreateBTNode('A');
+//	BTNode* B = CreateBTNode('B');
+//	BTNode* C = CreateBTNode('C');
+//	BTNode* D = CreateBTNode('D');
+//	BTNode* E = CreateBTNode('E');
+//	BTNode* F = CreateBTNode('F');
+//	//A->_left = B;
+//	//A->_right = C;
+//	//B->_left = D;
+//	//B->_right = E;
+//	//E->_right = F;
+//	A->_left = B;
+//	A->_right = C;
+//	B->_left = D;
+//	B->_right = E;
+//	C->_left = F;
+//	PrevOrder(A);
+//	printf("\n");
+//	InOrder(A);
+//	printf("\n");
+//	PostOrder(A);
+//	printf("\n");
+//	cout << TreeSize(A) << endl;
+//	cout << TreeLeafSize(A) << endl;
+//	cout << TreeDepth(A) << endl;
+//	cout << TreeLevelKSize(A, 4) << endl;
+//	cout << TreeFind(A, 'A')->_data << endl;
+//	cout << TreeFind(A, 'B')->_data << endl;
+//	cout << TreeFind(A, 'C')->_data << endl;
+//	cout << TreeFind(A, 'D')->_data << endl;
+//	cout << TreeFind(A, 'E')->_data << endl;
+//	cout << TreeFind(A, 'F')->_data << endl;
+//	cout << TreeFind(A, 'G') << endl;
+//	TreeLevelOrder(A);
+//	cout << endl;
+//	if (TreeComplete(A))	cout << "Yes" << endl;
+//	else    cout << "No" << endl;
+//	TreeDestroy(A);
+//}
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
 #endif
-typedef char BTDataType;
-typedef struct _BinaryTreeNode
-{
-	BTDataType _data;
-	struct _BinaryTreeNode* _left;
-	struct _BinaryTreeNode* _right;
-} BTNode;
-void PrevOrder(BTNode* root)
-{
-	if (!root)
-	{
-		printf("NULL ");
-		return;
-	}
-	printf("%c ", root->_data);
-	PrevOrder(root->_left);
-	PrevOrder(root->_right);
-}
-void InOrder(BTNode* root)
-{
-	if (!root)
-	{
-		printf("NULL ");
-		return;
-	}
-	InOrder(root->_left);
-	printf("%c ", root->_data);
-	InOrder(root->_right);
-}
-void PostOrder(BTNode* root)
-{
-	if (!root)
-	{
-		printf("NULL ");
-		return;
-	}
-	PostOrder(root->_left);
-	PostOrder(root->_right);
-	printf("%c ", root->_data);
-}
-int TreeSize(BTNode* root)
-{
-	if (!root)	return 0;
-	return 1 + TreeSize(root->_left) + TreeSize(root->_right);
-}
-int TreeLeafSize(BTNode* root)
-{
-	if (!root)	return 0;
-	if (!root->_left && !root->_right) return 1;
-	return TreeLeafSize(root->_left) + TreeLeafSize(root->_right);
-}
-BTNode* CreateBTNode(BTDataType x)
-{
-	BTNode* node = (BTNode*)malloc(1 * sizeof(BTNode));
-	if (!node)
-	{
-		perror("malloc fail");
-		//销毁
-		exit(errno);
-	}
-	node->_data = x;
-	node->_left = NULL;
-	node->_right = NULL;
-}
-int TreeDepth(BTNode* root)
-{
-	if (!root)	return 0;
-	if (!root->_left && !root->_right)	return 1;
-	int l = 1 + TreeDepth(root->_left);
-	int r = 1 + TreeDepth(root->_right);
-	return l > r ? l : r;
-}
-int TreeLevelKSize(BTNode* root, int k) {
-	if (!root)	return 0;
-	if (1 == k)	return 1;
-	return TreeLevelKSize(root->_left, k - 1) + TreeLevelKSize(root->_right, k - 1);
-}
-BTNode* TreeFind(BTNode* root, BTDataType k) {//采用前序遍历进行查找
-	if (!root)	return NULL;
-	if (root->_data == k)	return root;
-	BTNode* res1 = TreeFind(root->_left, k);
-	if (res1)	return res1;
-	BTNode* res2 = TreeFind(root->_right, k);
-	if (res2)	return res2;
-	return NULL;
-}
-void TreeDestroy(BTNode* root) {//采用后序遍历进行销毁
-	if (!root)	return;
-	TreeDestroy(root->_left);
-	TreeDestroy(root->_right);
-	free(root);
-	root = NULL;
-}
-void Test()
-{
-	BTNode* A = CreateBTNode('A');
-	BTNode* B = CreateBTNode('B');
-	BTNode* C = CreateBTNode('C');
-	BTNode* D = CreateBTNode('D');
-	BTNode* E = CreateBTNode('E');
-	BTNode* F = CreateBTNode('F');
-	A->_left = B;
-	A->_right = C;
-	B->_left = D;
-	B->_right = E;
-	E->_right = F;
-	PrevOrder(A);
-	printf("\n");
-	InOrder(A);
-	printf("\n");
-	PostOrder(A);
-	printf("\n");
-	cout << TreeSize(A) << endl;
-	cout << TreeLeafSize(A) << endl;
-	cout << TreeDepth(A) << endl;
-	cout << TreeLevelKSize(A, 4) << endl;
-	cout << TreeFind(A, 'A')->_data << endl;
-	cout << TreeFind(A, 'B')->_data << endl;
-	cout << TreeFind(A, 'C')->_data << endl;
-	cout << TreeFind(A, 'D')->_data << endl;
-	cout << TreeFind(A, 'E')->_data << endl;
-	cout << TreeFind(A, 'F')->_data << endl;
-	cout << TreeFind(A, 'G') << endl;
-	TreeDestroy(A);
-}
-int main()
-{
-	Test();
-	return 0;
-}
