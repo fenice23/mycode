@@ -12364,3 +12364,93 @@ int main()
 //	return 0;
 //}
 #endif
+#include "Sort.h"
+void Print(int* pa, int n) {
+	assert(pa);
+	for (int i = 0; i < n; i++)	cout << *pa++ << ' ';
+	cout << endl;
+}
+void TestSort() {
+	int arr[] = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+	//int arr[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+	//int arr[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+	//int arr[] = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	//int arr[] = { 10, 91, 18, 27, 63, 54, 46, 73, 12, 21 };
+	int n = (int)(sizeof(arr) / sizeof(*arr));
+	Print(arr, n);
+	//InsertSort(arr, n);
+	//ShellSort(arr, n);
+	//HeapSort(arr, n);
+	//SelectSort(arr, n);
+	//BubbleSort(arr, n);
+	//QuickSort(arr, 0, n - 1);
+	QuickSortNonR(arr, 0, n - 1);
+	Print(arr, n);
+}
+void TestOP() {
+	srand((size_t)time(NULL));
+	const int N = 10000;
+	int* a1 = (int*)malloc(N * sizeof(int));
+	int* a2 = (int*)malloc(N * sizeof(int));
+	int* a3 = (int*)malloc(N * sizeof(int));
+	int* a4 = (int*)malloc(N * sizeof(int));
+	int* a5 = (int*)malloc(N * sizeof(int));
+	int* a6 = (int*)malloc(N * sizeof(int));
+	int* a7 = (int*)malloc(N * sizeof(int));
+	assert(a1 && a2 && a3 && a4 && a5 && a6 && a7);
+	for (int i = 0; i < N; i++) {
+		a1[i] = rand();
+		a2[i] = a1[i];
+		a3[i] = a2[i];
+		a4[i] = a3[i];
+		a5[i] = a4[i];
+		a6[i] = a5[i];
+		a7[i] = a6[i];
+	}
+	int begin1 = clock();
+	InsertSort(a1, N);
+	int end1 = clock();
+	cout << "InsertSort: " << end1 - begin1 << endl;
+
+	int begin2 = clock();
+	ShellSort(a2, N);
+	int end2 = clock();
+	cout << "ShellSort :  " << end2 - begin2 << endl;
+
+	int begin3 = clock();
+	HeapSort(a3, N);
+	int end3 = clock();
+	cout << "HeapSort  : " << end3 - begin3 << endl;
+
+	int begin4 = clock();
+	SelectSort(a4, N);
+	int end4 = clock();
+	cout << "SelectSort: " << end4 - begin4 << endl;
+
+	int begin5 = clock();
+	BubbleSort(a5, N);
+	int end5 = clock();
+	cout << "BubbleSort: " << end5 - begin5 << endl;
+
+	int begin6 = clock();
+	BubbleSort(a6, N);
+	int end6 = clock();
+	cout << "QuickSort: " << end6 - begin6 << endl;
+
+	int begin7 = clock();
+	BubbleSort(a7, N);
+	int end7 = clock();
+	cout << "MergeSort: " << end7 - begin7 << endl;
+	free(a1);
+	free(a2);
+	free(a3);
+	free(a4);
+	free(a5);
+	free(a6);
+	free(a7);
+}
+int main() {
+	TestSort();
+	//TestOP();
+	return 0;
+}
