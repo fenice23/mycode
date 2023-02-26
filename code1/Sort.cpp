@@ -16,7 +16,7 @@ void InsertSort(int* pa, int n) {//直接插入排序,属于插入排序的一种 稳定
 		int end = i;
 		int tmp = pa[end + 1];
 		while (end >= 0) {
-			if (tmp < pa[end]) {
+			if (tmp > pa[end]) {
 				pa[end + 1] = pa[end];
 				end--;
 			}
@@ -44,7 +44,7 @@ void ShellSort(int* pa, int n) {//希尔排序属于插入排序的一种	,是对直接插入排序的
 			int end = i;
 			int tmp = pa[end + gap];
 			while (end >= 0) {
-				if (tmp < pa[end]) {
+				if (tmp > pa[end]) {
 					pa[end + gap] = pa[end];
 					end -= gap;
 				}
@@ -215,6 +215,8 @@ int PartSort3(int* pa, int l, int r) {//降序
 void QuickSort(int* pa, int l, int r) {//两侧都是闭区间
 	//递归法:容易栈溢出,写起来简单	注意用三数取中法优化已经有序或者接近有序的情况
 	//可以使用直接插入排序代替最后几层快排递归以优化代码
+	//综上所述:快排每趟时间复杂度0(N),总时间复杂度O(NlogN)~O(N^2),空间复杂度O(logN)~O(N),不稳定,有序或者接近有序时的最坏情况通过三数取中避免掉反而优化为最好情况,所以一般认为快速排序时间复杂度O(NlogN),空间复杂度O(logN)
+
 	assert(pa);
 	if (l >= r)	return;
 	if (r - l + 1 <= 10) {
@@ -226,46 +228,228 @@ void QuickSort(int* pa, int l, int r) {//两侧都是闭区间
 		QuickSort(pa, div + 1, r);
 	}
 }
-void QuickSortNonR(int* a, int l, int r) {
-	//递归改非递归---1.改循环(斐波那契数列求解)简单的才能改循环	2.站模拟存储数据非递归
+//void QuickSortNonR(int* a, int l, int r) {//快排可以用栈模拟非递归也可以用队列模拟非递归
+//	//递归改非递归---1.改循环(斐波那契数列求解)简单的才能改循环	2.栈/队列模拟存储数据非递归
+//	//非递归:1.提高效率(递归建立栈帧还是有消耗的,但是对于现代计算机而言这个优化微乎其微)
+//	//		2.递归最大缺陷是:如果栈帧的深度太深,可能会导致栈溢出,因为系统栈空间一般不大在M级别
+//	//		数据结构栈/队列模拟非递归数据存储在堆上,堆空间是G级别的空间
+//	//而非递归版本的快速排序时间复杂度还是O(n*logn)级别的	空间复杂度比O(logn)大,因为用了stack/queue数据结构带来了空间消耗
+//	assert(a);
+//	stack<int> st;
+//	st.push(r);
+//	st.push(l);
+//	while (!st.empty()) {
+//		int start = st.top();
+//		st.pop();
+//		int end = st.top();
+//		st.pop();
+//		int div = PartSort3(a, start, end);
+//		if (div + 1 < end) {
+//			st.push(end);
+//			st.push(div + 1);
+//		}
+//		if (start < div - 1) {
+//			st.push(div - 1);
+//			st.push(start);
+//		}
+//	}
+//}
+void QuickSortNonR(int* a, int l, int r) {//快排可以用栈模拟非递归也可以用队列模拟非递归
+	//递归改非递归---1.改循环(斐波那契数列求解)简单的才能改循环	2.栈/队列模拟存储数据非递归
 	//非递归:1.提高效率(递归建立栈帧还是有消耗的,但是对于现代计算机而言这个优化微乎其微)
 	//		2.递归最大缺陷是:如果栈帧的深度太深,可能会导致栈溢出,因为系统栈空间一般不大在M级别
-	//		数据结构栈模拟非递归数据存储在堆上,堆空间是G级别的空间
-	assert(a);
-	stack<int> st;
-	st.push(r);
-	st.push(l);
-	while (!st.empty()) {
-		int start = st.top();
-		st.pop();
-		int end = st.top();
-		st.pop();
-		int div = PartSort3(a, start, end);
-		if (div + 1 < end) {
-			st.push(end);
-			st.push(div + 1);
-		}
-		if (start < div - 1) {
-			st.push(div - 1);
-			st.push(start);
-		}
-	}
-}
-void MergeSort(int* pa, int n) {
-	assert(pa);
-}
-void CountSort(int* pa, int n) {
-	assert(pa);
-}
-//yxc快速排序算法模板
-void quick_sort(int* a, int l, int r) {
+	//		数据结构栈/队列模拟非递归数据存储在堆上,堆空间是G级别的空间
+	//而非递归版本的快速排序时间复杂度还是O(n*logn)级别的	空间复杂度比O(logn)大,因为用了stack/queue数据结构带来了空间消耗
 	assert(a);
 	if (l >= r)	return;
-	int i = l - 1, j = r + 1, x = a[l + r >> 1];
-	while (i < j) {
-		do i++;while (a[i] < x);
-		do j--;while (a[j] > x);
-		if (i < j)	swap(a[i], a[j]);
+	queue<int>	q;
+	q.push(l);
+	q.push(r);
+	while (!q.empty()) {
+		int start = q.front();
+		q.pop();
+		int end = q.front();
+		q.pop();
+		int div = PartSort3(a, start, end);
+		if (start < div - 1) {
+			q.push(start);
+			q.push(div - 1);
+		}
+		if (div + 1 < end) {
+			q.push(div + 1);
+			q.push(end);
+		}
 	}
-	quick_sort(a, l, j), quick_sort(a, j + 1, r);
+}
+void _MergeSort(int* a, int l, int r, int* tmp) {
+	assert(a && tmp);
+	if (l >= r)	return;
+	int mid = (l & r) + ((l ^ r) >> 1);
+	_MergeSort(a, l, mid, tmp);
+	_MergeSort(a, mid + 1, r, tmp);
+	int start = l;
+	int end = r;
+	int start1 = l, end1 = mid;
+	int start2 = mid + 1, end2 = r;
+	int k = l;
+	while (start1 <= end1 && start2 <= end2) {
+		if (a[start1] < a[start2])	tmp[k++] = a[start1++];
+		else tmp[k++] = a[start2++];
+	}
+	while (start1 <= end1) tmp[k++] = a[start1++];
+	while (start2 <= end2) tmp[k++] = a[start2++];
+	while (start <= end) {//归并好的数据拷贝回来
+		a[start] = tmp[start];
+		start++;
+	}
+}
+void MergeSort(int* a, int n) {//归并排序稳定	时间复杂度O(NlogN)	空间复杂度O(N)	适用于外部排序(可以排外存硬盘上文件中的数据)和内部排序
+	assert(a);
+	int* tmp = (int*)malloc(n * sizeof(int));
+	if (!tmp) {
+		perror("malloc fail");
+		exit(errno);
+	}
+	_MergeSort(a, 0, n - 1, tmp);
+	free(tmp);
+	tmp = 0;
+}
+void MergeSortNonR(int* a, int n) {//归并排序非递归也可以用栈模拟队列模拟还可以直接改循环
+	//归并排序非递归稳定	时间复杂度O(NlogN)	空间复杂度O(N)	适用于外部排序(可以排外存硬盘上文件中的数据)和内部排序
+	assert(a);
+	if (!n)	return;
+	int* tmp = (int*)malloc(n * sizeof(int));
+	if (!tmp) {
+		perror("malloc fail");
+		exit(errno);
+	}
+	//以下全是闭区间
+	int gap = 1;
+	while (gap < n) {//外层循环O(logN)
+		for (int i = 0; i < n; i += 2 * gap) {//内层循环每次只是遍历一遍数组然后操作是O(N)
+			int start1 = i, end1 = start1 + gap - 1;
+			int start2 = end1 + 1, end2 = start2 + gap - 1;
+			if (start2 >= n) break;//只有第一组时,第二组不存在不需要合并
+			if (end2 >= n)	end2 = n - 1;//第二组只有部分数据,修正第二组的右边界
+			int start = start1, end = end2;
+			int k = i;
+			while (start1 <= end1 && start2 <= end2) {
+				if (a[start1] < a[start2]) tmp[k++] = a[start1++];
+				else tmp[k++] = a[start2++];
+			}
+			while (start1 <= end1) tmp[k++] = a[start1++];
+			while (start2 <= end2) tmp[k++] = a[start2++];
+			while (start <= end)	{
+				a[start] = tmp[start];
+				start++;
+			}
+		}
+		gap *= 2;
+	}
+	free(tmp);
+	tmp = NULL;
+}
+const char* MergeSortFileStart(const char* file_name) {
+	assert(file_name);
+	FILE* fpread = fopen(file_name, "r+");
+	if (!fpread) {
+		perror("fopen fail");
+		exit(errno);
+	}
+	//文件中设置10000个数字,每个数字顶格占一行,分成100个小文件进行文件内部内排序(快排),文件和文件进行归并
+	int tmp[100] = { 0 };
+	int num = 0;
+	int i = 0;
+	char res_name[1024] = "";
+	int fileIdx = 0;
+	while (~fscanf(fpread, "%d\n", &num)) {
+		tmp[i++] = num;
+		if (i == 100) {
+			QuickSort(tmp, 0, i - 1);
+			sprintf(res_name, "subStart/obj_%d.txt", fileIdx++);
+			FILE* fpwrite = fopen(res_name, "w+");
+			if (!fpwrite) {
+				perror("fopen fail");
+				fclose(fpread);
+				fpread = NULL;
+				exit(errno);
+			}
+			i = 0;
+			int t = 100;
+			while (t--) {
+				fprintf(fpwrite, "%d\n", tmp[100 - t - 1]);
+			}
+			fclose(fpwrite);
+			fpwrite = NULL;
+		}
+	}
+	if (i) {
+		QuickSort(tmp, 0, i - 1);
+		sprintf(res_name, "subStart/obj_%d.txt", fileIdx++);
+		FILE* fpwrite = fopen(res_name, "w+");
+		if (!fpwrite) {
+			perror("fopen fail");
+			fclose(fpread);
+			fpread = NULL;
+			exit(errno);
+		}
+		for (int k = 0; k < i; k++) {
+			fprintf(fpwrite, "%d\n", tmp[k]);
+		}
+		fclose(fpwrite);
+		fpwrite = NULL;
+	}
+	fclose(fpread);
+	fpread = NULL;
+	char file1[1024] = "";
+	char file2[200] = "";
+	char tmp_name[1024] = "";
+	strcpy(tmp_name, "/obj_0");
+	for (int i = 0; i < fileIdx - 1; i++) {//先把文件名拼接出来,然后进行文件间的归并排序
+		sprintf(file1, "subStart%s.txt", tmp_name);
+		sprintf(tmp_name, "%s%d", tmp_name, i + 1);
+		sprintf(file2, "subStart/obj_%d.txt", i + 1);
+		sprintf(res_name, "subStart%s.txt", tmp_name);
+		FILE* pfread1 = fopen(file1, "r+");
+		FILE* pfread2 = fopen(file2, "r+");
+		FILE* pfwrite = fopen(res_name, "w+");
+		if (!pfread1) {
+			perror("fopen fail");
+			exit(errno);
+		}
+		if (!pfread2) {
+			perror("fopen fail");
+			fclose(pfread1);
+			pfread1 = NULL;
+			exit(errno);
+		}
+		if (!pfwrite) {
+			perror("fopen fail");
+			fclose(pfread1);
+			fclose(pfread2);
+			pfread1 = pfread2 = NULL;
+			exit(errno);
+		}
+		int n1 = 0;
+		int n2 = 0;
+		int r1 = fscanf(pfread1, "%d\n", &n1);
+		int r2 = fscanf(pfread2, "%d\n", &n2);
+		while (r1 != EOF && r2 != EOF) {
+			if (n1 > n2)	fprintf(pfwrite, "%d\n", n1), r1 = fscanf(pfread1, "%d\n", &n1);
+			else fprintf(pfwrite, "%d\n", n2), r2 = fscanf(pfread2, "%d\n", &n2);
+		}
+		while (EOF != r1) {
+			fprintf(pfwrite, "%d\n", n1);
+			r1 = fscanf(pfread1, "%d\n", &n1);
+		}
+		while (EOF != r2) {
+			fprintf(pfwrite, "%d\n", n2);
+			r2 = fscanf(pfread2, "%d\n", &n2);
+		}
+		fclose(pfread1);
+		fclose(pfread2);
+		fclose(pfwrite);
+		pfread1 = pfread2 = pfwrite = NULL;
+	}
+	return res_name;
 }
