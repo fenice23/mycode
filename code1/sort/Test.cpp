@@ -383,7 +383,7 @@ int PartSort2(int* a, int l, int r) {
 int PartSort3(int* a, int l, int r) {
 	assert(a);
 	int midIdx = GetMidIdx(a, l, r);
-	Swap(a[midIdx], a[r]);
+	Swap(a[midIdx], a[l]);
 	int keyIdx = l;
 	int prev = r + 1;
 	int cur = r;
