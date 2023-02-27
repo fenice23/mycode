@@ -312,7 +312,7 @@ void MergeSort(int* a, int n) {//归并排序稳定	时间复杂度O(NlogN)	空间复杂度O(N)	
 	}
 	_MergeSort(a, 0, n - 1, tmp);
 	free(tmp);
-	tmp = 0;
+	tmp = NULL;
 }
 void MergeSortNonR(int* a, int n) {//归并排序非递归也可以用栈模拟队列模拟还可以直接改循环
 	//归并排序非递归稳定	时间复杂度O(NlogN)	空间复杂度O(N)	适用于外部排序(可以排外存硬盘上文件中的数据)和内部排序
@@ -452,4 +452,30 @@ const char* MergeSortFileStart(const char* file_name) {
 		pfread1 = pfread2 = pfwrite = NULL;
 	}
 	return res_name;
+}
+void CountSort(int* a, int n) {//时间复杂度O(MAX(N,tmpSize))
+	assert(a);				   //空间复杂度O(tmpSize)	稳定
+	if (n <= 1)	return;//计数排序比较小众,而且只能排整型/字符型,遇到字符串,浮点数据还需要使用其他比较排序来排,但是它的优点是当N远大于tmpSize或者N与tmpSize相差无几的时候(即待排数据比较集中时)时间复杂度可以视为O(N)(非常快的速度,比快速排序还要快)--->对应的消耗空间还凑合(从某种程度上讲是牺牲空间换取时间),但是如果待排数据不集中,很分散的话,即N远小于tmpSize时时间效率一般般,空间消耗很大得不偿失了,应该使用其它比较排序进行排序
+	int min = a[0], max = a[0];
+	for (int i = 1; i < n; i++) {
+		if (min > a[i])	min = a[i];
+		if (max < a[i]) max = a[i];
+	}
+	int tmpSize = max - min + 1;
+	int* tmpArr = (int*)malloc(tmpSize * sizeof(int));
+	if (!tmpArr) {
+		perror("malloc fail");
+		exit(errno);
+	}
+	//for (int i = 0; i < tmpSize; i++)	tmpArr[i] = 0;
+	memset(tmpArr, 0, tmpSize * sizeof(int));
+	for (int i = 0; i < n; i++)	tmpArr[a[i] - min]++;
+	int idx = 0;
+	for (int i = 0; i < tmpSize; i++) {
+		while (tmpArr[i]--) {
+			a[idx++] = i + min;
+		}
+	}
+	free(tmpArr);
+	tmpArr = NULL;
 }

@@ -12363,101 +12363,103 @@ int main()
 //	Test();
 //	return 0;
 //}
+//#include "Sort.h"//Sort
+//void Print(int* pa, int n) {
+//	assert(pa);
+//	for (int i = 0; i < n; i++)	cout << *pa++ << ' ';
+//	cout << endl;
+//}
+//void TestSort() {
+//	//int arr[] = { 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+//	//int arr[] = { 111, 12, 131, 141, 115, 16, 117, 182, 119, 220 };
+//	//int arr[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+//	//int arr[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+//	int arr[] = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+//	//int arr[] = { 10, 91, 18, 27, 63, 54, 46, 73, 12, 21 };
+//	//int arr[] = { 1, 3, 5, 3, 6, 3, 9 };
+//	int n = (int)(sizeof(arr) / sizeof(*arr));
+//	Print(arr, n);
+//	//InsertSort(arr, n);
+//	//ShellSort(arr, n);
+//	//HeapSort(arr, n);
+//	//SelectSort(arr, n);
+//	//BubbleSort(arr, n);
+//	//QuickSort(arr, 0, n - 1);
+//	//QuickSortNonR(arr, 0, n - 1);
+//	//MergeSort(arr, n);
+//	//MergeSortNonR(arr, n);
+//	CountSort(arr, n);
+//	Print(arr, n);
+//}
+//void TestOP() {
+//	srand((size_t)time(NULL));
+//	const int N = 100000;
+//	int* a1 = (int*)malloc(N * sizeof(int));
+//	int* a2 = (int*)malloc(N * sizeof(int));
+//	int* a3 = (int*)malloc(N * sizeof(int));
+//	int* a4 = (int*)malloc(N * sizeof(int));
+//	int* a5 = (int*)malloc(N * sizeof(int));
+//	int* a6 = (int*)malloc(N * sizeof(int));
+//	int* a7 = (int*)malloc(N * sizeof(int));
+//	assert(a1 && a2 && a3 && a4 && a5 && a6 && a7);
+//	for (int i = 0; i < N; i++) {
+//		a1[i] = rand();
+//		a2[i] = a1[i];
+//		a3[i] = a2[i];
+//		a4[i] = a3[i];
+//		a5[i] = a4[i];
+//		a6[i] = a5[i];
+//		a7[i] = a6[i];
+//	}
+//	int begin1 = clock();
+//	InsertSort(a1, N);
+//	int end1 = clock();
+//	cout << "InsertSort: " << end1 - begin1 << endl;
+//	int begin2 = clock();
+//	ShellSort(a2, N);
+//	int end2 = clock();
+//	cout << "ShellSort :  " << end2 - begin2 << endl;
+//	int begin3 = clock();
+//	HeapSort(a3, N);
+//	int end3 = clock();
+//	cout << "HeapSort  : " << end3 - begin3 << endl;
+//	int begin4 = clock();
+//	SelectSort(a4, N);
+//	int end4 = clock();
+//	cout << "SelectSort: " << end4 - begin4 << endl;
+//	int begin5 = clock();
+//	BubbleSort(a5, N);
+//	int end5 = clock();
+//	cout << "BubbleSort: " << end5 - begin5 << endl;
+//	int begin6 = clock();
+//	QuickSort(a6, 0, N - 1);
+//	int end6 = clock();
+//	cout << "QuickSort: " << end6 - begin6 << endl;
+//	int begin7 = clock();
+//	MergeSort(a7, N);
+//	int end7 = clock();
+//	cout << "MergeSort: " << end7 - begin7 << endl;
+//	free(a1);
+//	free(a2);
+//	free(a3);
+//	free(a4);
+//	free(a5);
+//	free(a6);
+//	free(a7);
+//}
+////硬盘中文件有10亿个整数,将它们排好序到一个文件中
+////内排序做不到,因为内存中不能放下10亿整数,可以使用外排序---归并排序
+////大致思路:1.读文件将文件中10亿个整数分批次读取一次读取1000w个整数,读取100次,
+////2.将每次读取的数据用优化过的QuickSort进行内排序,然后写入到一个序号为obj_*次的新文件中,如此进行100次
+////3.将生成的编号为0~99的文件进行归并,0号和一号归并为01号,01号和2号归并为012,如此012345678..98和99号归并为目标文件,令目标文件文件名为obj.txt 如此便排好序了10亿个整数	   完成任务
+//void TestMergeSortFileStart() {
+//	const char* filename = MergeSortFileStart("start.txt");
+//	printf("%s\n", filename);
+//}
+//int main() {//排序的稳定性:数组中相同值排完序相对顺序可以做到保持不变就是稳定的,否则就不稳定,稳定的排序可以保证排序结果的公平性
+//	TestSort();
+//	//TestOP();
+//	//TestMergeSortFileStart();
+//	return 0;
+//}
 #endif
-#include "Sort.h"
-void Print(int* pa, int n) {
-	assert(pa);
-	for (int i = 0; i < n; i++)	cout << *pa++ << ' ';
-	cout << endl;
-}
-void TestSort() {
-	//int arr[] = { 8, 7, 6, 5, 4, 3, 2, 1, 0 };
-	//int arr[] = { 111, 12, 131, 141, 115, 16, 117, 182, 119, 220 };
-	//int arr[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-	//int arr[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-	int arr[] = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-	//int arr[] = { 10, 91, 18, 27, 63, 54, 46, 73, 12, 21 };
-	int n = (int)(sizeof(arr) / sizeof(*arr));
-	Print(arr, n);
-	//InsertSort(arr, n);
-	//ShellSort(arr, n);
-	//HeapSort(arr, n);
-	//SelectSort(arr, n);
-	//BubbleSort(arr, n);
-	//QuickSort(arr, 0, n - 1);
-	//QuickSortNonR(arr, 0, n - 1);
-	//MergeSort(arr, n);
-	//MergeSortNonR(arr, n);
-	Print(arr, n);
-}
-void TestOP() {
-	srand((size_t)time(NULL));
-	const int N = 100000;
-	int* a1 = (int*)malloc(N * sizeof(int));
-	int* a2 = (int*)malloc(N * sizeof(int));
-	int* a3 = (int*)malloc(N * sizeof(int));
-	int* a4 = (int*)malloc(N * sizeof(int));
-	int* a5 = (int*)malloc(N * sizeof(int));
-	int* a6 = (int*)malloc(N * sizeof(int));
-	int* a7 = (int*)malloc(N * sizeof(int));
-	assert(a1 && a2 && a3 && a4 && a5 && a6 && a7);
-	for (int i = 0; i < N; i++) {
-		a1[i] = rand();
-		a2[i] = a1[i];
-		a3[i] = a2[i];
-		a4[i] = a3[i];
-		a5[i] = a4[i];
-		a6[i] = a5[i];
-		a7[i] = a6[i];
-	}
-	int begin1 = clock();
-	InsertSort(a1, N);
-	int end1 = clock();
-	cout << "InsertSort: " << end1 - begin1 << endl;
-	int begin2 = clock();
-	ShellSort(a2, N);
-	int end2 = clock();
-	cout << "ShellSort :  " << end2 - begin2 << endl;
-	int begin3 = clock();
-	HeapSort(a3, N);
-	int end3 = clock();
-	cout << "HeapSort  : " << end3 - begin3 << endl;
-	int begin4 = clock();
-	SelectSort(a4, N);
-	int end4 = clock();
-	cout << "SelectSort: " << end4 - begin4 << endl;
-	int begin5 = clock();
-	BubbleSort(a5, N);
-	int end5 = clock();
-	cout << "BubbleSort: " << end5 - begin5 << endl;
-	int begin6 = clock();
-	QuickSort(a6, 0, N - 1);
-	int end6 = clock();
-	cout << "QuickSort: " << end6 - begin6 << endl;
-	int begin7 = clock();
-	MergeSort(a7, N);
-	int end7 = clock();
-	cout << "MergeSort: " << end7 - begin7 << endl;
-	free(a1);
-	free(a2);
-	free(a3);
-	free(a4);
-	free(a5);
-	free(a6);
-	free(a7);
-}
-//硬盘中文件有10亿个整数,将它们排好序到一个文件中
-//内排序做不到,因为内存中不能放下10亿整数,可以使用外排序---归并排序
-//大致思路:1.读文件将文件中10亿个整数分批次读取一次读取1000w个整数,读取100次,
-//2.将每次读取的数据用优化过的QuickSort进行内排序,然后写入到一个序号为obj_*次的新文件中,如此进行100次
-//3.将生成的编号为0~99的文件进行归并,0号和一号归并为01号,01号和2号归并为012,如此012345678..98和99号归并为目标文件,令目标文件文件名为obj.txt 如此便排好序了10亿个整数	   完成任务
-void TestMergeSortFileStart() {
-	const char* filename = MergeSortFileStart("start.txt");
-	printf("%s\n", filename);
-}
-int main() {
-	//TestSort();
-	//TestOP();
-	TestMergeSortFileStart();
-	return 0;
-}
