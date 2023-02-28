@@ -12772,36 +12772,47 @@ int Sub(int x, int y)
 //		*p = *p & (~(1 << (pos - 1)));
 //	}
 //}
+//typedef unsigned short us;
+//void r(char* l, char* r) {
+//	assert(l && r);
+//	while (l < r) {
+//		char t = *l;
+//		*l = *r;
+//		*r = t;
+//		l++, r--;
+//	}
+//}
+//void RightLoopMove(char* p, us steps) {
+//	assert(p);
+//	int l = (int)strlen(p);
+//	steps %= l;
+//	if (!steps) return;
+//	r(p, p + l - 1);
+//	r(p, p + steps - 1);
+//	r(p + steps, p + l - 1);
+//}
 #endif
-typedef unsigned short us;
-void r(char* l, char* r) {
-	assert(l && r);
-	while (l < r) {
-		char t = *l;
-		*l = *r;
-		*r = t;
-		l++, r--;
-	}
-}
-void RightLoopMove(char* p, us steps) {
-	assert(p);
-	int l = (int)strlen(p);
-	steps %= l;
-	if (!steps) return;
-	r(p, p + l - 1);
-	r(p, p + steps - 1);
-	r(p + steps, p + l - 1);
-}
 void Test7() {
 	//uc data = 10;
 	//uc pos = 1;
 	//bit_set(&data, pos, true);
 	//bit_set(&data, 3, true);
 	//bit_set(&data, 4, false);
-	char arr[] = "abcdefghi";
-	us steps = 9;
-	RightLoopMove(arr, steps);
-	cout << arr << endl;
+	//char arr[] = "abcdefghi";
+	//us steps = 9;
+	//RightLoopMove(arr, steps);
+	//cout << arr << endl;
+	char c;
+	unsigned char uc;
+	unsigned short us;
+	c = 128;
+	uc = 128;
+	us = c + uc;
+	printf("0x%x\n", us);
+	us = (unsigned char)c + uc;
+	printf("0x%x\n", us);
+	us = c + (char)uc;
+	printf("0x%x\n", us);
 }
 int main() {
 	//cout << sizeof AA_t << endl;
