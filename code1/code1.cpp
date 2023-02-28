@@ -11106,12 +11106,12 @@ int Sub(int x, int y)
 //	while (n--)* ptr++ = (char)val;
 //	return p;
 //}
-//int MyMemcmp(void* p1, void* p2, size_t n)
+//int MyMemcmp(const void* p1, const void* p2, size_t n)
 //{
 //	assert(p1 && p2);
 //	if (!n)	return 0;
-//	char* ptr1 = (char*)p1;
-//	char* ptr2 = (char*)p2;
+//	const char* ptr1 = (const char*)p1;
+//	const char* ptr2 = (const char*)p2;
 //	while (--n && *ptr1 == *ptr2)	ptr1++, ptr2++;
 //	return *ptr1 - *ptr2;
 //}
@@ -11376,13 +11376,6 @@ int Sub(int x, int y)
 //	return 0;
 //}
 #endif
-//#include "common.h"//cpp-code
-#if 0
-int main()
-{
-	return 0;
-}
-#endif
 //OJ测试调试
 #if 0
 //class Node {
@@ -11457,8 +11450,8 @@ int main()
 //	return 0;
 //}
 #endif
-#include "common.h"//ds-code
 #if 0
+//#include "common.h"//ds-code
 //void func1(int n)//O(n^n)
 //{
 //	int count = 0;
@@ -12463,3 +12456,363 @@ int main()
 //	return 0;
 //}
 #endif
+#include "common.h"//cpp-code
+#if 0
+//void Test1() {
+//	//int a[] = { 1,2,3,4 };
+////printf("%d\n", sizeof(a));
+////printf("%d\n", sizeof(a + 0));
+////printf("%d\n", sizeof(*a));
+////printf("%d\n", sizeof(a + 1));
+////printf("%d\n", sizeof(a[1]));
+////printf("%d\n", sizeof(&a));
+////printf("%d\n", sizeof(*&a));
+////printf("%d\n", sizeof(&a + 1));
+////printf("%d\n", sizeof(&a[0]));
+////printf("%d\n", sizeof(&a[0] + 1));
+////const char* p = "abcdef";
+////printf("%d\n", sizeof(p));
+////printf("%d\n", sizeof(p + 1));
+////printf("%d\n", sizeof(*p));
+////printf("%d\n", sizeof(p[0]));
+////printf("%d\n", sizeof(&p));
+////printf("%d\n", sizeof(&p + 1));
+////printf("%d\n", sizeof(&p[0] + 1));
+////printf("%d\n", strlen(p));
+////printf("%d\n", strlen(p + 1));
+////printf("%d\n", strlen((const char*)*p));
+////printf("%d\n", strlen((const char*)p[0]));
+////printf("%d\n", strlen((const char*)&p));
+////printf("%d\n", strlen((const char*)(&p + 1)));
+////printf("%d\n", strlen(&p[0] + 1));
+////int a[3][4] = { 0 };//二维数组
+////printf("%d\n", sizeof(a));
+////printf("%d\n", sizeof(a[0][0]));
+////printf("%d\n", sizeof(a[0]));
+////printf("%d\n", sizeof(a[0] + 1));
+////printf("%d\n", sizeof(*(a[0] + 1)));
+////printf("%d\n", sizeof(a + 1));
+////printf("%d\n", sizeof(*(a + 1)));
+////printf("%d\n", sizeof(&a[0] + 1));
+////printf("%d\n", sizeof(*(&a[0] + 1)));
+////printf("%d\n", sizeof(*a));
+////printf("%d\n", sizeof(a[3]));
+//}
+//bool Find(int(*a)[4], int r, int k, int& x, int& y) {
+//	assert(a);
+//	int col = 0, row = r - 1;
+//	while (col < 4 && row > -1) {
+//		if (a[row][col] == k) {
+//			x = row, y = col;
+//			return true;
+//		}
+//		else if (a[row][col] > k) {
+//			row--;
+//		}
+//		else {
+//			col++;
+//		}
+//	}
+//	return false;
+//}
+//void Test2() {
+//	int a[][4] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12} };
+//	int r = (int)(sizeof(a) / sizeof(*a));
+//	int x = -1, y = -1;
+//	for (int k = 0; k < 14; k++)
+//		if (!Find(a, r, k, x, y))	cout << "Find none!" << endl;
+//		else cout << x << " " << y << endl;
+//}
+//size_t my_strlen(const char* s) {
+//	assert(s);
+//	size_t r = 0;
+//	while (*s++) r++;
+//	return r;
+//}
+//size_t _my_strlen(const char* s) {
+//	assert(s);
+//	if (!*s) return 0;
+//	return 1 + _my_strlen(s + 1);
+//}
+//size_t MyStrlen(const char* s) {
+//	assert(s);
+//	const char* eos = s;
+//	while (*eos++);
+//	return eos - s - 1;
+//}
+//char* my_strcpy(char* dst, const char* src) {
+//	assert(dst && src);
+//	char* cp = dst;
+//	while ((*cp++ = *src++) != '\0');
+//	return (dst);
+//}
+//char* my_strcat(char* dst, const char* src) {
+//	assert(dst && src);
+//	char* cp = dst;
+//	while (*cp) cp++;
+//	while ((*cp++ = *src++) != '\0');
+//	return (dst);
+//}
+//int my_strcmp(const char* s1, const char* s2) {
+//	assert(s1 && s2);
+//	while (*s1 == *s2) {
+//		if (!*s1) return 0;
+//		s1++, s2++;
+//	}
+//	return *s1 - *s2;
+//}
+//void* my_memcpy(void* dst, const void* src, size_t n) {
+//	assert(dst && src);
+//	char* cp = (char*)dst;
+//	const char* s = (const char*)src;
+//	while (n--)* cp++ = *s++;
+//	return (dst);
+//}
+//const char* my_strstr(const char* str, const char* subStr) {
+//	assert(str, subStr);
+//	if (!*subStr) return str;
+//	int lenStr = (int)my_strlen(str);
+//	int lenSubStr = (int)my_strlen(subStr);
+//	if (lenStr < lenSubStr) return NULL;
+//	for (int i = 0; (i + lenSubStr) <= lenStr; i++) {
+//		int j = 0;
+//		for (j = 0; j < lenSubStr; j++) {
+//			if (str[i + j] != subStr[j]) break;
+//		}
+//		if (j == lenSubStr) return str + i;
+//	}
+//	return NULL;
+//}
+//bool is_ok(char* buff, const char* s2) {
+//	assert(buff && s2);
+//	return my_strstr(buff, s2);
+//}
+//void Test3() {
+//	const char* s1 = "abcd";
+//	const char* s2 = "ACBD";
+//	char buff[1024] = "";
+//	strcpy(buff, s1);
+//	strcat(buff, s1);
+//	if (is_ok(buff, s2))	cout << "Yes!" << endl;
+//	else cout << "No!" << endl;
+//}
+//void Swap(int& x, int& y) {
+//	int t = x;
+//	x = y;
+//	y = t;
+//}
+//void bubble_sort(int* a, int n, int(*cmp)(const void*, const void*)) {
+//	assert(a && cmp);
+//	bool flag = false;
+//	for (int i = 0; i < n - 1; i++) {
+//		flag = false;
+//		for (int j = 0; j < n - 1 - i; j++) {
+//			if (cmp(&a[j], &a[j + 1]) > 0) {
+//				Swap(a[j], a[j + 1]);
+//				flag = true;
+//			}
+//		}
+//		if (!flag)
+//			return;
+//	}
+//}
+//int cmp_up(const void* x, const void* y) {
+//	assert(x && y);
+//	return *(int*)x - *(int*)y;
+//}
+//int cmp_down(const void* x, const void* y) {
+//	return -(*(int*)x - *(int*)y);
+//}
+//void Test4() {
+//	int a[] = { 1, 3, 5, 7, 9, 2, 4, 6, 8, 0 };
+//	int n = (int)(sizeof(a) / sizeof(*a));
+//	bubble_sort(a, n, cmp_up);
+//	bubble_sort(a, n, cmp_down);
+//}
+//void* my_memmove(void* dst, const char* src, size_t n) {
+//	assert(dst && src);
+//	char* cp = (char*)dst;
+//	const char* s = (const char*)src;
+//	if (cp < s)
+//		while (n--)* cp++ = *s++;
+//	else
+//		while (n--) cp[n] = s[n];
+//	return (dst);
+//}
+//void* my_memset(void* p, int val, size_t n) {
+//	assert(p);
+//	char* cp = (char*)p;
+//	while (n--)* cp++ = (char)val;
+//	return p;
+//}
+//int my_memcmp(const void* p1, const void* p2, size_t n) {
+//	assert(p1 && p2);
+//	if (!n)	return 0;
+//	const char* ptr1 = (const char*)p1;
+//	const char* ptr2 = (const char*)p2;
+//	while (--n && *ptr1 == *ptr2) ptr1++, ptr2++;
+//	return *ptr1 - *ptr2;
+//}
+//#pragma pack(4)
+//struct A
+//{
+//	int a;
+//	short b;
+//	int c;
+//	char d;
+//};
+//struct B
+//{
+//	int a;
+//	short b;
+//	char c;
+//	int d;
+//};
+//#pragma pack()
+//typedef struct {
+//	int a;
+//	char b;
+//	short c;
+//	short d;
+//} AA_t;
+//#pragma pack(4)
+//void Test5()
+//{
+//	struct tagTest1
+//	{
+//		short a;
+//		char d;
+//		long b;
+//		long c;
+//	};
+//	struct tagTest2
+//	{
+//		long b;
+//		short c;
+//		char d;
+//		long a;
+//	};
+//	struct tagTest3
+//	{
+//		short c;
+//		long b;
+//		char d;
+//		long a;
+//	};
+//	struct tagTest1 stT1;
+//	struct tagTest2 stT2;
+//	struct tagTest3 stT3;
+//	printf("%d %d %d", sizeof(stT1), sizeof(stT2), sizeof(stT3));
+//}
+//#pragma pack()
+//union Un
+//{
+//	short s[7];
+//	int n;
+//};
+//#define A 2
+//#define B 3
+//#define MAX_SIZE A+B
+//struct _Record_Struct
+//{
+//	unsigned char Env_Alarm_ID : 4;
+//	unsigned char Para1 : 2;
+//	unsigned char state;
+//	unsigned char avail : 1;
+//}*Env_Alarm_Record;
+//void Test6()
+//{
+//	unsigned char puc[4];
+//	struct tagPIM
+//	{
+//		unsigned char ucPim1;
+//		unsigned char ucData0 : 1;
+//		unsigned char ucData1 : 2;
+//		unsigned char ucData2 : 3;
+//	}*pstPimData;
+//	cout << sizeof(struct tagPIM) << endl;
+//	pstPimData = (struct tagPIM*)puc;
+//	memset(puc, 0, 4);
+//	pstPimData->ucPim1 = 2;
+//	pstPimData->ucData0 = 3;
+//	pstPimData->ucData1 = 4;
+//	pstPimData->ucData2 = 5;
+//	printf("%02x %02x %02x %02x\n", puc[0], puc[1], puc[2], puc[3]);
+//	cout << sizeof(union Un) << endl;
+//	cout << sizeof(struct _Record_Struct)* MAX_SIZE << endl;
+//	struct _Record_Struct* pointer = (struct _Record_Struct*)malloc(sizeof(struct _Record_Struct) * MAX_SIZE);//分配多少字节
+//	union
+//	{
+//		short k;
+//		char i[2];
+//	}*s, a;
+//	s = &a;
+//	s->i[0] = 0x39;
+//	s->i[1] = 0x38;
+//	printf("%x\n", a.k);//X86 小端
+//	enum ENUM_A
+//	{
+//		X1,
+//		Y1,
+//		Z1 = 255,
+//		A1,
+//		B1,
+//	};
+//	enum ENUM_A enumA = Y1;
+//	enum ENUM_A enumB = B1;
+//	printf("%d %d\n", enumA, enumB);
+//}
+//typedef unsigned char uc;
+//void bit_set(uc* p, uc pos, bool flag) {
+//	assert(p);
+//	if (flag) {
+//		*p = *p | (1 << (pos - 1));
+//	}
+//	else {
+//		*p = *p & (~(1 << (pos - 1)));
+//	}
+//}
+#endif
+typedef unsigned short us;
+void r(char* l, char* r) {
+	assert(l && r);
+	while (l < r) {
+		char t = *l;
+		*l = *r;
+		*r = t;
+		l++, r--;
+	}
+}
+void RightLoopMove(char* p, us steps) {
+	assert(p);
+	int l = (int)strlen(p);
+	steps %= l;
+	if (!steps) return;
+	r(p, p + l - 1);
+	r(p, p + steps - 1);
+	r(p + steps, p + l - 1);
+}
+void Test7() {
+	//uc data = 10;
+	//uc pos = 1;
+	//bit_set(&data, pos, true);
+	//bit_set(&data, 3, true);
+	//bit_set(&data, 4, false);
+	char arr[] = "abcdefghi";
+	us steps = 9;
+	RightLoopMove(arr, steps);
+	cout << arr << endl;
+}
+int main() {
+	//cout << sizeof AA_t << endl;
+	//cout << sizeof A << endl;
+	//cout << sizeof B << endl;
+	//Test1();
+	//Test2();
+	//Test3();
+	//Test4();
+	//Test5();
+	//Test6();
+	Test7();
+	return 0;
+}
