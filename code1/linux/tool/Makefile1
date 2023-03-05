@@ -1,0 +1,8 @@
+obj:main main1
+main:a.c b.c
+	gcc a.c b.c -o main
+main1:a.c b.c
+	gcc a.c b.c -o main1
+.PHONY:clean
+clean:
+	rm -rf main main1

@@ -1,0 +1,17 @@
+main:a.o b.o
+	gcc $^ -o $@
+a.o:a.s
+	gcc -c $^ -o $@
+a.s:a.i
+	gcc -S $^ -o $@
+a.i:a.c
+	gcc -E $^ -o $@
+b.o:b.s
+	gcc -c $^ -o $@
+b.s:b.i
+	gcc -S $^ -o $@
+b.i:b.c
+	gcc -E $^ -o $@
+.PHONY:clean
+clean:
+	rm -f a.o b.o a.s b.s a.i b.i main
