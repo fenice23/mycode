@@ -1,0 +1,9 @@
+src=$(wildcard ./*.c)
+obj=$(patsubst %.c, %.o, $(src))
+main:$(obj)
+	gcc $^ -o $@
+%.o:%.c
+	gcc -c $< -o $@
+.PHONY:clean
+clean:
+	rm -rf main $(obj)
