@@ -1,0 +1,13 @@
+int main()  {
+    pid_t pid = vfork();
+    if (0 == pid)   {
+        printf();
+    }
+    else if (pid > 0)   {
+        printf();
+    }
+    else if (-1 == pid)  {
+        printf("err");
+    }
+    return 0;
+}
