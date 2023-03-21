@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <errno.h>
+#include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
 int main()  {
+    //abort();
+    kill(getpid(), SIGQUIT);
     pid_t pid = vfork();
     if (-1 == pid)  {
         perror("vfork fail");
@@ -12,6 +15,7 @@ int main()  {
     else if (0 == pid)  {
         sleep(3);
         printf("this is child  process and pid is %d, ppid is %d\n", getpid(), getppid());
+        return errno;
     }
     else if (pid > 0)   {
         printf("this is parent process and pid is %d, ppid is %d\n", getpid(), getppid());

@@ -25,6 +25,10 @@ main:
 	pushq	%rbx
 	subq	$24, %rsp
 	.cfi_offset 3, -24
+	call	getpid@PLT
+	movl	$3, %esi
+	movl	%eax, %edi
+	call	kill@PLT
 	call	vfork@PLT
 	movl	%eax, -20(%rbp)
 	cmpl	$-1, -20(%rbp)
@@ -48,10 +52,12 @@ main:
 	leaq	.LC1(%rip), %rdi
 	movl	$0, %eax
 	call	printf@PLT
+	call	__errno_location@PLT
+	movl	(%rax), %eax
 	jmp	.L5
 .L4:
 	cmpl	$0, -20(%rbp)
-	jle	.L5
+	jle	.L6
 	call	getppid@PLT
 	movl	%eax, %ebx
 	call	getpid@PLT
@@ -60,20 +66,21 @@ main:
 	leaq	.LC2(%rip), %rdi
 	movl	$0, %eax
 	call	printf@PLT
-.L5:
+.L6:
 	call	getpid@PLT
 	movl	%eax, %esi
 	leaq	.LC3(%rip), %rdi
 	movl	$0, %eax
 	call	printf@PLT
 	cmpl	$0, -20(%rbp)
-	jne	.L6
+	jne	.L7
 	call	__errno_location@PLT
 	movl	(%rax), %eax
 	movl	%eax, %edi
 	call	exit@PLT
-.L6:
+.L7:
 	movl	$0, %eax
+.L5:
 	addq	$24, %rsp
 	popq	%rbx
 	popq	%rbp
